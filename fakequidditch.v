@@ -25,7 +25,7 @@ module fakequidditch (clk);
 	
 	vga_vertical vga_ver (clk_en, next_line, instant_line);
 	
-	vga_controller vga_cont vga_controller(current_line, current_pixel, hor_sync, ver_sync, red, green, blue);
+	vga_controller vga_cont (current_line, current_pixel, hor_sync, ver_sync, red, green, blue);
 	
 	always begin
 		next_line <= move_down;
