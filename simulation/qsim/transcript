@@ -1,0 +1,25 @@
+# do fakequidditch.do 
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module fakequidditch
+# 
+# Top level modules:
+# 	fakequidditch
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module fakequidditch_vlg_sample_tst
+# -- Compiling module fakequidditch_vlg_check_tst
+# -- Compiling module fakequidditch_vlg_vec_tst
+# 
+# Top level modules:
+# 	fakequidditch_vlg_vec_tst
+# vsim -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate -c -voptargs=\"+acc\" -t 1ps -novopt work.fakequidditch_vlg_vec_tst 
+# Loading work.fakequidditch_vlg_vec_tst
+# Loading work.fakequidditch
+# Loading altera_ver.dffeas
+# Loading work.fakequidditch_vlg_sample_tst
+# Loading work.fakequidditch_vlg_check_tst
+# Loading altera_ver.PRIM_GDFF_LOW
+# Simulation passed !
+# ** Note: $finish    : clock_divider.vwf.vt(148)
+#    Time: 1 us  Iteration: 0  Instance: /fakequidditch_vlg_vec_tst/tb_out

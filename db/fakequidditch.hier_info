@@ -1,0 +1,125 @@
+|fakequidditch
+clk => clk.IN1
+
+
+|fakequidditch|clock_divider:cd
+clk_in => clk_out~reg0.CLK
+clk_in => counter_clk[0].CLK
+clk_in => counter_clk[1].CLK
+clk_in => counter_clk[2].CLK
+clk_in => counter_clk[3].CLK
+clk_in => counter_clk[4].CLK
+clk_in => counter_clk[5].CLK
+clk_in => counter_clk[6].CLK
+clk_in => counter_clk[7].CLK
+clk_in => counter_clk[8].CLK
+clk_in => counter_clk[9].CLK
+clk_in => counter_clk[10].CLK
+clk_in => counter_clk[11].CLK
+clk_in => counter_clk[12].CLK
+clk_in => counter_clk[13].CLK
+clk_in => counter_clk[14].CLK
+clk_in => counter_clk[15].CLK
+clk_in => counter_clk[16].CLK
+clk_in => counter_clk[17].CLK
+clk_in => counter_clk[18].CLK
+clk_in => counter_clk[19].CLK
+clk_in => counter_clk[20].CLK
+clk_in => counter_clk[21].CLK
+clk_in => counter_clk[22].CLK
+clk_in => counter_clk[23].CLK
+clk_in => counter_clk[24].CLK
+clk_in => counter_clk[25].CLK
+clk_in => counter_clk[26].CLK
+clk_in => counter_clk[27].CLK
+clk_in => counter_clk[28].CLK
+clk_in => counter_clk[29].CLK
+clk_in => counter_clk[30].CLK
+clk_in => counter_clk[31].CLK
+division[0] => Add0.IN52
+division[1] => Add0.IN51
+division[2] => Add0.IN50
+division[3] => Add0.IN49
+division[4] => Add0.IN48
+division[5] => Add0.IN47
+division[6] => Add0.IN46
+division[7] => Add0.IN45
+division[8] => Add0.IN44
+division[9] => Add0.IN43
+division[10] => Add0.IN42
+division[11] => Add0.IN41
+division[12] => Add0.IN40
+division[13] => Add0.IN39
+division[14] => Add0.IN38
+division[15] => Add0.IN37
+division[16] => Add0.IN36
+division[17] => Add0.IN35
+division[18] => Add0.IN34
+division[19] => Add0.IN33
+division[20] => Add0.IN32
+division[21] => Add0.IN31
+division[22] => Add0.IN30
+division[23] => Add0.IN29
+division[24] => Add0.IN28
+division[25] => Add0.IN27
+clk_out <= clk_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fakequidditch|vga_horizontal:vga_hor
+clk => next_line~reg0.CLK
+clk => current_pixel[0]~reg0.CLK
+clk => current_pixel[1]~reg0.CLK
+clk => current_pixel[2]~reg0.CLK
+clk => current_pixel[3]~reg0.CLK
+clk => current_pixel[4]~reg0.CLK
+clk => current_pixel[5]~reg0.CLK
+clk => current_pixel[6]~reg0.CLK
+clk => current_pixel[7]~reg0.CLK
+clk => current_pixel[8]~reg0.CLK
+clk => current_pixel[9]~reg0.CLK
+next_line <= next_line~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_pixel[0] <= current_pixel[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_pixel[1] <= current_pixel[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_pixel[2] <= current_pixel[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_pixel[3] <= current_pixel[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_pixel[4] <= current_pixel[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_pixel[5] <= current_pixel[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_pixel[6] <= current_pixel[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_pixel[7] <= current_pixel[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_pixel[8] <= current_pixel[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_pixel[9] <= current_pixel[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fakequidditch|vga_vertical:vga_ver
+clk => current_line[0]~reg0.CLK
+clk => current_line[1]~reg0.CLK
+clk => current_line[2]~reg0.CLK
+clk => current_line[3]~reg0.CLK
+clk => current_line[4]~reg0.CLK
+clk => current_line[5]~reg0.CLK
+clk => current_line[6]~reg0.CLK
+clk => current_line[7]~reg0.CLK
+clk => current_line[8]~reg0.CLK
+clk => current_line[9]~reg0.CLK
+next_line => current_line[0]~reg0.ENA
+next_line => current_line[1]~reg0.ENA
+next_line => current_line[2]~reg0.ENA
+next_line => current_line[3]~reg0.ENA
+next_line => current_line[4]~reg0.ENA
+next_line => current_line[5]~reg0.ENA
+next_line => current_line[6]~reg0.ENA
+next_line => current_line[7]~reg0.ENA
+next_line => current_line[8]~reg0.ENA
+next_line => current_line[9]~reg0.ENA
+current_line[0] <= current_line[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_line[1] <= current_line[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_line[2] <= current_line[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_line[3] <= current_line[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_line[4] <= current_line[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_line[5] <= current_line[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_line[6] <= current_line[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_line[7] <= current_line[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_line[8] <= current_line[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_line[9] <= current_line[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

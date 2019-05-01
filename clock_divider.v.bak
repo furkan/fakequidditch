@@ -1,0 +1,20 @@
+module clock_divider (clk_in, division, clk_out);
+
+input clk_in;
+input [25:0] division;
+output clk_out;
+
+integer counter_clk;
+
+always @(posedge clk) begin
+
+	if (counter_clk == division - 1) begin
+	   counter_clk <= 'd0;
+		clk_out <= 1;
+	end else begin
+		counter_clk <= counter_clk + 1;
+		clk_out <= 0;
+	end
+end
+
+endmodule

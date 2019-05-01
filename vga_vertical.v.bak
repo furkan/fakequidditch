@@ -1,0 +1,9 @@
+module vga_vertical(clk, next_line, current_line);
+	input clk;
+	input wire next_line;
+	output reg [9:0] current_line;
+	
+	
+
+
+endmodule
