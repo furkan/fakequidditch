@@ -1,0 +1,12 @@
+
+State Machine - |fakequidditch|team2_controller:t2_ctrl|ver_state
+Name ver_state.float ver_state.down ver_state.up 
+ver_state.float 0 0 0 
+ver_state.up 1 0 1 
+ver_state.down 1 1 0 
+
+State Machine - |fakequidditch|team1_controller:t1_ctrl|ver_state
+Name ver_state.float ver_state.down ver_state.up 
+ver_state.float 0 0 0 
+ver_state.up 1 0 1 
+ver_state.down 1 1 0 
