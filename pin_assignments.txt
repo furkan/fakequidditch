@@ -1,0 +1,36 @@
+clk                      : PIN_AF14
+
+blue[0]                  : PIN_B13
+blue[1]                  : PIN_G13
+blue[2]                  : PIN_H13
+blue[3]                  : PIN_F14
+blue[4]                  : PIN_H14
+blue[5]                  : PIN_F15
+blue[6]                  : PIN_G15
+blue[7]                  : PIN_J14
+
+green[0]                 : PIN_J9
+green[1]                 : PIN_J10
+green[2]                 : PIN_H12
+green[3]                 : PIN_G10
+green[4]                 : PIN_G11
+green[5]                 : PIN_G12
+green[6]                 : PIN_F11
+green[7]                 : PIN_E11
+
+red[0]                   : PIN_A13
+red[1]                   : PIN_C13
+red[2]                   : PIN_E13
+red[3]                   : PIN_B12
+red[4]                   : PIN_C12
+red[5]                   : PIN_D12
+red[6]                   : PIN_E12
+red[7]                   : PIN_F13
+
+hor_sync                 : PIN_B11
+ver_sync                 : PIN_D11
+
+team1_vd_button          : PIN_Y16
+team1_vu_button          : PIN_W15
+team2_vd_button          : PIN_AA15
+team2_vu_button          : PIN_AA14
