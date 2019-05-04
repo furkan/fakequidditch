@@ -4,10 +4,10 @@ K3
 cModel Technology
 Z0 dC:\Users\e224774\Desktop\fakequidditch\simulation\qsim
 vfakequidditch
-Z1 I]H]UhXf=jNeKlM4SEMWCg2
-Z2 VU0n[ZcH@:HTEEbX>KOdHz1
-Z3 dC:\Users\e224774\Desktop\fakequidditch\simulation\qsim
-Z4 w1556717027
+Z1 I4ef]OOdU7mXB76bPlWkI82
+Z2 VbV1BAXEEG1YjGAM<?M[5X0
+Z3 dC:\Users\Cansu\Desktop\fakequidditch\simulation\qsim
+Z4 w1556952371
 Z5 8fakequidditch.vo
 Z6 Ffakequidditch.vo
 L0 31
@@ -17,65 +17,65 @@ r1
 Z8 !s90 -work|work|fakequidditch.vo|
 Z9 o-work work -O0
 !i10b 1
-Z10 !s100 BR]7Oe37>BiinR>]IIzI<0
+Z10 !s100 U@AC6QeVZK`kd^ZadKJX@0
 !s85 0
-Z11 !s108 1556717028.447000
+Z11 !s108 1556952374.909000
 Z12 !s107 fakequidditch.vo|
 !s101 -O0
 vfakequidditch_vlg_check_tst
-!i10b 1
 Z13 !s100 `PBSDTO=0XjdKh0>V:D762
 Z14 I<Xc1K:URLZ[94[D`3cdBg0
 Z15 VTe;dQ9nbE4GbH=nXfHmWh2
-R3
-Z16 w1556717026
-Z17 8clock_divider.vwf.vt
-Z18 Fclock_divider.vwf.vt
+Z16 dC:\Users\e224774\Desktop\fakequidditch\simulation\qsim
+Z17 w1556717026
+Z18 8clock_divider.vwf.vt
+Z19 Fclock_divider.vwf.vt
 L0 57
 R7
 r1
-!s85 0
 31
-Z19 !s108 1556717028.588000
-Z20 !s107 clock_divider.vwf.vt|
-Z21 !s90 -work|work|clock_divider.vwf.vt|
-!s101 -O0
+Z20 !s108 1556717028.588000
+Z21 !s107 clock_divider.vwf.vt|
+Z22 !s90 -work|work|clock_divider.vwf.vt|
 R9
-vfakequidditch_vlg_sample_tst
 !i10b 1
-Z22 !s100 XHSkIPZg_hSJ_09=NY2dC2
-Z23 InF8hlgOV:V]bZb4e6Z3W`3
-Z24 VJ<PY17f:FB15`i?mW1Y3a0
-R3
+!s85 0
+!s101 -O0
+vfakequidditch_vlg_sample_tst
+Z23 !s100 XHSkIPZg_hSJ_09=NY2dC2
+Z24 InF8hlgOV:V]bZb4e6Z3W`3
+Z25 VJ<PY17f:FB15`i?mW1Y3a0
 R16
 R17
 R18
+R19
+L0 29
+R7
+r1
+31
+R20
+R21
+R22
+R9
+!i10b 1
+!s85 0
+!s101 -O0
+vfakequidditch_vlg_vec_tst
+!i10b 1
+!s100 B[;BA68kB]agn?`YW3ERG2
+I<WYjdC1QH45@7UndXX`_B0
+Z26 VL8]F9FLK3F@5`GZIZaAAE1
+R3
+w1556952369
+R18
+R19
 L0 29
 R7
 r1
 !s85 0
 31
-R19
-R20
-R21
-!s101 -O0
-R9
-vfakequidditch_vlg_vec_tst
-!i10b 1
-Z25 !s100 ;z?Gz38aaAVO[mNY@iYHT0
-Z26 IgfOT4dCSX54<93M_6e?7Y0
-Z27 VL8]F9FLK3F@5`GZIZaAAE1
-R3
-R16
-R17
-R18
-Z28 L0 152
-R7
-r1
-!s85 0
-31
-R19
-R20
-R21
+!s108 1556952375.378000
+!s107 clock_divider.vwf.vt|
+R22
 !s101 -O0
 R9

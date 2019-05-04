@@ -1,5 +1,5 @@
 Flow report for fakequidditch
-Fri May 03 12:23:17 2019
+Sat May 04 09:46:11 2019
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -40,7 +40,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Flow Summary                                                                 ;
 +---------------------------------+--------------------------------------------+
-; Flow Status                     ; Successful - Fri May 03 12:23:17 2019      ;
+; Flow Status                     ; Successful - Sat May 04 09:46:11 2019      ;
 ; Quartus II 64-Bit Version       ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                   ; fakequidditch                              ;
 ; Top-level Entity Name           ; fakequidditch                              ;
@@ -48,8 +48,8 @@ applicable agreement for further details.
 ; Device                          ; 5CSEMA5F31C6                               ;
 ; Timing Models                   ; Preliminary                                ;
 ; Logic utilization (in ALMs)     ; 205 / 32,070 ( < 1 % )                     ;
-; Total registers                 ; 91                                         ;
-; Total pins                      ; 19 / 457 ( 4 % )                           ;
+; Total registers                 ; 93                                         ;
+; Total pins                      ; 31 / 457 ( 7 % )                           ;
 ; Total virtual pins              ; 0                                          ;
 ; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                      ;
 ; Total DSP Blocks                ; 16 / 87 ( 18 % )                           ;
@@ -67,7 +67,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/03/2019 12:22:12 ;
+; Start date & time ; 05/04/2019 09:42:56 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; fakequidditch       ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                                   ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 49467848332767.155687533218132                          ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 49467848332767.155695217614552                          ; --            ; --          ; --             ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; On                                                      ; --            ; --          ; eda_simulation ;
 ; EDA_NETLIST_WRITER_OUTPUT_DIR       ; C:/Users/e224774/Desktop/fakequidditch/simulation/qsim/ ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                                             ; --            ; --          ; eda_simulation ;
@@ -98,11 +98,13 @@ applicable agreement for further details.
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 4707 MB             ; 00:00:02                           ;
-; Fitter                    ; 00:00:36     ; 1.4                     ; 5906 MB             ; 00:00:47                           ;
-; Assembler                 ; 00:00:10     ; 1.0                     ; 4788 MB             ; 00:00:10                           ;
-; TimeQuest Timing Analyzer ; 00:00:08     ; 1.2                     ; 4983 MB             ; 00:00:07                           ;
+; Fitter                    ; 00:00:36     ; 1.3                     ; 5916 MB             ; 00:00:47                           ;
+; Assembler                 ; 00:00:10     ; 1.0                     ; 4790 MB             ; 00:00:10                           ;
+; TimeQuest Timing Analyzer ; 00:00:08     ; 1.1                     ; 4997 MB             ; 00:00:08                           ;
 ; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4652 MB             ; 00:00:01                           ;
-; Total                     ; 00:00:57     ; --                      ; --                  ; 00:01:07                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4664 MB             ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4665 MB             ; 00:00:01                           ;
+; Total                     ; 00:00:59     ; --                      ; --                  ; 00:01:10                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -116,6 +118,8 @@ applicable agreement for further details.
 ; Assembler                 ; DESKTOP-LD67HOD  ; Windows 7 ; 6.2        ; x86_64         ;
 ; TimeQuest Timing Analyzer ; DESKTOP-LD67HOD  ; Windows 7 ; 6.2        ; x86_64         ;
 ; EDA Netlist Writer        ; DESKTOP-LD67HOD  ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer        ; DESKTOP-LD67HOD  ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer        ; DESKTOP-LD67HOD  ; Windows 7 ; 6.2        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 
@@ -127,6 +131,8 @@ quartus_fit --read_settings_files=off --write_settings_files=off fakequidditch -
 quartus_asm --read_settings_files=off --write_settings_files=off fakequidditch -c fakequidditch
 quartus_sta fakequidditch -c fakequidditch
 quartus_eda --read_settings_files=off --write_settings_files=off fakequidditch -c fakequidditch
+quartus_eda --gen_testbench --check_outputs=on --tool=modelsim_oem --format=verilog fakequidditch -c fakequidditch --vector_source=C:/Users/Cansu/Desktop/fakequidditch/university_vwf/clock_divider.vwf --testbench_file=C:/Users/Cansu/Desktop/fakequidditch/simulation/qsim/clock_divider.vwf.vt
+quartus_eda --functional=on --flatten_buses=off --simulation=on --tool=modelsim_oem --format=verilog --output_directory=C:/Users/Cansu/Desktop/fakequidditch/simulation/qsim/ fakequidditch -c fakequidditch
 
 
 

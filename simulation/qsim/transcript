@@ -7,8 +7,6 @@
 # Top level modules:
 # 	fakequidditch
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module fakequidditch_vlg_sample_tst
-# -- Compiling module fakequidditch_vlg_check_tst
 # -- Compiling module fakequidditch_vlg_vec_tst
 # 
 # Top level modules:
@@ -17,9 +15,374 @@
 # Loading work.fakequidditch_vlg_vec_tst
 # Loading work.fakequidditch
 # Loading altera_ver.dffeas
-# Loading work.fakequidditch_vlg_sample_tst
-# Loading work.fakequidditch_vlg_check_tst
 # Loading altera_ver.PRIM_GDFF_LOW
-# Simulation passed !
-# ** Note: $finish    : clock_divider.vwf.vt(148)
-#    Time: 1 us  Iteration: 0  Instance: /fakequidditch_vlg_vec_tst/tb_out
+# ** Warning: (vsim-3015) fakequidditch.vo(7186): [PCDPC] - Port size (1 or 1) does not match connection size (26) for port 'az'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult0~120 
+# ** Warning: (vsim-3015) fakequidditch.vo(7186): [PCDPC] - Port size (1 or 1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult0~120 
+# ** Warning: (vsim-3015) fakequidditch.vo(7186): [PCDPC] - Port size (18 or 18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult0~120 
+# ** Warning: (vsim-3015) fakequidditch.vo(7186): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult0~120 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-3015) fakequidditch.vo(7268): [PCDPC] - Port size (1 or 1) does not match connection size (26) for port 'az'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult0~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(7268): [PCDPC] - Port size (16 or 16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult0~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(7268): [PCDPC] - Port size (16 or 16) does not match connection size (19) for port 'by'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult0~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(7268): [PCDPC] - Port size (1 or 1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult0~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(7268): [PCDPC] - Port size (18 or 18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult0~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(7268): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult0~461 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-3015) fakequidditch.vo(7654): [PCDPC] - Port size (1 or 1) does not match connection size (26) for port 'az'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult1~40 
+# ** Warning: (vsim-3015) fakequidditch.vo(7654): [PCDPC] - Port size (16 or 16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult1~40 
+# ** Warning: (vsim-3015) fakequidditch.vo(7654): [PCDPC] - Port size (16 or 16) does not match connection size (19) for port 'by'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult1~40 
+# ** Warning: (vsim-3015) fakequidditch.vo(7654): [PCDPC] - Port size (1 or 1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult1~40 
+# ** Warning: (vsim-3015) fakequidditch.vo(7654): [PCDPC] - Port size (18 or 18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult1~40 
+# ** Warning: (vsim-3015) fakequidditch.vo(7654): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult1~40 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-3015) fakequidditch.vo(7736): [PCDPC] - Port size (1 or 1) does not match connection size (26) for port 'az'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult1~405 
+# ** Warning: (vsim-3015) fakequidditch.vo(7736): [PCDPC] - Port size (1 or 1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult1~405 
+# ** Warning: (vsim-3015) fakequidditch.vo(7736): [PCDPC] - Port size (18 or 18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult1~405 
+# ** Warning: (vsim-3015) fakequidditch.vo(7736): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult1~405 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-3015) fakequidditch.vo(9225): [PCDPC] - Port size (1 or 1) does not match connection size (26) for port 'az'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult2~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(9225): [PCDPC] - Port size (16 or 16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult2~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(9225): [PCDPC] - Port size (16 or 16) does not match connection size (19) for port 'by'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult2~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(9225): [PCDPC] - Port size (1 or 1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult2~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(9225): [PCDPC] - Port size (18 or 18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult2~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(9225): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult2~461 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-3015) fakequidditch.vo(9307): [PCDPC] - Port size (1 or 1) does not match connection size (26) for port 'az'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult3~405 
+# ** Warning: (vsim-3015) fakequidditch.vo(9307): [PCDPC] - Port size (1 or 1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult3~405 
+# ** Warning: (vsim-3015) fakequidditch.vo(9307): [PCDPC] - Port size (18 or 18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult3~405 
+# ** Warning: (vsim-3015) fakequidditch.vo(9307): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult3~405 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-3015) fakequidditch.vo(9389): [PCDPC] - Port size (1 or 1) does not match connection size (26) for port 'az'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult3~32 
+# ** Warning: (vsim-3015) fakequidditch.vo(9389): [PCDPC] - Port size (16 or 16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult3~32 
+# ** Warning: (vsim-3015) fakequidditch.vo(9389): [PCDPC] - Port size (16 or 16) does not match connection size (19) for port 'by'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult3~32 
+# ** Warning: (vsim-3015) fakequidditch.vo(9389): [PCDPC] - Port size (1 or 1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult3~32 
+# ** Warning: (vsim-3015) fakequidditch.vo(9389): [PCDPC] - Port size (18 or 18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult3~32 
+# ** Warning: (vsim-3015) fakequidditch.vo(9389): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult3~32 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-3015) fakequidditch.vo(9523): [PCDPC] - Port size (1 or 1) does not match connection size (26) for port 'az'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult2~120 
+# ** Warning: (vsim-3015) fakequidditch.vo(9523): [PCDPC] - Port size (1 or 1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult2~120 
+# ** Warning: (vsim-3015) fakequidditch.vo(9523): [PCDPC] - Port size (18 or 18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult2~120 
+# ** Warning: (vsim-3015) fakequidditch.vo(9523): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult2~120 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-3015) fakequidditch.vo(10908): [PCDPC] - Port size (1 or 1) does not match connection size (26) for port 'az'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult5~28 
+# ** Warning: (vsim-3015) fakequidditch.vo(10908): [PCDPC] - Port size (16 or 16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult5~28 
+# ** Warning: (vsim-3015) fakequidditch.vo(10908): [PCDPC] - Port size (16 or 16) does not match connection size (19) for port 'by'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult5~28 
+# ** Warning: (vsim-3015) fakequidditch.vo(10908): [PCDPC] - Port size (1 or 1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult5~28 
+# ** Warning: (vsim-3015) fakequidditch.vo(10908): [PCDPC] - Port size (18 or 18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult5~28 
+# ** Warning: (vsim-3015) fakequidditch.vo(10908): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult5~28 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-3015) fakequidditch.vo(12119): [PCDPC] - Port size (1 or 1) does not match connection size (26) for port 'az'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult4~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(12119): [PCDPC] - Port size (16 or 16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult4~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(12119): [PCDPC] - Port size (16 or 16) does not match connection size (19) for port 'by'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult4~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(12119): [PCDPC] - Port size (1 or 1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult4~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(12119): [PCDPC] - Port size (18 or 18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult4~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(12119): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult4~461 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-3015) fakequidditch.vo(12201): [PCDPC] - Port size (1 or 1) does not match connection size (26) for port 'az'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult5~405 
+# ** Warning: (vsim-3015) fakequidditch.vo(12201): [PCDPC] - Port size (1 or 1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult5~405 
+# ** Warning: (vsim-3015) fakequidditch.vo(12201): [PCDPC] - Port size (18 or 18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult5~405 
+# ** Warning: (vsim-3015) fakequidditch.vo(12201): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult5~405 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-3015) fakequidditch.vo(12519): [PCDPC] - Port size (1 or 1) does not match connection size (26) for port 'az'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult4~120 
+# ** Warning: (vsim-3015) fakequidditch.vo(12519): [PCDPC] - Port size (1 or 1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult4~120 
+# ** Warning: (vsim-3015) fakequidditch.vo(12519): [PCDPC] - Port size (18 or 18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult4~120 
+# ** Warning: (vsim-3015) fakequidditch.vo(12519): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult4~120 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-3015) fakequidditch.vo(13869): [PCDPC] - Port size (1 or 1) does not match connection size (26) for port 'az'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult6~120 
+# ** Warning: (vsim-3015) fakequidditch.vo(13869): [PCDPC] - Port size (1 or 1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult6~120 
+# ** Warning: (vsim-3015) fakequidditch.vo(13869): [PCDPC] - Port size (18 or 18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult6~120 
+# ** Warning: (vsim-3015) fakequidditch.vo(13869): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult6~120 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-3015) fakequidditch.vo(13951): [PCDPC] - Port size (1 or 1) does not match connection size (26) for port 'az'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult7~40 
+# ** Warning: (vsim-3015) fakequidditch.vo(13951): [PCDPC] - Port size (16 or 16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult7~40 
+# ** Warning: (vsim-3015) fakequidditch.vo(13951): [PCDPC] - Port size (16 or 16) does not match connection size (19) for port 'by'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult7~40 
+# ** Warning: (vsim-3015) fakequidditch.vo(13951): [PCDPC] - Port size (1 or 1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult7~40 
+# ** Warning: (vsim-3015) fakequidditch.vo(13951): [PCDPC] - Port size (18 or 18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult7~40 
+# ** Warning: (vsim-3015) fakequidditch.vo(13951): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult7~40 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-3015) fakequidditch.vo(14033): [PCDPC] - Port size (1 or 1) does not match connection size (26) for port 'az'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult7~405 
+# ** Warning: (vsim-3015) fakequidditch.vo(14033): [PCDPC] - Port size (1 or 1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult7~405 
+# ** Warning: (vsim-3015) fakequidditch.vo(14033): [PCDPC] - Port size (18 or 18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult7~405 
+# ** Warning: (vsim-3015) fakequidditch.vo(14033): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult7~405 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-3015) fakequidditch.vo(14115): [PCDPC] - Port size (1 or 1) does not match connection size (26) for port 'az'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult6~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(14115): [PCDPC] - Port size (16 or 16) does not match connection size (18) for port 'bx'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult6~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(14115): [PCDPC] - Port size (16 or 16) does not match connection size (19) for port 'by'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult6~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(14115): [PCDPC] - Port size (1 or 1) does not match connection size (18) for port 'bz'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult6~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(14115): [PCDPC] - Port size (18 or 18) does not match connection size (27) for port 'scanin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult6~461 
+# ** Warning: (vsim-3015) fakequidditch.vo(14115): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'chainin'. The port definition is at: nofile(37).
+# 
+#         Region: /fakequidditch_vlg_vec_tst/i1/\vga_cont|Mult6~461 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Warning: (vsim-8607) nofile(37): Non-positive replication multiplier inside concat. Replication will be ignored.
+# 
+# ** Note: $finish    : clock_divider.vwf.vt(60)
+#    Time: 1 us  Iteration: 0  Instance: /fakequidditch_vlg_vec_tst
