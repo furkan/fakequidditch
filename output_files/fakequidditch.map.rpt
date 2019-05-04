@@ -1,5 +1,5 @@
 Analysis & Synthesis report for fakequidditch
-Sat May 04 09:42:58 2019
+Sat May 04 16:39:10 2019
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -16,13 +16,13 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
   8. Analysis & Synthesis DSP Block Usage Summary
   9. State Machine - |fakequidditch|team2_controller:t2_ctrl|ver_state
  10. State Machine - |fakequidditch|team1_controller:t1_ctrl|ver_state
- 11. Registers Removed During Synthesis
- 12. General Register Statistics
- 13. Inverted Register Statistics
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Parameter Settings for User Entity Instance: Top-level Entity: |fakequidditch
- 16. Parameter Settings for User Entity Instance: team1_controller:t1_ctrl
- 17. Parameter Settings for User Entity Instance: team2_controller:t2_ctrl
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: Top-level Entity: |fakequidditch
+ 15. Parameter Settings for User Entity Instance: team1_controller:t1_ctrl
+ 16. Parameter Settings for User Entity Instance: team2_controller:t2_ctrl
+ 17. Parameter Settings for User Entity Instance: vga_controller:vga_cont
  18. Port Connectivity Checks: "clock_divider:cd"
  19. Elapsed Time Per Partition
  20. Analysis & Synthesis Messages
@@ -51,17 +51,17 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +---------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat May 04 09:42:58 2019      ;
+; Analysis & Synthesis Status     ; Successful - Sat May 04 16:39:10 2019      ;
 ; Quartus II 64-Bit Version       ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                   ; fakequidditch                              ;
 ; Top-level Entity Name           ; fakequidditch                              ;
 ; Family                          ; Cyclone V                                  ;
 ; Logic utilization (in ALMs)     ; N/A                                        ;
-; Total registers                 ; 78                                         ;
-; Total pins                      ; 31                                         ;
+; Total registers                 ; 232                                        ;
+; Total pins                      ; 32                                         ;
 ; Total virtual pins              ; 0                                          ;
 ; Total block memory bits         ; 0                                          ;
-; Total DSP Blocks                ; 16                                         ;
+; Total DSP Blocks                ; 92                                         ;
 ; Total HSSI RX PCSs              ; 0                                          ;
 ; Total HSSI PMA RX Deserializers ; 0                                          ;
 ; Total HSSI TX PCSs              ; 0                                          ;
@@ -196,23 +196,23 @@ applicable agreement for further details.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 194                      ;
+; Estimate of Logic utilization (ALMs needed) ; 867                      ;
 ;                                             ;                          ;
-; Combinational ALUT usage for logic          ; 358                      ;
+; Combinational ALUT usage for logic          ; 1647                     ;
 ;     -- 7 input functions                    ; 0                        ;
-;     -- 6 input functions                    ; 29                       ;
-;     -- 5 input functions                    ; 10                       ;
-;     -- 4 input functions                    ; 3                        ;
-;     -- <=3 input functions                  ; 316                      ;
+;     -- 6 input functions                    ; 84                       ;
+;     -- 5 input functions                    ; 119                      ;
+;     -- 4 input functions                    ; 39                       ;
+;     -- <=3 input functions                  ; 1405                     ;
 ;                                             ;                          ;
-; Dedicated logic registers                   ; 78                       ;
+; Dedicated logic registers                   ; 232                      ;
 ;                                             ;                          ;
-; I/O pins                                    ; 31                       ;
-; Total DSP Blocks                            ; 16                       ;
+; I/O pins                                    ; 32                       ;
+; Total DSP Blocks                            ; 92                       ;
 ; Maximum fan-out node                        ; clock_divider:cd|clk_out ;
-; Maximum fan-out                             ; 45                       ;
-; Total fan-out                               ; 1589                     ;
-; Average fan-out                             ; 3.09                     ;
+; Maximum fan-out                             ; 200                      ;
+; Total fan-out                               ; 7145                     ;
+; Average fan-out                             ; 3.51                     ;
 +---------------------------------------------+--------------------------+
 
 
@@ -221,11 +221,11 @@ applicable agreement for further details.
 +-------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-----------------------------------------+--------------+
 ; Compilation Hierarchy Node    ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                     ; Library Name ;
 +-------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-----------------------------------------+--------------+
-; |fakequidditch                ; 358 (0)           ; 78 (0)       ; 0                 ; 16         ; 31   ; 0            ; |fakequidditch                          ; work         ;
+; |fakequidditch                ; 1647 (0)          ; 232 (0)      ; 0                 ; 92         ; 32   ; 0            ; |fakequidditch                          ; work         ;
 ;    |clock_divider:cd|         ; 39 (39)           ; 33 (33)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|clock_divider:cd         ; work         ;
-;    |team1_controller:t1_ctrl| ; 16 (16)           ; 12 (12)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|team1_controller:t1_ctrl ; work         ;
-;    |team2_controller:t2_ctrl| ; 22 (22)           ; 12 (12)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|team2_controller:t2_ctrl ; work         ;
-;    |vga_controller:vga_cont|  ; 257 (257)         ; 0 (0)        ; 0                 ; 16         ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont  ; work         ;
+;    |team1_controller:t1_ctrl| ; 109 (109)         ; 77 (77)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|team1_controller:t1_ctrl ; work         ;
+;    |team2_controller:t2_ctrl| ; 110 (110)         ; 77 (77)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|team2_controller:t2_ctrl ; work         ;
+;    |vga_controller:vga_cont|  ; 1365 (1365)       ; 24 (24)      ; 0                 ; 92         ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont  ; work         ;
 ;    |vga_horizontal:vga_hor|   ; 13 (13)           ; 11 (11)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_horizontal:vga_hor   ; work         ;
 ;    |vga_vertical:vga_ver|     ; 11 (11)           ; 10 (10)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_vertical:vga_ver     ; work         ;
 +-------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-----------------------------------------+--------------+
@@ -237,11 +237,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------+-------------+---------------------+-------------------+
 ; Statistic           ; Number Used ; Available per Block ; Maximum Available ;
 +---------------------+-------------+---------------------+-------------------+
-; Independent 18x18   ; 8           ; 2.00                ; --                ;
-; Sum of two 18x18    ; 8           ; 1.00                ; --                ;
-; DSP Block           ; 16          ; --                  ; --                ;
-; DSP 18-bit Element  ; 24          ; 2.00                ; --                ;
-; Unsigned Multiplier ; 24          ; --                  ; --                ;
+; Independent 18x18   ; 46          ; 2.00                ; --                ;
+; Sum of two 18x18    ; 46          ; 1.00                ; --                ;
+; DSP Block           ; 92          ; --                  ; --                ;
+; DSP 18-bit Element  ; 138         ; 2.00                ; --                ;
+; Unsigned Multiplier ; 138         ; --                  ; --                ;
 +---------------------+-------------+---------------------+-------------------+
 
 
@@ -269,24 +269,13 @@ Encoding Type:  One-Hot
 +-----------------+-----------------+----------------+--------------+
 
 
-+---------------------------------------------------------------+
-; Registers Removed During Synthesis                            ;
-+------------------------------------------+--------------------+
-; Register name                            ; Reason for Removal ;
-+------------------------------------------+--------------------+
-; team1_controller:t1_ctrl|ver_state.down  ; Lost fanout        ;
-; team2_controller:t2_ctrl|ver_state.float ; Lost fanout        ;
-; Total Number of Removed Registers = 2    ;                    ;
-+------------------------------------------+--------------------+
-
-
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 78    ;
-; Number of registers using Synchronous Clear  ; 52    ;
+; Total registers                              ; 232   ;
+; Number of registers using Synchronous Clear  ; 180   ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -300,15 +289,14 @@ Encoding Type:  One-Hot
 +-------------------------------------------+---------+
 ; Inverted Register                         ; Fan out ;
 +-------------------------------------------+---------+
-; team1_controller:t1_ctrl|team1_ver_pos[4] ; 2       ;
-; team1_controller:t1_ctrl|team1_ver_pos[5] ; 2       ;
-; team1_controller:t1_ctrl|team1_ver_pos[6] ; 2       ;
-; team1_controller:t1_ctrl|team1_ver_pos[7] ; 2       ;
-; team2_controller:t2_ctrl|team2_ver_pos[4] ; 4       ;
+; team1_controller:t1_ctrl|team1_ver_pos[3] ; 4       ;
+; team1_controller:t1_ctrl|team1_ver_pos[6] ; 4       ;
+; team1_controller:t1_ctrl|team1_ver_pos[7] ; 4       ;
+; team2_controller:t2_ctrl|team2_ver_pos[2] ; 4       ;
+; team2_controller:t2_ctrl|team2_ver_pos[3] ; 4       ;
 ; team2_controller:t2_ctrl|team2_ver_pos[5] ; 4       ;
-; team2_controller:t2_ctrl|team2_ver_pos[6] ; 4       ;
-; team2_controller:t2_ctrl|team2_ver_pos[7] ; 4       ;
-; Total number of inverted registers = 8    ;         ;
+; team2_controller:t2_ctrl|team2_ver_pos[8] ; 4       ;
+; Total number of inverted registers = 7    ;         ;
 +-------------------------------------------+---------+
 
 
@@ -317,8 +305,10 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |fakequidditch|team2_controller:t2_ctrl|team2_ver_pos[9] ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |fakequidditch|team2_controller:t2_ctrl|team2_ver_pos[6] ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 0 LEs                ; 21 LEs                 ; Yes        ; |fakequidditch|team1_controller:t1_ctrl|team1_ver_pos[0] ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |fakequidditch|team2_controller:t2_ctrl|team2_ver_pos[6] ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 0 LEs                ; 9 LEs                  ; Yes        ; |fakequidditch|team1_controller:t1_ctrl|team1_ver_pos[6] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |fakequidditch|team2_controller:t2_ctrl|team2_ver_pos[8] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
 
 
@@ -356,6 +346,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_controller:vga_cont ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; PLAYER_RADIUS  ; 25    ; Signed Integer                              ;
+; GOAL_RADIUS    ; 40    ; Signed Integer                              ;
+; BALL_RADIUS    ; 5     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "clock_divider:cd"                                                                                                                                                                            ;
 +-----------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -373,7 +375,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -383,7 +385,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Sat May 04 09:42:56 2019
+    Info: Processing started: Sat May 04 16:39:05 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fakequidditch -c fakequidditch
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file fakequidditch.v
@@ -400,33 +402,34 @@ Info (12021): Found 1 design units, including 1 entities, in source file game_co
     Info (12023): Found entity 1: team1_controller
 Info (12021): Found 1 design units, including 1 entities, in source file game_controller/team2_controller.v
     Info (12023): Found entity 1: team2_controller
+Info (12021): Found 1 design units, including 1 entities, in source file game_controller/ball_controller.v
+    Info (12023): Found entity 1: ball_controller
 Info (12127): Elaborating entity "fakequidditch" for the top level hierarchy
 Info (12128): Elaborating entity "clock_divider" for hierarchy "clock_divider:cd"
 Info (12128): Elaborating entity "vga_horizontal" for hierarchy "vga_horizontal:vga_hor"
-Warning (10230): Verilog HDL assignment warning at vga_horizontal.v(10): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at vga_horizontal.v(14): truncated value with size 32 to match size of target (10)
 Info (12128): Elaborating entity "vga_vertical" for hierarchy "vga_vertical:vga_ver"
-Warning (10230): Verilog HDL assignment warning at vga_vertical.v(9): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at vga_vertical.v(14): truncated value with size 32 to match size of target (10)
 Info (12128): Elaborating entity "team1_controller" for hierarchy "team1_controller:t1_ctrl"
-Warning (10230): Verilog HDL assignment warning at team1_controller.v(39): truncated value with size 32 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at team1_controller.v(42): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at team1_controller.v(57): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at team1_controller.v(60): truncated value with size 32 to match size of target (10)
 Info (12128): Elaborating entity "team2_controller" for hierarchy "team2_controller:t2_ctrl"
-Warning (10230): Verilog HDL assignment warning at team2_controller.v(39): truncated value with size 32 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at team2_controller.v(42): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at team2_controller.v(57): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at team2_controller.v(60): truncated value with size 32 to match size of target (10)
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga_cont"
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 406 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1796 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
-    Info (21059): Implemented 26 output pins
-    Info (21061): Implemented 359 logic cells
-    Info (21062): Implemented 16 DSP elements
+    Info (21059): Implemented 27 output pins
+    Info (21061): Implemented 1672 logic cells
+    Info (21062): Implemented 92 DSP elements
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 4716 megabytes
-    Info: Processing ended: Sat May 04 09:42:58 2019
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Peak virtual memory: 4752 megabytes
+    Info: Processing ended: Sat May 04 16:39:10 2019
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:05
 
 

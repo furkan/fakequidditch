@@ -1,0 +1,201 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Cansu\Desktop\fakequidditch\simulation\qsim
+vclock_divider
+IiKMe@6C@>>b9^=BYU4GYf0
+Vkb^c8[Ucd<^D0nL@X;`g<1
+Z1 dC:\Users\Cansu\Desktop\fakequidditch\simulation\qsim
+w1556720612
+8C:/Users/Cansu/Desktop/fakequidditch/clock_divider.v
+FC:/Users/Cansu/Desktop/fakequidditch/clock_divider.v
+L0 1
+Z2 OV;L;10.1d;51
+r1
+31
+Z3 o-vlog01compat -work work -O0
+!s92 -vlog01compat -work work +incdir+C:/Users/Cansu/Desktop/fakequidditch -O0
+!i10b 1
+!s100 flM@kh35j?7]JU2F]ngD[3
+!s85 0
+!s108 1556952857.406000
+!s107 C:/Users/Cansu/Desktop/fakequidditch/clock_divider.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Cansu/Desktop/fakequidditch|C:/Users/Cansu/Desktop/fakequidditch/clock_divider.v|
+!s101 -O0
+vfakequidditch
+IX5Y09K??kmzHW?njhZ?P>2
+VL[^loFj9zaJOOa;>`3h4a1
+R1
+w1556958628
+Z4 8fakequidditch.vo
+Z5 Ffakequidditch.vo
+L0 31
+R2
+r1
+31
+Z6 !s90 -work|work|fakequidditch.vo|
+Z7 o-work work -O0
+!i10b 1
+!s100 96Bc88hP9_fZa0:P_M[Ql1
+!s85 0
+!s108 1556958629.901000
+Z8 !s107 fakequidditch.vo|
+!s101 -O0
+vfakequidditch_vlg_check_tst
+!i10b 1
+!s100 =?V2ZeSh8_Mbj]FZnaDEK3
+If3B@P;jXXgKD4Y3D_a3FR0
+V;mZCWV:B=GJPTU1mo51<82
+R1
+Z9 w1556958627
+Z10 8vga_controller.vwf.vt
+Z11 Fvga_controller.vwf.vt
+L0 57
+R2
+r1
+!s85 0
+31
+Z12 !s108 1556958630.151000
+Z13 !s107 vga_controller.vwf.vt|
+Z14 !s90 -work|work|vga_controller.vwf.vt|
+!s101 -O0
+R7
+vfakequidditch_vlg_sample_tst
+!i10b 1
+!s100 jobHaiI@a5_lm[SBk06i>3
+IiXjFNUBPi6;mGE>8F_NM;3
+Z15 VJ<PY17f:FB15`i?mW1Y3a0
+R1
+R9
+R10
+R11
+L0 29
+R2
+r1
+!s85 0
+31
+R12
+R13
+R14
+!s101 -O0
+R7
+vfakequidditch_vlg_vec_tst
+!i10b 1
+!s100 Y25nLRKFX?5]5[XHFZ36I1
+IgDRh4z6:m8CZfR^4RWXKM3
+Z16 VL8]F9FLK3F@5`GZIZaAAE1
+R1
+R9
+R10
+R11
+L0 661
+R2
+r1
+!s85 0
+31
+R12
+R13
+R14
+!s101 -O0
+R7
+vteam1_controller
+IUYCHWYfL6X@;`g9FoX88W3
+V^PDkoa4zUFil5gzA:3]j42
+R1
+Z17 w1556952590
+8C:/Users/Cansu/Desktop/fakequidditch/game_controller/team1_controller.v
+FC:/Users/Cansu/Desktop/fakequidditch/game_controller/team1_controller.v
+L0 1
+R2
+r1
+31
+R3
+Z18 !s92 -vlog01compat -work work +incdir+C:/Users/Cansu/Desktop/fakequidditch/game_controller -O0
+!i10b 1
+!s100 gNTC:OF`B0KaoK:K_e]^g2
+!s85 0
+!s108 1556952858.315000
+!s107 C:/Users/Cansu/Desktop/fakequidditch/game_controller/team1_controller.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Cansu/Desktop/fakequidditch/game_controller|C:/Users/Cansu/Desktop/fakequidditch/game_controller/team1_controller.v|
+!s101 -O0
+vteam2_controller
+IfZEBMliMM378nWa0QEKjW0
+V^E<3Go8KNE]e^4ngWlGOh2
+R1
+R17
+8C:/Users/Cansu/Desktop/fakequidditch/game_controller/team2_controller.v
+FC:/Users/Cansu/Desktop/fakequidditch/game_controller/team2_controller.v
+L0 1
+R2
+r1
+31
+R3
+R18
+!i10b 1
+!s100 K]<5:a=FJ^zBS1hidmcLL1
+!s85 0
+!s108 1556952858.800000
+!s107 C:/Users/Cansu/Desktop/fakequidditch/game_controller/team2_controller.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Cansu/Desktop/fakequidditch/game_controller|C:/Users/Cansu/Desktop/fakequidditch/game_controller/team2_controller.v|
+!s101 -O0
+vvga_controller
+IPZ0DFG?c^1mFGmV<^Yi?n2
+VdH3_7_;l^iC_TBmn2;NeF1
+R1
+w1556952641
+8C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_controller.v
+FC:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_controller.v
+L0 1
+R2
+r1
+31
+R3
+Z19 !s92 -vlog01compat -work work +incdir+C:/Users/Cansu/Desktop/fakequidditch/vga_controller -O0
+!i10b 1
+!s100 XcfETnBjzYCzn7j[ab69@1
+!s85 0
+!s108 1556952858.190000
+!s107 C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_controller.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Cansu/Desktop/fakequidditch/vga_controller|C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_controller.v|
+!s101 -O0
+vvga_horizontal
+II_g[^^YRVKdC^cO8ZQUhU0
+V6^a=8T1R7]OV8dD@LKWGB3
+R1
+Z20 w1556874182
+8C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_horizontal.v
+FC:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_horizontal.v
+L0 1
+R2
+r1
+31
+R3
+R19
+!i10b 1
+!s100 >J9lMQdR0Ko?P^FMJ]fb@3
+!s85 0
+!s108 1556952857.906000
+!s107 C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_horizontal.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Cansu/Desktop/fakequidditch/vga_controller|C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_horizontal.v|
+!s101 -O0
+vvga_vertical
+IeOT8]CX_2SW6kf361`9gi1
+VIL6::FDNo[UV=^:^FA;5R2
+R1
+R20
+8C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_vertical.v
+FC:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_vertical.v
+L0 1
+R2
+r1
+31
+R3
+R19
+!i10b 1
+!s100 Ul_PcVcRkYGP0I;ANlOD>3
+!s85 0
+!s108 1556952857.609000
+!s107 C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_vertical.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Cansu/Desktop/fakequidditch/vga_controller|C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_vertical.v|
+!s101 -O0
