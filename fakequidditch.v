@@ -6,6 +6,13 @@ module fakequidditch (clk, team1_vu_button, team1_vd_button, team2_vu_button, te
 	input team2_vu_button;
 	input team2_vd_button;
 
+	/*
+	input team1_hl_button;
+	input team1_hr_button;
+	input team2_hl_button;
+	input team2_hr_button;
+	*/
+	
 	wire clk_en;
 	parameter div = 2; // <-- divide 50 MHz by this
 
@@ -35,13 +42,17 @@ module fakequidditch (clk, team1_vu_button, team1_vd_button, team2_vu_button, te
 
 	vga_vertical vga_ver (vga_clk, next_line, current_row);
 
-	team1_controller t1_ctrl (vga_clk, team1_vu_button, team1_vd_button, team1_ver_position);
+	game_controller #(.PLAYER_RADIUS(35),.INITIAL_VER_POS('d250),.INITIAL_TEAM1_HOR_POS('d300), .INITIAL_TEAM2_HOR_POS('d700), .PLAYER_MOVEMENT_FREQUENCY('d100000))
+		game_ctrl (vga_clk, team1_vu_button, team1_vd_button, team2_vu_button, team2_vu_button,
+			/*team1_hl_button, team1_hr_button, team2_hl_button, team2_hr_button,*/
+				team1_ver_position, team2_ver_position
+					/*, team1_hor_position, team2_hor_position,*/ );
+	
+//	team1_controller t1_ctrl (vga_clk, team1_vu_button, team1_vd_button, team1_ver_position);
 
-	team2_controller t2_ctrl (vga_clk, team2_vu_button, team2_vd_button, team2_ver_position);
+//	team2_controller t2_ctrl (vga_clk, team2_vu_button, team2_vd_button, team2_ver_position);
 
 	vga_controller vga_cont (vga_clk, y, x, team1_ver_pos, team2_ver_pos, hor_sync, ver_sync, red, green, blue);
-
-	//vga_controller vga_cont (vga_clk, y, x, hor_sync, ver_sync, red, green, blue);
 	
 	always begin
 		next_line     <= move_down;

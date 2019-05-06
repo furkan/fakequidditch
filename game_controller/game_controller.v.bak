@@ -1,0 +1,7 @@
+module game_controller ();
+
+	team1_controller t1_ctrl (vga_clk, team1_vu_button, team1_vd_button, team1_ver_position);
+
+	team2_controller t2_ctrl (vga_clk, team2_vu_button, team2_vd_button, team2_ver_position);
+
+endmodule

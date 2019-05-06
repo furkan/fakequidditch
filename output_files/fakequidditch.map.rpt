@@ -1,5 +1,5 @@
 Analysis & Synthesis report for fakequidditch
-Sat May 04 16:39:10 2019
+Mon May 06 17:32:54 2019
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -14,18 +14,21 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis DSP Block Usage Summary
-  9. State Machine - |fakequidditch|team2_controller:t2_ctrl|ver_state
- 10. State Machine - |fakequidditch|team1_controller:t1_ctrl|ver_state
- 11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Parameter Settings for User Entity Instance: Top-level Entity: |fakequidditch
- 15. Parameter Settings for User Entity Instance: team1_controller:t1_ctrl
- 16. Parameter Settings for User Entity Instance: team2_controller:t2_ctrl
- 17. Parameter Settings for User Entity Instance: vga_controller:vga_cont
- 18. Port Connectivity Checks: "clock_divider:cd"
- 19. Elapsed Time Per Partition
- 20. Analysis & Synthesis Messages
+  9. State Machine - |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_state
+ 10. State Machine - |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_state
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: Top-level Entity: |fakequidditch
+ 17. Parameter Settings for User Entity Instance: game_controller:game_ctrl
+ 18. Parameter Settings for User Entity Instance: game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl
+ 19. Parameter Settings for User Entity Instance: game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl
+ 20. Parameter Settings for User Entity Instance: vga_controller:vga_cont
+ 21. Port Connectivity Checks: "clock_divider:cd"
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
 
 
 
@@ -51,13 +54,13 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +---------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat May 04 16:39:10 2019      ;
+; Analysis & Synthesis Status     ; Successful - Mon May 06 17:32:54 2019      ;
 ; Quartus II 64-Bit Version       ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                   ; fakequidditch                              ;
 ; Top-level Entity Name           ; fakequidditch                              ;
 ; Family                          ; Cyclone V                                  ;
 ; Logic utilization (in ALMs)     ; N/A                                        ;
-; Total registers                 ; 232                                        ;
+; Total registers                 ; 155                                        ;
 ; Total pins                      ; 32                                         ;
 ; Total virtual pins              ; 0                                          ;
 ; Total block memory bits         ; 0                                          ;
@@ -158,37 +161,30 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-;     Processor 2            ; < 0.1%      ;
-;     Processors 3-4         ;   0.0%      ;
-+----------------------------+-------------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                            ;
-+------------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path   ; Used in Netlist ; File Type              ; File Name with Absolute Path                                            ; Library ;
-+------------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
-; fakequidditch.v                    ; yes             ; User Verilog HDL File  ; C:/Users/Cansu/Desktop/fakequidditch/fakequidditch.v                    ;         ;
-; clock_divider.v                    ; yes             ; User Verilog HDL File  ; C:/Users/Cansu/Desktop/fakequidditch/clock_divider.v                    ;         ;
-; vga_controller/vga_vertical.v      ; yes             ; User Verilog HDL File  ; C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_vertical.v      ;         ;
-; vga_controller/vga_horizontal.v    ; yes             ; User Verilog HDL File  ; C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_horizontal.v    ;         ;
-; vga_controller/vga_controller.v    ; yes             ; User Verilog HDL File  ; C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_controller.v    ;         ;
-; game_controller/team1_controller.v ; yes             ; User Verilog HDL File  ; C:/Users/Cansu/Desktop/fakequidditch/game_controller/team1_controller.v ;         ;
-; game_controller/team2_controller.v ; yes             ; User Verilog HDL File  ; C:/Users/Cansu/Desktop/fakequidditch/game_controller/team2_controller.v ;         ;
-+------------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                        ;
++-----------------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path        ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                   ; Library ;
++-----------------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------+---------+
+; fakequidditch.v                         ; yes             ; User Verilog HDL File  ; C:/Users/e224774/Desktop/fakequidditch/fakequidditch.v                         ;         ;
+; clock_divider.v                         ; yes             ; User Verilog HDL File  ; C:/Users/e224774/Desktop/fakequidditch/clock_divider.v                         ;         ;
+; vga_controller/vga_vertical.v           ; yes             ; User Verilog HDL File  ; C:/Users/e224774/Desktop/fakequidditch/vga_controller/vga_vertical.v           ;         ;
+; vga_controller/vga_horizontal.v         ; yes             ; User Verilog HDL File  ; C:/Users/e224774/Desktop/fakequidditch/vga_controller/vga_horizontal.v         ;         ;
+; vga_controller/vga_controller.v         ; yes             ; User Verilog HDL File  ; C:/Users/e224774/Desktop/fakequidditch/vga_controller/vga_controller.v         ;         ;
+; game_controller/game_controller.v       ; yes             ; User Verilog HDL File  ; C:/Users/e224774/Desktop/fakequidditch/game_controller/game_controller.v       ;         ;
+; game_controller/ver_player_controller.v ; yes             ; User Verilog HDL File  ; C:/Users/e224774/Desktop/fakequidditch/game_controller/ver_player_controller.v ;         ;
++-----------------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------------------+
@@ -196,39 +192,39 @@ applicable agreement for further details.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 867                      ;
+; Estimate of Logic utilization (ALMs needed) ; 811                      ;
 ;                                             ;                          ;
-; Combinational ALUT usage for logic          ; 1647                     ;
+; Combinational ALUT usage for logic          ; 1540                     ;
 ;     -- 7 input functions                    ; 0                        ;
-;     -- 6 input functions                    ; 84                       ;
-;     -- 5 input functions                    ; 119                      ;
-;     -- 4 input functions                    ; 39                       ;
-;     -- <=3 input functions                  ; 1405                     ;
+;     -- 6 input functions                    ; 78                       ;
+;     -- 5 input functions                    ; 109                      ;
+;     -- 4 input functions                    ; 27                       ;
+;     -- <=3 input functions                  ; 1326                     ;
 ;                                             ;                          ;
-; Dedicated logic registers                   ; 232                      ;
+; Dedicated logic registers                   ; 155                      ;
 ;                                             ;                          ;
 ; I/O pins                                    ; 32                       ;
 ; Total DSP Blocks                            ; 92                       ;
 ; Maximum fan-out node                        ; clock_divider:cd|clk_out ;
-; Maximum fan-out                             ; 200                      ;
-; Total fan-out                               ; 7145                     ;
-; Average fan-out                             ; 3.51                     ;
+; Maximum fan-out                             ; 123                      ;
+; Total fan-out                               ; 6608                     ;
+; Average fan-out                             ; 3.57                     ;
 +---------------------------------------------+--------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                              ;
-+-------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-----------------------------------------+--------------+
-; Compilation Hierarchy Node    ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                     ; Library Name ;
-+-------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-----------------------------------------+--------------+
-; |fakequidditch                ; 1647 (0)          ; 232 (0)      ; 0                 ; 92         ; 32   ; 0            ; |fakequidditch                          ; work         ;
-;    |clock_divider:cd|         ; 39 (39)           ; 33 (33)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|clock_divider:cd         ; work         ;
-;    |team1_controller:t1_ctrl| ; 109 (109)         ; 77 (77)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|team1_controller:t1_ctrl ; work         ;
-;    |team2_controller:t2_ctrl| ; 110 (110)         ; 77 (77)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|team2_controller:t2_ctrl ; work         ;
-;    |vga_controller:vga_cont|  ; 1365 (1365)       ; 24 (24)      ; 0                 ; 92         ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont  ; work         ;
-;    |vga_horizontal:vga_hor|   ; 13 (13)           ; 11 (11)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_horizontal:vga_hor   ; work         ;
-;    |vga_vertical:vga_ver|     ; 11 (11)           ; 10 (10)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_vertical:vga_ver     ; work         ;
-+-------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-----------------------------------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                   ;
++----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                           ; Library Name ;
++----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------+--------------+
+; |fakequidditch                               ; 1540 (0)          ; 155 (0)      ; 0                 ; 92         ; 32   ; 0            ; |fakequidditch                                                                ; work         ;
+;    |clock_divider:cd|                        ; 39 (39)           ; 33 (33)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|clock_divider:cd                                               ; work         ;
+;    |game_controller:game_ctrl|               ; 112 (0)           ; 77 (0)       ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl                                      ; work         ;
+;       |ver_player_controller:team1_ver_ctrl| ; 112 (112)         ; 77 (77)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl ; work         ;
+;    |vga_controller:vga_cont|                 ; 1365 (1365)       ; 24 (24)      ; 0                 ; 92         ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont                                        ; work         ;
+;    |vga_horizontal:vga_hor|                  ; 13 (13)           ; 11 (11)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_horizontal:vga_hor                                         ; work         ;
+;    |vga_vertical:vga_ver|                    ; 11 (11)           ; 10 (10)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_vertical:vga_ver                                           ; work         ;
++----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -246,27 +242,87 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+-------------------------------------------------------------------+
-; State Machine - |fakequidditch|team2_controller:t2_ctrl|ver_state ;
-+-----------------+-----------------+----------------+--------------+
-; Name            ; ver_state.float ; ver_state.down ; ver_state.up ;
-+-----------------+-----------------+----------------+--------------+
-; ver_state.float ; 0               ; 0              ; 0            ;
-; ver_state.up    ; 1               ; 0              ; 1            ;
-; ver_state.down  ; 1               ; 1              ; 0            ;
-+-----------------+-----------------+----------------+--------------+
++---------------------------------------------------------------------------------------------------------+
+; State Machine - |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_state ;
++-----------------+-----------------+----------------+----------------------------------------------------+
+; Name            ; ver_state.float ; ver_state.down ; ver_state.up                                       ;
++-----------------+-----------------+----------------+----------------------------------------------------+
+; ver_state.float ; 0               ; 0              ; 0                                                  ;
+; ver_state.up    ; 1               ; 0              ; 1                                                  ;
+; ver_state.down  ; 1               ; 1              ; 0                                                  ;
++-----------------+-----------------+----------------+----------------------------------------------------+
 
 
 Encoding Type:  One-Hot
-+-------------------------------------------------------------------+
-; State Machine - |fakequidditch|team1_controller:t1_ctrl|ver_state ;
-+-----------------+-----------------+----------------+--------------+
-; Name            ; ver_state.float ; ver_state.down ; ver_state.up ;
-+-----------------+-----------------+----------------+--------------+
-; ver_state.float ; 0               ; 0              ; 0            ;
-; ver_state.up    ; 1               ; 0              ; 1            ;
-; ver_state.down  ; 1               ; 1              ; 0            ;
-+-----------------+-----------------+----------------+--------------+
++---------------------------------------------------------------------------------------------------------+
+; State Machine - |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_state ;
++-----------------+-----------------+----------------+----------------------------------------------------+
+; Name            ; ver_state.float ; ver_state.down ; ver_state.up                                       ;
++-----------------+-----------------+----------------+----------------------------------------------------+
+; ver_state.float ; 0               ; 0              ; 0                                                  ;
+; ver_state.up    ; 1               ; 0              ; 1                                                  ;
+; ver_state.down  ; 1               ; 1              ; 0                                                  ;
++-----------------+-----------------+----------------+----------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                             ;
++-------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
+; Register name                                                                             ; Reason for Removal                                                                                 ;
++-------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[6]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[6]  ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[5]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[5]  ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[1]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[1]  ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[31]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[31] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[30]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[30] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[29]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[29] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[28]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[28] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[27]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[27] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[26]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[26] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[25]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[25] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[24]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[24] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[23]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[23] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[22]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[22] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[21]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[21] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[20]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[20] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[19]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[19] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[18]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[18] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[17]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[17] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[16]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[16] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[15]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[15] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[14]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[14] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[13]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[13] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[12]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[12] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[11]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[11] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[10]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[10] ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[9]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[9]  ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[8]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[8]  ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[7]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[7]  ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[4]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[4]  ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[3]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[3]  ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[2]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[2]  ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[0]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[0]  ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[8,9]               ; Stuck at GND due to stuck port data_in                                                             ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[3..7]              ; Stuck at VCC due to stuck port data_in                                                             ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[2]                 ; Stuck at GND due to stuck port data_in                                                             ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[1]                 ; Stuck at VCC due to stuck port data_in                                                             ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[0]                 ; Stuck at GND due to stuck port data_in                                                             ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[0..31] ; Lost fanout                                                                                        ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_state.float            ; Lost fanout                                                                                        ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_state.up               ; Lost fanout                                                                                        ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_state.down             ; Lost fanout                                                                                        ;
+; Total Number of Removed Registers = 77                                                    ;                                                                                                    ;
++-------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                          ;
++---------------------------------------------------------------------------------------+--------------------+-----------------------------------------------------------------------------------------+
+; Register name                                                                         ; Reason for Removal ; Registers Removed due to This Register                                                  ;
++---------------------------------------------------------------------------------------+--------------------+-----------------------------------------------------------------------------------------+
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[0] ; Lost Fanouts       ; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[30], ;
+;                                                                                       ;                    ; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[31]  ;
++---------------------------------------------------------------------------------------+--------------------+-----------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -274,42 +330,39 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 232   ;
-; Number of registers using Synchronous Clear  ; 180   ;
+; Total registers                              ; 155   ;
+; Number of registers using Synchronous Clear  ; 116   ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 30    ;
+; Number of registers using Clock Enable       ; 20    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------+
-; Inverted Register Statistics                        ;
-+-------------------------------------------+---------+
-; Inverted Register                         ; Fan out ;
-+-------------------------------------------+---------+
-; team1_controller:t1_ctrl|team1_ver_pos[3] ; 4       ;
-; team1_controller:t1_ctrl|team1_ver_pos[6] ; 4       ;
-; team1_controller:t1_ctrl|team1_ver_pos[7] ; 4       ;
-; team2_controller:t2_ctrl|team2_ver_pos[2] ; 4       ;
-; team2_controller:t2_ctrl|team2_ver_pos[3] ; 4       ;
-; team2_controller:t2_ctrl|team2_ver_pos[5] ; 4       ;
-; team2_controller:t2_ctrl|team2_ver_pos[8] ; 4       ;
-; Total number of inverted registers = 7    ;         ;
-+-------------------------------------------+---------+
++-------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                        ;
++---------------------------------------------------------------------------+---------+
+; Inverted Register                                                         ; Fan out ;
++---------------------------------------------------------------------------+---------+
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[1] ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[3] ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[4] ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[5] ; 5       ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[6] ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[7] ; 4       ;
+; Total number of inverted registers = 6                                    ;         ;
++---------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-; 5:1                ; 7 bits    ; 21 LEs        ; 0 LEs                ; 21 LEs                 ; Yes        ; |fakequidditch|team1_controller:t1_ctrl|team1_ver_pos[0] ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |fakequidditch|team2_controller:t2_ctrl|team2_ver_pos[6] ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 0 LEs                ; 9 LEs                  ; Yes        ; |fakequidditch|team1_controller:t1_ctrl|team1_ver_pos[6] ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |fakequidditch|team2_controller:t2_ctrl|team2_ver_pos[8] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------+
+; 5:1                ; 4 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[8] ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[6] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------+
@@ -322,27 +375,41 @@ Encoding Type:  One-Hot
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: team1_controller:t1_ctrl ;
-+----------------+----------------------------------+-------------------+
-; Parameter Name ; Value                            ; Type              ;
-+----------------+----------------------------------+-------------------+
-; float          ; 00000000000000000000000000000000 ; Unsigned Binary   ;
-; up             ; 00000000000000000000000000000001 ; Unsigned Binary   ;
-; down           ; 00000000000000000000000000000010 ; Unsigned Binary   ;
-+----------------+----------------------------------+-------------------+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: game_controller:game_ctrl         ;
++---------------------------+----------------------------------+-----------------+
+; Parameter Name            ; Value                            ; Type            ;
++---------------------------+----------------------------------+-----------------+
+; PLAYER_RADIUS             ; 35                               ; Signed Integer  ;
+; INITIAL_VER_POS           ; 00000000000000000000000011111010 ; Unsigned Binary ;
+; INITIAL_TEAM1_HOR_POS     ; 00000000000000000000000100101100 ; Unsigned Binary ;
+; INITIAL_TEAM2_HOR_POS     ; 00000000000000000000001010111100 ; Unsigned Binary ;
+; PLAYER_MOVEMENT_FREQUENCY ; 00000000000000011000011010100000 ; Unsigned Binary ;
++---------------------------+----------------------------------+-----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: team2_controller:t2_ctrl ;
-+----------------+----------------------------------+-------------------+
-; Parameter Name ; Value                            ; Type              ;
-+----------------+----------------------------------+-------------------+
-; float          ; 00000000000000000000000000000000 ; Unsigned Binary   ;
-; up             ; 00000000000000000000000000000001 ; Unsigned Binary   ;
-; down           ; 00000000000000000000000000000010 ; Unsigned Binary   ;
-+----------------+----------------------------------+-------------------+
++-------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl ;
++--------------------+----------------------------------+-----------------------------------------------------+
+; Parameter Name     ; Value                            ; Type                                                ;
++--------------------+----------------------------------+-----------------------------------------------------+
+; PLAYER_RADIUS      ; 35                               ; Signed Integer                                      ;
+; INITIAL_VER_POS    ; 00000000000000000000000011111010 ; Unsigned Binary                                     ;
+; MOVEMENT_FREQUENCY ; 00000000000000011000011010100000 ; Unsigned Binary                                     ;
++--------------------+----------------------------------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl ;
++--------------------+----------------------------------+-----------------------------------------------------+
+; Parameter Name     ; Value                            ; Type                                                ;
++--------------------+----------------------------------+-----------------------------------------------------+
+; PLAYER_RADIUS      ; 35                               ; Signed Integer                                      ;
+; INITIAL_VER_POS    ; 00000000000000000000000011111010 ; Unsigned Binary                                     ;
+; MOVEMENT_FREQUENCY ; 00000000000000011000011010100000 ; Unsigned Binary                                     ;
++--------------------+----------------------------------+-----------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -385,9 +452,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Sat May 04 16:39:05 2019
+    Info: Processing started: Mon May 06 17:32:50 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fakequidditch -c fakequidditch
-Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
+Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file fakequidditch.v
     Info (12023): Found entity 1: fakequidditch
 Info (12021): Found 1 design units, including 1 entities, in source file clock_divider.v
@@ -404,32 +471,42 @@ Info (12021): Found 1 design units, including 1 entities, in source file game_co
     Info (12023): Found entity 1: team2_controller
 Info (12021): Found 1 design units, including 1 entities, in source file game_controller/ball_controller.v
     Info (12023): Found entity 1: ball_controller
+Info (12021): Found 1 design units, including 1 entities, in source file game_controller/game_controller.v
+    Info (12023): Found entity 1: game_controller
+Info (12021): Found 1 design units, including 1 entities, in source file game_controller/ver_player_controller.v
+    Info (12023): Found entity 1: ver_player_controller
+Warning (10222): Verilog HDL Parameter Declaration warning at ver_player_controller.v(15): Parameter Declaration in module "ver_player_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ver_player_controller.v(16): Parameter Declaration in module "ver_player_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ver_player_controller.v(17): Parameter Declaration in module "ver_player_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Info (12127): Elaborating entity "fakequidditch" for the top level hierarchy
 Info (12128): Elaborating entity "clock_divider" for hierarchy "clock_divider:cd"
 Info (12128): Elaborating entity "vga_horizontal" for hierarchy "vga_horizontal:vga_hor"
 Warning (10230): Verilog HDL assignment warning at vga_horizontal.v(14): truncated value with size 32 to match size of target (10)
 Info (12128): Elaborating entity "vga_vertical" for hierarchy "vga_vertical:vga_ver"
 Warning (10230): Verilog HDL assignment warning at vga_vertical.v(14): truncated value with size 32 to match size of target (10)
-Info (12128): Elaborating entity "team1_controller" for hierarchy "team1_controller:t1_ctrl"
-Warning (10230): Verilog HDL assignment warning at team1_controller.v(57): truncated value with size 32 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at team1_controller.v(60): truncated value with size 32 to match size of target (10)
-Info (12128): Elaborating entity "team2_controller" for hierarchy "team2_controller:t2_ctrl"
-Warning (10230): Verilog HDL assignment warning at team2_controller.v(57): truncated value with size 32 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at team2_controller.v(60): truncated value with size 32 to match size of target (10)
+Info (12128): Elaborating entity "game_controller" for hierarchy "game_controller:game_ctrl"
+Info (12128): Elaborating entity "ver_player_controller" for hierarchy "game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl"
+Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(23): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(62): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(65): truncated value with size 32 to match size of target (10)
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga_cont"
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 35 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1796 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "team2_vd_button"
+    Warning (15610): No output dependent on input pin "team2_vu_button"
+Info (21057): Implemented 1689 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 27 output pins
-    Info (21061): Implemented 1672 logic cells
+    Info (21061): Implemented 1565 logic cells
     Info (21062): Implemented 92 DSP elements
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 4752 megabytes
-    Info: Processing ended: Sat May 04 16:39:10 2019
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:05
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 13 warnings
+    Info: Peak virtual memory: 4731 megabytes
+    Info: Processing ended: Mon May 06 17:32:54 2019
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
 
 
