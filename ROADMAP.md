@@ -1,5 +1,9 @@
 # ROADMAP
 
+## Horizontal Players
+
+* Additional buttons will be acquired to control these
+
 ## Ball
 
 * It will be reflected from players, with realistic angles
