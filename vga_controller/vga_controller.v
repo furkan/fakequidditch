@@ -1,5 +1,9 @@
-module vga_controller(
-	input clk,
+module vga_controller #(
+	parameter PLAYER_RADIUS,		// 25 px
+	parameter GOAL_RADIUS,			// 40 px
+	parameter BALL_RADIUS			//  5 px
+)
+(	input clk,
 	input wire [9:0] y,
 	input wire [9:0] x,
 	input wire [9:0] team1_ver_pos,
@@ -11,10 +15,6 @@ module vga_controller(
 	output reg [7:0] green,
 	output reg [7:0] blue
 );
-	
-	parameter PLAYER_RADIUS =  25;
-	parameter GOAL_RADIUS   =  40;
-	parameter BALL_RADIUS   =   5;
 	
 	assign hor_sync = (x  > 95) ? 1'b1 : 1'b0;
 	assign ver_sync = (y  >  1) ? 1'b1 : 1'b0;
@@ -51,7 +51,14 @@ module vga_controller(
 				||     (((y-330)**2)+((x-700)**2) < (GOAL_RADIUS - 2)**2)   )
 				)	green = 8'b11111111;
 			else green = 8'b00000000;
-			if (((y - team2_ver_pos)**2) + ((x - 600)**2) > PLAYER_RADIUS ** 2)  blue = 8'b11111111;
+			if (((y - team2_ver_pos)**2) + ((x - 600)**2) > PLAYER_RADIUS ** 2
+				&& (   (((y-100)**2)+((x-700)**2) > (GOAL_RADIUS + 2)**2)
+				||     (((y-100)**2)+((x-700)**2) < (GOAL_RADIUS - 2)**2)   )
+				&& (   (((y-220)**2)+((x-700)**2) > (GOAL_RADIUS + 2)**2)
+				||     (((y-220)**2)+((x-700)**2) < (GOAL_RADIUS - 2)**2)   )
+				&& (   (((y-330)**2)+((x-700)**2) > (GOAL_RADIUS + 2)**2)
+				||     (((y-330)**2)+((x-700)**2) < (GOAL_RADIUS - 2)**2)   )
+				)  blue = 8'b11111111;
 			else blue = 8'b00000000;
 		
 		

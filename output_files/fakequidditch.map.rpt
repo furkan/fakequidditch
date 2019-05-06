@@ -1,5 +1,5 @@
 Analysis & Synthesis report for fakequidditch
-Mon May 06 17:32:54 2019
+Mon May 06 19:20:14 2019
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -54,7 +54,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +---------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon May 06 17:32:54 2019      ;
+; Analysis & Synthesis Status     ; Successful - Mon May 06 19:20:14 2019      ;
 ; Quartus II 64-Bit Version       ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                   ; fakequidditch                              ;
 ; Top-level Entity Name           ; fakequidditch                              ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 ; Total pins                      ; 32                                         ;
 ; Total virtual pins              ; 0                                          ;
 ; Total block memory bits         ; 0                                          ;
-; Total DSP Blocks                ; 92                                         ;
+; Total DSP Blocks                ; 116                                        ;
 ; Total HSSI RX PCSs              ; 0                                          ;
 ; Total HSSI PMA RX Deserializers ; 0                                          ;
 ; Total HSSI TX PCSs              ; 0                                          ;
@@ -192,23 +192,23 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 811                      ;
+; Estimate of Logic utilization (ALMs needed) ; 979                      ;
 ;                                             ;                          ;
-; Combinational ALUT usage for logic          ; 1540                     ;
+; Combinational ALUT usage for logic          ; 1861                     ;
 ;     -- 7 input functions                    ; 0                        ;
-;     -- 6 input functions                    ; 78                       ;
-;     -- 5 input functions                    ; 109                      ;
-;     -- 4 input functions                    ; 27                       ;
-;     -- <=3 input functions                  ; 1326                     ;
+;     -- 6 input functions                    ; 93                       ;
+;     -- 5 input functions                    ; 132                      ;
+;     -- 4 input functions                    ; 36                       ;
+;     -- <=3 input functions                  ; 1600                     ;
 ;                                             ;                          ;
 ; Dedicated logic registers                   ; 155                      ;
 ;                                             ;                          ;
 ; I/O pins                                    ; 32                       ;
-; Total DSP Blocks                            ; 92                       ;
+; Total DSP Blocks                            ; 116                      ;
 ; Maximum fan-out node                        ; clock_divider:cd|clk_out ;
 ; Maximum fan-out                             ; 123                      ;
-; Total fan-out                               ; 6608                     ;
-; Average fan-out                             ; 3.57                     ;
+; Total fan-out                               ; 8008                     ;
+; Average fan-out                             ; 3.65                     ;
 +---------------------------------------------+--------------------------+
 
 
@@ -217,11 +217,11 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                           ; Library Name ;
 +----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------+--------------+
-; |fakequidditch                               ; 1540 (0)          ; 155 (0)      ; 0                 ; 92         ; 32   ; 0            ; |fakequidditch                                                                ; work         ;
+; |fakequidditch                               ; 1861 (0)          ; 155 (0)      ; 0                 ; 116        ; 32   ; 0            ; |fakequidditch                                                                ; work         ;
 ;    |clock_divider:cd|                        ; 39 (39)           ; 33 (33)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|clock_divider:cd                                               ; work         ;
-;    |game_controller:game_ctrl|               ; 112 (0)           ; 77 (0)       ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl                                      ; work         ;
-;       |ver_player_controller:team1_ver_ctrl| ; 112 (112)         ; 77 (77)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl ; work         ;
-;    |vga_controller:vga_cont|                 ; 1365 (1365)       ; 24 (24)      ; 0                 ; 92         ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont                                        ; work         ;
+;    |game_controller:game_ctrl|               ; 111 (0)           ; 77 (0)       ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl                                      ; work         ;
+;       |ver_player_controller:team1_ver_ctrl| ; 111 (111)         ; 77 (77)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl ; work         ;
+;    |vga_controller:vga_cont|                 ; 1687 (1687)       ; 24 (24)      ; 0                 ; 116        ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont                                        ; work         ;
 ;    |vga_horizontal:vga_hor|                  ; 13 (13)           ; 11 (11)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_horizontal:vga_hor                                         ; work         ;
 ;    |vga_vertical:vga_ver|                    ; 11 (11)           ; 10 (10)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_vertical:vga_ver                                           ; work         ;
 +----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------+--------------+
@@ -233,11 +233,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------+-------------+---------------------+-------------------+
 ; Statistic           ; Number Used ; Available per Block ; Maximum Available ;
 +---------------------+-------------+---------------------+-------------------+
-; Independent 18x18   ; 46          ; 2.00                ; --                ;
-; Sum of two 18x18    ; 46          ; 1.00                ; --                ;
-; DSP Block           ; 92          ; --                  ; --                ;
-; DSP 18-bit Element  ; 138         ; 2.00                ; --                ;
-; Unsigned Multiplier ; 138         ; --                  ; --                ;
+; Independent 18x18   ; 58          ; 2.00                ; --                ;
+; Sum of two 18x18    ; 58          ; 1.00                ; --                ;
+; DSP Block           ; 116         ; --                  ; --                ;
+; DSP 18-bit Element  ; 174         ; 2.00                ; --                ;
+; Unsigned Multiplier ; 174         ; --                  ; --                ;
 +---------------------+-------------+---------------------+-------------------+
 
 
@@ -345,10 +345,10 @@ Encoding Type:  One-Hot
 +---------------------------------------------------------------------------+---------+
 ; Inverted Register                                                         ; Fan out ;
 +---------------------------------------------------------------------------+---------+
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[1] ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[1] ; 3       ;
 ; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[3] ; 4       ;
 ; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[4] ; 4       ;
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[5] ; 5       ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[5] ; 4       ;
 ; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[6] ; 4       ;
 ; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[7] ; 4       ;
 ; Total number of inverted registers = 6                                    ;         ;
@@ -380,7 +380,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------------------+----------------------------------+-----------------+
 ; Parameter Name            ; Value                            ; Type            ;
 +---------------------------+----------------------------------+-----------------+
-; PLAYER_RADIUS             ; 35                               ; Signed Integer  ;
+; PLAYER_RADIUS             ; 25                               ; Signed Integer  ;
 ; INITIAL_VER_POS           ; 00000000000000000000000011111010 ; Unsigned Binary ;
 ; INITIAL_TEAM1_HOR_POS     ; 00000000000000000000000100101100 ; Unsigned Binary ;
 ; INITIAL_TEAM2_HOR_POS     ; 00000000000000000000001010111100 ; Unsigned Binary ;
@@ -394,7 +394,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------------+----------------------------------+-----------------------------------------------------+
 ; Parameter Name     ; Value                            ; Type                                                ;
 +--------------------+----------------------------------+-----------------------------------------------------+
-; PLAYER_RADIUS      ; 35                               ; Signed Integer                                      ;
+; PLAYER_RADIUS      ; 25                               ; Signed Integer                                      ;
 ; INITIAL_VER_POS    ; 00000000000000000000000011111010 ; Unsigned Binary                                     ;
 ; MOVEMENT_FREQUENCY ; 00000000000000011000011010100000 ; Unsigned Binary                                     ;
 +--------------------+----------------------------------+-----------------------------------------------------+
@@ -406,7 +406,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------------+----------------------------------+-----------------------------------------------------+
 ; Parameter Name     ; Value                            ; Type                                                ;
 +--------------------+----------------------------------+-----------------------------------------------------+
-; PLAYER_RADIUS      ; 35                               ; Signed Integer                                      ;
+; PLAYER_RADIUS      ; 25                               ; Signed Integer                                      ;
 ; INITIAL_VER_POS    ; 00000000000000000000000011111010 ; Unsigned Binary                                     ;
 ; MOVEMENT_FREQUENCY ; 00000000000000011000011010100000 ; Unsigned Binary                                     ;
 +--------------------+----------------------------------+-----------------------------------------------------+
@@ -452,7 +452,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Mon May 06 17:32:50 2019
+    Info: Processing started: Mon May 06 19:20:09 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fakequidditch -c fakequidditch
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file fakequidditch.v
@@ -498,15 +498,15 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "team2_vd_button"
     Warning (15610): No output dependent on input pin "team2_vu_button"
-Info (21057): Implemented 1689 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2034 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 27 output pins
-    Info (21061): Implemented 1565 logic cells
-    Info (21062): Implemented 92 DSP elements
+    Info (21061): Implemented 1886 logic cells
+    Info (21062): Implemented 116 DSP elements
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 4731 megabytes
-    Info: Processing ended: Mon May 06 17:32:54 2019
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Peak virtual memory: 4765 megabytes
+    Info: Processing ended: Mon May 06 19:20:14 2019
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:05
 
 
