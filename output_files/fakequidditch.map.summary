@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Mon May 06 19:20:14 2019
+Analysis & Synthesis Status : Successful - Thu May 16 23:23:30 2019
 Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
 Revision Name : fakequidditch
 Top-level Entity Name : fakequidditch
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 155
+Total registers : 289
 Total pins : 32
 Total virtual pins : 0
 Total block memory bits : 0
-Total DSP Blocks : 116
+Total DSP Blocks : 104
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
 Total HSSI TX PCSs : 0

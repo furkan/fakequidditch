@@ -8,6 +8,9 @@ module vga_controller #(
 	input wire [9:0] x,
 	input wire [9:0] team1_ver_pos,
 	input wire [9:0] team2_ver_pos,
+	
+	input wire [9:0] ball_x,
+	input wire [9:0] ball_y,
 
 	output wire hor_sync,
 	output wire ver_sync,
@@ -20,52 +23,68 @@ module vga_controller #(
 	assign ver_sync = (y  >  1) ? 1'b1 : 1'b0;
 
 	always @(posedge clk) begin
-		if (x < 784 && x > 143 && y < 515 && y > 34) begin		// the active region
+//		if (x < 784 && x > 143 && y < 515 && y > 34) begin		// the active region
+		if (x < 784 && x > 143 && y < 515 && y > 84) begin		// field
 			if (
-				((y - 275)**2) + ((x - 463)**2) < BALL_RADIUS ** 2
+				((y - ball_y)**2) + ((x - ball_x)**2) < BALL_RADIUS ** 2  // BALL
 			) red = 8'b00000000;
 			else if (
-				((y - team1_ver_pos)**2) + ((x - 300)**2) > PLAYER_RADIUS ** 2
+				((y - team1_ver_pos)**2) + ((x - 300)**2) > PLAYER_RADIUS ** 2 // BLUE VER PLAYER
+				
 				&& (   (((y-450)**2)+((x-200)**2) > (GOAL_RADIUS + 2)**2)
-				||     (((y-450)**2)+((x-200)**2) < (GOAL_RADIUS - 2)**2)   )
+				||     (((y-450)**2)+((x-200)**2) < (GOAL_RADIUS - 2)**2)   ) // BLUE GOAL 1
+				
 				&& (   (((y-330)**2)+((x-200)**2) > (GOAL_RADIUS + 2)**2)
-				||     (((y-330)**2)+((x-200)**2) < (GOAL_RADIUS - 2)**2)   )
+				||     (((y-330)**2)+((x-200)**2) < (GOAL_RADIUS - 2)**2)   ) // BLUE GOAL 2
+				
 				&& (   (((y-210)**2)+((x-200)**2) > (GOAL_RADIUS + 2)**2)
-				||     (((y-210)**2)+((x-200)**2) < (GOAL_RADIUS - 2)**2)   )
+				||     (((y-210)**2)+((x-200)**2) < (GOAL_RADIUS - 2)**2)   ) // BLUE GOAL 3
 				) red = 8'b11111111;
 			else  red = 8'b00000000;
 			if (
-				((y - team1_ver_pos)**2) + ((x - 300)**2) > PLAYER_RADIUS ** 2 
-				&& ((y - team2_ver_pos)**2) + ((x - 600)**2) > PLAYER_RADIUS ** 2
+				((y - team1_ver_pos)**2) + ((x - 300)**2) > PLAYER_RADIUS ** 2    // BLUE VER PLAYER
+				&& ((y - team2_ver_pos)**2) + ((x - 600)**2) > PLAYER_RADIUS ** 2 // RED  VER PLAYER
+				
 				&& (   (((y-450)**2)+((x-200)**2) > (GOAL_RADIUS + 2)**2)
-				||     (((y-450)**2)+((x-200)**2) < (GOAL_RADIUS - 2)**2)   )
+				||     (((y-450)**2)+((x-200)**2) < (GOAL_RADIUS - 2)**2)   ) // BLUE GOAL 1
+				
 				&& (   (((y-330)**2)+((x-200)**2) > (GOAL_RADIUS + 2)**2)
-				||     (((y-330)**2)+((x-200)**2) < (GOAL_RADIUS - 2)**2)   )
+				||     (((y-330)**2)+((x-200)**2) < (GOAL_RADIUS - 2)**2)   ) // BLUE GOAL 2
+				
 				&& (   (((y-210)**2)+((x-200)**2) > (GOAL_RADIUS + 2)**2)
-				||     (((y-210)**2)+((x-200)**2) < (GOAL_RADIUS - 2)**2)   )
-				&& (   (((y-100)**2)+((x-700)**2) > (GOAL_RADIUS + 2)**2)
-				||     (((y-100)**2)+((x-700)**2) < (GOAL_RADIUS - 2)**2)   )
-				&& (   (((y-220)**2)+((x-700)**2) > (GOAL_RADIUS + 2)**2)
-				||     (((y-220)**2)+((x-700)**2) < (GOAL_RADIUS - 2)**2)   )
+				||     (((y-210)**2)+((x-200)**2) < (GOAL_RADIUS - 2)**2)   ) // BLUE GOAL 3
+				
+				&& (   (((y-450)**2)+((x-700)**2) > (GOAL_RADIUS + 2)**2)
+				||     (((y-450)**2)+((x-700)**2) < (GOAL_RADIUS - 2)**2)   ) // RED  GOAL 1
+				
+				&& (   (((y-210)**2)+((x-700)**2) > (GOAL_RADIUS + 2)**2)
+				||     (((y-210)**2)+((x-700)**2) < (GOAL_RADIUS - 2)**2)   ) // RED  GOAL 2
+				
 				&& (   (((y-330)**2)+((x-700)**2) > (GOAL_RADIUS + 2)**2)
-				||     (((y-330)**2)+((x-700)**2) < (GOAL_RADIUS - 2)**2)   )
+				||     (((y-330)**2)+((x-700)**2) < (GOAL_RADIUS - 2)**2)   ) // RED  GOAL 3
 				)	green = 8'b11111111;
 			else green = 8'b00000000;
-			if (((y - team2_ver_pos)**2) + ((x - 600)**2) > PLAYER_RADIUS ** 2
-				&& (   (((y-100)**2)+((x-700)**2) > (GOAL_RADIUS + 2)**2)
-				||     (((y-100)**2)+((x-700)**2) < (GOAL_RADIUS - 2)**2)   )
-				&& (   (((y-220)**2)+((x-700)**2) > (GOAL_RADIUS + 2)**2)
-				||     (((y-220)**2)+((x-700)**2) < (GOAL_RADIUS - 2)**2)   )
+			if (((y - team2_ver_pos)**2) + ((x - 600)**2) > PLAYER_RADIUS ** 2 // RED VER PLAYER
+				
+				&& (   (((y-450)**2)+((x-700)**2) > (GOAL_RADIUS + 2)**2)
+				||     (((y-450)**2)+((x-700)**2) < (GOAL_RADIUS - 2)**2)   ) // RED  GOAL 1
+				
+				&& (   (((y-210)**2)+((x-700)**2) > (GOAL_RADIUS + 2)**2)
+				||     (((y-210)**2)+((x-700)**2) < (GOAL_RADIUS - 2)**2)   ) // RED  GOAL 2
+				
 				&& (   (((y-330)**2)+((x-700)**2) > (GOAL_RADIUS + 2)**2)
-				||     (((y-330)**2)+((x-700)**2) < (GOAL_RADIUS - 2)**2)   )
+				||     (((y-330)**2)+((x-700)**2) < (GOAL_RADIUS - 2)**2)   ) // RED  GOAL 3
 				)  blue = 8'b11111111;
 			else blue = 8'b00000000;
 		
-		
-		
-		
-		
-		
+		end else if (x < 784 && x > 143 && y < 85 && y > 81) begin // separator between field and board
+			red   = 8'b00000000;
+			green = 8'b00000000;
+			blue  = 8'b00000000;
+		end else if (x < 784 && x > 143 && y < 82 && y > 34) begin // board
+			red   = 8'b10000000;
+			green = 8'b11111111;
+			blue  = 8'b10101010;
 		end else begin				// outside the active region
 			red   = 8'b00000000;
 			green = 8'b00000000;
@@ -84,5 +103,5 @@ module vga_controller #(
 			blue  <= 8'b00000000;
 		end
 	end
-*/
+*/ 
 endmodule

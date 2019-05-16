@@ -1,5 +1,5 @@
 Analysis & Synthesis report for fakequidditch
-Mon May 06 19:20:14 2019
+Thu May 16 23:23:30 2019
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -17,18 +17,31 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
   9. State Machine - |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_state
  10. State Machine - |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_state
  11. Registers Removed During Synthesis
- 12. Removed Registers Triggering Further Register Optimizations
- 13. General Register Statistics
- 14. Inverted Register Statistics
- 15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Parameter Settings for User Entity Instance: Top-level Entity: |fakequidditch
- 17. Parameter Settings for User Entity Instance: game_controller:game_ctrl
- 18. Parameter Settings for User Entity Instance: game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl
- 19. Parameter Settings for User Entity Instance: game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: Top-level Entity: |fakequidditch
+ 16. Parameter Settings for User Entity Instance: game_controller:game_ctrl
+ 17. Parameter Settings for User Entity Instance: game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl
+ 18. Parameter Settings for User Entity Instance: game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl
+ 19. Parameter Settings for User Entity Instance: game_controller:game_ctrl|ball_controller:ball_ctrl
  20. Parameter Settings for User Entity Instance: vga_controller:vga_cont
- 21. Port Connectivity Checks: "clock_divider:cd"
- 22. Elapsed Time Per Partition
- 23. Analysis & Synthesis Messages
+ 21. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult4_rtl_0
+ 22. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult5_rtl_1
+ 23. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult8_rtl_2
+ 24. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult12_rtl_3
+ 25. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult2_rtl_4
+ 26. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult3_rtl_5
+ 27. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult0_rtl_6
+ 28. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult1_rtl_7
+ 29. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult33_rtl_8
+ 30. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult18_rtl_9
+ 31. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult19_rtl_10
+ 32. lpm_mult Parameter Settings by Entity Instance
+ 33. Port Connectivity Checks: "game_controller:game_ctrl"
+ 34. Port Connectivity Checks: "clock_divider:cd"
+ 35. Elapsed Time Per Partition
+ 36. Analysis & Synthesis Messages
 
 
 
@@ -54,17 +67,17 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +---------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon May 06 19:20:14 2019      ;
+; Analysis & Synthesis Status     ; Successful - Thu May 16 23:23:30 2019      ;
 ; Quartus II 64-Bit Version       ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                   ; fakequidditch                              ;
 ; Top-level Entity Name           ; fakequidditch                              ;
 ; Family                          ; Cyclone V                                  ;
 ; Logic utilization (in ALMs)     ; N/A                                        ;
-; Total registers                 ; 155                                        ;
+; Total registers                 ; 289                                        ;
 ; Total pins                      ; 32                                         ;
 ; Total virtual pins              ; 0                                          ;
 ; Total block memory bits         ; 0                                          ;
-; Total DSP Blocks                ; 116                                        ;
+; Total DSP Blocks                ; 104                                        ;
 ; Total HSSI RX PCSs              ; 0                                          ;
 ; Total HSSI PMA RX Deserializers ; 0                                          ;
 ; Total HSSI TX PCSs              ; 0                                          ;
@@ -161,70 +174,109 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
-+-------------------------------------+
-; Parallel Compilation                ;
-+----------------------------+--------+
-; Processors                 ; Number ;
-+----------------------------+--------+
-; Number detected on machine ; 8      ;
-; Maximum allowed            ; 1      ;
-+----------------------------+--------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ; < 0.1%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                        ;
-+-----------------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path        ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                   ; Library ;
-+-----------------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------+---------+
-; fakequidditch.v                         ; yes             ; User Verilog HDL File  ; C:/Users/e224774/Desktop/fakequidditch/fakequidditch.v                         ;         ;
-; clock_divider.v                         ; yes             ; User Verilog HDL File  ; C:/Users/e224774/Desktop/fakequidditch/clock_divider.v                         ;         ;
-; vga_controller/vga_vertical.v           ; yes             ; User Verilog HDL File  ; C:/Users/e224774/Desktop/fakequidditch/vga_controller/vga_vertical.v           ;         ;
-; vga_controller/vga_horizontal.v         ; yes             ; User Verilog HDL File  ; C:/Users/e224774/Desktop/fakequidditch/vga_controller/vga_horizontal.v         ;         ;
-; vga_controller/vga_controller.v         ; yes             ; User Verilog HDL File  ; C:/Users/e224774/Desktop/fakequidditch/vga_controller/vga_controller.v         ;         ;
-; game_controller/game_controller.v       ; yes             ; User Verilog HDL File  ; C:/Users/e224774/Desktop/fakequidditch/game_controller/game_controller.v       ;         ;
-; game_controller/ver_player_controller.v ; yes             ; User Verilog HDL File  ; C:/Users/e224774/Desktop/fakequidditch/game_controller/ver_player_controller.v ;         ;
-+-----------------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                            ;
++-----------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path        ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ; Library ;
++-----------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; fakequidditch.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Cansu/Desktop/fakequidditch/fakequidditch.v                         ;         ;
+; clock_divider.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Cansu/Desktop/fakequidditch/clock_divider.v                         ;         ;
+; vga_controller/vga_vertical.v           ; yes             ; User Verilog HDL File        ; C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_vertical.v           ;         ;
+; vga_controller/vga_horizontal.v         ; yes             ; User Verilog HDL File        ; C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_horizontal.v         ;         ;
+; vga_controller/vga_controller.v         ; yes             ; User Verilog HDL File        ; C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_controller.v         ;         ;
+; game_controller/ball_controller.v       ; yes             ; User Verilog HDL File        ; C:/Users/Cansu/Desktop/fakequidditch/game_controller/ball_controller.v       ;         ;
+; game_controller/game_controller.v       ; yes             ; User Verilog HDL File        ; C:/Users/Cansu/Desktop/fakequidditch/game_controller/game_controller.v       ;         ;
+; game_controller/ver_player_controller.v ; yes             ; User Verilog HDL File        ; C:/Users/Cansu/Desktop/fakequidditch/game_controller/ver_player_controller.v ;         ;
+; lpm_mult.tdf                            ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_mult.tdf                  ;         ;
+; aglobal131.inc                          ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/aglobal131.inc                ;         ;
+; lpm_add_sub.inc                         ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_add_sub.inc               ;         ;
+; multcore.inc                            ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/multcore.inc                  ;         ;
+; bypassff.inc                            ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/bypassff.inc                  ;         ;
+; altshift.inc                            ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/altshift.inc                  ;         ;
+; db/mult_ol01.v                          ; yes             ; Auto-Generated Megafunction  ; C:/Users/Cansu/Desktop/fakequidditch/db/mult_ol01.v                          ;         ;
++-----------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                            ;
-+---------------------------------------------+--------------------------+
-; Resource                                    ; Usage                    ;
-+---------------------------------------------+--------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 979                      ;
-;                                             ;                          ;
-; Combinational ALUT usage for logic          ; 1861                     ;
-;     -- 7 input functions                    ; 0                        ;
-;     -- 6 input functions                    ; 93                       ;
-;     -- 5 input functions                    ; 132                      ;
-;     -- 4 input functions                    ; 36                       ;
-;     -- <=3 input functions                  ; 1600                     ;
-;                                             ;                          ;
-; Dedicated logic registers                   ; 155                      ;
-;                                             ;                          ;
-; I/O pins                                    ; 32                       ;
-; Total DSP Blocks                            ; 116                      ;
-; Maximum fan-out node                        ; clock_divider:cd|clk_out ;
-; Maximum fan-out                             ; 123                      ;
-; Total fan-out                               ; 8008                     ;
-; Average fan-out                             ; 3.65                     ;
-+---------------------------------------------+--------------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 2641      ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 5137      ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 141       ;
+;     -- 5 input functions                    ; 149       ;
+;     -- 4 input functions                    ; 452       ;
+;     -- <=3 input functions                  ; 4395      ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 289       ;
+;                                             ;           ;
+; I/O pins                                    ; 32        ;
+; Total DSP Blocks                            ; 104       ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 244       ;
+; Total fan-out                               ; 19888     ;
+; Average fan-out                             ; 3.56      ;
++---------------------------------------------+-----------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                   ;
-+----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                           ; Library Name ;
-+----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------+--------------+
-; |fakequidditch                               ; 1861 (0)          ; 155 (0)      ; 0                 ; 116        ; 32   ; 0            ; |fakequidditch                                                                ; work         ;
-;    |clock_divider:cd|                        ; 39 (39)           ; 33 (33)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|clock_divider:cd                                               ; work         ;
-;    |game_controller:game_ctrl|               ; 111 (0)           ; 77 (0)       ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl                                      ; work         ;
-;       |ver_player_controller:team1_ver_ctrl| ; 111 (111)         ; 77 (77)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl ; work         ;
-;    |vga_controller:vga_cont|                 ; 1687 (1687)       ; 24 (24)      ; 0                 ; 116        ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont                                        ; work         ;
-;    |vga_horizontal:vga_hor|                  ; 13 (13)           ; 11 (11)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_horizontal:vga_hor                                         ; work         ;
-;    |vga_vertical:vga_ver|                    ; 11 (11)           ; 10 (10)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_vertical:vga_ver                                           ; work         ;
-+----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                            ;
++----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                    ; Library Name ;
++----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------+--------------+
+; |fakequidditch                               ; 5137 (0)          ; 289 (0)      ; 0                 ; 104        ; 32   ; 0            ; |fakequidditch                                                                         ; work         ;
+;    |clock_divider:cd|                        ; 39 (39)           ; 33 (33)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|clock_divider:cd                                                        ; work         ;
+;    |game_controller:game_ctrl|               ; 678 (0)           ; 211 (0)      ; 0                 ; 24         ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl                                               ; work         ;
+;       |ball_controller:ball_ctrl|            ; 458 (458)         ; 57 (57)      ; 0                 ; 24         ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ball_controller:ball_ctrl                     ; work         ;
+;       |ver_player_controller:team1_ver_ctrl| ; 110 (110)         ; 77 (77)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl          ; work         ;
+;       |ver_player_controller:team2_ver_ctrl| ; 110 (110)         ; 77 (77)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl          ; work         ;
+;    |vga_controller:vga_cont|                 ; 4395 (1668)       ; 24 (24)      ; 0                 ; 80         ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont                                                 ; work         ;
+;       |lpm_mult:Mult0_rtl_6|                 ; 248 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult0_rtl_6                            ; work         ;
+;          |mult_ol01:auto_generated|          ; 248 (248)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult0_rtl_6|mult_ol01:auto_generated   ; work         ;
+;       |lpm_mult:Mult12_rtl_3|                ; 248 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult12_rtl_3                           ; work         ;
+;          |mult_ol01:auto_generated|          ; 248 (248)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult12_rtl_3|mult_ol01:auto_generated  ; work         ;
+;       |lpm_mult:Mult18_rtl_9|                ; 248 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult18_rtl_9                           ; work         ;
+;          |mult_ol01:auto_generated|          ; 248 (248)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult18_rtl_9|mult_ol01:auto_generated  ; work         ;
+;       |lpm_mult:Mult19_rtl_10|               ; 247 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult19_rtl_10                          ; work         ;
+;          |mult_ol01:auto_generated|          ; 247 (247)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult19_rtl_10|mult_ol01:auto_generated ; work         ;
+;       |lpm_mult:Mult1_rtl_7|                 ; 248 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult1_rtl_7                            ; work         ;
+;          |mult_ol01:auto_generated|          ; 248 (248)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult1_rtl_7|mult_ol01:auto_generated   ; work         ;
+;       |lpm_mult:Mult2_rtl_4|                 ; 248 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult2_rtl_4                            ; work         ;
+;          |mult_ol01:auto_generated|          ; 248 (248)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult2_rtl_4|mult_ol01:auto_generated   ; work         ;
+;       |lpm_mult:Mult33_rtl_8|                ; 248 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult33_rtl_8                           ; work         ;
+;          |mult_ol01:auto_generated|          ; 248 (248)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult33_rtl_8|mult_ol01:auto_generated  ; work         ;
+;       |lpm_mult:Mult3_rtl_5|                 ; 248 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult3_rtl_5                            ; work         ;
+;          |mult_ol01:auto_generated|          ; 248 (248)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult3_rtl_5|mult_ol01:auto_generated   ; work         ;
+;       |lpm_mult:Mult4_rtl_0|                 ; 248 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult4_rtl_0                            ; work         ;
+;          |mult_ol01:auto_generated|          ; 248 (248)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult4_rtl_0|mult_ol01:auto_generated   ; work         ;
+;       |lpm_mult:Mult5_rtl_1|                 ; 248 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult5_rtl_1                            ; work         ;
+;          |mult_ol01:auto_generated|          ; 248 (248)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult5_rtl_1|mult_ol01:auto_generated   ; work         ;
+;       |lpm_mult:Mult8_rtl_2|                 ; 248 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult8_rtl_2                            ; work         ;
+;          |mult_ol01:auto_generated|          ; 248 (248)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult8_rtl_2|mult_ol01:auto_generated   ; work         ;
+;    |vga_horizontal:vga_hor|                  ; 13 (13)           ; 11 (11)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_horizontal:vga_hor                                                  ; work         ;
+;    |vga_vertical:vga_ver|                    ; 12 (12)           ; 10 (10)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_vertical:vga_ver                                                    ; work         ;
++----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -233,9 +285,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------+-------------+---------------------+-------------------+
 ; Statistic           ; Number Used ; Available per Block ; Maximum Available ;
 +---------------------+-------------+---------------------+-------------------+
-; Independent 18x18   ; 58          ; 2.00                ; --                ;
-; Sum of two 18x18    ; 58          ; 1.00                ; --                ;
-; DSP Block           ; 116         ; --                  ; --                ;
+; Independent 18x18   ; 34          ; 2.00                ; --                ;
+; Sum of two 18x18    ; 70          ; 1.00                ; --                ;
+; DSP Block           ; 104         ; --                  ; --                ;
 ; DSP 18-bit Element  ; 174         ; 2.00                ; --                ;
 ; Unsigned Multiplier ; 174         ; --                  ; --                ;
 +---------------------+-------------+---------------------+-------------------+
@@ -265,64 +317,17 @@ Encoding Type:  One-Hot
 +-----------------+-----------------+----------------+----------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                                                             ;
-+-------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
-; Register name                                                                             ; Reason for Removal                                                                                 ;
-+-------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[6]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[6]  ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[5]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[5]  ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[1]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[1]  ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[31]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[31] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[30]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[30] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[29]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[29] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[28]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[28] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[27]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[27] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[26]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[26] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[25]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[25] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[24]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[24] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[23]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[23] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[22]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[22] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[21]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[21] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[20]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[20] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[19]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[19] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[18]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[18] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[17]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[17] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[16]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[16] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[15]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[15] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[14]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[14] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[13]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[13] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[12]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[12] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[11]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[11] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[10]      ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[10] ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[9]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[9]  ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[8]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[8]  ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[7]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[7]  ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[4]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[4]  ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[3]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[3]  ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[2]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[2]  ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|up_button_counter[0]       ; Merged with game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[0]  ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[8,9]               ; Stuck at GND due to stuck port data_in                                                             ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[3..7]              ; Stuck at VCC due to stuck port data_in                                                             ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[2]                 ; Stuck at GND due to stuck port data_in                                                             ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[1]                 ; Stuck at VCC due to stuck port data_in                                                             ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[0]                 ; Stuck at GND due to stuck port data_in                                                             ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[0..31] ; Lost fanout                                                                                        ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_state.float            ; Lost fanout                                                                                        ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_state.up               ; Lost fanout                                                                                        ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_state.down             ; Lost fanout                                                                                        ;
-; Total Number of Removed Registers = 77                                                    ;                                                                                                    ;
-+-------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                                                          ;
-+---------------------------------------------------------------------------------------+--------------------+-----------------------------------------------------------------------------------------+
-; Register name                                                                         ; Reason for Removal ; Registers Removed due to This Register                                                  ;
-+---------------------------------------------------------------------------------------+--------------------+-----------------------------------------------------------------------------------------+
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[0] ; Lost Fanouts       ; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[30], ;
-;                                                                                       ;                    ; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|down_button_counter[31]  ;
-+---------------------------------------------------------------------------------------+--------------------+-----------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                  ;
++---------------------------------------------------------------------+-------------------------------------------------------------------------------+
+; Register name                                                       ; Reason for Removal                                                            ;
++---------------------------------------------------------------------+-------------------------------------------------------------------------------+
+; game_controller:game_ctrl|ball_controller:ball_ctrl|ball_dir_y[0]   ; Stuck at VCC due to stuck port data_in                                        ;
+; game_controller:game_ctrl|ball_controller:ball_ctrl|ball_dir_x[0]   ; Stuck at VCC due to stuck port data_in                                        ;
+; game_controller:game_ctrl|ball_controller:ball_ctrl|ball_dir_y[1,4] ; Merged with game_controller:game_ctrl|ball_controller:ball_ctrl|ball_dir_y[3] ;
+; game_controller:game_ctrl|ball_controller:ball_ctrl|ball_dir_x[1,3] ; Merged with game_controller:game_ctrl|ball_controller:ball_ctrl|ball_dir_x[4] ;
+; Total Number of Removed Registers = 6                               ;                                                                               ;
++---------------------------------------------------------------------+-------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -330,12 +335,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 155   ;
-; Number of registers using Synchronous Clear  ; 116   ;
+; Total registers                              ; 289   ;
+; Number of registers using Synchronous Clear  ; 211   ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 20    ;
+; Number of registers using Clock Enable       ; 53    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -345,13 +350,32 @@ Encoding Type:  One-Hot
 +---------------------------------------------------------------------------+---------+
 ; Inverted Register                                                         ; Fan out ;
 +---------------------------------------------------------------------------+---------+
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[1] ; 3       ;
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[3] ; 4       ;
+; game_controller:game_ctrl|ball_controller:ball_ctrl|y_position[0]         ; 27      ;
+; game_controller:game_ctrl|ball_controller:ball_ctrl|x_position[0]         ; 26      ;
 ; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[4] ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[1] ; 4       ;
+; game_controller:game_ctrl|ball_controller:ball_ctrl|y_position[4]         ; 7       ;
+; game_controller:game_ctrl|ball_controller:ball_ctrl|y_position[1]         ; 7       ;
+; game_controller:game_ctrl|ball_controller:ball_ctrl|x_position[1]         ; 27      ;
+; game_controller:game_ctrl|ball_controller:ball_ctrl|x_position[2]         ; 16      ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[4] ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[1] ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[3] ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[5] ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[6] ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[7] ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[3] ; 4       ;
 ; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[5] ; 4       ;
 ; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[6] ; 4       ;
 ; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[7] ; 4       ;
-; Total number of inverted registers = 6                                    ;         ;
+; game_controller:game_ctrl|ball_controller:ball_ctrl|y_position[8]         ; 7       ;
+; game_controller:game_ctrl|ball_controller:ball_ctrl|x_position[3]         ; 6       ;
+; game_controller:game_ctrl|ball_controller:ball_ctrl|x_position[6]         ; 6       ;
+; game_controller:game_ctrl|ball_controller:ball_ctrl|x_position[7]         ; 6       ;
+; game_controller:game_ctrl|ball_controller:ball_ctrl|x_position[8]         ; 5       ;
+; game_controller:game_ctrl|ball_controller:ball_ctrl|ball_dir_y[2]         ; 2       ;
+; game_controller:game_ctrl|ball_controller:ball_ctrl|ball_dir_x[2]         ; 2       ;
+; Total number of inverted registers = 25                                   ;         ;
 +---------------------------------------------------------------------------+---------+
 
 
@@ -360,8 +384,14 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------+
-; 5:1                ; 4 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[8] ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[6] ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller:ball_ctrl|ball_dir_x[4]         ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller:ball_ctrl|ball_dir_y[3]         ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[9] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[2] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 0 LEs                ; 4 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller:ball_ctrl|ball_dir_x[2]         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 0 LEs                ; 4 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller:ball_ctrl|ball_dir_y[0]         ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[7] ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[1] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------+
 
 
@@ -381,10 +411,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Parameter Name            ; Value                            ; Type            ;
 +---------------------------+----------------------------------+-----------------+
 ; PLAYER_RADIUS             ; 25                               ; Signed Integer  ;
+; BALL_RADIUS               ; 5                                ; Signed Integer  ;
+; GOAL_RADIUS               ; 40                               ; Signed Integer  ;
 ; INITIAL_VER_POS           ; 00000000000000000000000011111010 ; Unsigned Binary ;
 ; INITIAL_TEAM1_HOR_POS     ; 00000000000000000000000100101100 ; Unsigned Binary ;
 ; INITIAL_TEAM2_HOR_POS     ; 00000000000000000000001010111100 ; Unsigned Binary ;
-; PLAYER_MOVEMENT_FREQUENCY ; 00000000000000011000011010100000 ; Unsigned Binary ;
+; PLAYER_MOVEMENT_FREQUENCY ; 00000000000000110000110101000000 ; Unsigned Binary ;
+; BALL_MOVEMENT_FREQUENCY   ; 00000001001100010010110100000000 ; Unsigned Binary ;
 +---------------------------+----------------------------------+-----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -396,7 +429,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------------+----------------------------------+-----------------------------------------------------+
 ; PLAYER_RADIUS      ; 25                               ; Signed Integer                                      ;
 ; INITIAL_VER_POS    ; 00000000000000000000000011111010 ; Unsigned Binary                                     ;
-; MOVEMENT_FREQUENCY ; 00000000000000011000011010100000 ; Unsigned Binary                                     ;
+; MOVEMENT_FREQUENCY ; 00000000000000110000110101000000 ; Unsigned Binary                                     ;
 +--------------------+----------------------------------+-----------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -408,8 +441,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------------+----------------------------------+-----------------------------------------------------+
 ; PLAYER_RADIUS      ; 25                               ; Signed Integer                                      ;
 ; INITIAL_VER_POS    ; 00000000000000000000000011111010 ; Unsigned Binary                                     ;
-; MOVEMENT_FREQUENCY ; 00000000000000011000011010100000 ; Unsigned Binary                                     ;
+; MOVEMENT_FREQUENCY ; 00000000000000110000110101000000 ; Unsigned Binary                                     ;
 +--------------------+----------------------------------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: game_controller:game_ctrl|ball_controller:ball_ctrl ;
++--------------------+----------------------------------+------------------------------------------+
+; Parameter Name     ; Value                            ; Type                                     ;
++--------------------+----------------------------------+------------------------------------------+
+; PLAYER_RADIUS      ; 25                               ; Signed Integer                           ;
+; BALL_RADIUS        ; 5                                ; Signed Integer                           ;
+; GOAL_RADIUS        ; 40                               ; Signed Integer                           ;
+; MOVEMENT_FREQUENCY ; 00000001001100010010110100000000 ; Unsigned Binary                          ;
++--------------------+----------------------------------+------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -423,6 +469,531 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; BALL_RADIUS    ; 5     ; Signed Integer                              ;
 +----------------+-------+---------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult4_rtl_0 ;
++------------------------------------------------+-----------+----------------------------------+
+; Parameter Name                                 ; Value     ; Type                             ;
++------------------------------------------------+-----------+----------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE                   ;
+; LPM_WIDTHA                                     ; 18        ; Untyped                          ;
+; LPM_WIDTHB                                     ; 18        ; Untyped                          ;
+; LPM_WIDTHP                                     ; 36        ; Untyped                          ;
+; LPM_WIDTHR                                     ; 36        ; Untyped                          ;
+; LPM_WIDTHS                                     ; 1         ; Untyped                          ;
+; LPM_REPRESENTATION                             ; UNSIGNED  ; Untyped                          ;
+; LPM_PIPELINE                                   ; 0         ; Untyped                          ;
+; LATENCY                                        ; 0         ; Untyped                          ;
+; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped                          ;
+; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped                          ;
+; USE_EAB                                        ; OFF       ; Untyped                          ;
+; MAXIMIZE_SPEED                                 ; 5         ; Untyped                          ;
+; DEVICE_FAMILY                                  ; Cyclone V ; Untyped                          ;
+; CARRY_CHAIN                                    ; MANUAL    ; Untyped                          ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K              ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; NO        ; Untyped                          ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped                          ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped                          ;
+; CBXI_PARAMETER                                 ; mult_ol01 ; Untyped                          ;
+; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped                          ;
+; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped                          ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped                          ;
++------------------------------------------------+-----------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult5_rtl_1 ;
++------------------------------------------------+-----------+----------------------------------+
+; Parameter Name                                 ; Value     ; Type                             ;
++------------------------------------------------+-----------+----------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE                   ;
+; LPM_WIDTHA                                     ; 18        ; Untyped                          ;
+; LPM_WIDTHB                                     ; 18        ; Untyped                          ;
+; LPM_WIDTHP                                     ; 36        ; Untyped                          ;
+; LPM_WIDTHR                                     ; 36        ; Untyped                          ;
+; LPM_WIDTHS                                     ; 1         ; Untyped                          ;
+; LPM_REPRESENTATION                             ; UNSIGNED  ; Untyped                          ;
+; LPM_PIPELINE                                   ; 0         ; Untyped                          ;
+; LATENCY                                        ; 0         ; Untyped                          ;
+; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped                          ;
+; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped                          ;
+; USE_EAB                                        ; OFF       ; Untyped                          ;
+; MAXIMIZE_SPEED                                 ; 5         ; Untyped                          ;
+; DEVICE_FAMILY                                  ; Cyclone V ; Untyped                          ;
+; CARRY_CHAIN                                    ; MANUAL    ; Untyped                          ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K              ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; NO        ; Untyped                          ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped                          ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped                          ;
+; CBXI_PARAMETER                                 ; mult_ol01 ; Untyped                          ;
+; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped                          ;
+; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped                          ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped                          ;
++------------------------------------------------+-----------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult8_rtl_2 ;
++------------------------------------------------+-----------+----------------------------------+
+; Parameter Name                                 ; Value     ; Type                             ;
++------------------------------------------------+-----------+----------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE                   ;
+; LPM_WIDTHA                                     ; 18        ; Untyped                          ;
+; LPM_WIDTHB                                     ; 18        ; Untyped                          ;
+; LPM_WIDTHP                                     ; 36        ; Untyped                          ;
+; LPM_WIDTHR                                     ; 36        ; Untyped                          ;
+; LPM_WIDTHS                                     ; 1         ; Untyped                          ;
+; LPM_REPRESENTATION                             ; UNSIGNED  ; Untyped                          ;
+; LPM_PIPELINE                                   ; 0         ; Untyped                          ;
+; LATENCY                                        ; 0         ; Untyped                          ;
+; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped                          ;
+; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped                          ;
+; USE_EAB                                        ; OFF       ; Untyped                          ;
+; MAXIMIZE_SPEED                                 ; 5         ; Untyped                          ;
+; DEVICE_FAMILY                                  ; Cyclone V ; Untyped                          ;
+; CARRY_CHAIN                                    ; MANUAL    ; Untyped                          ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K              ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; NO        ; Untyped                          ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped                          ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped                          ;
+; CBXI_PARAMETER                                 ; mult_ol01 ; Untyped                          ;
+; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped                          ;
+; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped                          ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped                          ;
++------------------------------------------------+-----------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult12_rtl_3 ;
++------------------------------------------------+-----------+-----------------------------------+
+; Parameter Name                                 ; Value     ; Type                              ;
++------------------------------------------------+-----------+-----------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY                        ;
+; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY                      ;
+; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE                      ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE                    ;
+; LPM_WIDTHA                                     ; 18        ; Untyped                           ;
+; LPM_WIDTHB                                     ; 18        ; Untyped                           ;
+; LPM_WIDTHP                                     ; 36        ; Untyped                           ;
+; LPM_WIDTHR                                     ; 36        ; Untyped                           ;
+; LPM_WIDTHS                                     ; 1         ; Untyped                           ;
+; LPM_REPRESENTATION                             ; UNSIGNED  ; Untyped                           ;
+; LPM_PIPELINE                                   ; 0         ; Untyped                           ;
+; LATENCY                                        ; 0         ; Untyped                           ;
+; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped                           ;
+; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped                           ;
+; USE_EAB                                        ; OFF       ; Untyped                           ;
+; MAXIMIZE_SPEED                                 ; 5         ; Untyped                           ;
+; DEVICE_FAMILY                                  ; Cyclone V ; Untyped                           ;
+; CARRY_CHAIN                                    ; MANUAL    ; Untyped                           ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K               ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; NO        ; Untyped                           ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped                           ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped                           ;
+; CBXI_PARAMETER                                 ; mult_ol01 ; Untyped                           ;
+; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped                           ;
+; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped                           ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped                           ;
++------------------------------------------------+-----------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult2_rtl_4 ;
++------------------------------------------------+-----------+----------------------------------+
+; Parameter Name                                 ; Value     ; Type                             ;
++------------------------------------------------+-----------+----------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE                   ;
+; LPM_WIDTHA                                     ; 18        ; Untyped                          ;
+; LPM_WIDTHB                                     ; 18        ; Untyped                          ;
+; LPM_WIDTHP                                     ; 36        ; Untyped                          ;
+; LPM_WIDTHR                                     ; 36        ; Untyped                          ;
+; LPM_WIDTHS                                     ; 1         ; Untyped                          ;
+; LPM_REPRESENTATION                             ; UNSIGNED  ; Untyped                          ;
+; LPM_PIPELINE                                   ; 0         ; Untyped                          ;
+; LATENCY                                        ; 0         ; Untyped                          ;
+; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped                          ;
+; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped                          ;
+; USE_EAB                                        ; OFF       ; Untyped                          ;
+; MAXIMIZE_SPEED                                 ; 5         ; Untyped                          ;
+; DEVICE_FAMILY                                  ; Cyclone V ; Untyped                          ;
+; CARRY_CHAIN                                    ; MANUAL    ; Untyped                          ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K              ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; NO        ; Untyped                          ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped                          ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped                          ;
+; CBXI_PARAMETER                                 ; mult_ol01 ; Untyped                          ;
+; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped                          ;
+; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped                          ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped                          ;
++------------------------------------------------+-----------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult3_rtl_5 ;
++------------------------------------------------+-----------+----------------------------------+
+; Parameter Name                                 ; Value     ; Type                             ;
++------------------------------------------------+-----------+----------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE                   ;
+; LPM_WIDTHA                                     ; 18        ; Untyped                          ;
+; LPM_WIDTHB                                     ; 18        ; Untyped                          ;
+; LPM_WIDTHP                                     ; 36        ; Untyped                          ;
+; LPM_WIDTHR                                     ; 36        ; Untyped                          ;
+; LPM_WIDTHS                                     ; 1         ; Untyped                          ;
+; LPM_REPRESENTATION                             ; UNSIGNED  ; Untyped                          ;
+; LPM_PIPELINE                                   ; 0         ; Untyped                          ;
+; LATENCY                                        ; 0         ; Untyped                          ;
+; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped                          ;
+; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped                          ;
+; USE_EAB                                        ; OFF       ; Untyped                          ;
+; MAXIMIZE_SPEED                                 ; 5         ; Untyped                          ;
+; DEVICE_FAMILY                                  ; Cyclone V ; Untyped                          ;
+; CARRY_CHAIN                                    ; MANUAL    ; Untyped                          ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K              ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; NO        ; Untyped                          ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped                          ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped                          ;
+; CBXI_PARAMETER                                 ; mult_ol01 ; Untyped                          ;
+; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped                          ;
+; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped                          ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped                          ;
++------------------------------------------------+-----------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult0_rtl_6 ;
++------------------------------------------------+-----------+----------------------------------+
+; Parameter Name                                 ; Value     ; Type                             ;
++------------------------------------------------+-----------+----------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE                   ;
+; LPM_WIDTHA                                     ; 18        ; Untyped                          ;
+; LPM_WIDTHB                                     ; 18        ; Untyped                          ;
+; LPM_WIDTHP                                     ; 36        ; Untyped                          ;
+; LPM_WIDTHR                                     ; 36        ; Untyped                          ;
+; LPM_WIDTHS                                     ; 1         ; Untyped                          ;
+; LPM_REPRESENTATION                             ; UNSIGNED  ; Untyped                          ;
+; LPM_PIPELINE                                   ; 0         ; Untyped                          ;
+; LATENCY                                        ; 0         ; Untyped                          ;
+; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped                          ;
+; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped                          ;
+; USE_EAB                                        ; OFF       ; Untyped                          ;
+; MAXIMIZE_SPEED                                 ; 5         ; Untyped                          ;
+; DEVICE_FAMILY                                  ; Cyclone V ; Untyped                          ;
+; CARRY_CHAIN                                    ; MANUAL    ; Untyped                          ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K              ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; NO        ; Untyped                          ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped                          ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped                          ;
+; CBXI_PARAMETER                                 ; mult_ol01 ; Untyped                          ;
+; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped                          ;
+; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped                          ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped                          ;
++------------------------------------------------+-----------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult1_rtl_7 ;
++------------------------------------------------+-----------+----------------------------------+
+; Parameter Name                                 ; Value     ; Type                             ;
++------------------------------------------------+-----------+----------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE                   ;
+; LPM_WIDTHA                                     ; 18        ; Untyped                          ;
+; LPM_WIDTHB                                     ; 18        ; Untyped                          ;
+; LPM_WIDTHP                                     ; 36        ; Untyped                          ;
+; LPM_WIDTHR                                     ; 36        ; Untyped                          ;
+; LPM_WIDTHS                                     ; 1         ; Untyped                          ;
+; LPM_REPRESENTATION                             ; UNSIGNED  ; Untyped                          ;
+; LPM_PIPELINE                                   ; 0         ; Untyped                          ;
+; LATENCY                                        ; 0         ; Untyped                          ;
+; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped                          ;
+; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped                          ;
+; USE_EAB                                        ; OFF       ; Untyped                          ;
+; MAXIMIZE_SPEED                                 ; 5         ; Untyped                          ;
+; DEVICE_FAMILY                                  ; Cyclone V ; Untyped                          ;
+; CARRY_CHAIN                                    ; MANUAL    ; Untyped                          ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K              ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; NO        ; Untyped                          ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped                          ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped                          ;
+; CBXI_PARAMETER                                 ; mult_ol01 ; Untyped                          ;
+; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped                          ;
+; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped                          ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped                          ;
++------------------------------------------------+-----------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult33_rtl_8 ;
++------------------------------------------------+-----------+-----------------------------------+
+; Parameter Name                                 ; Value     ; Type                              ;
++------------------------------------------------+-----------+-----------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY                        ;
+; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY                      ;
+; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE                      ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE                    ;
+; LPM_WIDTHA                                     ; 18        ; Untyped                           ;
+; LPM_WIDTHB                                     ; 18        ; Untyped                           ;
+; LPM_WIDTHP                                     ; 36        ; Untyped                           ;
+; LPM_WIDTHR                                     ; 36        ; Untyped                           ;
+; LPM_WIDTHS                                     ; 1         ; Untyped                           ;
+; LPM_REPRESENTATION                             ; UNSIGNED  ; Untyped                           ;
+; LPM_PIPELINE                                   ; 0         ; Untyped                           ;
+; LATENCY                                        ; 0         ; Untyped                           ;
+; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped                           ;
+; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped                           ;
+; USE_EAB                                        ; OFF       ; Untyped                           ;
+; MAXIMIZE_SPEED                                 ; 5         ; Untyped                           ;
+; DEVICE_FAMILY                                  ; Cyclone V ; Untyped                           ;
+; CARRY_CHAIN                                    ; MANUAL    ; Untyped                           ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K               ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; NO        ; Untyped                           ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped                           ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped                           ;
+; CBXI_PARAMETER                                 ; mult_ol01 ; Untyped                           ;
+; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped                           ;
+; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped                           ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped                           ;
++------------------------------------------------+-----------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult18_rtl_9 ;
++------------------------------------------------+-----------+-----------------------------------+
+; Parameter Name                                 ; Value     ; Type                              ;
++------------------------------------------------+-----------+-----------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY                        ;
+; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY                      ;
+; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE                      ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE                    ;
+; LPM_WIDTHA                                     ; 18        ; Untyped                           ;
+; LPM_WIDTHB                                     ; 18        ; Untyped                           ;
+; LPM_WIDTHP                                     ; 36        ; Untyped                           ;
+; LPM_WIDTHR                                     ; 36        ; Untyped                           ;
+; LPM_WIDTHS                                     ; 1         ; Untyped                           ;
+; LPM_REPRESENTATION                             ; UNSIGNED  ; Untyped                           ;
+; LPM_PIPELINE                                   ; 0         ; Untyped                           ;
+; LATENCY                                        ; 0         ; Untyped                           ;
+; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped                           ;
+; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped                           ;
+; USE_EAB                                        ; OFF       ; Untyped                           ;
+; MAXIMIZE_SPEED                                 ; 5         ; Untyped                           ;
+; DEVICE_FAMILY                                  ; Cyclone V ; Untyped                           ;
+; CARRY_CHAIN                                    ; MANUAL    ; Untyped                           ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K               ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; NO        ; Untyped                           ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped                           ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped                           ;
+; CBXI_PARAMETER                                 ; mult_ol01 ; Untyped                           ;
+; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped                           ;
+; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped                           ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped                           ;
++------------------------------------------------+-----------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult19_rtl_10 ;
++------------------------------------------------+-----------+------------------------------------+
+; Parameter Name                                 ; Value     ; Type                               ;
++------------------------------------------------+-----------+------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY                         ;
+; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY                       ;
+; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE                       ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE                     ;
+; LPM_WIDTHA                                     ; 18        ; Untyped                            ;
+; LPM_WIDTHB                                     ; 18        ; Untyped                            ;
+; LPM_WIDTHP                                     ; 36        ; Untyped                            ;
+; LPM_WIDTHR                                     ; 36        ; Untyped                            ;
+; LPM_WIDTHS                                     ; 1         ; Untyped                            ;
+; LPM_REPRESENTATION                             ; UNSIGNED  ; Untyped                            ;
+; LPM_PIPELINE                                   ; 0         ; Untyped                            ;
+; LATENCY                                        ; 0         ; Untyped                            ;
+; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped                            ;
+; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped                            ;
+; USE_EAB                                        ; OFF       ; Untyped                            ;
+; MAXIMIZE_SPEED                                 ; 5         ; Untyped                            ;
+; DEVICE_FAMILY                                  ; Cyclone V ; Untyped                            ;
+; CARRY_CHAIN                                    ; MANUAL    ; Untyped                            ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K                ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; NO        ; Untyped                            ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped                            ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped                            ;
+; CBXI_PARAMETER                                 ; mult_ol01 ; Untyped                            ;
+; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped                            ;
+; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped                            ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped                            ;
++------------------------------------------------+-----------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                         ;
++---------------------------------------+------------------------------------------------+
+; Name                                  ; Value                                          ;
++---------------------------------------+------------------------------------------------+
+; Number of entity instances            ; 11                                             ;
+; Entity Instance                       ; vga_controller:vga_cont|lpm_mult:Mult4_rtl_0   ;
+;     -- LPM_WIDTHA                     ; 18                                             ;
+;     -- LPM_WIDTHB                     ; 18                                             ;
+;     -- LPM_WIDTHP                     ; 36                                             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                             ;
+;     -- USE_EAB                        ; OFF                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; NO                                             ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                             ;
+; Entity Instance                       ; vga_controller:vga_cont|lpm_mult:Mult5_rtl_1   ;
+;     -- LPM_WIDTHA                     ; 18                                             ;
+;     -- LPM_WIDTHB                     ; 18                                             ;
+;     -- LPM_WIDTHP                     ; 36                                             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                             ;
+;     -- USE_EAB                        ; OFF                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; NO                                             ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                             ;
+; Entity Instance                       ; vga_controller:vga_cont|lpm_mult:Mult8_rtl_2   ;
+;     -- LPM_WIDTHA                     ; 18                                             ;
+;     -- LPM_WIDTHB                     ; 18                                             ;
+;     -- LPM_WIDTHP                     ; 36                                             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                             ;
+;     -- USE_EAB                        ; OFF                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; NO                                             ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                             ;
+; Entity Instance                       ; vga_controller:vga_cont|lpm_mult:Mult12_rtl_3  ;
+;     -- LPM_WIDTHA                     ; 18                                             ;
+;     -- LPM_WIDTHB                     ; 18                                             ;
+;     -- LPM_WIDTHP                     ; 36                                             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                             ;
+;     -- USE_EAB                        ; OFF                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; NO                                             ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                             ;
+; Entity Instance                       ; vga_controller:vga_cont|lpm_mult:Mult2_rtl_4   ;
+;     -- LPM_WIDTHA                     ; 18                                             ;
+;     -- LPM_WIDTHB                     ; 18                                             ;
+;     -- LPM_WIDTHP                     ; 36                                             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                             ;
+;     -- USE_EAB                        ; OFF                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; NO                                             ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                             ;
+; Entity Instance                       ; vga_controller:vga_cont|lpm_mult:Mult3_rtl_5   ;
+;     -- LPM_WIDTHA                     ; 18                                             ;
+;     -- LPM_WIDTHB                     ; 18                                             ;
+;     -- LPM_WIDTHP                     ; 36                                             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                             ;
+;     -- USE_EAB                        ; OFF                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; NO                                             ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                             ;
+; Entity Instance                       ; vga_controller:vga_cont|lpm_mult:Mult0_rtl_6   ;
+;     -- LPM_WIDTHA                     ; 18                                             ;
+;     -- LPM_WIDTHB                     ; 18                                             ;
+;     -- LPM_WIDTHP                     ; 36                                             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                             ;
+;     -- USE_EAB                        ; OFF                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; NO                                             ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                             ;
+; Entity Instance                       ; vga_controller:vga_cont|lpm_mult:Mult1_rtl_7   ;
+;     -- LPM_WIDTHA                     ; 18                                             ;
+;     -- LPM_WIDTHB                     ; 18                                             ;
+;     -- LPM_WIDTHP                     ; 36                                             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                             ;
+;     -- USE_EAB                        ; OFF                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; NO                                             ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                             ;
+; Entity Instance                       ; vga_controller:vga_cont|lpm_mult:Mult33_rtl_8  ;
+;     -- LPM_WIDTHA                     ; 18                                             ;
+;     -- LPM_WIDTHB                     ; 18                                             ;
+;     -- LPM_WIDTHP                     ; 36                                             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                             ;
+;     -- USE_EAB                        ; OFF                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; NO                                             ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                             ;
+; Entity Instance                       ; vga_controller:vga_cont|lpm_mult:Mult18_rtl_9  ;
+;     -- LPM_WIDTHA                     ; 18                                             ;
+;     -- LPM_WIDTHB                     ; 18                                             ;
+;     -- LPM_WIDTHP                     ; 36                                             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                             ;
+;     -- USE_EAB                        ; OFF                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; NO                                             ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                             ;
+; Entity Instance                       ; vga_controller:vga_cont|lpm_mult:Mult19_rtl_10 ;
+;     -- LPM_WIDTHA                     ; 18                                             ;
+;     -- LPM_WIDTHB                     ; 18                                             ;
+;     -- LPM_WIDTHP                     ; 36                                             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                             ;
+;     -- USE_EAB                        ; OFF                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; NO                                             ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                             ;
++---------------------------------------+------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "game_controller:game_ctrl"                                                                 ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; team1_score ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; team2_score ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -442,7 +1013,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:07     ;
 +----------------+--------------+
 
 
@@ -452,9 +1023,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Mon May 06 19:20:09 2019
+    Info: Processing started: Thu May 16 23:23:19 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fakequidditch -c fakequidditch
-Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file fakequidditch.v
     Info (12023): Found entity 1: fakequidditch
 Info (12021): Found 1 design units, including 1 entities, in source file clock_divider.v
@@ -478,6 +1049,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file game_co
 Warning (10222): Verilog HDL Parameter Declaration warning at ver_player_controller.v(15): Parameter Declaration in module "ver_player_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at ver_player_controller.v(16): Parameter Declaration in module "ver_player_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at ver_player_controller.v(17): Parameter Declaration in module "ver_player_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller.v(34): Parameter Declaration in module "ball_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller.v(35): Parameter Declaration in module "ball_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Info (12127): Elaborating entity "fakequidditch" for the top level hierarchy
 Info (12128): Elaborating entity "clock_divider" for hierarchy "clock_divider:cd"
 Info (12128): Elaborating entity "vga_horizontal" for hierarchy "vga_horizontal:vga_hor"
@@ -489,24 +1062,68 @@ Info (12128): Elaborating entity "ver_player_controller" for hierarchy "game_con
 Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(23): truncated value with size 32 to match size of target (10)
 Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(62): truncated value with size 32 to match size of target (10)
 Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(65): truncated value with size 32 to match size of target (10)
+Info (12128): Elaborating entity "ball_controller" for hierarchy "game_controller:game_ctrl|ball_controller:ball_ctrl"
+Warning (10230): Verilog HDL assignment warning at ball_controller.v(49): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at ball_controller.v(55): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at ball_controller.v(62): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at ball_controller.v(92): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller.v(94): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller.v(96): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller.v(98): truncated value with size 32 to match size of target (5)
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga_cont"
+Info (278001): Inferred 11 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "vga_controller:vga_cont|Mult4~mult_llmacmult"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "vga_controller:vga_cont|Mult5~mult_llmacmult"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "vga_controller:vga_cont|Mult8~mult_llmacmult"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "vga_controller:vga_cont|Mult12~mult_llmacmult"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "vga_controller:vga_cont|Mult2~mult_llmacmult"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "vga_controller:vga_cont|Mult3~mult_llmacmult"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "vga_controller:vga_cont|Mult0~mult_llmacmult"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "vga_controller:vga_cont|Mult1~mult_llmacmult"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "vga_controller:vga_cont|Mult33~mult_llmacmult"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "vga_controller:vga_cont|Mult18~mult_llmacmult"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "vga_controller:vga_cont|Mult19~mult_llmacmult"
+Info (12130): Elaborated megafunction instantiation "vga_controller:vga_cont|lpm_mult:Mult4_rtl_0"
+Info (12133): Instantiated megafunction "vga_controller:vga_cont|lpm_mult:Mult4_rtl_0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "18"
+    Info (12134): Parameter "LPM_WIDTHB" = "18"
+    Info (12134): Parameter "LPM_WIDTHP" = "36"
+    Info (12134): Parameter "LPM_WIDTHR" = "36"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+    Info (12134): Parameter "DEDICATED_MULTIPLIER_CIRCUITRY" = "NO"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_ol01.v
+    Info (12023): Found entity 1: mult_ol01
+Info (12130): Elaborated megafunction instantiation "vga_controller:vga_cont|lpm_mult:Mult2_rtl_4"
+Info (12133): Instantiated megafunction "vga_controller:vga_cont|lpm_mult:Mult2_rtl_4" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "18"
+    Info (12134): Parameter "LPM_WIDTHB" = "18"
+    Info (12134): Parameter "LPM_WIDTHP" = "36"
+    Info (12134): Parameter "LPM_WIDTHR" = "36"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+    Info (12134): Parameter "DEDICATED_MULTIPLIER_CIRCUITRY" = "NO"
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13014): Ignored 3454 buffer(s)
+    Info (13019): Ignored 3454 SOFT buffer(s)
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 35 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "team2_vd_button"
-    Warning (15610): No output dependent on input pin "team2_vu_button"
-Info (21057): Implemented 2034 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 5297 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 27 output pins
-    Info (21061): Implemented 1886 logic cells
-    Info (21062): Implemented 116 DSP elements
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 4765 megabytes
-    Info: Processing ended: Mon May 06 19:20:14 2019
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:05
+    Info (21061): Implemented 5161 logic cells
+    Info (21062): Implemented 104 DSP elements
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 18 warnings
+    Info: Peak virtual memory: 4797 megabytes
+    Info: Processing ended: Thu May 16 23:23:30 2019
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:10
 
 

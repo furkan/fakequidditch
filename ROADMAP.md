@@ -24,10 +24,14 @@
 
 * Scores are displayed
 
-* First to 5 wins
+* First to 5 wins Why?
 
 ## Time
 
 * Remaining time (3:00 - x:yz) is displayed
 
 * Game duration is 3 minutes
+
+## Fun Extensions
+
+* Avatars on players

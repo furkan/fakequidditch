@@ -1,7 +1,7 @@
 module ver_player_controller #(
 	parameter PLAYER_RADIUS,		// 35 px works
 	parameter INITIAL_VER_POS,		// 'd200 works
-	parameter MOVEMENT_FREQUENCY	// inversely proportinal to speed ('d100000 works)
+	parameter MOVEMENT_FREQUENCY	// inversely proportinal to speed ('d200000 works)
 )
 (	input clk,
 	input vu_button,
@@ -59,7 +59,7 @@ module ver_player_controller #(
 				ver_pos <= ver_pos;
 			end
 			up: begin
-				if (ver_pos > (2 + PLAYER_RADIUS) && up_button_counter == 'd98) ver_pos <= ver_pos - 1;
+				if (ver_pos > (88 + PLAYER_RADIUS) && up_button_counter == 'd98) ver_pos <= ver_pos - 1;
 			end
 			down: begin
 				if (ver_pos < (510 - PLAYER_RADIUS) && down_button_counter == 'd98) ver_pos <= ver_pos + 1;
