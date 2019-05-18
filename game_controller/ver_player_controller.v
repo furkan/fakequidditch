@@ -59,7 +59,7 @@ module ver_player_controller #(
 				ver_pos <= ver_pos;
 			end
 			up: begin
-				if (ver_pos > (88 + PLAYER_RADIUS) && up_button_counter == 'd98) ver_pos <= ver_pos - 1;
+				if (ver_pos > (36 + PLAYER_RADIUS) && up_button_counter == 'd98) ver_pos <= ver_pos - 1;
 			end
 			down: begin
 				if (ver_pos < (510 - PLAYER_RADIUS) && down_button_counter == 'd98) ver_pos <= ver_pos + 1;

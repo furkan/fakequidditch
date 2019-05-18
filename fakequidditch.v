@@ -48,7 +48,7 @@ module fakequidditch (clk, team1_vu_button, team1_vd_button, team2_vu_button, te
 
 	vga_vertical vga_ver (vga_clk, next_line, current_row);
 
-	game_controller #(.PLAYER_RADIUS(25),.BALL_RADIUS(5),.GOAL_RADIUS(40),.INITIAL_VER_POS('d250),.INITIAL_TEAM1_HOR_POS('d300), .INITIAL_TEAM2_HOR_POS('d700), .PLAYER_MOVEMENT_FREQUENCY('d200000), .BALL_MOVEMENT_FREQUENCY('d20000000))
+	game_controller #(.PLAYER_RADIUS(25),.BALL_RADIUS(5),.GOAL_RADIUS(25),.INITIAL_VER_POS('d250),.INITIAL_TEAM1_HOR_POS('d300), .INITIAL_TEAM2_HOR_POS('d700), .PLAYER_MOVEMENT_FREQUENCY('d200000), .BALL_MOVEMENT_FREQUENCY('d5000000))
 		game_ctrl (clk, team1_vu_button, team1_vd_button, team2_vu_button, team2_vd_button,
 			/*team1_hl_button, team1_hr_button, team2_hl_button, team2_hr_button,*/
 				team1_score, team2_score, ball_ver_position, ball_hor_position,
@@ -59,7 +59,7 @@ module fakequidditch (clk, team1_vu_button, team1_vd_button, team2_vu_button, te
 
 //	team2_controller t2_ctrl (vga_clk, team2_vu_button, team2_vd_button, team2_ver_position);
 
-	vga_controller #(.PLAYER_RADIUS(25), .GOAL_RADIUS(40), .BALL_RADIUS(5))
+	vga_controller #(.PLAYER_RADIUS(25), .GOAL_RADIUS(25), .BALL_RADIUS(5))
 		vga_cont (vga_clk, y, x, team1_ver_pos, team2_ver_pos, ball_x, ball_y, hor_sync, ver_sync, red, green, blue);
 	
 	always begin

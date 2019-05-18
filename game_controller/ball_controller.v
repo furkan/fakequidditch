@@ -29,38 +29,67 @@ module ball_controller #(
 	integer counter;
 	integer inside_goal = (GOAL_RADIUS - BALL_RADIUS) ** 2;
 
-	reg state;
+	reg [2:0] state;
 	
-	parameter  dead = 'd0;
-	parameter alive = 'd1;
+	parameter dead       = 'd0;
+	parameter alive      = 'd1;
+	parameter up_right   = 'd2;
+	parameter up_left    = 'd3;
+	parameter down_left  = 'd4;
+	parameter down_right = 'd5;
 	
 	initial begin 
-		counter        =   0;
-		x_position     = 463;
-		y_position     = 275;
-		score_to_team1 =   0;
-		score_to_team2 =   0;
-		ball_dir_x     =   5;
-		ball_dir_y     =   5;
+		state          = dead;
+		counter        =    0;
+		x_position     =  463;
+		y_position     =  275;
+		score_to_team1 =    0;
+		score_to_team2 =    0;
+		ball_dir_x     =    5;
+		ball_dir_y     =    5;
 	end
 	
 	always @(posedge clk) begin
-		if (team1_vu_button && team1_vd_button && team2_vu_button && team2_vd_button == 0) begin
-			state = alive;
+		if ((team1_vu_button && team1_vd_button && team2_vu_button && team2_vd_button) == 0) begin
+			state = down_right;
 		end else if (
-			      (((y_position-450)**2)+((x_position-200)**2) < inside_goal) // BLUE GOAL 1
-				|| (((y_position-330)**2)+((x_position-200)**2) < inside_goal) // BLUE GOAL 2
-				|| (((y_position-210)**2)+((x_position-200)**2) < inside_goal) // BLUE GOAL 3
+			      (((y_position-450)**2)+((x_position-300)**2) < inside_goal) // BLUE GOAL 1
+				|| (((y_position-450)**2)+((x_position-400)**2) < inside_goal) // BLUE GOAL 2
+				|| (((y_position-450)**2)+((x_position-500)**2) < inside_goal) // BLUE GOAL 3
 		) begin
-			state = dead;
+			//state = dead;
 			score_to_team2 = 1;
 		end else if (
-			      (((y_position-450)**2)+((x_position-700)**2) < inside_goal) // RED  GOAL 1
-				|| (((y_position-210)**2)+((x_position-700)**2) < inside_goal) // RED  GOAL 2
-				|| (((y_position-330)**2)+((x_position-700)**2) < inside_goal) // RED  GOAL 3
+			      (((y_position-100)**2)+((x_position-300)**2) < inside_goal) // RED  GOAL 1
+				|| (((y_position-100)**2)+((x_position-400)**2) < inside_goal) // RED  GOAL 2
+				|| (((y_position-100)**2)+((x_position-500)**2) < inside_goal) // RED  GOAL 3
 		) begin
-			state = dead;
+			//state = dead;
 			score_to_team1 = 1;
+		end else if (y_position < 36 + BALL_RADIUS) begin
+			if (state == up_left) begin
+				state = down_left;
+			end else begin
+				state = down_right;
+			end
+		end else if (y_position > 510 - BALL_RADIUS) begin
+			if (state == down_left) begin
+				state = up_left;
+			end else begin
+				state = up_right;
+			end
+		end else if (x_position < 150 + BALL_RADIUS) begin
+			if (state == down_left) begin
+				state = down_right;
+			end else begin
+				state = up_right;
+			end
+		end else if (x_position > 680 - BALL_RADIUS) begin
+			if (state == down_right) begin
+				state = down_left;
+			end else begin
+				state = up_left;
+			end
 		end
 	end
 
@@ -84,21 +113,45 @@ module ball_controller #(
 					y_position <= y_position + ball_dir_y;
 				end
 			end
+			up_left: begin
+				if (counter == 'd98) begin
+					x_position <= x_position - ball_dir_x;
+					y_position <= y_position - ball_dir_y;
+				end
+			end
+			up_right: begin
+				if (counter == 'd98) begin
+					x_position <= x_position + ball_dir_x;
+					y_position <= y_position - ball_dir_y;
+				end
+			end
+			down_right: begin
+				if (counter == 'd98) begin
+					x_position <= x_position + ball_dir_x;
+					y_position <= y_position + ball_dir_y;
+				end
+			end
+			down_left: begin
+				if (counter == 'd98) begin
+					x_position <= x_position - ball_dir_x;
+					y_position <= y_position + ball_dir_y;
+				end
+			end
 		endcase
 	end
-	
+	/*
 	always @(posedge clk) begin
 		if (y_position < 88 + BALL_RADIUS) begin
-			ball_dir_y = -1 * ball_dir_y;
+			ball_dir_y = 5;
 		end else if (y_position > 510 - BALL_RADIUS) begin
-			ball_dir_y = -1 * ball_dir_y;
+			ball_dir_y = -5;
 		end else if (x_position < 145 + BALL_RADIUS) begin
-			ball_dir_x = -1 * ball_dir_x;
+			ball_dir_x = 5;
 		end else if (x_position > 780 - BALL_RADIUS) begin
-			ball_dir_x = -1 * ball_dir_x;
+			ball_dir_x = -5;
 		end
 	end
-	
+	*/
 /*
 	reg [30:0] x_positions;
 	reg [30:0] y_positions;

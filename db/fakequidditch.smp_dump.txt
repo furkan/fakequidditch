@@ -1,4 +1,13 @@
 
+State Machine - |fakequidditch|game_controller:game_ctrl|ball_controller:ball_ctrl|state
+Name state.dead state.down_left state.up_left state.up_right state.alive state.down_right 
+state.down_right 0 0 0 0 0 0 
+state.alive 0 0 0 0 1 1 
+state.up_right 0 0 0 1 0 1 
+state.up_left 0 0 1 0 0 1 
+state.down_left 0 1 0 0 0 1 
+state.dead 1 0 0 0 0 1 
+
 State Machine - |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_state
 Name ver_state.float ver_state.down ver_state.up 
 ver_state.float 0 0 0 
