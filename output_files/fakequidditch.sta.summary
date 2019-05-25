@@ -2,100 +2,100 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1100mV 85C Model Setup 'clock_divider:cd|clk_out'
-Slack : -15.974
-TNS   : -477.850
-
 Type  : Slow 1100mV 85C Model Setup 'clk'
-Slack : -13.867
-TNS   : -831.281
+Slack : -16.105
+TNS   : -1932.832
+
+Type  : Slow 1100mV 85C Model Setup 'game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4]'
+Slack : -5.520
+TNS   : -57.324
 
 Type  : Slow 1100mV 85C Model Hold 'clk'
-Slack : 0.435
-TNS   : 0.000
+Slack : -0.882
+TNS   : -24.348
 
-Type  : Slow 1100mV 85C Model Hold 'clock_divider:cd|clk_out'
-Slack : 0.535
+Type  : Slow 1100mV 85C Model Hold 'game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4]'
+Slack : 3.633
 TNS   : 0.000
-
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clock_divider:cd|clk_out'
-Slack : -0.485
-TNS   : -37.152
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk'
 Slack : -0.394
-TNS   : -132.317
+TNS   : -169.274
 
-Type  : Slow 1100mV 0C Model Setup 'clock_divider:cd|clk_out'
-Slack : -16.548
-TNS   : -489.293
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4]'
+Slack : 0.092
+TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Setup 'clk'
-Slack : -13.863
-TNS   : -823.005
+Slack : -16.381
+TNS   : -1933.068
+
+Type  : Slow 1100mV 0C Model Setup 'game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4]'
+Slack : -5.642
+TNS   : -58.283
 
 Type  : Slow 1100mV 0C Model Hold 'clk'
-Slack : 0.426
-TNS   : 0.000
+Slack : -0.978
+TNS   : -26.480
 
-Type  : Slow 1100mV 0C Model Hold 'clock_divider:cd|clk_out'
-Slack : 0.504
+Type  : Slow 1100mV 0C Model Hold 'game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4]'
+Slack : 3.650
 TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clock_divider:cd|clk_out'
-Slack : -0.518
-TNS   : -38.695
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk'
 Slack : -0.394
-TNS   : -144.405
+TNS   : -187.268
 
-Type  : Fast 1100mV 85C Model Setup 'clock_divider:cd|clk_out'
-Slack : -8.881
-TNS   : -265.827
-
-Type  : Fast 1100mV 85C Model Setup 'clk'
-Slack : -7.653
-TNS   : -405.786
-
-Type  : Fast 1100mV 85C Model Hold 'clock_divider:cd|clk_out'
-Slack : 0.216
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4]'
+Slack : 0.099
 TNS   : 0.000
 
+Type  : Fast 1100mV 85C Model Setup 'clk'
+Slack : -9.221
+TNS   : -988.400
+
+Type  : Fast 1100mV 85C Model Setup 'game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4]'
+Slack : -2.732
+TNS   : -26.176
+
 Type  : Fast 1100mV 85C Model Hold 'clk'
-Slack : 0.238
+Slack : -0.451
+TNS   : -6.894
+
+Type  : Fast 1100mV 85C Model Hold 'game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4]'
+Slack : 1.955
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk'
-Slack : -0.353
-TNS   : -22.252
+Slack : -0.088
+TNS   : -26.697
 
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clock_divider:cd|clk_out'
-Slack : -0.210
-TNS   : -6.041
-
-Type  : Fast 1100mV 0C Model Setup 'clock_divider:cd|clk_out'
-Slack : -8.300
-TNS   : -248.665
-
-Type  : Fast 1100mV 0C Model Setup 'clk'
-Slack : -7.062
-TNS   : -363.587
-
-Type  : Fast 1100mV 0C Model Hold 'clock_divider:cd|clk_out'
-Slack : 0.189
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4]'
+Slack : 0.176
 TNS   : 0.000
 
+Type  : Fast 1100mV 0C Model Setup 'clk'
+Slack : -8.531
+TNS   : -896.761
+
+Type  : Fast 1100mV 0C Model Setup 'game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4]'
+Slack : -2.586
+TNS   : -24.703
+
 Type  : Fast 1100mV 0C Model Hold 'clk'
-Slack : 0.222
+Slack : -0.544
+TNS   : -8.587
+
+Type  : Fast 1100mV 0C Model Hold 'game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4]'
+Slack : 1.894
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk'
-Slack : -0.358
-TNS   : -22.246
+Slack : -0.089
+TNS   : -26.949
 
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clock_divider:cd|clk_out'
-Slack : -0.179
-TNS   : -4.931
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4]'
+Slack : 0.224
+TNS   : 0.000
 
 ------------------------------------------------------------

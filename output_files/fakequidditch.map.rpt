@@ -1,5 +1,5 @@
 Analysis & Synthesis report for fakequidditch
-Fri May 17 11:51:45 2019
+Sat May 25 01:37:41 2019
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -14,35 +14,37 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis DSP Block Usage Summary
-  9. State Machine - |fakequidditch|game_controller:game_ctrl|ball_controller:ball_ctrl|state
+  9. State Machine - |fakequidditch|game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|state
  10. State Machine - |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_state
  11. State Machine - |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_state
- 12. Registers Removed During Synthesis
- 13. General Register Statistics
- 14. Inverted Register Statistics
- 15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Parameter Settings for User Entity Instance: Top-level Entity: |fakequidditch
- 17. Parameter Settings for User Entity Instance: game_controller:game_ctrl
- 18. Parameter Settings for User Entity Instance: game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl
- 19. Parameter Settings for User Entity Instance: game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl
- 20. Parameter Settings for User Entity Instance: game_controller:game_ctrl|ball_controller:ball_ctrl
- 21. Parameter Settings for User Entity Instance: vga_controller:vga_cont
- 22. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult4_rtl_0
- 23. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult5_rtl_1
- 24. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult9_rtl_2
- 25. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult13_rtl_3
- 26. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult2_rtl_4
- 27. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult3_rtl_5
- 28. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult0_rtl_6
- 29. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult1_rtl_7
- 30. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult32_rtl_8
- 31. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult18_rtl_9
- 32. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult19_rtl_10
- 33. lpm_mult Parameter Settings by Entity Instance
- 34. Port Connectivity Checks: "game_controller:game_ctrl"
- 35. Port Connectivity Checks: "clock_divider:cd"
- 36. Elapsed Time Per Partition
- 37. Analysis & Synthesis Messages
+ 12. User-Specified and Inferred Latches
+ 13. Registers Removed During Synthesis
+ 14. Removed Registers Triggering Further Register Optimizations
+ 15. General Register Statistics
+ 16. Inverted Register Statistics
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Parameter Settings for User Entity Instance: game_controller:game_ctrl
+ 19. Parameter Settings for User Entity Instance: game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl
+ 20. Parameter Settings for User Entity Instance: game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl
+ 21. Parameter Settings for User Entity Instance: game_controller:game_ctrl|ball_controller_cansu:ball_ctrl
+ 22. Parameter Settings for User Entity Instance: vga_controller:vga_cont
+ 23. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult4_rtl_0
+ 24. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult5_rtl_1
+ 25. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult9_rtl_2
+ 26. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult13_rtl_3
+ 27. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult2_rtl_4
+ 28. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult3_rtl_5
+ 29. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult0_rtl_6
+ 30. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult1_rtl_7
+ 31. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult32_rtl_8
+ 32. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult18_rtl_9
+ 33. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult19_rtl_10
+ 34. lpm_mult Parameter Settings by Entity Instance
+ 35. Port Connectivity Checks: "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl"
+ 36. Port Connectivity Checks: "game_controller:game_ctrl"
+ 37. Elapsed Time Per Partition
+ 38. Analysis & Synthesis Messages
+ 39. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -68,17 +70,17 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +---------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri May 17 11:51:45 2019      ;
+; Analysis & Synthesis Status     ; Successful - Sat May 25 01:37:41 2019      ;
 ; Quartus II 64-Bit Version       ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                   ; fakequidditch                              ;
 ; Top-level Entity Name           ; fakequidditch                              ;
 ; Family                          ; Cyclone V                                  ;
 ; Logic utilization (in ALMs)     ; N/A                                        ;
-; Total registers                 ; 288                                        ;
+; Total registers                 ; 309                                        ;
 ; Total pins                      ; 32                                         ;
 ; Total virtual pins              ; 0                                          ;
 ; Total block memory bits         ; 0                                          ;
-; Total DSP Blocks                ; 104                                        ;
+; Total DSP Blocks                ; 102                                        ;
 ; Total HSSI RX PCSs              ; 0                                          ;
 ; Total HSSI PMA RX Deserializers ; 0                                          ;
 ; Total HSSI TX PCSs              ; 0                                          ;
@@ -199,13 +201,10 @@ applicable agreement for further details.
 ; File Name with User-Entered Path        ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ; Library ;
 +-----------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
 ; fakequidditch.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Cansu/Desktop/fakequidditch/fakequidditch.v                         ;         ;
-; clock_divider.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Cansu/Desktop/fakequidditch/clock_divider.v                         ;         ;
-; vga_controller/vga_vertical.v           ; yes             ; User Verilog HDL File        ; C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_vertical.v           ;         ;
-; vga_controller/vga_horizontal.v         ; yes             ; User Verilog HDL File        ; C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_horizontal.v         ;         ;
 ; vga_controller/vga_controller.v         ; yes             ; User Verilog HDL File        ; C:/Users/Cansu/Desktop/fakequidditch/vga_controller/vga_controller.v         ;         ;
-; game_controller/ball_controller.v       ; yes             ; User Verilog HDL File        ; C:/Users/Cansu/Desktop/fakequidditch/game_controller/ball_controller.v       ;         ;
 ; game_controller/game_controller.v       ; yes             ; User Verilog HDL File        ; C:/Users/Cansu/Desktop/fakequidditch/game_controller/game_controller.v       ;         ;
 ; game_controller/ver_player_controller.v ; yes             ; User Verilog HDL File        ; C:/Users/Cansu/Desktop/fakequidditch/game_controller/ver_player_controller.v ;         ;
+; game_controller/ball_controller_cansu.v ; yes             ; User Verilog HDL File        ; C:/Users/Cansu/Desktop/fakequidditch/game_controller/ball_controller_cansu.v ;         ;
 ; lpm_mult.tdf                            ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_mult.tdf                  ;         ;
 ; aglobal131.inc                          ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/aglobal131.inc                ;         ;
 ; lpm_add_sub.inc                         ; yes             ; Megafunction                 ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_add_sub.inc               ;         ;
@@ -221,23 +220,23 @@ applicable agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 2652      ;
+; Estimate of Logic utilization (ALMs needed) ; 2841      ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 5141      ;
-;     -- 7 input functions                    ; 0         ;
-;     -- 6 input functions                    ; 159       ;
-;     -- 5 input functions                    ; 300       ;
-;     -- 4 input functions                    ; 480       ;
-;     -- <=3 input functions                  ; 4202      ;
+; Combinational ALUT usage for logic          ; 5499      ;
+;     -- 7 input functions                    ; 2         ;
+;     -- 6 input functions                    ; 177       ;
+;     -- 5 input functions                    ; 356       ;
+;     -- 4 input functions                    ; 690       ;
+;     -- <=3 input functions                  ; 4274      ;
 ;                                             ;           ;
-; Dedicated logic registers                   ; 288       ;
+; Dedicated logic registers                   ; 309       ;
 ;                                             ;           ;
 ; I/O pins                                    ; 32        ;
-; Total DSP Blocks                            ; 104       ;
+; Total DSP Blocks                            ; 102       ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 243       ;
-; Total fan-out                               ; 20399     ;
-; Average fan-out                             ; 3.64      ;
+; Maximum fan-out                             ; 309       ;
+; Total fan-out                               ; 22106     ;
+; Average fan-out                             ; 3.70      ;
 +---------------------------------------------+-----------+
 
 
@@ -246,23 +245,22 @@ applicable agreement for further details.
 +----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                    ; Library Name ;
 +----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------+--------------+
-; |fakequidditch                               ; 5141 (0)          ; 288 (0)      ; 0                 ; 104        ; 32   ; 0            ; |fakequidditch                                                                         ; work         ;
-;    |clock_divider:cd|                        ; 39 (39)           ; 33 (33)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|clock_divider:cd                                                        ; work         ;
-;    |game_controller:game_ctrl|               ; 668 (0)           ; 210 (0)      ; 0                 ; 24         ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl                                               ; work         ;
-;       |ball_controller:ball_ctrl|            ; 448 (448)         ; 56 (56)      ; 0                 ; 24         ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ball_controller:ball_ctrl                     ; work         ;
-;       |ver_player_controller:team1_ver_ctrl| ; 110 (110)         ; 77 (77)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl          ; work         ;
-;       |ver_player_controller:team2_ver_ctrl| ; 110 (110)         ; 77 (77)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl          ; work         ;
-;    |vga_controller:vga_cont|                 ; 4408 (1677)       ; 24 (24)      ; 0                 ; 80         ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont                                                 ; work         ;
-;       |lpm_mult:Mult0_rtl_6|                 ; 248 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult0_rtl_6                            ; work         ;
-;          |mult_ol01:auto_generated|          ; 248 (248)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult0_rtl_6|mult_ol01:auto_generated   ; work         ;
+; |fakequidditch                               ; 5499 (40)         ; 309 (33)     ; 0                 ; 102        ; 32   ; 0            ; |fakequidditch                                                                         ; work         ;
+;    |game_controller:game_ctrl|               ; 976 (0)           ; 231 (0)      ; 0                 ; 28         ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl                                               ; work         ;
+;       |ball_controller_cansu:ball_ctrl|      ; 754 (754)         ; 77 (77)      ; 0                 ; 28         ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ball_controller_cansu:ball_ctrl               ; work         ;
+;       |ver_player_controller:team1_ver_ctrl| ; 111 (111)         ; 77 (77)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl          ; work         ;
+;       |ver_player_controller:team2_ver_ctrl| ; 111 (111)         ; 77 (77)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl          ; work         ;
+;    |vga_controller:vga_cont|                 ; 4483 (1730)       ; 45 (45)      ; 0                 ; 74         ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont                                                 ; work         ;
+;       |lpm_mult:Mult0_rtl_6|                 ; 259 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult0_rtl_6                            ; work         ;
+;          |mult_ol01:auto_generated|          ; 259 (259)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult0_rtl_6|mult_ol01:auto_generated   ; work         ;
 ;       |lpm_mult:Mult13_rtl_3|                ; 248 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult13_rtl_3                           ; work         ;
 ;          |mult_ol01:auto_generated|          ; 248 (248)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult13_rtl_3|mult_ol01:auto_generated  ; work         ;
 ;       |lpm_mult:Mult18_rtl_9|                ; 248 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult18_rtl_9                           ; work         ;
 ;          |mult_ol01:auto_generated|          ; 248 (248)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult18_rtl_9|mult_ol01:auto_generated  ; work         ;
 ;       |lpm_mult:Mult19_rtl_10|               ; 247 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult19_rtl_10                          ; work         ;
 ;          |mult_ol01:auto_generated|          ; 247 (247)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult19_rtl_10|mult_ol01:auto_generated ; work         ;
-;       |lpm_mult:Mult1_rtl_7|                 ; 248 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult1_rtl_7                            ; work         ;
-;          |mult_ol01:auto_generated|          ; 248 (248)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult1_rtl_7|mult_ol01:auto_generated   ; work         ;
+;       |lpm_mult:Mult1_rtl_7|                 ; 259 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult1_rtl_7                            ; work         ;
+;          |mult_ol01:auto_generated|          ; 259 (259)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult1_rtl_7|mult_ol01:auto_generated   ; work         ;
 ;       |lpm_mult:Mult2_rtl_4|                 ; 248 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult2_rtl_4                            ; work         ;
 ;          |mult_ol01:auto_generated|          ; 248 (248)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult2_rtl_4|mult_ol01:auto_generated   ; work         ;
 ;       |lpm_mult:Mult32_rtl_8|                ; 248 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult32_rtl_8                           ; work         ;
@@ -275,8 +273,6 @@ applicable agreement for further details.
 ;          |mult_ol01:auto_generated|          ; 248 (248)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult5_rtl_1|mult_ol01:auto_generated   ; work         ;
 ;       |lpm_mult:Mult9_rtl_2|                 ; 253 (0)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult9_rtl_2                            ; work         ;
 ;          |mult_ol01:auto_generated|          ; 253 (253)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_mult:Mult9_rtl_2|mult_ol01:auto_generated   ; work         ;
-;    |vga_horizontal:vga_hor|                  ; 13 (13)           ; 11 (11)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_horizontal:vga_hor                                                  ; work         ;
-;    |vga_vertical:vga_ver|                    ; 13 (13)           ; 10 (10)      ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_vertical:vga_ver                                                    ; work         ;
 +----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -286,27 +282,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------+-------------+---------------------+-------------------+
 ; Statistic           ; Number Used ; Available per Block ; Maximum Available ;
 +---------------------+-------------+---------------------+-------------------+
-; Independent 18x18   ; 34          ; 2.00                ; --                ;
-; Sum of two 18x18    ; 70          ; 1.00                ; --                ;
-; DSP Block           ; 104         ; --                  ; --                ;
+; Independent 18x18   ; 30          ; 2.00                ; --                ;
+; Sum of two 18x18    ; 72          ; 1.00                ; --                ;
+; DSP Block           ; 102         ; --                  ; --                ;
 ; DSP 18-bit Element  ; 174         ; 2.00                ; --                ;
 ; Unsigned Multiplier ; 174         ; --                  ; --                ;
 +---------------------+-------------+---------------------+-------------------+
 
 
 Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------------------------------------+
-; State Machine - |fakequidditch|game_controller:game_ctrl|ball_controller:ball_ctrl|state                          ;
-+------------------+------------+-----------------+---------------+----------------+-------------+------------------+
-; Name             ; state.dead ; state.down_left ; state.up_left ; state.up_right ; state.alive ; state.down_right ;
-+------------------+------------+-----------------+---------------+----------------+-------------+------------------+
-; state.down_right ; 0          ; 0               ; 0             ; 0              ; 0           ; 0                ;
-; state.alive      ; 0          ; 0               ; 0             ; 0              ; 1           ; 1                ;
-; state.up_right   ; 0          ; 0               ; 0             ; 1              ; 0           ; 1                ;
-; state.up_left    ; 0          ; 0               ; 1             ; 0              ; 0           ; 1                ;
-; state.down_left  ; 0          ; 1               ; 0             ; 0              ; 0           ; 1                ;
-; state.dead       ; 1          ; 0               ; 0             ; 0              ; 0           ; 1                ;
-+------------------+------------+-----------------+---------------+----------------+-------------+------------------+
++------------------------------------------------------------------------------------------------+
+; State Machine - |fakequidditch|game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|state ;
++-----------------+------------------------------------------------------------------------------+
+; Name            ; state.active                                                                 ;
++-----------------+------------------------------------------------------------------------------+
+; state.beginning ; 0                                                                            ;
+; state.active    ; 1                                                                            ;
++-----------------+------------------------------------------------------------------------------+
 
 
 Encoding Type:  One-Hot
@@ -333,18 +325,57 @@ Encoding Type:  One-Hot
 +-----------------+-----------------+----------------+----------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                            ;
-+-----------------------------------------------------------------+-----------------------------------------------------------------------------+
-; Register name                                                   ; Reason for Removal                                                          ;
-+-----------------------------------------------------------------+-----------------------------------------------------------------------------+
-; game_controller:game_ctrl|ball_controller:ball_ctrl|state~8     ; Lost fanout                                                                 ;
-; game_controller:game_ctrl|ball_controller:ball_ctrl|state~9     ; Lost fanout                                                                 ;
-; game_controller:game_ctrl|ball_controller:ball_ctrl|state~10    ; Lost fanout                                                                 ;
-; game_controller:game_ctrl|ball_controller:ball_ctrl|state.dead  ; Merged with game_controller:game_ctrl|ball_controller:ball_ctrl|state.alive ;
-; game_controller:game_ctrl|ball_controller:ball_ctrl|state.alive ; Stuck at GND due to stuck port data_in                                      ;
-; Total Number of Removed Registers = 5                           ;                                                                             ;
-+-----------------------------------------------------------------+-----------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                                                            ;
++-------------------------------------------------------------------------+-----------------------------------------------------------------------------+------------------------+
+; Latch Name                                                              ; Latch Enable Signal                                                         ; Free of Timing Hazards ;
++-------------------------------------------------------------------------+-----------------------------------------------------------------------------+------------------------+
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[0] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[0] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[8] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[9] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[7] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[6] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[5] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[3] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[4] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[2] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[1] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[4] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[8] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[1] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[2] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[7] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[6] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[5] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[3] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[9] ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[4] ; yes                    ;
+; Number of user-specified and inferred latches = 20                      ;                                                                             ;                        ;
++-------------------------------------------------------------------------+-----------------------------------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                        ;
++----------------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                                    ; Reason for Removal                     ;
++----------------------------------------------------------------------------------+----------------------------------------+
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|idle[1..31]            ; Stuck at GND due to stuck port data_in ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_collission[1..31] ; Stuck at GND due to stuck port data_in ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|state~3                ; Lost fanout                            ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[0]      ; Stuck at VCC due to stuck port data_in ;
+; Total Number of Removed Registers = 64                                           ;                                        ;
++----------------------------------------------------------------------------------+----------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                             ;
++-------------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------+
+; Register name                                                                 ; Reason for Removal        ; Registers Removed due to This Register                                      ;
++-------------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------+
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_collission[29] ; Stuck at GND              ; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[0] ;
+;                                                                               ; due to stuck port data_in ;                                                                             ;
++-------------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -352,73 +383,64 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 288   ;
-; Number of registers using Synchronous Clear  ; 210   ;
+; Total registers                              ; 309   ;
+; Number of registers using Synchronous Clear  ; 237   ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 54    ;
+; Number of registers using Clock Enable       ; 80    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-------------------------------------------------------------------------------------+
-; Inverted Register Statistics                                                        ;
-+---------------------------------------------------------------------------+---------+
-; Inverted Register                                                         ; Fan out ;
-+---------------------------------------------------------------------------+---------+
-; game_controller:game_ctrl|ball_controller:ball_ctrl|y_position[0]         ; 27      ;
-; game_controller:game_ctrl|ball_controller:ball_ctrl|x_position[0]         ; 27      ;
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[4] ; 4       ;
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[1] ; 4       ;
-; game_controller:game_ctrl|ball_controller:ball_ctrl|y_position[4]         ; 6       ;
-; game_controller:game_ctrl|ball_controller:ball_ctrl|y_position[1]         ; 17      ;
-; game_controller:game_ctrl|ball_controller:ball_ctrl|x_position[1]         ; 27      ;
-; game_controller:game_ctrl|ball_controller:ball_ctrl|x_position[2]         ; 14      ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[4] ; 4       ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[1] ; 4       ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[3] ; 4       ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[5] ; 4       ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[6] ; 4       ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[7] ; 4       ;
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[3] ; 4       ;
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[5] ; 4       ;
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[6] ; 4       ;
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[7] ; 4       ;
-; game_controller:game_ctrl|ball_controller:ball_ctrl|y_position[8]         ; 6       ;
-; game_controller:game_ctrl|ball_controller:ball_ctrl|x_position[3]         ; 14      ;
-; game_controller:game_ctrl|ball_controller:ball_ctrl|x_position[6]         ; 11      ;
-; game_controller:game_ctrl|ball_controller:ball_ctrl|x_position[7]         ; 10      ;
-; game_controller:game_ctrl|ball_controller:ball_ctrl|x_position[8]         ; 9       ;
-; Total number of inverted registers = 23                                   ;         ;
-+---------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                          ;
++-----------------------------------------------------------------------------+---------+
+; Inverted Register                                                           ; Fan out ;
++-----------------------------------------------------------------------------+---------+
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|y_position[0]     ; 30      ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|x_position[0]     ; 31      ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[4]   ; 7       ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[1]   ; 7       ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|y_position[4]     ; 9       ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|y_position[1]     ; 20      ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|y_position[8]     ; 11      ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|x_position[7]     ; 8       ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|x_position[8]     ; 8       ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|x_position[6]     ; 9       ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|x_position[1]     ; 31      ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|x_position[3]     ; 18      ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|x_position[2]     ; 18      ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[4]   ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[1]   ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[3]   ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[5]   ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[6]   ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[7]   ; 4       ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[3]   ; 7       ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[5]   ; 8       ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[6]   ; 7       ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[7]   ; 7       ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|idle[0]           ; 1       ;
+; game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[2] ; 22      ;
+; Total number of inverted registers = 25                                     ;         ;
++-----------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------+
-; 5:1                ; 4 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[8] ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[9] ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller:ball_ctrl|y_position[9]         ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller:ball_ctrl|x_position[4]         ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[7] ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[4] ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller:ball_ctrl|y_position[8]         ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller:ball_ctrl|x_position[8]         ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; No         ; |fakequidditch|game_controller:game_ctrl|ball_controller:ball_ctrl|state                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------+
-
-
-+-------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |fakequidditch ;
-+----------------+-------+------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                 ;
-+----------------+-------+------------------------------------------------------+
-; div            ; 2     ; Signed Integer                                       ;
-+----------------+-------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------+
+; 5:1                ; 4 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[2]   ;
+; 6:1                ; 26 bits   ; 104 LEs       ; 0 LEs                ; 104 LEs                ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|x_position[14]    ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[2]   ;
+; 28:1               ; 3 bits    ; 54 LEs        ; 15 LEs               ; 39 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[1] ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[7]   ;
+; 6:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|x_position[6]     ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[1]   ;
+; 28:1               ; 2 bits    ; 36 LEs        ; 10 LEs               ; 26 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_state[2] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------+
@@ -433,7 +455,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; INITIAL_TEAM1_HOR_POS     ; 00000000000000000000000100101100 ; Unsigned Binary ;
 ; INITIAL_TEAM2_HOR_POS     ; 00000000000000000000001010111100 ; Unsigned Binary ;
 ; PLAYER_MOVEMENT_FREQUENCY ; 00000000000000110000110101000000 ; Unsigned Binary ;
-; BALL_MOVEMENT_FREQUENCY   ; 00000000010011000100101101000000 ; Unsigned Binary ;
+; BALL_MOVEMENT_FREQUENCY   ; 00011101110011010110010100000000 ; Unsigned Binary ;
 +---------------------------+----------------------------------+-----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -462,16 +484,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: game_controller:game_ctrl|ball_controller:ball_ctrl ;
-+--------------------+----------------------------------+------------------------------------------+
-; Parameter Name     ; Value                            ; Type                                     ;
-+--------------------+----------------------------------+------------------------------------------+
-; PLAYER_RADIUS      ; 25                               ; Signed Integer                           ;
-; BALL_RADIUS        ; 5                                ; Signed Integer                           ;
-; GOAL_RADIUS        ; 25                               ; Signed Integer                           ;
-; MOVEMENT_FREQUENCY ; 00000000010011000100101101000000 ; Unsigned Binary                          ;
-+--------------------+----------------------------------+------------------------------------------+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: game_controller:game_ctrl|ball_controller_cansu:ball_ctrl ;
++--------------------+----------------------------------+------------------------------------------------+
+; Parameter Name     ; Value                            ; Type                                           ;
++--------------------+----------------------------------+------------------------------------------------+
+; PLAYER_RADIUS      ; 25                               ; Signed Integer                                 ;
+; BALL_RADIUS        ; 5                                ; Signed Integer                                 ;
+; GOAL_RADIUS        ; 25                               ; Signed Integer                                 ;
+; MOVEMENT_FREQUENCY ; 00011101110011010110010100000000 ; Unsigned Binary                                ;
++--------------------+----------------------------------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -1002,6 +1024,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------------------------------+------------------------------------------------+
 
 
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl"                                                                         ;
++-----------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                                       ;
++-----------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+; x_blugger ; Output ; Warning  ; Output or bidir port (10 bits) is wider than the port expression (1 bits) it drives; bit(s) "x_blugger[9..1]" have no fanouts ;
+; x_blugger ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                           ;
+; y_blugger ; Output ; Warning  ; Output or bidir port (10 bits) is wider than the port expression (1 bits) it drives; bit(s) "y_blugger[9..1]" have no fanouts ;
+; y_blugger ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                           ;
++-----------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "game_controller:game_ctrl"                                                                 ;
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -1012,24 +1046,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "clock_divider:cd"                                                                                                                                                                            ;
-+-----------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port            ; Type  ; Severity ; Details                                                                                                                                                                            ;
-+-----------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; division        ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (26 bits) it drives.  The 6 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; division[25..2] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; division[1]     ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
-; division[0]     ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
-+-----------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:07     ;
+; Top            ; 00:00:12     ;
 +----------------+--------------+
 
 
@@ -1039,63 +1061,118 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Fri May 17 11:51:35 2019
+    Info: Processing started: Sat May 25 01:37:24 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fakequidditch -c fakequidditch
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file fakequidditch.v
     Info (12023): Found entity 1: fakequidditch
-Info (12021): Found 1 design units, including 1 entities, in source file clock_divider.v
-    Info (12023): Found entity 1: clock_divider
-Info (12021): Found 1 design units, including 1 entities, in source file vga_controller/vga_vertical.v
-    Info (12023): Found entity 1: vga_vertical
-Info (12021): Found 1 design units, including 1 entities, in source file vga_controller/vga_horizontal.v
-    Info (12023): Found entity 1: vga_horizontal
 Info (12021): Found 1 design units, including 1 entities, in source file vga_controller/vga_controller.v
     Info (12023): Found entity 1: vga_controller
-Info (12021): Found 1 design units, including 1 entities, in source file game_controller/team1_controller.v
-    Info (12023): Found entity 1: team1_controller
-Info (12021): Found 1 design units, including 1 entities, in source file game_controller/team2_controller.v
-    Info (12023): Found entity 1: team2_controller
 Info (12021): Found 1 design units, including 1 entities, in source file game_controller/ball_controller.v
     Info (12023): Found entity 1: ball_controller
 Info (12021): Found 1 design units, including 1 entities, in source file game_controller/game_controller.v
     Info (12023): Found entity 1: game_controller
 Info (12021): Found 1 design units, including 1 entities, in source file game_controller/ver_player_controller.v
     Info (12023): Found entity 1: ver_player_controller
+Info (12021): Found 0 design units, including 0 entities, in source file board.v
+Info (12021): Found 1 design units, including 1 entities, in source file game_controller/ball_controller_cansu.v
+    Info (12023): Found entity 1: ball_controller_cansu
+Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(58): created implicit net for "x_blugger"
+Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(58): created implicit net for "y_blugger"
 Warning (10222): Verilog HDL Parameter Declaration warning at ver_player_controller.v(15): Parameter Declaration in module "ver_player_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at ver_player_controller.v(16): Parameter Declaration in module "ver_player_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at ver_player_controller.v(17): Parameter Declaration in module "ver_player_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller.v(34): Parameter Declaration in module "ball_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller.v(35): Parameter Declaration in module "ball_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller.v(36): Parameter Declaration in module "ball_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller.v(37): Parameter Declaration in module "ball_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller.v(38): Parameter Declaration in module "ball_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller.v(39): Parameter Declaration in module "ball_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(25): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(45): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(46): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(47): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(48): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(49): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(50): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(51): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(52): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(53): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(54): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(55): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(56): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(57): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(58): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(59): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(60): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(85): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(86): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(90): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller_cansu.v(91): Parameter Declaration in module "ball_controller_cansu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(26): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(27): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(28): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(29): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(30): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(32): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(31): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(33): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(34): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(35): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(36): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(37): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(38): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller.v(37): Parameter Declaration in module "ball_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller.v(38): Parameter Declaration in module "ball_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller.v(39): Parameter Declaration in module "ball_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller.v(40): Parameter Declaration in module "ball_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller.v(41): Parameter Declaration in module "ball_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ball_controller.v(42): Parameter Declaration in module "ball_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Info (12127): Elaborating entity "fakequidditch" for the top level hierarchy
-Info (12128): Elaborating entity "clock_divider" for hierarchy "clock_divider:cd"
-Info (12128): Elaborating entity "vga_horizontal" for hierarchy "vga_horizontal:vga_hor"
-Warning (10230): Verilog HDL assignment warning at vga_horizontal.v(14): truncated value with size 32 to match size of target (10)
-Info (12128): Elaborating entity "vga_vertical" for hierarchy "vga_vertical:vga_ver"
-Warning (10230): Verilog HDL assignment warning at vga_vertical.v(14): truncated value with size 32 to match size of target (10)
 Info (12128): Elaborating entity "game_controller" for hierarchy "game_controller:game_ctrl"
 Info (12128): Elaborating entity "ver_player_controller" for hierarchy "game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl"
 Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(23): truncated value with size 32 to match size of target (10)
 Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(62): truncated value with size 32 to match size of target (10)
 Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(65): truncated value with size 32 to match size of target (10)
-Info (12128): Elaborating entity "ball_controller" for hierarchy "game_controller:game_ctrl|ball_controller:ball_ctrl"
+Info (12128): Elaborating entity "ball_controller_cansu" for hierarchy "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl"
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(104): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(157): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(179): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(183): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(190): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(194): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(201): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(205): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(212): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(216): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(223): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(227): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(234): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(238): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(245): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(249): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(278): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at ball_controller_cansu.v(325): truncated value with size 32 to match size of target (10)
+Warning (10270): Verilog HDL Case Statement warning at ball_controller_cansu.v(275): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at ball_controller_cansu.v(275): inferring latch(es) for variable "ball_dir_x", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at ball_controller_cansu.v(275): inferring latch(es) for variable "ball_dir_y", which holds its previous value in one or more paths through the always construct
+Warning (10034): Output port "x_blugger" at ball_controller_cansu.v(31) has no driver
+Warning (10034): Output port "y_blugger" at ball_controller_cansu.v(33) has no driver
+Info (10041): Inferred latch for "ball_dir_y[0]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_y[1]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_y[2]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_y[3]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_y[4]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_y[5]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_y[6]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_y[7]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_y[8]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_y[9]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_x[0]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_x[1]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_x[2]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_x[3]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_x[4]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_x[5]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_x[6]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_x[7]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_x[8]" at ball_controller_cansu.v(275)
+Info (10041): Inferred latch for "ball_dir_x[9]" at ball_controller_cansu.v(275)
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga_cont"
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(53): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(66): truncated value with size 32 to match size of target (10)
 Info (278001): Inferred 11 megafunctions from design logic
     Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "vga_controller:vga_cont|Mult4~mult_llmacmult"
     Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "vga_controller:vga_cont|Mult5~mult_llmacmult"
@@ -1137,19 +1214,35 @@ Info (12133): Instantiated megafunction "vga_controller:vga_cont|lpm_mult:Mult2_
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (13014): Ignored 3454 buffer(s)
     Info (13019): Ignored 3454 SOFT buffer(s)
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[3]" merged with LATCH primitive "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[8]"
+    Info (13026): Duplicate LATCH primitive "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[4]" merged with LATCH primitive "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[8]"
+    Info (13026): Duplicate LATCH primitive "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[5]" merged with LATCH primitive "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[9]"
+    Info (13026): Duplicate LATCH primitive "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[6]" merged with LATCH primitive "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x[7]"
+    Info (13026): Duplicate LATCH primitive "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[8]" merged with LATCH primitive "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[4]"
+    Info (13026): Duplicate LATCH primitive "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[3]" merged with LATCH primitive "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[4]"
+    Info (13026): Duplicate LATCH primitive "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[6]" merged with LATCH primitive "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[7]"
+    Info (13026): Duplicate LATCH primitive "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[9]" merged with LATCH primitive "game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y[5]"
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/Cansu/Desktop/fakequidditch/output_files/fakequidditch.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 5301 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 5659 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 27 output pins
-    Info (21061): Implemented 5165 logic cells
-    Info (21062): Implemented 104 DSP elements
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 27 warnings
-    Info: Peak virtual memory: 4793 megabytes
-    Info: Processing ended: Fri May 17 11:51:45 2019
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:10
+    Info (21061): Implemented 5525 logic cells
+    Info (21062): Implemented 102 DSP elements
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 72 warnings
+    Info: Peak virtual memory: 4801 megabytes
+    Info: Processing ended: Sat May 25 01:37:42 2019
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:17
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/Cansu/Desktop/fakequidditch/output_files/fakequidditch.map.smsg.
 
 

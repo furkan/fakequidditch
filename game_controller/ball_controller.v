@@ -9,8 +9,11 @@ module ball_controller #(
 //	input [9:0] x_position,
 //	input [9:0] y_position,
 	input [9:0] team1_ver_pos,
+// team1_ver_player_hor_pos = 240
+
 //	input [9:0] team1_hor_pos,
 	input [9:0] team2_ver_pos,
+// team2_ver_player_hor_pos = 560
 //	input [9:0] team2_hor_pos,
 
 	input team1_vu_button,
@@ -160,7 +163,6 @@ module ball_controller #(
 		x_positions = {10'b0 + 'd463, 10'b0 + 'd463, 10'b0 + 463};
 		y_positions = {10'b0 + 'd275, 10'b0 + 'd275, 10'b0 + 275};
 	end
-
 	always @(posedge clk) begin
 		x_positions <= x_positions << 'd10 + x_position;
 		y_positions <= y_positions << 'd10 + y_position;

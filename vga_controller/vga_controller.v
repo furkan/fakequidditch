@@ -4,13 +4,14 @@ module vga_controller #(
 	parameter BALL_RADIUS			//  5 px
 )
 (	input clk,
-	input wire [9:0] y,
-	input wire [9:0] x,
+	input vga_clk,
+//	input wire [9:0] y,
+//	input wire [9:0] x,
 	input wire [9:0] team1_ver_pos,
 	input wire [9:0] team2_ver_pos,
 	
-	input wire [9:0] ball_x,
-	input wire [9:0] ball_y,
+	input wire [18:0] ball_x,
+	input wire [18:0] ball_y,
 
 	output wire hor_sync,
 	output wire ver_sync,
@@ -36,6 +37,40 @@ module vga_controller #(
 	parameter RED_GOAL3_X  = 500;
 	parameter RED_GOAL3_Y  = 100;
 	
+	reg next_line;
+	reg [9:0] x;
+	reg [9:0] y;
+	
+	initial begin
+		x = 0;
+		y = 0;
+		next_line = 0;
+	end
+	
+	always @(posedge clk) begin
+		if (vga_clk==1) begin
+			if (x < 799) begin
+				x <= x + 1;
+				next_line <= 0;
+			end else begin
+				x <= 0;
+				next_line <= 1;
+			end
+		end
+	end
+
+	always @(posedge clk) begin
+		if (vga_clk) begin
+			if (next_line == 1) begin
+				if (y < 524) begin
+					y <= y + 1;
+				end else begin
+					y <= 0;
+				end
+			end
+		end
+	end
+
 	always @(posedge clk) begin
 //		if (x < 784 && x > 143 && y < 515 && y > 34) begin		// the active region
 		if (x < 684 && x > 143 && y < 515 && y > 34) begin		// field
