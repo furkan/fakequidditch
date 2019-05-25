@@ -29,12 +29,14 @@ module game_controller #(
 	output reg [18:0] ball_hor_position,
 	
 	output reg [9:0] team1_ver_position,
-	output reg [9:0] team2_ver_position
+	output reg [9:0] team2_ver_position,
 	
 	/*
 	output reg [9:0] team1_hor_position,
 	output reg [9:0] team2_hor_position,
 	*/
+
+	output reg [7:0] time_left
 );
 
 	wire score_to_team1;
@@ -45,7 +47,10 @@ module game_controller #(
 
 	wire [9:0] team1_ver_pos;
 	wire [9:0] team2_ver_pos;
-	
+
+	wire game_on;
+	reg game_over;
+
 //	wire [9:0] team1_hor_pos;
 //	wire [9:0] team2_hor_pos;
 	
@@ -55,7 +60,7 @@ module game_controller #(
 				team2_ver_ctrl (clk, team2_vu_button, team2_vd_button, team2_ver_pos);
 	
 	ball_controller_cansu #(.PLAYER_RADIUS(PLAYER_RADIUS),.BALL_RADIUS(BALL_RADIUS),.GOAL_RADIUS(GOAL_RADIUS),.MOVEMENT_FREQUENCY(BALL_MOVEMENT_FREQUENCY))
-				ball_ctrl (clk, team1_ver_position, team2_ver_position,team1_vu_button,team1_vd_button,team2_vu_button,team2_vd_button,score_to_team1,score_to_team2,x_position,y_position,x_blugger, y_blugger);
+				ball_ctrl (clk, game_over, team1_ver_position, team2_ver_position,team1_vu_button,team1_vd_button,team2_vu_button,team2_vd_button,score_to_team1,score_to_team2,x_position,y_position,x_blugger, y_blugger, game_on);
 	//board #(.x_position (x_position),.y_position(y_position),.GOAL_RADIUS(GOAL_RADIUS),.BALL_RADIUS(BALL_RADIUS))
 				//board_ctrl (clk,team1_vu_button, team1_vd_button,team2_vu_button,team2_vd_button,score_to_team1, score_to_team2);
 //	input [9:0] x_position,
@@ -76,6 +81,26 @@ module game_controller #(
 //	team1_controller t1_ctrl (clk, team1_vu_button, team1_vd_button, team1_ver_pos);
 
 //	team2_controller t2_ctrl (clk, team2_vu_button, team2_vd_button, team2_ver_pos);
+	
+	integer counter_clk;
+
+	initial begin
+		counter_clk = 0;
+		time_left = 'd180;
+		game_over = 0;
+	end
+
+	always @(posedge clk) begin
+
+		if ((counter_clk == 49999999) && game_on == 1 && time_left != 0) begin
+			counter_clk <= 'd0;
+			time_left <= time_left - 'd1;
+		end else if (time_left == 0) begin
+			game_over <= 1;
+		end else begin
+			counter_clk <= counter_clk + 'd1;
+		end
+	end
 	
 	always begin
 		team1_score <= score_to_team1;
