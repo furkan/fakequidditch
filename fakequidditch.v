@@ -12,7 +12,7 @@ module fakequidditch (clk, team1_vu_button, team1_vd_button, team2_vu_button, te
 	input team2_hl_button;
 	input team2_hr_button;
 	*/
-	
+
 	wire clk_en;
 //	parameter div = 2; // <-- divide 50 MHz by this
 
@@ -28,9 +28,9 @@ module fakequidditch (clk, team1_vu_button, team1_vd_button, team2_vu_button, te
 	wire [9:0] team2_ver_position;
 	reg  [9:0] team1_ver_pos;
 	reg  [9:0] team2_ver_pos;
-	
+
 	wire team1_score, team2_score;
-	
+
 	wire [18:0] ball_hor_position;
 	wire [18:0] ball_ver_position;
 	reg  [18:0] ball_x;
@@ -47,7 +47,7 @@ module fakequidditch (clk, team1_vu_button, team1_vd_button, team2_vu_button, te
 	output reg vga_clk;
 
 	// Clock divider
-	
+
 	integer counter_clk;
 
 	initial begin
@@ -65,15 +65,15 @@ module fakequidditch (clk, team1_vu_button, team1_vd_button, team2_vu_button, te
 			vga_clk <= 0;
 		end
 	end
-	
-	
+
+
 //	clock_divider cd (clk, div, clk_en);
 
 //	vga_horizontal vga_hor (clk, move_down, current_column);
 
 //	vga_vertical vga_ver (clk, next_line, current_row);
 
-	game_controller #(.PLAYER_RADIUS(25),.BALL_RADIUS(5),.GOAL_RADIUS(25),.INITIAL_VER_POS('d250),.INITIAL_TEAM1_HOR_POS('d300), .INITIAL_TEAM2_HOR_POS('d700), .PLAYER_MOVEMENT_FREQUENCY('d200000), .BALL_MOVEMENT_FREQUENCY('d500000000))
+	game_controller #(.PLAYER_RADIUS(25),.BALL_RADIUS(5),.GOAL_RADIUS(25),.INITIAL_VER_POS('d250),.INITIAL_TEAM1_HOR_POS('d300), .INITIAL_TEAM2_HOR_POS('d700), .PLAYER_MOVEMENT_FREQUENCY('d200000), .BALL_MOVEMENT_FREQUENCY('d500000))
 		game_ctrl (clk, team1_vu_button, team1_vd_button, team2_vu_button, team2_vd_button,
 			/*team1_hl_button, team1_hr_button, team2_hl_button, team2_hr_button,*/
 				team1_score, team2_score, ball_ver_position, ball_hor_position,

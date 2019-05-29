@@ -92,6 +92,9 @@ module vga_controller #(
 	end
 
 	always @(posedge clk) begin
+	if (score_to_team1==1)
+	end
+	always @(posedge clk) begin
 //		if (x < 784 && x > 143 && y < 515 && y > 34) begin		// the active region
 		if (x < 660 && x > 143 && y < 515 && y > 34) begin		// field
 			if (

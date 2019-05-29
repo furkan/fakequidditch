@@ -89,10 +89,10 @@ module game_controller #(
 		time_left = 'd180;
 		game_over = 0;
 	end
-
+ 
 	always @(posedge clk) begin
-
-		if ((counter_clk == 49999999) && game_on == 1 && time_left != 0) begin
+      if(game_on==1) begin
+		if ((counter_clk == 49999999) && time_left != 0) begin
 			counter_clk <= 'd0;
 			time_left <= time_left - 'd1;
 		end else if (time_left == 0) begin
@@ -101,7 +101,7 @@ module game_controller #(
 			counter_clk <= counter_clk + 'd1;
 		end
 	end
-	
+	end
 	always begin
 		team1_score <= score_to_team1;
 		team2_score <= score_to_team2;

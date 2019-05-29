@@ -53,8 +53,6 @@ set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_RO
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR "C:/Users/Cansu/Desktop/fakequidditch/simulation/qsim/" -section_id eda_simulation
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST ON -section_id eda_simulation
-set_global_assignment -name VERILOG_FILE fakequidditch.v
-set_global_assignment -name VERILOG_FILE vga_controller/vga_controller.v
 set_location_assignment PIN_B13 -to blue[0]
 set_location_assignment PIN_G13 -to blue[1]
 set_location_assignment PIN_H13 -to blue[2]
@@ -87,7 +85,8 @@ set_location_assignment PIN_E12 -to red[6]
 set_location_assignment PIN_F13 -to red[7]
 set_location_assignment PIN_H14 -to blue[4]
 set_location_assignment PIN_A11 -to vga_clk
-set_global_assignment -name VERILOG_FILE game_controller/ball_controller.v
+set_global_assignment -name VERILOG_FILE fakequidditch.v
+set_global_assignment -name VERILOG_FILE vga_controller/vga_controller.v
 set_global_assignment -name VERILOG_FILE game_controller/game_controller.v
 set_global_assignment -name VERILOG_FILE game_controller/ver_player_controller.v
 set_global_assignment -name VERILOG_FILE board.v
