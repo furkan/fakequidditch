@@ -49,7 +49,9 @@ module hor_player_controller #(
 		end else begin
 			right_button_counter <= 0;
 		end
-		
+	end
+	
+	always @(posedge clk) begin
 		case (hor_state)
 			float: begin
 				hor_pos <= hor_pos;

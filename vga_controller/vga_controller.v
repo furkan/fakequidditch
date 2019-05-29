@@ -11,8 +11,8 @@ module vga_controller #(
 	input wire [9:0] team1_hor_pos,
 	input wire [9:0] team2_hor_pos,
 
-	input wire [18:0] ball_x,
-	input wire [18:0] ball_y,
+	input wire [9:0] ball_x,
+	input wire [9:0] ball_y,
 
 	input [7:0] left_seconds,
 

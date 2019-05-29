@@ -64,10 +64,11 @@ module fakequidditch (clk, team1_vu_button, team1_vd_button, team2_vu_button, te
 	game_controller #(.PLAYER_RADIUS(25),.BALL_RADIUS(5),.GOAL_RADIUS(25),.INITIAL_VER_POS('d250),.INITIAL_HOR_POS('d410),.PLAYER_MOVEMENT_FREQUENCY('d200000), .BALL_MOVEMENT_FREQUENCY('d500000))
 		game_ctrl (clk, team1_vu_button, team1_vd_button, team2_vu_button, team2_vd_button,
 			team1_hl_button, team1_hr_button, team2_hl_button, team2_hr_button,
-				team1_score, team2_score, ball_ver_position, ball_hor_position,
+				 ball_ver_position, ball_hor_position,
 				team1_ver_position, team2_ver_position,
 				team1_hor_position, team2_hor_position,
 					time_left);
+
 
 
 	vga_controller #(.PLAYER_RADIUS(25), .GOAL_RADIUS(25), .BALL_RADIUS(5))

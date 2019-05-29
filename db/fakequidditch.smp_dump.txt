@@ -11,15 +11,16 @@ hor_state.float 0 0 0
 hor_state.left 1 0 1 
 hor_state.right 1 1 0 
 
-State Machine - |fakequidditch|game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_y
-Name ball_dir_y.y_up 
-ball_dir_y.y_down 0 
-ball_dir_y.y_up 1 
-
-State Machine - |fakequidditch|game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir_x
-Name ball_dir_x.x_right 
-ball_dir_x.x_left 0 
-ball_dir_x.x_right 1 
+State Machine - |fakequidditch|game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir
+Name ball_dir.northwest ball_dir.northeast ball_dir.southeast ball_dir.north ball_dir.west ball_dir.east ball_dir.south ball_dir.southwest 
+ball_dir.southwest 0 0 0 0 0 0 0 0 
+ball_dir.south 0 0 0 0 0 0 1 1 
+ball_dir.east 0 0 0 0 0 1 0 1 
+ball_dir.west 0 0 0 0 1 0 0 1 
+ball_dir.north 0 0 0 1 0 0 0 1 
+ball_dir.southeast 0 0 1 0 0 0 0 1 
+ball_dir.northeast 0 1 0 0 0 0 0 1 
+ball_dir.northwest 1 0 0 0 0 0 0 1 
 
 State Machine - |fakequidditch|game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|state
 Name state.active 

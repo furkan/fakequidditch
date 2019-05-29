@@ -1,4 +1,4 @@
-module game_controller #(
+  module game_controller #(
 	parameter PLAYER_RADIUS,
 	parameter BALL_RADIUS,
 	parameter GOAL_RADIUS,
@@ -16,10 +16,10 @@ module game_controller #(
 	input team1_hl_button,
 	input team1_hr_button,
 	input team2_hl_button,
-	input team2_hr_button,
+	input team2_hr_button, 
 	
-	output reg team1_score,
-	output reg team2_score,
+	//output reg team1_score,
+	//output reg team2_score,
 	
 	output reg [18:0] ball_ver_position,
 	output reg [18:0] ball_hor_position,
@@ -33,8 +33,8 @@ module game_controller #(
 	output reg [7:0] time_left
 );
 
-	wire score_to_team1;
-	wire score_to_team2;
+	//wire score_to_team1;
+	//wire score_to_team2;
 
 	wire [18:0] x_position;
 	wire [18:0] y_position;
@@ -54,7 +54,7 @@ module game_controller #(
 				team2_ver_ctrl (clk, team2_vu_button, team2_vd_button, team2_ver_pos);
 
 	ball_controller_cansu #(.PLAYER_RADIUS(PLAYER_RADIUS),.BALL_RADIUS(BALL_RADIUS),.GOAL_RADIUS(GOAL_RADIUS),.MOVEMENT_FREQUENCY(BALL_MOVEMENT_FREQUENCY))
-				ball_ctrl (clk, game_over, team1_ver_position, team2_ver_position,team1_vu_button,team1_vd_button,team2_vu_button,team2_vd_button,team1_hl_button,team1_hr_button,team2_hl_button,team2_hr_button,/*score_to_team1,score_to_team2,*/x_position,y_position, game_on);
+				ball_ctrl (clk, game_over, team1_ver_position, team2_ver_position,team1_vu_button,team1_vd_button,team2_vu_button,team2_vd_button,team1_hl_button,team1_hr_button,team2_hl_button,team2_hr_button,/*score_to_team1,score_to_team2,*/ x_position,y_position, game_on);
 	hor_player_controller #(.PLAYER_RADIUS(PLAYER_RADIUS), .INITIAL_HOR_POS(INITIAL_HOR_POS), .MOVEMENT_FREQUENCY(PLAYER_MOVEMENT_FREQUENCY))
 				team1_hor_ctrl (clk, team1_hl_button, team1_hr_button, team1_hor_pos);
 	hor_player_controller #(.PLAYER_RADIUS(PLAYER_RADIUS), .INITIAL_HOR_POS(INITIAL_HOR_POS), .MOVEMENT_FREQUENCY(PLAYER_MOVEMENT_FREQUENCY)) 
@@ -70,7 +70,7 @@ module game_controller #(
 	end
  
 	always @(posedge clk) begin
-      if(game_on==1) begin
+       
 			if ((counter_clk == 49999999) && time_left != 0) begin
 				counter_clk <= 'd0;
 				time_left <= time_left - 'd1;
@@ -80,10 +80,9 @@ module game_controller #(
 				counter_clk <= counter_clk + 'd1;
 			end
 		end
-	end
 	always begin
-		team1_score <= score_to_team1;
-		team2_score <= score_to_team2;
+		//team1_score <= score_to_team1;
+		//team2_score <= score_to_team2;
 	
 		ball_hor_position <= x_position;
 		ball_ver_position <= y_position;
@@ -95,4 +94,4 @@ module game_controller #(
 		team2_hor_position <= team2_hor_pos;
 	end
 
-endmodule
+endmodule 
