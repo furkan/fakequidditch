@@ -1,5 +1,5 @@
 module ver_player_controller #(
-	parameter PLAYER_RADIUS,		// 35 px works
+	parameter PLAYER_RADIUS,		// 25 px works
 	parameter INITIAL_VER_POS,		// 'd200 works
 	parameter MOVEMENT_FREQUENCY	// inversely proportinal to speed ('d200000 works)
 )

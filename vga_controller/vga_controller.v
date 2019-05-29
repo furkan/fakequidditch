@@ -5,10 +5,11 @@ module vga_controller #(
 )
 (	input clk,
 	input vga_clk,
-//	input wire [9:0] y,
-//	input wire [9:0] x,
+	
 	input wire [9:0] team1_ver_pos,
 	input wire [9:0] team2_ver_pos,
+	input wire [9:0] team1_hor_pos,
+	input wire [9:0] team2_hor_pos,
 
 	input wire [18:0] ball_x,
 	input wire [18:0] ball_y,
@@ -91,9 +92,11 @@ module vga_controller #(
 		end
 	end
 
+	/*
 	always @(posedge clk) begin
 	if (score_to_team1==1)
 	end
+	*/
 	always @(posedge clk) begin
 //		if (x < 784 && x > 143 && y < 515 && y > 34) begin		// the active region
 		if (x < 660 && x > 143 && y < 515 && y > 34) begin		// field
@@ -101,7 +104,8 @@ module vga_controller #(
 				((y - ball_y)**2) + ((x - ball_x)**2) < BALL_RADIUS ** 2  // BALL
 			) red = 8'b00000000;
 			else if (
-				((y - team1_ver_pos)**2) + ((x - 240)**2) > PLAYER_RADIUS ** 2 // BLUE VER PLAYER
+				(((y - team1_ver_pos)**2) + ((x - 240)**2) > PLAYER_RADIUS ** 2)    // BLUE VER PLAYER
+				&& (((y - 380)**2) + ((x - team1_hor_pos)**2) > PLAYER_RADIUS ** 2) // BLUE HOR PLAYER
 
 				&& (   (((y-BLUE_GOAL1_Y)**2)+((x-BLUE_GOAL1_X)**2) > (GOAL_RADIUS + 2)**2)
 				||     (((y-BLUE_GOAL1_Y)**2)+((x-BLUE_GOAL1_X)**2) < (GOAL_RADIUS - 2)**2)   ) // BLUE GOAL 1
@@ -115,7 +119,9 @@ module vga_controller #(
 			else  red = 8'b00000000;
 			if (
 				((y - team1_ver_pos)**2) + ((x - 240)**2) > PLAYER_RADIUS ** 2    // BLUE VER PLAYER
+				&& ((y - 380)**2) + ((x - team1_hor_pos)**2) > PLAYER_RADIUS ** 2 // BLUE HOR PLAYER
 				&& ((y - team2_ver_pos)**2) + ((x - 560)**2) > PLAYER_RADIUS ** 2 // RED  VER PLAYER
+				&& ((y - 180)**2) + ((x - team2_hor_pos)**2) > PLAYER_RADIUS ** 2 // RED  HOR PLAYER
 
 				&& (   (((y-BLUE_GOAL1_Y)**2)+((x-BLUE_GOAL1_X)**2) > (GOAL_RADIUS + 2)**2)
 				||     (((y-BLUE_GOAL1_Y)**2)+((x-BLUE_GOAL1_X)**2) < (GOAL_RADIUS - 2)**2)   ) // BLUE GOAL 1
@@ -136,8 +142,9 @@ module vga_controller #(
 				||     (((y-RED_GOAL3_Y)**2)+((x-RED_GOAL3_X )**2) < (GOAL_RADIUS - 2)**2)   ) // RED  GOAL 3
 				)	green = 8'b11111111;
 			else green = 8'b00000000;
-			if (((y - team2_ver_pos)**2) + ((x - 560)**2) > PLAYER_RADIUS ** 2 // RED VER PLAYER
-
+			if (((y - team2_ver_pos)**2) + ((x - 560)**2) > PLAYER_RADIUS ** 2     // RED VER PLAYER
+				&& (((y - 180)**2) + ((x - team2_hor_pos)**2) > PLAYER_RADIUS ** 2) // RED HOR PLAYER
+				
 				&& (   (((y-RED_GOAL1_Y)**2)+((x-RED_GOAL1_X)**2) > (GOAL_RADIUS + 2)**2)
 				||     (((y-RED_GOAL1_Y)**2)+((x-RED_GOAL1_X)**2) < (GOAL_RADIUS - 2)**2)   ) // RED  GOAL 1
 
