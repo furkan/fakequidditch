@@ -48,106 +48,242 @@ module ball_controller #(
 				|| (((y_position-450)**2)+((x_position-500)**2) < inside_goal) // BLUE GOAL 3
 		) begin
 			state = dead;
+			x_position <= 463;
+		   y_position <= 275;
 		end else if (
 			      (((y_position-100)**2)+((x_position-300)**2) < inside_goal) // RED  GOAL 1
 				|| (((y_position-100)**2)+((x_position-400)**2) < inside_goal) // RED  GOAL 2
 				|| (((y_position-100)**2)+((x_position-500)**2) < inside_goal) // RED  GOAL 3
 		) begin
-			state = dead;
-		end else if (y_position < 36 + BALL_RADIUS) begin
+		  state = dead; 
+		  x_position <= 463;
+		  y_position <= 275;
+		  end
+			
+		//upper bound
+		 else if ((y_position) < (36 + BALL_RADIUS)) begin
 			if (state == up_left) begin
 				state = down_left;
+				 x_position <= x_position-1;
+			 y_position <= y_position+1;
 			end else begin
 				state = down_right;
+				 x_position <= x_position+1;
+			 y_position <= y_position+1;
 			end
-		end else if (y_position > 510 - BALL_RADIUS) begin
+			//lower bound
+		 end else if ((y_position) > (510 - BALL_RADIUS)) begin
 			if (state == down_left) begin
 				state = up_left;
+				 x_position <= x_position-1;
+			 y_position <= y_position-1;
 			end else begin
 				state = up_right;
+				 x_position <= x_position+1;
+			 y_position <= y_position-1;
 			end
-		end else if (x_position < 150 + BALL_RADIUS) begin
+			//left bound
+		end else if ((x_position) < (150 + BALL_RADIUS)) begin
 			if (state == down_left) begin
 				state = down_right;
+				 x_position <= x_position+1;
+			 y_position <= y_position+1;
 			end else begin
 				state = up_right;
+				 x_position <= x_position+1;
+			 y_position <= y_position-1;
 			end
-		end else if (x_position > 660 - BALL_RADIUS) begin
+			//right bound
+		end else if (x_position > (660 - BALL_RADIUS)) begin
 			if (state == down_right) begin
 				state = down_left;
+				 x_position <= x_position-1;
+			 y_position <= y_position+1;
 			end else begin
 				state = up_left;
+				 x_position <= x_position-1;
+			 y_position <= y_position-1;
 			end
 		end
-		// interaction with team1 ver & ball
-		else if ((((x_position - team1_ver_pos)**2 + (y_position - 240)**2)<(PLAYER_RADIUS+BALL_RADIUS+1)) || (((x_position - team2_ver_pos)**2 + (y_position - 560)**2)<(PLAYER_RADIUS+BALL_RADIUS+1)) || (((y_position - team1_hor_pos)**2 + (x_position - 380)**2)<(PLAYER_RADIUS+BALL_RADIUS+1)) || (((y_position - team2_hor_pos)**2 + (x_position - 180)**2)<(PLAYER_RADIUS+BALL_RADIUS+1))) begin
+		
+		// interaction with players & ball
+		
+			 // for team1 ver
+		/*else if (((y_position - team1_ver_pos)**2 + (x_position - 240)**2)<(PLAYER_RADIUS+BALL_RADIUS+1)) begin
 		// for wall 1
-		if(((team1_ver_pos - y_position)> max) || ((team2_ver_pos - y_position)> max) || ((380 - y_position)> max) || ((180 - y_position)> max)) begin
-		   if(state ==down_left) begin
+		if(((PLAYER_RADIUS + BALL_RADIUS +1)>(team1_ver_pos - y_position)> max)) begin
+		   if(state == down_left) begin
 			state = up_left;
 			 x_position <= x_position-1;
 			 y_position <= y_position-1;
 			end
-			if(state == down_right) begin
-			state = up_right;
+			else begin
+			 state = up_right;
 			 x_position <= x_position+1;
 			 y_position <= y_position-1;
 			end
 		end
 		//for wall 2
-		 else if(((min<(240-x_position)<max) && (min<(team1_ver_pos-y_position)<max)) || ((min<(560-x_position)<max) && (min<(team2_ver_pos - y_position)<max)) || ((min<(team1_hor_pos - x_position)<max) && (min<(380-y_position)<max)) || ((min<( team2_hor_pos - x_position)<max) && (min<(180 -y_position)<max)) ) begin
+		 else if((min<(240-x_position)<max) && (min<(team1_ver_pos - y_position)<max)) begin
 		   if(state == down_right) begin
-			state =down_left;
+			state = down_left;
 			 x_position <= x_position-1;
 			 y_position <= y_position+1;
 			end
-			if(state==up_right) begin
+			else begin
 			state =up_left;
 			 x_position <= x_position-1;
 			 y_position <= y_position-1;
 			end
 		 end
 		// for wall 3
-		 else if (((240-x_position)>max) || ((560-x_position)> max)|| ((team1_hor_pos - x_position)>max) || ((team2_hor_pos-x_position)>max)) begin
-		   if(state==down_right) begin
-			state= down_left;
+		 else if ((PLAYER_RADIUS +BALL_RADIUS +1) > (240 - x_position) > (max)) begin
+		   if(state == down_right) begin
+			 state= down_left;
 			 x_position <= x_position-1;
 			 y_position <= y_position+1;
 			end
-			if(state==up_right) begin
-			state = up_left;
+			else begin
+			 state = up_left;
 			 x_position <= x_position-1;
 			 y_position <= y_position-1;
 			end
 		 end
 		// for wall 4
-		  else if(((min<(240-x_position)<max) && (min<(y_position - team1_ver_pos)<max)) || ((min<(560-x_position)<max) && (min<(y_position - team2_ver_pos)<max)) || ((min<(team1_hor_pos - x_position)<max) && (min<(y_position - 380)<max)) || ((min<( team2_hor_pos - x_position)<max) && (min<(y_position - 180)<max)) )
+		  else if(((min)<(240-x_position)< (max)) && (min<(y_position - team1_ver_pos)< (max))) begin
 		    if(state==down_right) begin
 			 state= down_left;
 			  x_position <= x_position-1;
 			 y_position <= y_position+1;
 			 end
-			 if(state == up_right) begin
+			 else begin
 			 state = up_left;
 			  x_position <= x_position-1;
 			 y_position <= y_position-1;
 			 end
 		  end
 		// for wall 5
-		  else if((( y_position -team1_ver_pos )> max) || ((y_position - team2_ver_pos)> max) || ((y_position-380 )> max) || ((y_position-180)> max)) begin
+		  else if (((PLAYER_RADIUS)+(BALL_RADIUS)+1)>(y_position -team1_ver_pos) >(max)) begin
 		    if(state==up_right) begin
 			 state=down_right;
 			  x_position <= x_position+1;
 			 y_position <= y_position+1;
 			 end
-			 if(state==up_left) begin
+			 else begin
 			 state=down_left;
 			  x_position <= x_position-1;
 			 y_position <= y_position+1;
 			 end
 		  end
 		 // for wall 6
-		  else if(((min<(x_position-240)<max) && (min<(y_position -team1_ver_pos)<max)) || ((min<(x_position-560)<max) && (min<(y_position - team2_ver_pos)<max)) || ((min<(x_position -team1_hor_pos)<max) && (min<(y_position-380)<max)) || ((min<(  x_position-team2_hor_pos )<max) && (min<(y_position-180)<max)) ) begin
+		  else if (((min) <(x_position-240)< (max)) && ( (min) <(y_position -team1_ver_pos)< (max))) begin
+		    if(state==down_left) begin
+			 state=down_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position+1;
+			 end
+			 else begin
+			 state=down_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position+1;
+			 end
+		  end
+		// for wall 7
+		else if (((PLAYER_RADIUS)+(BALL_RADIUS)+1)>(x_position-240)> (max)) begin
+		    if(state==down_left) begin
+		    state = down_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position+1;
+			 end
+			 else  begin
+			 state = up_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position-1;
+			 end
+		end
+		// for wall 8
+		else if(((min)<(x_position-240)< (max)) && ((min) <(team1_ver_pos-y_position) < (max))) begin
+		    if(state==down_left) begin
+			 state=up_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position-1;
+			 end
+			 else begin
+			 state=up_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position-1;
+			 end
+		  end */
+		  
+		  // for team2 ver
+		  else if (((y_position - team2_ver_pos)**2 + (x_position - 560)**2)<(PLAYER_RADIUS+BALL_RADIUS+1)) begin
+		// for wall 1
+		if(((PLAYER_RADIUS)+(BALL_RADIUS)+1)>(team2_ver_pos - y_position)> (max)) begin
+		   if(state == down_left) begin
+			state = up_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position-1;
+			end
+			else begin
+			state = up_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position-1;
+			end
+		end
+		//for wall 2
+		 else if (((min)<(560-x_position)<max) && ((min)<(team2_ver_pos - y_position)< (max))) begin
+		   if(state == down_right) begin
+			state =down_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position+1;
+			end
+			else begin
+			state =up_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position-1;
+			end
+		 end
+		// for wall 3
+		 else if (((PLAYER_RADIUS)+(BALL_RADIUS)+1)>(560-x_position)> (max)) begin
+		   if(state==down_right) begin
+			state= down_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position+1;
+			end
+			else begin
+			state = up_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position-1;
+			end
+		 end
+		// for wall 4
+		  else if((min<(560-x_position)<max) && ((min)<(y_position - team2_ver_pos)<(max))) begin
+		    if(state==down_right) begin
+			 state= down_left;
+			  x_position <= x_position-1;
+			 y_position <= y_position+1;
+			 end
+			 else begin
+			 state = up_left;
+			  x_position <= x_position-1;
+			 y_position <= y_position-1;
+			 end
+		  end
+		// for wall 5
+		  else if(((PLAYER_RADIUS)+(BALL_RADIUS)+1)>(y_position - team2_ver_pos)> (max)) begin
+		    if(state==up_right) begin
+			 state=down_right;
+			  x_position <= x_position+1;
+			 y_position <= y_position+1;
+			 end
+			 else begin
+			 state=down_left;
+			  x_position <= x_position-1;
+			 y_position <= y_position+1;
+			 end
+		  end
+		 // for wall 6
+		  else if(((min)<(x_position-560)< (max)) && ((min)<(y_position - team2_ver_pos)< (max))) begin
 		    if(state==down_left) begin
 			 state=down_right;
 			 x_position <= x_position+1;
@@ -160,32 +296,249 @@ module ball_controller #(
 			 end
 		  end
 		// for wall 7
-		else if (((x_position-240)>max) || ((x_position-560)> max)|| ((x_position-team1_hor_pos)>max) || ((x_position-team2_hor_pos)>max)) begin
+		else if (((PLAYER_RADIUS)+(BALL_RADIUS)+1)>(x_position-560)> (max)) begin
 		    if(state==down_left) begin
 		    state = down_right;
 			 x_position <= x_position+1;
 			 y_position <= y_position+1;
 			 end
-			 if(state == up_left) begin
+			 else  begin
 			 state = up_right;
 			 x_position <= x_position+1;
 			 y_position <= y_position-1;
 			 end
 		end
 		// for wall 8
-		else if(((min<(x_position-240)<max) && (min<(team1_ver_pos-y_position)<max)) || ((min<(x_position-560)<max) && (min<(team2_ver_pos - y_position)<max)) || ((min<(x_position -team1_hor_pos)<max) && (min<(380-y_position)<max)) || ((min<(  x_position-team2_hor_pos )<max) && (min<(180 -y_position)<max)) ) begin
+		else if((min<(x_position-560)< (max)) && ( (min) <(team2_ver_pos - y_position)< (max))) begin
 		    if(state==down_left) begin
 			 state=up_right;
 			 x_position <= x_position+1;
 			 y_position <= y_position-1;
 			 end
-			 if(state==up_left) begin
+			 else begin
 			 state=up_right;
 			 x_position <= x_position+1;
 			 y_position <= y_position-1;
 			 end
 		  end
-		  else begin
+		  
+		  /*//for team1 hor
+		  else if (((x_position - team1_hor_pos)**2 + (y_position - 380)**2)<(PLAYER_RADIUS+BALL_RADIUS+1)) begin
+		// for wall 1
+		 if(((PLAYER_RADIUS)+(BALL_RADIUS)+1)>(380 - y_position)> (max)) begin
+		   if(state ==down_left) begin
+			state = up_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position-1;
+			end
+			else begin
+			state = up_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position-1;
+			end
+		 end
+		//for wall 2
+		 else if(((min) <(team1_hor_pos - x_position)<max) && (min<(380-y_position)< (max))) begin
+		   if(state == down_right) begin
+			state =down_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position+1;
+			end
+			else begin
+			state =up_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position-1;
+			end
+		 end
+		// for wall 3
+		 else if (((PLAYER_RADIUS)+(BALL_RADIUS)+1)>(team1_hor_pos - x_position)> (max)) begin
+		   if(state==down_right) begin
+			state= down_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position+1;
+			end
+			else begin
+			state = up_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position-1;
+			end
+		 end
+		// for wall 4
+		  else if(((min) <(team1_hor_pos - x_position)<max) && ((min) <(y_position - 380)< (max))) begin
+		    if(state==down_right) begin
+			 state= down_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position+1;
+			 end
+			 else begin
+			 state = up_left;
+			  x_position <= x_position-1;
+			 y_position <= y_position-1;
+			 end
+		  end
+		// for wall 5
+		  else if (((PLAYER_RADIUS)+(BALL_RADIUS)+1)>((y_position-380 )> (max))) begin
+		    if(state==up_right) begin
+			 state=down_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position+1;
+			 end
+			 else begin
+			 state=down_left;
+			 x_position <= x_position -1;
+			 y_position <= y_position +1;
+			 end
+		  end
+		 // for wall 6
+		  else if (((min)<((x_position) -(team1_hor_pos))< (max)) && ((min) <(y_position - 380)< (max))) begin
+		    if(state==down_left) begin
+			 state=down_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position+1;
+			 end
+			 if(state==up_left) begin
+			 state=down_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position+1;
+			 end
+		  end
+		// for wall 7
+		else if ((((PLAYER_RADIUS)+(BALL_RADIUS)+1)>(x_position)-(team1_hor_pos))> (max)) begin
+		    if(state==down_left) begin
+		    state = down_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position+1;
+			 end
+			 else  begin
+			 state = up_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position-1;
+			 end
+		end
+		// for wall 8
+		else if (((min)<((x_position) -(team1_hor_pos))< (max)) && ((min)<(380 - y_position)<(max))) begin
+		    if(state==down_left) begin
+			 state=up_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position-1;
+			 end
+			 else begin
+			 state=up_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position-1;
+			 end
+		 end
+	 end
+		  
+		  //for team2 hor
+		else if ((((x_position) - (team2_hor_pos))**2 + (y_position - 180)**2)<((PLAYER_RADIUS)+(BALL_RADIUS+1))) begin
+		// for wall 1
+		  if(((PLAYER_RADIUS)+(BALL_RADIUS)+1)>(180 - y_position)> (max)) begin
+		   if(state ==down_left) begin
+			state = up_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position-1;
+			end
+			else begin
+			state = up_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position-1;
+			end
+		end
+		//for wall 2
+		 else if (((min)<((team2_hor_pos) - (x_position))< (max)) && ((min)<(180 -y_position)<(max))) begin
+		   if(state == down_right) begin
+			state =down_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position+1;
+			end
+			else begin
+			state =up_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position-1;
+			end
+		 end
+		// for wall 3
+		 else if (((PLAYER_RADIUS)+(BALL_RADIUS)+1)>((team2_hor_pos)-(x_position))> (max)) begin
+		   if(state==down_right) begin
+			state= down_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position+1;
+			end
+			else begin
+			state = up_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position-1;
+			end
+		 end
+		// for wall 4
+		  else if (((min)<((team2_hor_pos) - (x_position))<(max)) && ((min)<(y_position - 180)<(max))) begin
+		    if(state==down_right) begin
+			 state= down_left;
+			  x_position <= x_position-1;
+			 y_position <= y_position+1;
+			 end
+			 else begin
+			 state = up_left;
+			  x_position <= x_position-1;
+			 y_position <= y_position-1;
+			 end
+		  end
+		// for wall 5
+		  else if((((PLAYER_RADIUS)+(BALL_RADIUS)+1)>(y_position - 180)> (max))) begin
+		    if(state==up_right) begin
+			 state=down_right;
+			  x_position <= x_position+1;
+			 y_position <= y_position+1;
+			 end
+			 else begin
+			 state=down_left;
+			  x_position <= x_position-1;
+			 y_position <= y_position+1;
+			 end
+		  end
+		 // for wall 6
+		  else if(((((min)<( (x_position)- (team2_hor_pos) )<(max)) && ((min)<(y_position - 180)<(max))))) begin
+		    if(state==down_left) begin
+			 state=down_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position+1;
+			 end
+			 if(state==up_left) begin
+			 state=down_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position+1;
+			 end
+		  end
+		// for wall 7
+		else if (((PLAYER_RADIUS)+(BALL_RADIUS)+1)>((x_position) - (team2_hor_pos))> (max)) begin
+		    if(state==down_left) begin
+		    state = down_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position+1;
+			 end
+			 else  begin
+			 state = up_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position-1;
+			 end
+		end
+		// for wall 8
+		else if (((min) <(x_position-team2_hor_pos )< (max)) && ((min) <(180 -y_position)< (max))) begin
+		    if(state==down_left) begin
+			 state=up_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position-1;
+			 end
+			 else begin
+			 state=up_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position-1;
+			 end
+		  end
+   end*/
+	 else begin
+	  if (counter =='d98) begin
 		  if(state==up_right) begin
 		  x_position <= x_position +1;
 		  y_position <= y_position-1;
@@ -200,9 +553,11 @@ module ball_controller #(
 		  end
 		  if (state==down_right) begin
 		  x_position <= x_position +1;
-		  y_position <= y_position+1;
+		  y_position <= y_position +1;
 		  end
-		  end
+		 end
+		end
+	end
 	end
 	always @(posedge clk) begin
 		if (counter < MOVEMENT_FREQUENCY) begin

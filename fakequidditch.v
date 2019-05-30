@@ -1,8 +1,6 @@
-module fakequidditch (clk, game_on_switch, team1_vu_button, team1_vd_button, team2_vu_button, team2_vd_button, team1_hl_button, team1_hr_button, team2_hl_button, team2_hr_button, red, green, blue, hor_sync, ver_sync, vga_clk);
+module fakequidditch (clk, team1_vu_button, team1_vd_button, team2_vu_button, team2_vd_button, team1_hl_button, team1_hr_button, team2_hl_button, team2_hr_button, red, green, blue, hor_sync, ver_sync, vga_clk);
 
 	input clk;
-	
-	input game_on_switch;
 	
 	input team1_vu_button;
 	input team1_vd_button;
@@ -25,13 +23,16 @@ module fakequidditch (clk, game_on_switch, team1_vu_button, team1_vd_button, tea
 	wire [9:0] team2_hor_position;
 	reg  [9:0] team1_hor_pos;
 	reg  [9:0] team2_hor_pos;
-	
-	wire team1_score, team2_score;
 
 	wire [18:0] ball_hor_position;
 	wire [18:0] ball_ver_position;
 	reg  [18:0] ball_x;
 	reg  [18:0] ball_y;
+	
+	wire [6:0]  blue_score;
+	wire [6:0]   red_score;
+	reg  [6:0] team1_score;
+	reg  [6:0] team2_score;
 
 	wire [7:0] time_left;
 	reg  [7:0] left_seconds;
@@ -64,19 +65,19 @@ module fakequidditch (clk, game_on_switch, team1_vu_button, team1_vd_button, tea
 	end
 
 
-	game_controller #(.PLAYER_RADIUS(25),.BALL_RADIUS(5),.GOAL_RADIUS(25),.INITIAL_VER_POS('d250),.INITIAL_HOR_POS('d410),.PLAYER_MOVEMENT_FREQUENCY('d200000), .BALL_MOVEMENT_FREQUENCY('d500000))
-		game_ctrl (clk, game_on_switch, team1_vu_button, team1_vd_button, team2_vu_button, team2_vd_button,
+	game_controller #(.PLAYER_RADIUS(25),.BALL_RADIUS(5),.GOAL_RADIUS(25),.INITIAL_VER_POS('d250),.INITIAL_HOR_POS('d410),.PLAYER_MOVEMENT_FREQUENCY('d200000), .BALL_MOVEMENT_FREQUENCY('d500000)) 
+		game_ctrl (clk, team1_vu_button, team1_vd_button, team2_vu_button, team2_vd_button,
 			team1_hl_button, team1_hr_button, team2_hl_button, team2_hr_button,
 				 ball_ver_position, ball_hor_position,
 				team1_ver_position, team2_ver_position,
 				team1_hor_position, team2_hor_position,
-					time_left);
+					time_left, blue_score, red_score);
 
 
 
 	vga_controller #(.PLAYER_RADIUS(25), .GOAL_RADIUS(25), .BALL_RADIUS(5))
 
-		vga_cont (clk, vga_clk, team1_ver_pos, team2_ver_pos, team1_hor_pos, team2_hor_pos, ball_x, ball_y, left_seconds, hor_sync, ver_sync, red, green, blue);
+		vga_cont (clk, vga_clk, team1_ver_pos, team2_ver_pos, team1_hor_pos, team2_hor_pos, ball_x, ball_y, left_seconds, team1_score, team2_score, hor_sync, ver_sync, red, green, blue);
 
 
 	always begin
@@ -88,7 +89,10 @@ module fakequidditch (clk, game_on_switch, team1_vu_button, team1_vd_button, tea
 		team1_hor_pos <= team1_hor_position;
 		team2_hor_pos <= team2_hor_position;
 		
-		left_seconds <= time_left;
+		left_seconds  <= time_left;
+		
+		team1_score   <= blue_score;
+		team2_score   <=  red_score;
 	end
 
 endmodule

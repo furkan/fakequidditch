@@ -11,12 +11,14 @@ module vga_controller #(
 	input wire [9:0] team1_hor_pos,
 	input wire [9:0] team2_hor_pos,
 
-	input wire [9:0] ball_x,
-	input wire [9:0] ball_y,
+	input wire [10:0] ball_x,
+	input wire [10:0] ball_y,
 
 	input [7:0] left_seconds,
 
-
+	input [6:0] team1_score,
+	input [6:0] team2_score,
+	
 	output wire hor_sync,
 	output wire ver_sync,
 	output reg [7:0] red,
@@ -49,6 +51,18 @@ module vga_controller #(
 
 	parameter SECOND_ONES_POSITION_X = 760;
 	parameter SECOND_ONES_POSITION_Y = 275;
+	
+	parameter BLUE_SCORE_TENS_POSITION_X = 674;
+	parameter BLUE_SCORE_TENS_POSITION_Y = 100;
+	
+	parameter BLUE_SCORE_ONES_POSITION_X = 696;
+	parameter BLUE_SCORE_ONES_POSITION_Y = 100;
+	
+	parameter RED_SCORE_TENS_POSITION_X = 735;
+	parameter RED_SCORE_TENS_POSITION_Y = 100;
+	
+	parameter RED_SCORE_ONES_POSITION_X = 759;
+	parameter RED_SCORE_ONES_POSITION_Y = 100;
 
 	reg next_line;
 	reg [9:0] x;
@@ -57,10 +71,20 @@ module vga_controller #(
 	wire [3:0] left_minute;
 	wire [3:0] left_second_tens;
 	wire [3:0] left_second_ones;
+	
+	wire [3:0] blue_score_tens;
+	wire [3:0] blue_score_ones;
+	wire [3:0] red_score_tens;
+	wire [3:0] red_score_ones;
 
 	assign left_minute = left_seconds / 60;
 	assign left_second_tens = (left_seconds % 60) / 10;
 	assign left_second_ones = (left_seconds % 60) % 10;
+	
+	assign blue_score_tens = team1_score / 10;
+	assign blue_score_ones = team1_score % 10;
+	assign red_score_tens  = team2_score / 10;
+	assign red_score_ones  = team2_score % 10;
 
 	initial begin
 		x = 0;
@@ -297,6 +321,183 @@ module vga_controller #(
 					blue  = 8'b00000000;
 				end
 			end
+			
+			if (!(blue_score_tens == 'd1 || blue_score_tens == 'd4)) begin
+				if ((y <= BLUE_SCORE_TENS_POSITION_Y - 17 && y >= BLUE_SCORE_TENS_POSITION_Y - 19) && (x <= BLUE_SCORE_TENS_POSITION_X + 7 && x >= BLUE_SCORE_TENS_POSITION_X - 7)) begin
+					red   = 8'b00000000;
+					green = 8'b00000000;
+					blue  = 8'b11111111;
+				end
+			end if (!(blue_score_tens == 'd5 || blue_score_tens == 'd6)) begin
+				if ((y <= BLUE_SCORE_TENS_POSITION_Y - 2 && y >= BLUE_SCORE_TENS_POSITION_Y - 16) && (x <= BLUE_SCORE_TENS_POSITION_X + 10 && x >= BLUE_SCORE_TENS_POSITION_X + 8)) begin
+					red   = 8'b00000000;
+					green = 8'b00000000;
+					blue  = 8'b11111111;
+				end
+			end if (!(blue_score_tens == 'd2)) begin
+				if ((y <= BLUE_SCORE_TENS_POSITION_Y + 16 && y >= BLUE_SCORE_TENS_POSITION_Y + 2) && (x <= BLUE_SCORE_TENS_POSITION_X + 10 && x >= BLUE_SCORE_TENS_POSITION_X + 8)) begin
+					red   = 8'b00000000;
+					green = 8'b00000000;
+					blue  = 8'b11111111;
+				end
+			end if (!(blue_score_tens == 'd1 || blue_score_tens == 'd4 || blue_score_tens == 'd7)) begin
+				if ((y <= BLUE_SCORE_TENS_POSITION_Y + 19 && y >= BLUE_SCORE_TENS_POSITION_Y + 17) && (x <= BLUE_SCORE_TENS_POSITION_X + 7 && x >= BLUE_SCORE_TENS_POSITION_X - 7)) begin
+					red   = 8'b00000000;
+					green = 8'b00000000;
+					blue  = 8'b11111111;
+				end
+			end if ((blue_score_tens == 'd0 || blue_score_tens == 'd2 || blue_score_tens == 'd6 || blue_score_tens == 'd8)) begin
+				if ((y <= BLUE_SCORE_TENS_POSITION_Y + 16 && y >= BLUE_SCORE_TENS_POSITION_Y + 2) && (x <= BLUE_SCORE_TENS_POSITION_X - 8 && x >= BLUE_SCORE_TENS_POSITION_X - 10)) begin
+					red   = 8'b00000000;
+					green = 8'b00000000;
+					blue  = 8'b11111111;
+				end
+			end if (!(blue_score_tens == 'd1 || blue_score_tens == 'd2 || blue_score_tens == 'd3 || blue_score_tens == 'd7)) begin
+				if ((y <= BLUE_SCORE_TENS_POSITION_Y - 2 && y >= BLUE_SCORE_TENS_POSITION_Y - 16) && (x <= BLUE_SCORE_TENS_POSITION_X - 8 && x >= BLUE_SCORE_TENS_POSITION_X - 10)) begin
+					red   = 8'b00000000;
+					green = 8'b00000000;
+					blue  = 8'b11111111;
+				end
+			end if (!(blue_score_tens == 'd0 || blue_score_tens == 'd1 || blue_score_tens == 'd7)) begin
+				if ((y <= BLUE_SCORE_TENS_POSITION_Y + 1 && y >= BLUE_SCORE_TENS_POSITION_Y - 1) && (x <= BLUE_SCORE_TENS_POSITION_X + 7 && x >= BLUE_SCORE_TENS_POSITION_X - 7)) begin
+					red   = 8'b00000000;
+					green = 8'b00000000;
+					blue  = 8'b11111111;
+				end
+			end
+			
+			if (!(blue_score_ones == 'd1 || blue_score_ones == 'd4)) begin
+				if ((y <= BLUE_SCORE_ONES_POSITION_Y - 17 && y >= BLUE_SCORE_ONES_POSITION_Y - 19) && (x <= BLUE_SCORE_ONES_POSITION_X + 7 && x >= BLUE_SCORE_ONES_POSITION_X - 7)) begin
+					red   = 8'b00000000;
+					green = 8'b00000000;
+					blue  = 8'b11111111;
+				end
+			end if (!(blue_score_ones == 'd5 || blue_score_ones == 'd6)) begin
+				if ((y <= BLUE_SCORE_ONES_POSITION_Y - 2 && y >= BLUE_SCORE_ONES_POSITION_Y - 16) && (x <= BLUE_SCORE_ONES_POSITION_X + 10 && x >= BLUE_SCORE_ONES_POSITION_X + 8)) begin
+					red   = 8'b00000000;
+					green = 8'b00000000;
+					blue  = 8'b11111111;
+				end
+			end if (!(blue_score_ones == 'd2)) begin
+				if ((y <= BLUE_SCORE_ONES_POSITION_Y + 16 && y >= BLUE_SCORE_ONES_POSITION_Y + 2) && (x <= BLUE_SCORE_ONES_POSITION_X + 10 && x >= BLUE_SCORE_ONES_POSITION_X + 8)) begin
+					red   = 8'b00000000;
+					green = 8'b00000000;
+					blue  = 8'b11111111;
+				end
+			end if (!(blue_score_ones == 'd1 || blue_score_ones == 'd4 || blue_score_ones == 'd7)) begin
+				if ((y <= BLUE_SCORE_ONES_POSITION_Y + 19 && y >= BLUE_SCORE_ONES_POSITION_Y + 17) && (x <= BLUE_SCORE_ONES_POSITION_X + 7 && x >= BLUE_SCORE_ONES_POSITION_X - 7)) begin
+					red   = 8'b00000000;
+					green = 8'b00000000;
+					blue  = 8'b11111111;
+				end
+			end if ((blue_score_ones == 'd0 || blue_score_ones == 'd2 || blue_score_ones == 'd6 || blue_score_ones == 'd8)) begin
+				if ((y <= BLUE_SCORE_ONES_POSITION_Y + 16 && y >= BLUE_SCORE_ONES_POSITION_Y + 2) && (x <= BLUE_SCORE_ONES_POSITION_X - 8 && x >= BLUE_SCORE_ONES_POSITION_X - 10)) begin
+					red   = 8'b00000000;
+					green = 8'b00000000;
+					blue  = 8'b11111111;
+				end
+			end if (!(blue_score_ones == 'd1 || blue_score_ones == 'd2 || blue_score_ones == 'd3 || blue_score_ones == 'd7)) begin
+				if ((y <= BLUE_SCORE_ONES_POSITION_Y - 2 && y >= BLUE_SCORE_ONES_POSITION_Y - 16) && (x <= BLUE_SCORE_ONES_POSITION_X - 8 && x >= BLUE_SCORE_ONES_POSITION_X - 10)) begin
+					red   = 8'b00000000;
+					green = 8'b00000000;
+					blue  = 8'b11111111;
+				end
+			end if (!(blue_score_ones == 'd0 || blue_score_ones == 'd1 || blue_score_ones == 'd7)) begin
+				if ((y <= BLUE_SCORE_ONES_POSITION_Y + 1 && y >= BLUE_SCORE_ONES_POSITION_Y - 1) && (x <= BLUE_SCORE_ONES_POSITION_X + 7 && x >= BLUE_SCORE_ONES_POSITION_X - 7)) begin
+					red   = 8'b00000000;
+					green = 8'b00000000;
+					blue  = 8'b11111111;
+				end
+			end
+			
+			if (!(red_score_tens == 'd1 || red_score_tens == 'd4)) begin
+				if ((y <= RED_SCORE_TENS_POSITION_Y - 17 && y >= RED_SCORE_TENS_POSITION_Y - 19) && (x <= RED_SCORE_TENS_POSITION_X + 7 && x >= RED_SCORE_TENS_POSITION_X - 7)) begin
+					red   = 8'b11111111;
+					green = 8'b00000000;
+					blue  = 8'b00000000;
+				end
+			end if (!(red_score_tens == 'd5 || red_score_tens == 'd6)) begin
+				if ((y <= RED_SCORE_TENS_POSITION_Y - 2 && y >= RED_SCORE_TENS_POSITION_Y - 16) && (x <= RED_SCORE_TENS_POSITION_X + 10 && x >= RED_SCORE_TENS_POSITION_X + 8)) begin
+					red   = 8'b11111111;
+					green = 8'b00000000;
+					blue  = 8'b00000000;
+				end
+			end if (!(red_score_tens == 'd2)) begin
+				if ((y <= RED_SCORE_TENS_POSITION_Y + 16 && y >= RED_SCORE_TENS_POSITION_Y + 2) && (x <= RED_SCORE_TENS_POSITION_X + 10 && x >= RED_SCORE_TENS_POSITION_X + 8)) begin
+					red   = 8'b11111111;
+					green = 8'b00000000;
+					blue  = 8'b00000000;
+				end
+			end if (!(red_score_tens == 'd1 || red_score_tens == 'd4 || red_score_tens == 'd7)) begin
+				if ((y <= RED_SCORE_TENS_POSITION_Y + 19 && y >= RED_SCORE_TENS_POSITION_Y + 17) && (x <= RED_SCORE_TENS_POSITION_X + 7 && x >= RED_SCORE_TENS_POSITION_X - 7)) begin
+					red   = 8'b11111111;
+					green = 8'b00000000;
+					blue  = 8'b00000000;
+				end
+			end if ((red_score_tens == 'd0 || red_score_tens == 'd2 || red_score_tens == 'd6 || red_score_tens == 'd8)) begin
+				if ((y <= BLUE_SCORE_TENS_POSITION_Y + 16 && y >= RED_SCORE_TENS_POSITION_Y + 2) && (x <= RED_SCORE_TENS_POSITION_X - 8 && x >= RED_SCORE_TENS_POSITION_X - 10)) begin
+					red   = 8'b11111111;
+					green = 8'b00000000;
+					blue  = 8'b00000000;
+				end
+			end if (!(red_score_tens == 'd1 || red_score_tens == 'd2 || red_score_tens == 'd3 || red_score_tens == 'd7)) begin
+				if ((y <= RED_SCORE_TENS_POSITION_Y - 2 && y >= RED_SCORE_TENS_POSITION_Y - 16) && (x <= RED_SCORE_TENS_POSITION_X - 8 && x >= RED_SCORE_TENS_POSITION_X - 10)) begin
+					red   = 8'b11111111;
+					green = 8'b00000000;
+					blue  = 8'b00000000;
+				end
+			end if (!(red_score_tens == 'd0 || red_score_tens == 'd1 || red_score_tens == 'd7)) begin
+				if ((y <= RED_SCORE_TENS_POSITION_Y + 1 && y >= RED_SCORE_TENS_POSITION_Y - 1) && (x <= RED_SCORE_TENS_POSITION_X + 7 && x >= RED_SCORE_TENS_POSITION_X - 7)) begin
+					red   = 8'b11111111;
+					green = 8'b00000000;
+					blue  = 8'b00000000;
+				end
+			end
+			
+			if (!(red_score_ones == 'd1 || red_score_ones == 'd4)) begin
+				if ((y <= RED_SCORE_ONES_POSITION_Y - 17 && y >= RED_SCORE_ONES_POSITION_Y - 19) && (x <= RED_SCORE_ONES_POSITION_X + 7 && x >= RED_SCORE_ONES_POSITION_X - 7)) begin
+					red   = 8'b11111111;
+					green = 8'b00000000;
+					blue  = 8'b00000000;
+				end
+			end if (!(red_score_ones == 'd5 || red_score_ones == 'd6)) begin
+				if ((y <= RED_SCORE_ONES_POSITION_Y - 2 && y >= RED_SCORE_ONES_POSITION_Y - 16) && (x <= RED_SCORE_ONES_POSITION_X + 10 && x >= RED_SCORE_ONES_POSITION_X + 8)) begin
+					red   = 8'b11111111;
+					green = 8'b00000000;
+					blue  = 8'b00000000;
+				end
+			end if (!(red_score_ones == 'd2)) begin
+				if ((y <= RED_SCORE_ONES_POSITION_Y + 16 && y >= RED_SCORE_ONES_POSITION_Y + 2) && (x <= RED_SCORE_ONES_POSITION_X + 10 && x >= RED_SCORE_ONES_POSITION_X + 8)) begin
+					red   = 8'b11111111;
+					green = 8'b00000000;
+					blue  = 8'b00000000;
+				end
+			end if (!(red_score_ones == 'd1 || red_score_ones == 'd4 || red_score_ones == 'd7)) begin
+				if ((y <= RED_SCORE_ONES_POSITION_Y + 19 && y >= RED_SCORE_ONES_POSITION_Y + 17) && (x <= RED_SCORE_ONES_POSITION_X + 7 && x >= RED_SCORE_ONES_POSITION_X - 7)) begin
+					red   = 8'b11111111;
+					green = 8'b00000000;
+					blue  = 8'b00000000;
+				end
+			end if ((red_score_ones == 'd0 || red_score_ones == 'd2 || red_score_ones == 'd6 || red_score_ones == 'd8)) begin
+				if ((y <= RED_SCORE_ONES_POSITION_Y + 16 && y >= RED_SCORE_ONES_POSITION_Y + 2) && (x <= RED_SCORE_ONES_POSITION_X - 8 && x >= RED_SCORE_ONES_POSITION_X - 10)) begin
+					red   = 8'b11111111;
+					green = 8'b00000000;
+					blue  = 8'b00000000;
+				end
+			end if (!(red_score_ones == 'd1 || red_score_ones == 'd2 || red_score_ones == 'd3 || red_score_ones == 'd7)) begin
+				if ((y <= RED_SCORE_ONES_POSITION_Y - 2 && y >= RED_SCORE_ONES_POSITION_Y - 16) && (x <= RED_SCORE_ONES_POSITION_X - 8 && x >= RED_SCORE_ONES_POSITION_X - 10)) begin
+					red   = 8'b11111111;
+					green = 8'b00000000;
+					blue  = 8'b00000000;
+				end
+			end if (!(red_score_ones == 'd0 || red_score_ones == 'd1 || red_score_ones == 'd7)) begin
+				if ((y <= RED_SCORE_ONES_POSITION_Y + 1 && y >= RED_SCORE_ONES_POSITION_Y - 1) && (x <= RED_SCORE_ONES_POSITION_X + 7 && x >= RED_SCORE_ONES_POSITION_X - 7)) begin
+					red   = 8'b11111111;
+					green = 8'b00000000;
+					blue  = 8'b00000000;
+				end
+			end
+			
 
 		end else begin				// outside the active region
 			red   = 8'b00000000;

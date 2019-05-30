@@ -1,5 +1,5 @@
 Flow report for fakequidditch
-Thu May 30 00:02:27 2019
+Thu May 30 22:33:23 2019
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -40,16 +40,16 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Flow Summary                                                                 ;
 +---------------------------------+--------------------------------------------+
-; Flow Status                     ; Successful - Thu May 30 00:02:27 2019      ;
+; Flow Status                     ; Successful - Thu May 30 22:33:23 2019      ;
 ; Quartus II 64-Bit Version       ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                   ; fakequidditch                              ;
 ; Top-level Entity Name           ; fakequidditch                              ;
 ; Family                          ; Cyclone V                                  ;
 ; Device                          ; 5CSEMA5F31C6                               ;
 ; Timing Models                   ; Preliminary                                ;
-; Logic utilization (in ALMs)     ; 5,854 / 32,070 ( 18 % )                    ;
-; Total registers                 ; 495                                        ;
-; Total pins                      ; 37 / 457 ( 8 % )                           ;
+; Logic utilization (in ALMs)     ; 4,168 / 32,070 ( 13 % )                    ;
+; Total registers                 ; 518                                        ;
+; Total pins                      ; 36 / 457 ( 8 % )                           ;
 ; Total virtual pins              ; 0                                          ;
 ; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                      ;
 ; Total DSP Blocks                ; 87 / 87 ( 100 % )                          ;
@@ -67,7 +67,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/29/2019 23:58:37 ;
+; Start date & time ; 05/30/2019 22:29:16 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; fakequidditch       ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ applicable agreement for further details.
 +-------------------------------------+-------------------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+-------------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 49467848332767.155916351713100                        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 49467848332767.155924455614728                        ; --            ; --          ; --             ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; On                                                    ; --            ; --          ; eda_simulation ;
 ; EDA_NETLIST_WRITER_OUTPUT_DIR       ; C:/Users/Cansu/Desktop/fakequidditch/simulation/qsim/ ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                                           ; --            ; --          ; eda_simulation ;
@@ -97,12 +97,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:15     ; 1.0                     ; 4826 MB             ; 00:00:14                           ;
-; Fitter                    ; 00:02:31     ; 1.6                     ; 5985 MB             ; 00:03:19                           ;
-; Assembler                 ; 00:00:16     ; 1.0                     ; 4881 MB             ; 00:00:15                           ;
-; TimeQuest Timing Analyzer ; 00:00:29     ; 1.6                     ; 5163 MB             ; 00:00:44                           ;
-; EDA Netlist Writer        ; 00:00:05     ; 1.0                     ; 4781 MB             ; 00:00:04                           ;
-; Total                     ; 00:03:36     ; --                      ; --                  ; 00:04:36                           ;
+; Analysis & Synthesis      ; 00:00:15     ; 1.0                     ; 4820 MB             ; 00:00:14                           ;
+; Fitter                    ; 00:02:52     ; 1.6                     ; 5940 MB             ; 00:03:45                           ;
+; Assembler                 ; 00:00:15     ; 1.0                     ; 4858 MB             ; 00:00:14                           ;
+; TimeQuest Timing Analyzer ; 00:00:27     ; 1.5                     ; 5135 MB             ; 00:00:38                           ;
+; EDA Netlist Writer        ; 00:00:04     ; 1.0                     ; 4760 MB             ; 00:00:04                           ;
+; Total                     ; 00:03:53     ; --                      ; --                  ; 00:04:55                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
