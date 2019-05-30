@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for fakequidditch
-Wed May 29 21:11:12 2019
+Thu May 30 00:02:20 2019
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -113,12 +113,12 @@ applicable agreement for further details.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.60        ;
+; Average used               ; 1.63        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  60.0%      ;
+;     Processor 2            ;  63.0%      ;
 ;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
@@ -137,7 +137,7 @@ applicable agreement for further details.
 +-----------+-----------------+------------+------+
 ; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
 +-----------+-----------------+------------+------+
-; 58.14 MHz ; 58.14 MHz       ; clk        ;      ;
+; 55.48 MHz ; 55.48 MHz       ; clk        ;      ;
 +-----------+-----------------+------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -153,7 +153,7 @@ HTML report is unavailable in plain text report export.
 +-------+---------+-------------------+
 ; Clock ; Slack   ; End Point TNS     ;
 +-------+---------+-------------------+
-; clk   ; -16.199 ; -2230.516         ;
+; clk   ; -17.023 ; -2931.045         ;
 +-------+---------+-------------------+
 
 
@@ -162,7 +162,7 @@ HTML report is unavailable in plain text report export.
 +-------+-------+--------------------+
 ; Clock ; Slack ; End Point TNS      ;
 +-------+-------+--------------------+
-; clk   ; 0.376 ; 0.000              ;
+; clk   ; 0.378 ; 0.000              ;
 +-------+-------+--------------------+
 
 
@@ -183,7 +183,7 @@ No paths to report.
 +-------+--------+----------------------------------+
 ; Clock ; Slack  ; End Point TNS                    ;
 +-------+--------+----------------------------------+
-; clk   ; -2.225 ; -322.966                         ;
+; clk   ; -0.394 ; -254.725                         ;
 +-------+--------+----------------------------------+
 
 
@@ -192,14 +192,15 @@ No paths to report.
 +-----------------+------------+-------+-------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------------+------------+-------+-------+------------+-----------------+
-; team1_hl_button ; clk        ; 4.298 ; 4.730 ; Rise       ; clk             ;
-; team1_hr_button ; clk        ; 4.454 ; 5.180 ; Rise       ; clk             ;
-; team1_vd_button ; clk        ; 1.891 ; 2.704 ; Rise       ; clk             ;
-; team1_vu_button ; clk        ; 2.290 ; 3.240 ; Rise       ; clk             ;
-; team2_hl_button ; clk        ; 3.747 ; 4.322 ; Rise       ; clk             ;
-; team2_hr_button ; clk        ; 3.955 ; 4.525 ; Rise       ; clk             ;
-; team2_vd_button ; clk        ; 2.082 ; 2.808 ; Rise       ; clk             ;
-; team2_vu_button ; clk        ; 2.239 ; 3.290 ; Rise       ; clk             ;
+; game_on_switch  ; clk        ; 0.210 ; 0.560 ; Rise       ; clk             ;
+; team1_hl_button ; clk        ; 3.857 ; 4.104 ; Rise       ; clk             ;
+; team1_hr_button ; clk        ; 4.088 ; 4.866 ; Rise       ; clk             ;
+; team1_vd_button ; clk        ; 1.848 ; 2.529 ; Rise       ; clk             ;
+; team1_vu_button ; clk        ; 1.811 ; 2.642 ; Rise       ; clk             ;
+; team2_hl_button ; clk        ; 3.320 ; 3.883 ; Rise       ; clk             ;
+; team2_hr_button ; clk        ; 3.933 ; 4.545 ; Rise       ; clk             ;
+; team2_vd_button ; clk        ; 1.233 ; 1.802 ; Rise       ; clk             ;
+; team2_vu_button ; clk        ; 1.321 ; 1.912 ; Rise       ; clk             ;
 +-----------------+------------+-------+-------+------------+-----------------+
 
 
@@ -208,14 +209,15 @@ No paths to report.
 +-----------------+------------+--------+--------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------------+------------+--------+--------+------------+-----------------+
-; team1_hl_button ; clk        ; -0.697 ; -1.049 ; Rise       ; clk             ;
-; team1_hr_button ; clk        ; -0.941 ; -1.424 ; Rise       ; clk             ;
-; team1_vd_button ; clk        ; 0.230  ; -0.455 ; Rise       ; clk             ;
-; team1_vu_button ; clk        ; 0.306  ; -0.305 ; Rise       ; clk             ;
-; team2_hl_button ; clk        ; -0.271 ; -0.711 ; Rise       ; clk             ;
-; team2_hr_button ; clk        ; -0.313 ; -0.722 ; Rise       ; clk             ;
-; team2_vd_button ; clk        ; 0.281  ; -0.225 ; Rise       ; clk             ;
-; team2_vu_button ; clk        ; 0.026  ; -0.699 ; Rise       ; clk             ;
+; game_on_switch  ; clk        ; 0.552  ; 0.264  ; Rise       ; clk             ;
+; team1_hl_button ; clk        ; -0.139 ; -0.395 ; Rise       ; clk             ;
+; team1_hr_button ; clk        ; -0.191 ; -0.679 ; Rise       ; clk             ;
+; team1_vd_button ; clk        ; 0.750  ; 0.306  ; Rise       ; clk             ;
+; team1_vu_button ; clk        ; 0.581  ; -0.130 ; Rise       ; clk             ;
+; team2_hl_button ; clk        ; -0.180 ; -0.630 ; Rise       ; clk             ;
+; team2_hr_button ; clk        ; -0.804 ; -1.305 ; Rise       ; clk             ;
+; team2_vd_button ; clk        ; 0.770  ; 0.369  ; Rise       ; clk             ;
+; team2_vu_button ; clk        ; 0.968  ; 0.518  ; Rise       ; clk             ;
 +-----------------+------------+--------+--------+------------+-----------------+
 
 
@@ -224,36 +226,36 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; blue[*]   ; clk        ; 11.644 ; 13.245 ; Rise       ; clk             ;
-;  blue[0]  ; clk        ; 11.644 ; 13.245 ; Rise       ; clk             ;
-;  blue[1]  ; clk        ; 10.808 ; 11.798 ; Rise       ; clk             ;
-;  blue[2]  ; clk        ; 11.501 ; 12.765 ; Rise       ; clk             ;
-;  blue[3]  ; clk        ; 11.201 ; 12.482 ; Rise       ; clk             ;
-;  blue[4]  ; clk        ; 11.313 ; 12.665 ; Rise       ; clk             ;
-;  blue[5]  ; clk        ; 11.287 ; 12.649 ; Rise       ; clk             ;
-;  blue[6]  ; clk        ; 11.234 ; 12.425 ; Rise       ; clk             ;
-;  blue[7]  ; clk        ; 11.335 ; 12.682 ; Rise       ; clk             ;
-; green[*]  ; clk        ; 11.740 ; 13.253 ; Rise       ; clk             ;
-;  green[0] ; clk        ; 10.406 ; 11.109 ; Rise       ; clk             ;
-;  green[1] ; clk        ; 10.109 ; 10.681 ; Rise       ; clk             ;
-;  green[2] ; clk        ; 11.740 ; 13.253 ; Rise       ; clk             ;
-;  green[3] ; clk        ; 11.655 ; 12.942 ; Rise       ; clk             ;
-;  green[4] ; clk        ; 10.110 ; 10.726 ; Rise       ; clk             ;
-;  green[5] ; clk        ; 11.456 ; 12.504 ; Rise       ; clk             ;
-;  green[6] ; clk        ; 11.237 ; 12.467 ; Rise       ; clk             ;
-;  green[7] ; clk        ; 11.569 ; 12.870 ; Rise       ; clk             ;
-; hor_sync  ; clk        ; 13.515 ; 15.308 ; Rise       ; clk             ;
-; red[*]    ; clk        ; 11.480 ; 12.790 ; Rise       ; clk             ;
-;  red[0]   ; clk        ; 10.912 ; 12.119 ; Rise       ; clk             ;
-;  red[1]   ; clk        ; 10.240 ; 11.262 ; Rise       ; clk             ;
-;  red[2]   ; clk        ; 11.157 ; 12.460 ; Rise       ; clk             ;
-;  red[3]   ; clk        ; 10.659 ; 11.859 ; Rise       ; clk             ;
-;  red[4]   ; clk        ; 10.849 ; 12.125 ; Rise       ; clk             ;
-;  red[5]   ; clk        ; 11.450 ; 12.790 ; Rise       ; clk             ;
-;  red[6]   ; clk        ; 11.480 ; 12.773 ; Rise       ; clk             ;
-;  red[7]   ; clk        ; 10.966 ; 12.193 ; Rise       ; clk             ;
-; ver_sync  ; clk        ; 15.571 ; 17.393 ; Rise       ; clk             ;
-; vga_clk   ; clk        ; 9.932  ; 10.776 ; Rise       ; clk             ;
+; blue[*]   ; clk        ; 12.431 ; 14.226 ; Rise       ; clk             ;
+;  blue[0]  ; clk        ; 12.004 ; 13.511 ; Rise       ; clk             ;
+;  blue[1]  ; clk        ; 11.331 ; 12.633 ; Rise       ; clk             ;
+;  blue[2]  ; clk        ; 12.169 ; 13.702 ; Rise       ; clk             ;
+;  blue[3]  ; clk        ; 11.603 ; 12.989 ; Rise       ; clk             ;
+;  blue[4]  ; clk        ; 12.431 ; 14.226 ; Rise       ; clk             ;
+;  blue[5]  ; clk        ; 11.305 ; 12.714 ; Rise       ; clk             ;
+;  blue[6]  ; clk        ; 12.071 ; 13.812 ; Rise       ; clk             ;
+;  blue[7]  ; clk        ; 11.845 ; 13.423 ; Rise       ; clk             ;
+; green[*]  ; clk        ; 12.679 ; 14.343 ; Rise       ; clk             ;
+;  green[0] ; clk        ; 12.679 ; 14.343 ; Rise       ; clk             ;
+;  green[1] ; clk        ; 12.176 ; 13.441 ; Rise       ; clk             ;
+;  green[2] ; clk        ; 11.743 ; 13.135 ; Rise       ; clk             ;
+;  green[3] ; clk        ; 12.271 ; 13.765 ; Rise       ; clk             ;
+;  green[4] ; clk        ; 12.466 ; 14.008 ; Rise       ; clk             ;
+;  green[5] ; clk        ; 11.815 ; 13.090 ; Rise       ; clk             ;
+;  green[6] ; clk        ; 10.659 ; 11.442 ; Rise       ; clk             ;
+;  green[7] ; clk        ; 12.446 ; 14.027 ; Rise       ; clk             ;
+; hor_sync  ; clk        ; 14.836 ; 16.994 ; Rise       ; clk             ;
+; red[*]    ; clk        ; 11.245 ; 12.526 ; Rise       ; clk             ;
+;  red[0]   ; clk        ; 9.676  ; 10.249 ; Rise       ; clk             ;
+;  red[1]   ; clk        ; 10.759 ; 11.964 ; Rise       ; clk             ;
+;  red[2]   ; clk        ; 9.730  ; 10.158 ; Rise       ; clk             ;
+;  red[3]   ; clk        ; 10.350 ; 11.205 ; Rise       ; clk             ;
+;  red[4]   ; clk        ; 10.578 ; 11.452 ; Rise       ; clk             ;
+;  red[5]   ; clk        ; 11.245 ; 12.526 ; Rise       ; clk             ;
+;  red[6]   ; clk        ; 9.726  ; 10.228 ; Rise       ; clk             ;
+;  red[7]   ; clk        ; 11.237 ; 12.511 ; Rise       ; clk             ;
+; ver_sync  ; clk        ; 17.526 ; 19.156 ; Rise       ; clk             ;
+; vga_clk   ; clk        ; 12.615 ; 14.470 ; Rise       ; clk             ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -262,36 +264,36 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; blue[*]   ; clk        ; 10.149 ; 11.035 ; Rise       ; clk             ;
-;  blue[0]  ; clk        ; 10.866 ; 12.200 ; Rise       ; clk             ;
-;  blue[1]  ; clk        ; 10.149 ; 11.035 ; Rise       ; clk             ;
-;  blue[2]  ; clk        ; 10.744 ; 11.816 ; Rise       ; clk             ;
-;  blue[3]  ; clk        ; 10.487 ; 11.602 ; Rise       ; clk             ;
-;  blue[4]  ; clk        ; 10.584 ; 11.759 ; Rise       ; clk             ;
-;  blue[5]  ; clk        ; 10.563 ; 11.748 ; Rise       ; clk             ;
-;  blue[6]  ; clk        ; 10.483 ; 11.461 ; Rise       ; clk             ;
-;  blue[7]  ; clk        ; 10.608 ; 11.780 ; Rise       ; clk             ;
-; green[*]  ; clk        ; 9.483  ; 9.984  ; Rise       ; clk             ;
-;  green[0] ; clk        ; 9.737  ; 10.322 ; Rise       ; clk             ;
-;  green[1] ; clk        ; 9.488  ; 9.984  ; Rise       ; clk             ;
-;  green[2] ; clk        ; 10.935 ; 12.172 ; Rise       ; clk             ;
-;  green[3] ; clk        ; 10.891 ; 11.990 ; Rise       ; clk             ;
-;  green[4] ; clk        ; 9.483  ; 10.021 ; Rise       ; clk             ;
-;  green[5] ; clk        ; 10.702 ; 11.588 ; Rise       ; clk             ;
-;  green[6] ; clk        ; 10.516 ; 11.565 ; Rise       ; clk             ;
-;  green[7] ; clk        ; 10.801 ; 11.909 ; Rise       ; clk             ;
-; hor_sync  ; clk        ; 11.588 ; 12.855 ; Rise       ; clk             ;
-; red[*]    ; clk        ; 9.642  ; 10.580 ; Rise       ; clk             ;
-;  red[0]   ; clk        ; 10.231 ; 11.292 ; Rise       ; clk             ;
-;  red[1]   ; clk        ; 9.642  ; 10.580 ; Rise       ; clk             ;
-;  red[2]   ; clk        ; 10.443 ; 11.577 ; Rise       ; clk             ;
-;  red[3]   ; clk        ; 10.004 ; 11.073 ; Rise       ; clk             ;
-;  red[4]   ; clk        ; 10.185 ; 11.312 ; Rise       ; clk             ;
-;  red[5]   ; clk        ; 10.676 ; 11.807 ; Rise       ; clk             ;
-;  red[6]   ; clk        ; 10.744 ; 11.871 ; Rise       ; clk             ;
-;  red[7]   ; clk        ; 10.265 ; 11.335 ; Rise       ; clk             ;
-; ver_sync  ; clk        ; 12.591 ; 14.204 ; Rise       ; clk             ;
-; vga_clk   ; clk        ; 9.366  ; 10.131 ; Rise       ; clk             ;
+; blue[*]   ; clk        ; 10.569 ; 11.777 ; Rise       ; clk             ;
+;  blue[0]  ; clk        ; 11.201 ; 12.499 ; Rise       ; clk             ;
+;  blue[1]  ; clk        ; 10.619 ; 11.777 ; Rise       ; clk             ;
+;  blue[2]  ; clk        ; 11.363 ; 12.699 ; Rise       ; clk             ;
+;  blue[3]  ; clk        ; 10.805 ; 11.994 ; Rise       ; clk             ;
+;  blue[4]  ; clk        ; 11.570 ; 13.068 ; Rise       ; clk             ;
+;  blue[5]  ; clk        ; 10.569 ; 11.792 ; Rise       ; clk             ;
+;  blue[6]  ; clk        ; 11.228 ; 12.686 ; Rise       ; clk             ;
+;  blue[7]  ; clk        ; 11.061 ; 12.405 ; Rise       ; clk             ;
+; green[*]  ; clk        ; 9.996  ; 10.669 ; Rise       ; clk             ;
+;  green[0] ; clk        ; 11.802 ; 13.215 ; Rise       ; clk             ;
+;  green[1] ; clk        ; 11.380 ; 12.488 ; Rise       ; clk             ;
+;  green[2] ; clk        ; 10.978 ; 12.192 ; Rise       ; clk             ;
+;  green[3] ; clk        ; 11.450 ; 12.725 ; Rise       ; clk             ;
+;  green[4] ; clk        ; 11.617 ; 12.945 ; Rise       ; clk             ;
+;  green[5] ; clk        ; 11.055 ; 12.186 ; Rise       ; clk             ;
+;  green[6] ; clk        ; 9.996  ; 10.669 ; Rise       ; clk             ;
+;  green[7] ; clk        ; 11.546 ; 12.802 ; Rise       ; clk             ;
+; hor_sync  ; clk        ; 13.323 ; 15.250 ; Rise       ; clk             ;
+; red[*]    ; clk        ; 9.105  ; 9.552  ; Rise       ; clk             ;
+;  red[0]   ; clk        ; 9.105  ; 9.590  ; Rise       ; clk             ;
+;  red[1]   ; clk        ; 10.070 ; 11.081 ; Rise       ; clk             ;
+;  red[2]   ; clk        ; 9.173  ; 9.552  ; Rise       ; clk             ;
+;  red[3]   ; clk        ; 9.728  ; 10.465 ; Rise       ; clk             ;
+;  red[4]   ; clk        ; 9.955  ; 10.734 ; Rise       ; clk             ;
+;  red[5]   ; clk        ; 10.495 ; 11.546 ; Rise       ; clk             ;
+;  red[6]   ; clk        ; 9.155  ; 9.596  ; Rise       ; clk             ;
+;  red[7]   ; clk        ; 10.504 ; 11.570 ; Rise       ; clk             ;
+; ver_sync  ; clk        ; 11.735 ; 13.161 ; Rise       ; clk             ;
+; vga_clk   ; clk        ; 11.776 ; 13.390 ; Rise       ; clk             ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -306,7 +308,7 @@ No synchronizer chains to report.
 +-----------+-----------------+------------+------+
 ; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
 +-----------+-----------------+------------+------+
-; 56.92 MHz ; 56.92 MHz       ; clk        ;      ;
+; 54.27 MHz ; 54.27 MHz       ; clk        ;      ;
 +-----------+-----------------+------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -316,7 +318,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+---------+------------------+
 ; Clock ; Slack   ; End Point TNS    ;
 +-------+---------+------------------+
-; clk   ; -16.567 ; -2232.857        ;
+; clk   ; -17.428 ; -2938.445        ;
 +-------+---------+------------------+
 
 
@@ -325,7 +327,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+-------+-------------------+
 ; Clock ; Slack ; End Point TNS     ;
 +-------+-------+-------------------+
-; clk   ; 0.390 ; 0.000             ;
+; clk   ; 0.392 ; 0.000             ;
 +-------+-------+-------------------+
 
 
@@ -346,7 +348,7 @@ No paths to report.
 +-------+--------+---------------------------------+
 ; Clock ; Slack  ; End Point TNS                   ;
 +-------+--------+---------------------------------+
-; clk   ; -2.225 ; -344.497                        ;
+; clk   ; -0.394 ; -278.176                        ;
 +-------+--------+---------------------------------+
 
 
@@ -355,14 +357,15 @@ No paths to report.
 +-----------------+------------+-------+-------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------------+------------+-------+-------+------------+-----------------+
-; team1_hl_button ; clk        ; 3.934 ; 4.445 ; Rise       ; clk             ;
-; team1_hr_button ; clk        ; 4.149 ; 4.964 ; Rise       ; clk             ;
-; team1_vd_button ; clk        ; 1.664 ; 2.554 ; Rise       ; clk             ;
-; team1_vu_button ; clk        ; 2.132 ; 3.114 ; Rise       ; clk             ;
-; team2_hl_button ; clk        ; 3.439 ; 4.036 ; Rise       ; clk             ;
-; team2_hr_button ; clk        ; 3.657 ; 4.292 ; Rise       ; clk             ;
-; team2_vd_button ; clk        ; 1.861 ; 2.655 ; Rise       ; clk             ;
-; team2_vu_button ; clk        ; 2.045 ; 3.160 ; Rise       ; clk             ;
+; game_on_switch  ; clk        ; 0.018 ; 0.397 ; Rise       ; clk             ;
+; team1_hl_button ; clk        ; 3.570 ; 3.873 ; Rise       ; clk             ;
+; team1_hr_button ; clk        ; 3.902 ; 4.712 ; Rise       ; clk             ;
+; team1_vd_button ; clk        ; 1.715 ; 2.436 ; Rise       ; clk             ;
+; team1_vu_button ; clk        ; 1.708 ; 2.566 ; Rise       ; clk             ;
+; team2_hl_button ; clk        ; 3.125 ; 3.732 ; Rise       ; clk             ;
+; team2_hr_button ; clk        ; 3.739 ; 4.404 ; Rise       ; clk             ;
+; team2_vd_button ; clk        ; 1.084 ; 1.674 ; Rise       ; clk             ;
+; team2_vu_button ; clk        ; 1.103 ; 1.742 ; Rise       ; clk             ;
 +-----------------+------------+-------+-------+------------+-----------------+
 
 
@@ -371,14 +374,15 @@ No paths to report.
 +-----------------+------------+--------+--------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------------+------------+--------+--------+------------+-----------------+
-; team1_hl_button ; clk        ; -0.450 ; -0.855 ; Rise       ; clk             ;
-; team1_hr_button ; clk        ; -0.739 ; -1.235 ; Rise       ; clk             ;
-; team1_vd_button ; clk        ; 0.339  ; -0.356 ; Rise       ; clk             ;
-; team1_vu_button ; clk        ; 0.453  ; -0.180 ; Rise       ; clk             ;
-; team2_hl_button ; clk        ; -0.088 ; -0.518 ; Rise       ; clk             ;
-; team2_hr_button ; clk        ; -0.122 ; -0.537 ; Rise       ; clk             ;
-; team2_vd_button ; clk        ; 0.423  ; -0.073 ; Rise       ; clk             ;
-; team2_vu_button ; clk        ; 0.159  ; -0.577 ; Rise       ; clk             ;
+; game_on_switch  ; clk        ; 0.726  ; 0.428  ; Rise       ; clk             ;
+; team1_hl_button ; clk        ; 0.082  ; -0.222 ; Rise       ; clk             ;
+; team1_hr_button ; clk        ; -0.016 ; -0.489 ; Rise       ; clk             ;
+; team1_vd_button ; clk        ; 0.844  ; 0.400  ; Rise       ; clk             ;
+; team1_vu_button ; clk        ; 0.672  ; -0.047 ; Rise       ; clk             ;
+; team2_hl_button ; clk        ; -0.106 ; -0.561 ; Rise       ; clk             ;
+; team2_hr_button ; clk        ; -0.730 ; -1.260 ; Rise       ; clk             ;
+; team2_vd_button ; clk        ; 0.852  ; 0.459  ; Rise       ; clk             ;
+; team2_vu_button ; clk        ; 1.141  ; 0.688  ; Rise       ; clk             ;
 +-----------------+------------+--------+--------+------------+-----------------+
 
 
@@ -387,36 +391,36 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; blue[*]   ; clk        ; 11.541 ; 13.251 ; Rise       ; clk             ;
-;  blue[0]  ; clk        ; 11.541 ; 13.251 ; Rise       ; clk             ;
-;  blue[1]  ; clk        ; 10.622 ; 11.704 ; Rise       ; clk             ;
-;  blue[2]  ; clk        ; 11.379 ; 12.737 ; Rise       ; clk             ;
-;  blue[3]  ; clk        ; 11.069 ; 12.453 ; Rise       ; clk             ;
-;  blue[4]  ; clk        ; 11.208 ; 12.647 ; Rise       ; clk             ;
-;  blue[5]  ; clk        ; 11.187 ; 12.630 ; Rise       ; clk             ;
-;  blue[6]  ; clk        ; 11.032 ; 12.314 ; Rise       ; clk             ;
-;  blue[7]  ; clk        ; 11.207 ; 12.662 ; Rise       ; clk             ;
-; green[*]  ; clk        ; 11.641 ; 13.249 ; Rise       ; clk             ;
-;  green[0] ; clk        ; 10.103 ; 10.910 ; Rise       ; clk             ;
-;  green[1] ; clk        ; 9.807  ; 10.440 ; Rise       ; clk             ;
-;  green[2] ; clk        ; 11.641 ; 13.249 ; Rise       ; clk             ;
-;  green[3] ; clk        ; 11.532 ; 12.916 ; Rise       ; clk             ;
-;  green[4] ; clk        ; 9.827  ; 10.526 ; Rise       ; clk             ;
-;  green[5] ; clk        ; 11.226 ; 12.408 ; Rise       ; clk             ;
-;  green[6] ; clk        ; 11.122 ; 12.437 ; Rise       ; clk             ;
-;  green[7] ; clk        ; 11.432 ; 12.840 ; Rise       ; clk             ;
-; hor_sync  ; clk        ; 13.402 ; 15.330 ; Rise       ; clk             ;
-; red[*]    ; clk        ; 11.347 ; 12.782 ; Rise       ; clk             ;
-;  red[0]   ; clk        ; 10.789 ; 12.105 ; Rise       ; clk             ;
-;  red[1]   ; clk        ; 10.156 ; 11.224 ; Rise       ; clk             ;
-;  red[2]   ; clk        ; 11.028 ; 12.432 ; Rise       ; clk             ;
-;  red[3]   ; clk        ; 10.570 ; 11.842 ; Rise       ; clk             ;
-;  red[4]   ; clk        ; 10.746 ; 12.110 ; Rise       ; clk             ;
-;  red[5]   ; clk        ; 11.347 ; 12.782 ; Rise       ; clk             ;
-;  red[6]   ; clk        ; 11.347 ; 12.736 ; Rise       ; clk             ;
-;  red[7]   ; clk        ; 10.859 ; 12.158 ; Rise       ; clk             ;
-; ver_sync  ; clk        ; 15.514 ; 17.415 ; Rise       ; clk             ;
-; vga_clk   ; clk        ; 9.800  ; 10.730 ; Rise       ; clk             ;
+; blue[*]   ; clk        ; 12.367 ; 14.250 ; Rise       ; clk             ;
+;  blue[0]  ; clk        ; 11.862 ; 13.496 ; Rise       ; clk             ;
+;  blue[1]  ; clk        ; 11.209 ; 12.612 ; Rise       ; clk             ;
+;  blue[2]  ; clk        ; 12.068 ; 13.694 ; Rise       ; clk             ;
+;  blue[3]  ; clk        ; 11.435 ; 12.938 ; Rise       ; clk             ;
+;  blue[4]  ; clk        ; 12.367 ; 14.250 ; Rise       ; clk             ;
+;  blue[5]  ; clk        ; 11.228 ; 12.714 ; Rise       ; clk             ;
+;  blue[6]  ; clk        ; 11.995 ; 13.826 ; Rise       ; clk             ;
+;  blue[7]  ; clk        ; 11.749 ; 13.429 ; Rise       ; clk             ;
+; green[*]  ; clk        ; 12.564 ; 14.339 ; Rise       ; clk             ;
+;  green[0] ; clk        ; 12.564 ; 14.339 ; Rise       ; clk             ;
+;  green[1] ; clk        ; 12.018 ; 13.392 ; Rise       ; clk             ;
+;  green[2] ; clk        ; 11.592 ; 13.112 ; Rise       ; clk             ;
+;  green[3] ; clk        ; 12.118 ; 13.742 ; Rise       ; clk             ;
+;  green[4] ; clk        ; 12.312 ; 13.988 ; Rise       ; clk             ;
+;  green[5] ; clk        ; 11.644 ; 13.044 ; Rise       ; clk             ;
+;  green[6] ; clk        ; 10.439 ; 11.267 ; Rise       ; clk             ;
+;  green[7] ; clk        ; 12.243 ; 13.940 ; Rise       ; clk             ;
+; hor_sync  ; clk        ; 14.681 ; 17.006 ; Rise       ; clk             ;
+; red[*]    ; clk        ; 11.145 ; 12.496 ; Rise       ; clk             ;
+;  red[0]   ; clk        ; 9.401  ; 10.048 ; Rise       ; clk             ;
+;  red[1]   ; clk        ; 10.682 ; 11.950 ; Rise       ; clk             ;
+;  red[2]   ; clk        ; 9.435  ; 9.913  ; Rise       ; clk             ;
+;  red[3]   ; clk        ; 10.153 ; 11.077 ; Rise       ; clk             ;
+;  red[4]   ; clk        ; 10.401 ; 11.380 ; Rise       ; clk             ;
+;  red[5]   ; clk        ; 11.128 ; 12.496 ; Rise       ; clk             ;
+;  red[6]   ; clk        ; 9.464  ; 10.031 ; Rise       ; clk             ;
+;  red[7]   ; clk        ; 11.145 ; 12.496 ; Rise       ; clk             ;
+; ver_sync  ; clk        ; 17.555 ; 19.252 ; Rise       ; clk             ;
+; vga_clk   ; clk        ; 12.515 ; 14.485 ; Rise       ; clk             ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -425,36 +429,36 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; blue[*]   ; clk        ; 9.984  ; 10.925 ; Rise       ; clk             ;
-;  blue[0]  ; clk        ; 10.772 ; 12.219 ; Rise       ; clk             ;
-;  blue[1]  ; clk        ; 9.984  ; 10.925 ; Rise       ; clk             ;
-;  blue[2]  ; clk        ; 10.636 ; 11.791 ; Rise       ; clk             ;
-;  blue[3]  ; clk        ; 10.372 ; 11.565 ; Rise       ; clk             ;
-;  blue[4]  ; clk        ; 10.494 ; 11.730 ; Rise       ; clk             ;
-;  blue[5]  ; clk        ; 10.476 ; 11.718 ; Rise       ; clk             ;
-;  blue[6]  ; clk        ; 10.303 ; 11.359 ; Rise       ; clk             ;
-;  blue[7]  ; clk        ; 10.495 ; 11.747 ; Rise       ; clk             ;
-; green[*]  ; clk        ; 9.223  ; 9.745  ; Rise       ; clk             ;
-;  green[0] ; clk        ; 9.471  ; 10.138 ; Rise       ; clk             ;
-;  green[1] ; clk        ; 9.223  ; 9.745  ; Rise       ; clk             ;
-;  green[2] ; clk        ; 10.847 ; 12.191 ; Rise       ; clk             ;
-;  green[3] ; clk        ; 10.783 ; 11.961 ; Rise       ; clk             ;
-;  green[4] ; clk        ; 9.235  ; 9.824  ; Rise       ; clk             ;
-;  green[5] ; clk        ; 10.498 ; 11.498 ; Rise       ; clk             ;
-;  green[6] ; clk        ; 10.413 ; 11.538 ; Rise       ; clk             ;
-;  green[7] ; clk        ; 10.679 ; 11.873 ; Rise       ; clk             ;
-; hor_sync  ; clk        ; 11.464 ; 12.831 ; Rise       ; clk             ;
-; red[*]    ; clk        ; 9.571  ; 10.516 ; Rise       ; clk             ;
-;  red[0]   ; clk        ; 10.121 ; 11.263 ; Rise       ; clk             ;
-;  red[1]   ; clk        ; 9.571  ; 10.516 ; Rise       ; clk             ;
-;  red[2]   ; clk        ; 10.330 ; 11.541 ; Rise       ; clk             ;
-;  red[3]   ; clk        ; 9.929  ; 11.036 ; Rise       ; clk             ;
-;  red[4]   ; clk        ; 10.095 ; 11.284 ; Rise       ; clk             ;
-;  red[5]   ; clk        ; 10.587 ; 11.780 ; Rise       ; clk             ;
-;  red[6]   ; clk        ; 10.627 ; 11.827 ; Rise       ; clk             ;
-;  red[7]   ; clk        ; 10.175 ; 11.294 ; Rise       ; clk             ;
-; ver_sync  ; clk        ; 12.495 ; 14.215 ; Rise       ; clk             ;
-; vga_clk   ; clk        ; 9.252  ; 10.077 ; Rise       ; clk             ;
+; blue[*]   ; clk        ; 10.503 ; 11.735 ; Rise       ; clk             ;
+;  blue[0]  ; clk        ; 11.076 ; 12.480 ; Rise       ; clk             ;
+;  blue[1]  ; clk        ; 10.513 ; 11.735 ; Rise       ; clk             ;
+;  blue[2]  ; clk        ; 11.275 ; 12.674 ; Rise       ; clk             ;
+;  blue[3]  ; clk        ; 10.664 ; 11.943 ; Rise       ; clk             ;
+;  blue[4]  ; clk        ; 11.512 ; 13.098 ; Rise       ; clk             ;
+;  blue[5]  ; clk        ; 10.503 ; 11.757 ; Rise       ; clk             ;
+;  blue[6]  ; clk        ; 11.162 ; 12.693 ; Rise       ; clk             ;
+;  blue[7]  ; clk        ; 10.974 ; 12.407 ; Rise       ; clk             ;
+; green[*]  ; clk        ; 9.802  ; 10.491 ; Rise       ; clk             ;
+;  green[0] ; clk        ; 11.699 ; 13.215 ; Rise       ; clk             ;
+;  green[1] ; clk        ; 11.238 ; 12.419 ; Rise       ; clk             ;
+;  green[2] ; clk        ; 10.844 ; 12.155 ; Rise       ; clk             ;
+;  green[3] ; clk        ; 11.314 ; 12.703 ; Rise       ; clk             ;
+;  green[4] ; clk        ; 11.480 ; 12.920 ; Rise       ; clk             ;
+;  green[5] ; clk        ; 10.904 ; 12.120 ; Rise       ; clk             ;
+;  green[6] ; clk        ; 9.802  ; 10.491 ; Rise       ; clk             ;
+;  green[7] ; clk        ; 11.365 ; 12.752 ; Rise       ; clk             ;
+; hor_sync  ; clk        ; 13.160 ; 15.160 ; Rise       ; clk             ;
+; red[*]    ; clk        ; 8.862  ; 9.306  ; Rise       ; clk             ;
+;  red[0]   ; clk        ; 8.862  ; 9.400  ; Rise       ; clk             ;
+;  red[1]   ; clk        ; 10.006 ; 11.079 ; Rise       ; clk             ;
+;  red[2]   ; clk        ; 8.910  ; 9.306  ; Rise       ; clk             ;
+;  red[3]   ; clk        ; 9.554  ; 10.337 ; Rise       ; clk             ;
+;  red[4]   ; clk        ; 9.795  ; 10.650 ; Rise       ; clk             ;
+;  red[5]   ; clk        ; 10.393 ; 11.540 ; Rise       ; clk             ;
+;  red[6]   ; clk        ; 8.927  ; 9.404  ; Rise       ; clk             ;
+;  red[7]   ; clk        ; 10.425 ; 11.568 ; Rise       ; clk             ;
+; ver_sync  ; clk        ; 11.669 ; 13.159 ; Rise       ; clk             ;
+; vga_clk   ; clk        ; 11.684 ; 13.381 ; Rise       ; clk             ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -469,7 +473,7 @@ No synchronizer chains to report.
 +-------+--------+--------------------+
 ; Clock ; Slack  ; End Point TNS      ;
 +-------+--------+--------------------+
-; clk   ; -9.094 ; -1134.255          ;
+; clk   ; -9.580 ; -1525.172          ;
 +-------+--------+--------------------+
 
 
@@ -478,7 +482,7 @@ No synchronizer chains to report.
 +-------+-------+--------------------+
 ; Clock ; Slack ; End Point TNS      ;
 +-------+-------+--------------------+
-; clk   ; 0.182 ; 0.000              ;
+; clk   ; 0.183 ; 0.000              ;
 +-------+-------+--------------------+
 
 
@@ -499,7 +503,7 @@ No paths to report.
 +-------+--------+----------------------------------+
 ; Clock ; Slack  ; End Point TNS                    ;
 +-------+--------+----------------------------------+
-; clk   ; -1.702 ; -109.505                         ;
+; clk   ; -0.092 ; -42.235                          ;
 +-------+--------+----------------------------------+
 
 
@@ -508,14 +512,15 @@ No paths to report.
 +-----------------+------------+-------+-------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------------+------------+-------+-------+------------+-----------------+
-; team1_hl_button ; clk        ; 2.291 ; 3.067 ; Rise       ; clk             ;
-; team1_hr_button ; clk        ; 2.496 ; 3.479 ; Rise       ; clk             ;
-; team1_vd_button ; clk        ; 1.023 ; 1.988 ; Rise       ; clk             ;
-; team1_vu_button ; clk        ; 1.408 ; 2.551 ; Rise       ; clk             ;
-; team2_hl_button ; clk        ; 2.015 ; 2.831 ; Rise       ; clk             ;
-; team2_hr_button ; clk        ; 2.163 ; 2.988 ; Rise       ; clk             ;
-; team2_vd_button ; clk        ; 1.144 ; 2.066 ; Rise       ; clk             ;
-; team2_vu_button ; clk        ; 1.343 ; 2.504 ; Rise       ; clk             ;
+; game_on_switch  ; clk        ; 0.148 ; 0.764 ; Rise       ; clk             ;
+; team1_hl_button ; clk        ; 2.243 ; 2.729 ; Rise       ; clk             ;
+; team1_hr_button ; clk        ; 2.310 ; 3.319 ; Rise       ; clk             ;
+; team1_vd_button ; clk        ; 1.065 ; 1.997 ; Rise       ; clk             ;
+; team1_vu_button ; clk        ; 1.052 ; 2.078 ; Rise       ; clk             ;
+; team2_hl_button ; clk        ; 1.907 ; 2.712 ; Rise       ; clk             ;
+; team2_hr_button ; clk        ; 2.260 ; 3.147 ; Rise       ; clk             ;
+; team2_vd_button ; clk        ; 0.599 ; 1.378 ; Rise       ; clk             ;
+; team2_vu_button ; clk        ; 0.641 ; 1.449 ; Rise       ; clk             ;
 +-----------------+------------+-------+-------+------------+-----------------+
 
 
@@ -524,91 +529,92 @@ No paths to report.
 +-----------------+------------+--------+--------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------------+------------+--------+--------+------------+-----------------+
-; team1_hl_button ; clk        ; -0.406 ; -1.020 ; Rise       ; clk             ;
-; team1_hr_button ; clk        ; -0.591 ; -1.339 ; Rise       ; clk             ;
-; team1_vd_button ; clk        ; 0.013  ; -0.804 ; Rise       ; clk             ;
-; team1_vu_button ; clk        ; 0.048  ; -0.756 ; Rise       ; clk             ;
-; team2_hl_button ; clk        ; -0.148 ; -0.770 ; Rise       ; clk             ;
-; team2_hr_button ; clk        ; -0.194 ; -0.857 ; Rise       ; clk             ;
-; team2_vd_button ; clk        ; 0.122  ; -0.569 ; Rise       ; clk             ;
-; team2_vu_button ; clk        ; -0.138 ; -1.031 ; Rise       ; clk             ;
+; game_on_switch  ; clk        ; 0.276  ; -0.290 ; Rise       ; clk             ;
+; team1_hl_button ; clk        ; -0.074 ; -0.648 ; Rise       ; clk             ;
+; team1_hr_button ; clk        ; -0.144 ; -0.823 ; Rise       ; clk             ;
+; team1_vd_button ; clk        ; 0.341  ; -0.329 ; Rise       ; clk             ;
+; team1_vu_button ; clk        ; 0.191  ; -0.645 ; Rise       ; clk             ;
+; team2_hl_button ; clk        ; -0.201 ; -0.894 ; Rise       ; clk             ;
+; team2_hr_button ; clk        ; -0.582 ; -1.362 ; Rise       ; clk             ;
+; team2_vd_button ; clk        ; 0.447  ; -0.155 ; Rise       ; clk             ;
+; team2_vu_button ; clk        ; 0.527  ; -0.117 ; Rise       ; clk             ;
 +-----------------+------------+--------+--------+------------+-----------------+
 
 
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; blue[*]   ; clk        ; 7.892  ; 9.584  ; Rise       ; clk             ;
+;  blue[0]  ; clk        ; 7.500  ; 8.933  ; Rise       ; clk             ;
+;  blue[1]  ; clk        ; 7.093  ; 8.339  ; Rise       ; clk             ;
+;  blue[2]  ; clk        ; 7.644  ; 9.130  ; Rise       ; clk             ;
+;  blue[3]  ; clk        ; 7.238  ; 8.553  ; Rise       ; clk             ;
+;  blue[4]  ; clk        ; 7.892  ; 9.584  ; Rise       ; clk             ;
+;  blue[5]  ; clk        ; 7.095  ; 8.431  ; Rise       ; clk             ;
+;  blue[6]  ; clk        ; 7.667  ; 9.280  ; Rise       ; clk             ;
+;  blue[7]  ; clk        ; 7.474  ; 8.963  ; Rise       ; clk             ;
+; green[*]  ; clk        ; 8.026  ; 9.633  ; Rise       ; clk             ;
+;  green[0] ; clk        ; 8.026  ; 9.633  ; Rise       ; clk             ;
+;  green[1] ; clk        ; 7.685  ; 8.942  ; Rise       ; clk             ;
+;  green[2] ; clk        ; 7.313  ; 8.649  ; Rise       ; clk             ;
+;  green[3] ; clk        ; 7.644  ; 9.112  ; Rise       ; clk             ;
+;  green[4] ; clk        ; 7.823  ; 9.337  ; Rise       ; clk             ;
+;  green[5] ; clk        ; 7.343  ; 8.635  ; Rise       ; clk             ;
+;  green[6] ; clk        ; 6.566  ; 7.336  ; Rise       ; clk             ;
+;  green[7] ; clk        ; 7.799  ; 9.315  ; Rise       ; clk             ;
+; hor_sync  ; clk        ; 9.178  ; 11.302 ; Rise       ; clk             ;
+; red[*]    ; clk        ; 7.029  ; 8.260  ; Rise       ; clk             ;
+;  red[0]   ; clk        ; 5.768  ; 6.327  ; Rise       ; clk             ;
+;  red[1]   ; clk        ; 6.724  ; 7.877  ; Rise       ; clk             ;
+;  red[2]   ; clk        ; 5.786  ; 6.246  ; Rise       ; clk             ;
+;  red[3]   ; clk        ; 6.317  ; 7.139  ; Rise       ; clk             ;
+;  red[4]   ; clk        ; 6.468  ; 7.342  ; Rise       ; clk             ;
+;  red[5]   ; clk        ; 7.020  ; 8.240  ; Rise       ; clk             ;
+;  red[6]   ; clk        ; 5.800  ; 6.342  ; Rise       ; clk             ;
+;  red[7]   ; clk        ; 7.029  ; 8.260  ; Rise       ; clk             ;
+; ver_sync  ; clk        ; 11.464 ; 13.010 ; Rise       ; clk             ;
+; vga_clk   ; clk        ; 7.971  ; 9.686  ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
 +------------------------------------------------------------------------+
-; Clock to Output Times                                                  ;
+; Minimum Clock to Output Times                                          ;
 +-----------+------------+-------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+--------+------------+-----------------+
-; blue[*]   ; clk        ; 7.314 ; 8.787  ; Rise       ; clk             ;
-;  blue[0]  ; clk        ; 7.314 ; 8.787  ; Rise       ; clk             ;
-;  blue[1]  ; clk        ; 6.644 ; 7.613  ; Rise       ; clk             ;
-;  blue[2]  ; clk        ; 7.176 ; 8.434  ; Rise       ; clk             ;
-;  blue[3]  ; clk        ; 7.001 ; 8.228  ; Rise       ; clk             ;
-;  blue[4]  ; clk        ; 7.071 ; 8.376  ; Rise       ; clk             ;
-;  blue[5]  ; clk        ; 7.054 ; 8.359  ; Rise       ; clk             ;
-;  blue[6]  ; clk        ; 6.962 ; 8.113  ; Rise       ; clk             ;
-;  blue[7]  ; clk        ; 7.060 ; 8.341  ; Rise       ; clk             ;
-; green[*]  ; clk        ; 7.441 ; 8.874  ; Rise       ; clk             ;
-;  green[0] ; clk        ; 6.249 ; 6.973  ; Rise       ; clk             ;
-;  green[1] ; clk        ; 6.033 ; 6.653  ; Rise       ; clk             ;
-;  green[2] ; clk        ; 7.441 ; 8.874  ; Rise       ; clk             ;
-;  green[3] ; clk        ; 7.295 ; 8.592  ; Rise       ; clk             ;
-;  green[4] ; clk        ; 6.074 ; 6.716  ; Rise       ; clk             ;
-;  green[5] ; clk        ; 7.040 ; 8.142  ; Rise       ; clk             ;
-;  green[6] ; clk        ; 7.031 ; 8.247  ; Rise       ; clk             ;
-;  green[7] ; clk        ; 7.235 ; 8.515  ; Rise       ; clk             ;
-; hor_sync  ; clk        ; 8.396 ; 10.137 ; Rise       ; clk             ;
-; red[*]    ; clk        ; 7.198 ; 8.461  ; Rise       ; clk             ;
-;  red[0]   ; clk        ; 6.796 ; 7.937  ; Rise       ; clk             ;
-;  red[1]   ; clk        ; 6.384 ; 7.365  ; Rise       ; clk             ;
-;  red[2]   ; clk        ; 6.957 ; 8.198  ; Rise       ; clk             ;
-;  red[3]   ; clk        ; 6.677 ; 7.802  ; Rise       ; clk             ;
-;  red[4]   ; clk        ; 6.758 ; 7.953  ; Rise       ; clk             ;
-;  red[5]   ; clk        ; 7.198 ; 8.461  ; Rise       ; clk             ;
-;  red[6]   ; clk        ; 7.123 ; 8.392  ; Rise       ; clk             ;
-;  red[7]   ; clk        ; 6.841 ; 8.030  ; Rise       ; clk             ;
-; ver_sync  ; clk        ; 9.879 ; 11.593 ; Rise       ; clk             ;
-; vga_clk   ; clk        ; 6.076 ; 6.890  ; Rise       ; clk             ;
+; blue[*]   ; clk        ; 6.685 ; 7.835  ; Rise       ; clk             ;
+;  blue[0]  ; clk        ; 7.053 ; 8.319  ; Rise       ; clk             ;
+;  blue[1]  ; clk        ; 6.705 ; 7.835  ; Rise       ; clk             ;
+;  blue[2]  ; clk        ; 7.195 ; 8.523  ; Rise       ; clk             ;
+;  blue[3]  ; clk        ; 6.795 ; 7.947  ; Rise       ; clk             ;
+;  blue[4]  ; clk        ; 7.400 ; 8.855  ; Rise       ; clk             ;
+;  blue[5]  ; clk        ; 6.685 ; 7.871  ; Rise       ; clk             ;
+;  blue[6]  ; clk        ; 7.185 ; 8.570  ; Rise       ; clk             ;
+;  blue[7]  ; clk        ; 7.034 ; 8.333  ; Rise       ; clk             ;
+; green[*]  ; clk        ; 6.206 ; 6.884  ; Rise       ; clk             ;
+;  green[0] ; clk        ; 7.526 ; 8.923  ; Rise       ; clk             ;
+;  green[1] ; clk        ; 7.236 ; 8.359  ; Rise       ; clk             ;
+;  green[2] ; clk        ; 6.896 ; 8.089  ; Rise       ; clk             ;
+;  green[3] ; clk        ; 7.195 ; 8.488  ; Rise       ; clk             ;
+;  green[4] ; clk        ; 7.348 ; 8.684  ; Rise       ; clk             ;
+;  green[5] ; clk        ; 6.930 ; 8.103  ; Rise       ; clk             ;
+;  green[6] ; clk        ; 6.206 ; 6.884  ; Rise       ; clk             ;
+;  green[7] ; clk        ; 7.289 ; 8.543  ; Rise       ; clk             ;
+; hor_sync  ; clk        ; 8.423 ; 10.207 ; Rise       ; clk             ;
+; red[*]    ; clk        ; 5.476 ; 5.925  ; Rise       ; clk             ;
+;  red[0]   ; clk        ; 5.476 ; 5.966  ; Rise       ; clk             ;
+;  red[1]   ; clk        ; 6.341 ; 7.337  ; Rise       ; clk             ;
+;  red[2]   ; clk        ; 5.506 ; 5.925  ; Rise       ; clk             ;
+;  red[3]   ; clk        ; 5.990 ; 6.721  ; Rise       ; clk             ;
+;  red[4]   ; clk        ; 6.137 ; 6.933  ; Rise       ; clk             ;
+;  red[5]   ; clk        ; 6.601 ; 7.636  ; Rise       ; clk             ;
+;  red[6]   ; clk        ; 5.509 ; 6.000  ; Rise       ; clk             ;
+;  red[7]   ; clk        ; 6.619 ; 7.681  ; Rise       ; clk             ;
+; ver_sync  ; clk        ; 7.442 ; 8.839  ; Rise       ; clk             ;
+; vga_clk   ; clk        ; 7.500 ; 9.026  ; Rise       ; clk             ;
 +-----------+------------+-------+--------+------------+-----------------+
-
-
-+-----------------------------------------------------------------------+
-; Minimum Clock to Output Times                                         ;
-+-----------+------------+-------+-------+------------+-----------------+
-; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
-+-----------+------------+-------+-------+------------+-----------------+
-; blue[*]   ; clk        ; 6.293 ; 7.176 ; Rise       ; clk             ;
-;  blue[0]  ; clk        ; 6.876 ; 8.141 ; Rise       ; clk             ;
-;  blue[1]  ; clk        ; 6.293 ; 7.176 ; Rise       ; clk             ;
-;  blue[2]  ; clk        ; 6.757 ; 7.858 ; Rise       ; clk             ;
-;  blue[3]  ; clk        ; 6.610 ; 7.706 ; Rise       ; clk             ;
-;  blue[4]  ; clk        ; 6.670 ; 7.834 ; Rise       ; clk             ;
-;  blue[5]  ; clk        ; 6.656 ; 7.823 ; Rise       ; clk             ;
-;  blue[6]  ; clk        ; 6.548 ; 7.525 ; Rise       ; clk             ;
-;  blue[7]  ; clk        ; 6.664 ; 7.806 ; Rise       ; clk             ;
-; green[*]  ; clk        ; 5.712 ; 6.268 ; Rise       ; clk             ;
-;  green[0] ; clk        ; 5.900 ; 6.527 ; Rise       ; clk             ;
-;  green[1] ; clk        ; 5.712 ; 6.268 ; Rise       ; clk             ;
-;  green[2] ; clk        ; 6.982 ; 8.192 ; Rise       ; clk             ;
-;  green[3] ; clk        ; 6.872 ; 8.010 ; Rise       ; clk             ;
-;  green[4] ; clk        ; 5.748 ; 6.322 ; Rise       ; clk             ;
-;  green[5] ; clk        ; 6.631 ; 7.600 ; Rise       ; clk             ;
-;  green[6] ; clk        ; 6.629 ; 7.696 ; Rise       ; clk             ;
-;  green[7] ; clk        ; 6.810 ; 7.933 ; Rise       ; clk             ;
-; hor_sync  ; clk        ; 7.286 ; 8.542 ; Rise       ; clk             ;
-; red[*]    ; clk        ; 6.061 ; 6.973 ; Rise       ; clk             ;
-;  red[0]   ; clk        ; 6.425 ; 7.452 ; Rise       ; clk             ;
-;  red[1]   ; clk        ; 6.061 ; 6.973 ; Rise       ; clk             ;
-;  red[2]   ; clk        ; 6.567 ; 7.673 ; Rise       ; clk             ;
-;  red[3]   ; clk        ; 6.318 ; 7.338 ; Rise       ; clk             ;
-;  red[4]   ; clk        ; 6.395 ; 7.473 ; Rise       ; clk             ;
-;  red[5]   ; clk        ; 6.762 ; 7.856 ; Rise       ; clk             ;
-;  red[6]   ; clk        ; 6.724 ; 7.860 ; Rise       ; clk             ;
-;  red[7]   ; clk        ; 6.455 ; 7.517 ; Rise       ; clk             ;
-; ver_sync  ; clk        ; 8.018 ; 9.630 ; Rise       ; clk             ;
-; vga_clk   ; clk        ; 5.777 ; 6.528 ; Rise       ; clk             ;
-+-----------+------------+-------+-------+------------+-----------------+
 
 
 ----------------------------------------------
@@ -622,7 +628,7 @@ No synchronizer chains to report.
 +-------+--------+-------------------+
 ; Clock ; Slack  ; End Point TNS     ;
 +-------+--------+-------------------+
-; clk   ; -8.499 ; -1026.124         ;
+; clk   ; -8.919 ; -1384.661         ;
 +-------+--------+-------------------+
 
 
@@ -631,7 +637,7 @@ No synchronizer chains to report.
 +-------+-------+-------------------+
 ; Clock ; Slack ; End Point TNS     ;
 +-------+-------+-------------------+
-; clk   ; 0.172 ; 0.000             ;
+; clk   ; 0.173 ; 0.000             ;
 +-------+-------+-------------------+
 
 
@@ -652,7 +658,7 @@ No paths to report.
 +-------+--------+---------------------------------+
 ; Clock ; Slack  ; End Point TNS                   ;
 +-------+--------+---------------------------------+
-; clk   ; -1.702 ; -109.392                        ;
+; clk   ; -0.091 ; -42.318                         ;
 +-------+--------+---------------------------------+
 
 
@@ -661,14 +667,15 @@ No paths to report.
 +-----------------+------------+-------+-------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------------+------------+-------+-------+------------+-----------------+
-; team1_hl_button ; clk        ; 2.107 ; 2.886 ; Rise       ; clk             ;
-; team1_hr_button ; clk        ; 2.324 ; 3.277 ; Rise       ; clk             ;
-; team1_vd_button ; clk        ; 0.890 ; 1.824 ; Rise       ; clk             ;
-; team1_vu_button ; clk        ; 1.301 ; 2.368 ; Rise       ; clk             ;
-; team2_hl_button ; clk        ; 1.851 ; 2.636 ; Rise       ; clk             ;
-; team2_hr_button ; clk        ; 2.016 ; 2.817 ; Rise       ; clk             ;
-; team2_vd_button ; clk        ; 0.998 ; 1.898 ; Rise       ; clk             ;
-; team2_vu_button ; clk        ; 1.212 ; 2.313 ; Rise       ; clk             ;
+; game_on_switch  ; clk        ; 0.072 ; 0.688 ; Rise       ; clk             ;
+; team1_hl_button ; clk        ; 2.102 ; 2.616 ; Rise       ; clk             ;
+; team1_hr_button ; clk        ; 2.195 ; 3.146 ; Rise       ; clk             ;
+; team1_vd_button ; clk        ; 0.986 ; 1.870 ; Rise       ; clk             ;
+; team1_vu_button ; clk        ; 0.982 ; 1.933 ; Rise       ; clk             ;
+; team2_hl_button ; clk        ; 1.847 ; 2.616 ; Rise       ; clk             ;
+; team2_hr_button ; clk        ; 2.187 ; 3.026 ; Rise       ; clk             ;
+; team2_vd_button ; clk        ; 0.522 ; 1.275 ; Rise       ; clk             ;
+; team2_vu_button ; clk        ; 0.518 ; 1.308 ; Rise       ; clk             ;
 +-----------------+------------+-------+-------+------------+-----------------+
 
 
@@ -677,53 +684,54 @@ No paths to report.
 +-----------------+------------+--------+--------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------------+------------+--------+--------+------------+-----------------+
-; team1_hl_button ; clk        ; -0.303 ; -0.931 ; Rise       ; clk             ;
-; team1_hr_button ; clk        ; -0.481 ; -1.212 ; Rise       ; clk             ;
-; team1_vd_button ; clk        ; 0.051  ; -0.743 ; Rise       ; clk             ;
-; team1_vu_button ; clk        ; 0.097  ; -0.680 ; Rise       ; clk             ;
-; team2_hl_button ; clk        ; -0.063 ; -0.670 ; Rise       ; clk             ;
-; team2_hr_button ; clk        ; -0.114 ; -0.757 ; Rise       ; clk             ;
-; team2_vd_button ; clk        ; 0.189  ; -0.484 ; Rise       ; clk             ;
-; team2_vu_button ; clk        ; -0.082 ; -0.922 ; Rise       ; clk             ;
+; game_on_switch  ; clk        ; 0.338  ; -0.224 ; Rise       ; clk             ;
+; team1_hl_button ; clk        ; -0.009 ; -0.597 ; Rise       ; clk             ;
+; team1_hr_button ; clk        ; -0.069 ; -0.726 ; Rise       ; clk             ;
+; team1_vd_button ; clk        ; 0.346  ; -0.300 ; Rise       ; clk             ;
+; team1_vu_button ; clk        ; 0.201  ; -0.589 ; Rise       ; clk             ;
+; team2_hl_button ; clk        ; -0.203 ; -0.864 ; Rise       ; clk             ;
+; team2_hr_button ; clk        ; -0.567 ; -1.304 ; Rise       ; clk             ;
+; team2_vd_button ; clk        ; 0.453  ; -0.137 ; Rise       ; clk             ;
+; team2_vu_button ; clk        ; 0.577  ; -0.061 ; Rise       ; clk             ;
 +-----------------+------------+--------+--------+------------+-----------------+
 
 
-+------------------------------------------------------------------------+
-; Clock to Output Times                                                  ;
-+-----------+------------+-------+--------+------------+-----------------+
-; Data Port ; Clock Port ; Rise  ; Fall   ; Clock Edge ; Clock Reference ;
-+-----------+------------+-------+--------+------------+-----------------+
-; blue[*]   ; clk        ; 7.044 ; 8.266  ; Rise       ; clk             ;
-;  blue[0]  ; clk        ; 7.044 ; 8.266  ; Rise       ; clk             ;
-;  blue[1]  ; clk        ; 6.288 ; 7.130  ; Rise       ; clk             ;
-;  blue[2]  ; clk        ; 6.844 ; 7.933  ; Rise       ; clk             ;
-;  blue[3]  ; clk        ; 6.691 ; 7.738  ; Rise       ; clk             ;
-;  blue[4]  ; clk        ; 6.762 ; 7.880  ; Rise       ; clk             ;
-;  blue[5]  ; clk        ; 6.747 ; 7.865  ; Rise       ; clk             ;
-;  blue[6]  ; clk        ; 6.587 ; 7.579  ; Rise       ; clk             ;
-;  blue[7]  ; clk        ; 6.742 ; 7.831  ; Rise       ; clk             ;
-; green[*]  ; clk        ; 7.134 ; 8.343  ; Rise       ; clk             ;
-;  green[0] ; clk        ; 5.821 ; 6.477  ; Rise       ; clk             ;
-;  green[1] ; clk        ; 5.599 ; 6.172  ; Rise       ; clk             ;
-;  green[2] ; clk        ; 7.134 ; 8.343  ; Rise       ; clk             ;
-;  green[3] ; clk        ; 6.959 ; 8.082  ; Rise       ; clk             ;
-;  green[4] ; clk        ; 5.663 ; 6.251  ; Rise       ; clk             ;
-;  green[5] ; clk        ; 6.645 ; 7.624  ; Rise       ; clk             ;
-;  green[6] ; clk        ; 6.712 ; 7.760  ; Rise       ; clk             ;
-;  green[7] ; clk        ; 6.910 ; 8.001  ; Rise       ; clk             ;
-; hor_sync  ; clk        ; 8.059 ; 9.524  ; Rise       ; clk             ;
-; red[*]    ; clk        ; 6.889 ; 7.959  ; Rise       ; clk             ;
-;  red[0]   ; clk        ; 6.521 ; 7.469  ; Rise       ; clk             ;
-;  red[1]   ; clk        ; 6.109 ; 6.944  ; Rise       ; clk             ;
-;  red[2]   ; clk        ; 6.654 ; 7.703  ; Rise       ; clk             ;
-;  red[3]   ; clk        ; 6.399 ; 7.346  ; Rise       ; clk             ;
-;  red[4]   ; clk        ; 6.517 ; 7.497  ; Rise       ; clk             ;
-;  red[5]   ; clk        ; 6.889 ; 7.959  ; Rise       ; clk             ;
-;  red[6]   ; clk        ; 6.788 ; 7.872  ; Rise       ; clk             ;
-;  red[7]   ; clk        ; 6.544 ; 7.551  ; Rise       ; clk             ;
-; ver_sync  ; clk        ; 9.440 ; 10.905 ; Rise       ; clk             ;
-; vga_clk   ; clk        ; 5.836 ; 6.499  ; Rise       ; clk             ;
-+-----------+------------+-------+--------+------------+-----------------+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; blue[*]   ; clk        ; 7.573  ; 9.008  ; Rise       ; clk             ;
+;  blue[0]  ; clk        ; 7.204  ; 8.402  ; Rise       ; clk             ;
+;  blue[1]  ; clk        ; 6.781  ; 7.837  ; Rise       ; clk             ;
+;  blue[2]  ; clk        ; 7.299  ; 8.574  ; Rise       ; clk             ;
+;  blue[3]  ; clk        ; 6.889  ; 8.023  ; Rise       ; clk             ;
+;  blue[4]  ; clk        ; 7.573  ; 9.008  ; Rise       ; clk             ;
+;  blue[5]  ; clk        ; 6.800  ; 7.935  ; Rise       ; clk             ;
+;  blue[6]  ; clk        ; 7.369  ; 8.726  ; Rise       ; clk             ;
+;  blue[7]  ; clk        ; 7.166  ; 8.422  ; Rise       ; clk             ;
+; green[*]  ; clk        ; 7.678  ; 9.058  ; Rise       ; clk             ;
+;  green[0] ; clk        ; 7.678  ; 9.058  ; Rise       ; clk             ;
+;  green[1] ; clk        ; 7.299  ; 8.395  ; Rise       ; clk             ;
+;  green[2] ; clk        ; 6.973  ; 8.117  ; Rise       ; clk             ;
+;  green[3] ; clk        ; 7.273  ; 8.544  ; Rise       ; clk             ;
+;  green[4] ; clk        ; 7.462  ; 8.765  ; Rise       ; clk             ;
+;  green[5] ; clk        ; 6.978  ; 8.106  ; Rise       ; clk             ;
+;  green[6] ; clk        ; 6.160  ; 6.843  ; Rise       ; clk             ;
+;  green[7] ; clk        ; 7.391  ; 8.700  ; Rise       ; clk             ;
+; hor_sync  ; clk        ; 8.758  ; 10.548 ; Rise       ; clk             ;
+; red[*]    ; clk        ; 6.728  ; 7.776  ; Rise       ; clk             ;
+;  red[0]   ; clk        ; 5.405  ; 5.887  ; Rise       ; clk             ;
+;  red[1]   ; clk        ; 6.448  ; 7.423  ; Rise       ; clk             ;
+;  red[2]   ; clk        ; 5.376  ; 5.791  ; Rise       ; clk             ;
+;  red[3]   ; clk        ; 5.962  ; 6.674  ; Rise       ; clk             ;
+;  red[4]   ; clk        ; 6.162  ; 6.898  ; Rise       ; clk             ;
+;  red[5]   ; clk        ; 6.717  ; 7.750  ; Rise       ; clk             ;
+;  red[6]   ; clk        ; 5.407  ; 5.910  ; Rise       ; clk             ;
+;  red[7]   ; clk        ; 6.728  ; 7.776  ; Rise       ; clk             ;
+; ver_sync  ; clk        ; 10.959 ; 12.287 ; Rise       ; clk             ;
+; vga_clk   ; clk        ; 7.680  ; 9.109  ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
 
 
 +-----------------------------------------------------------------------+
@@ -731,36 +739,36 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; blue[*]   ; clk        ; 5.954 ; 6.700 ; Rise       ; clk             ;
-;  blue[0]  ; clk        ; 6.620 ; 7.668 ; Rise       ; clk             ;
-;  blue[1]  ; clk        ; 5.954 ; 6.700 ; Rise       ; clk             ;
-;  blue[2]  ; clk        ; 6.441 ; 7.388 ; Rise       ; clk             ;
-;  blue[3]  ; clk        ; 6.315 ; 7.234 ; Rise       ; clk             ;
-;  blue[4]  ; clk        ; 6.375 ; 7.358 ; Rise       ; clk             ;
-;  blue[5]  ; clk        ; 6.364 ; 7.347 ; Rise       ; clk             ;
-;  blue[6]  ; clk        ; 6.193 ; 7.029 ; Rise       ; clk             ;
-;  blue[7]  ; clk        ; 6.361 ; 7.316 ; Rise       ; clk             ;
-; green[*]  ; clk        ; 5.305 ; 5.801 ; Rise       ; clk             ;
-;  green[0] ; clk        ; 5.499 ; 6.059 ; Rise       ; clk             ;
-;  green[1] ; clk        ; 5.305 ; 5.801 ; Rise       ; clk             ;
-;  green[2] ; clk        ; 6.691 ; 7.719 ; Rise       ; clk             ;
-;  green[3] ; clk        ; 6.552 ; 7.532 ; Rise       ; clk             ;
-;  green[4] ; clk        ; 5.363 ; 5.872 ; Rise       ; clk             ;
-;  green[5] ; clk        ; 6.260 ; 7.114 ; Rise       ; clk             ;
-;  green[6] ; clk        ; 6.325 ; 7.240 ; Rise       ; clk             ;
-;  green[7] ; clk        ; 6.502 ; 7.445 ; Rise       ; clk             ;
-; hor_sync  ; clk        ; 6.961 ; 8.009 ; Rise       ; clk             ;
-; red[*]    ; clk        ; 5.797 ; 6.548 ; Rise       ; clk             ;
-;  red[0]   ; clk        ; 6.164 ; 6.996 ; Rise       ; clk             ;
-;  red[1]   ; clk        ; 5.797 ; 6.548 ; Rise       ; clk             ;
-;  red[2]   ; clk        ; 6.279 ; 7.200 ; Rise       ; clk             ;
-;  red[3]   ; clk        ; 6.053 ; 6.890 ; Rise       ; clk             ;
-;  red[4]   ; clk        ; 6.166 ; 7.029 ; Rise       ; clk             ;
-;  red[5]   ; clk        ; 6.469 ; 7.373 ; Rise       ; clk             ;
-;  red[6]   ; clk        ; 6.406 ; 7.362 ; Rise       ; clk             ;
-;  red[7]   ; clk        ; 6.173 ; 7.059 ; Rise       ; clk             ;
-; ver_sync  ; clk        ; 7.665 ; 9.039 ; Rise       ; clk             ;
-; vga_clk   ; clk        ; 5.548 ; 6.141 ; Rise       ; clk             ;
+; blue[*]   ; clk        ; 6.403 ; 7.342 ; Rise       ; clk             ;
+;  blue[0]  ; clk        ; 6.774 ; 7.818 ; Rise       ; clk             ;
+;  blue[1]  ; clk        ; 6.407 ; 7.342 ; Rise       ; clk             ;
+;  blue[2]  ; clk        ; 6.868 ; 7.989 ; Rise       ; clk             ;
+;  blue[3]  ; clk        ; 6.469 ; 7.450 ; Rise       ; clk             ;
+;  blue[4]  ; clk        ; 7.096 ; 8.331 ; Rise       ; clk             ;
+;  blue[5]  ; clk        ; 6.403 ; 7.381 ; Rise       ; clk             ;
+;  blue[6]  ; clk        ; 6.902 ; 8.057 ; Rise       ; clk             ;
+;  blue[7]  ; clk        ; 6.740 ; 7.829 ; Rise       ; clk             ;
+; green[*]  ; clk        ; 5.821 ; 6.409 ; Rise       ; clk             ;
+;  green[0] ; clk        ; 7.196 ; 8.393 ; Rise       ; clk             ;
+;  green[1] ; clk        ; 6.870 ; 7.831 ; Rise       ; clk             ;
+;  green[2] ; clk        ; 6.574 ; 7.579 ; Rise       ; clk             ;
+;  green[3] ; clk        ; 6.844 ; 7.956 ; Rise       ; clk             ;
+;  green[4] ; clk        ; 7.007 ; 8.147 ; Rise       ; clk             ;
+;  green[5] ; clk        ; 6.584 ; 7.587 ; Rise       ; clk             ;
+;  green[6] ; clk        ; 5.821 ; 6.409 ; Rise       ; clk             ;
+;  green[7] ; clk        ; 6.907 ; 8.003 ; Rise       ; clk             ;
+; hor_sync  ; clk        ; 8.038 ; 9.515 ; Rise       ; clk             ;
+; red[*]    ; clk        ; 5.118 ; 5.476 ; Rise       ; clk             ;
+;  red[0]   ; clk        ; 5.134 ; 5.544 ; Rise       ; clk             ;
+;  red[1]   ; clk        ; 6.077 ; 6.920 ; Rise       ; clk             ;
+;  red[2]   ; clk        ; 5.118 ; 5.476 ; Rise       ; clk             ;
+;  red[3]   ; clk        ; 5.653 ; 6.272 ; Rise       ; clk             ;
+;  red[4]   ; clk        ; 5.847 ; 6.498 ; Rise       ; clk             ;
+;  red[5]   ; clk        ; 6.315 ; 7.196 ; Rise       ; clk             ;
+;  red[6]   ; clk        ; 5.139 ; 5.580 ; Rise       ; clk             ;
+;  red[7]   ; clk        ; 6.331 ; 7.237 ; Rise       ; clk             ;
+; ver_sync  ; clk        ; 7.122 ; 8.314 ; Rise       ; clk             ;
+; vga_clk   ; clk        ; 7.225 ; 8.473 ; Rise       ; clk             ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -775,10 +783,10 @@ No synchronizer chains to report.
 +------------------+-----------+-------+----------+---------+---------------------+
 ; Clock            ; Setup     ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------+-----------+-------+----------+---------+---------------------+
-; Worst-case Slack ; -16.567   ; 0.172 ; N/A      ; N/A     ; -2.225              ;
-;  clk             ; -16.567   ; 0.172 ; N/A      ; N/A     ; -2.225              ;
-; Design-wide TNS  ; -2232.857 ; 0.0   ; 0.0      ; 0.0     ; -344.497            ;
-;  clk             ; -2232.857 ; 0.000 ; N/A      ; N/A     ; -344.497            ;
+; Worst-case Slack ; -17.428   ; 0.173 ; N/A      ; N/A     ; -0.394              ;
+;  clk             ; -17.428   ; 0.173 ; N/A      ; N/A     ; -0.394              ;
+; Design-wide TNS  ; -2938.445 ; 0.0   ; 0.0      ; 0.0     ; -278.176            ;
+;  clk             ; -2938.445 ; 0.000 ; N/A      ; N/A     ; -278.176            ;
 +------------------+-----------+-------+----------+---------+---------------------+
 
 
@@ -787,14 +795,15 @@ No synchronizer chains to report.
 +-----------------+------------+-------+-------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------------+------------+-------+-------+------------+-----------------+
-; team1_hl_button ; clk        ; 4.298 ; 4.730 ; Rise       ; clk             ;
-; team1_hr_button ; clk        ; 4.454 ; 5.180 ; Rise       ; clk             ;
-; team1_vd_button ; clk        ; 1.891 ; 2.704 ; Rise       ; clk             ;
-; team1_vu_button ; clk        ; 2.290 ; 3.240 ; Rise       ; clk             ;
-; team2_hl_button ; clk        ; 3.747 ; 4.322 ; Rise       ; clk             ;
-; team2_hr_button ; clk        ; 3.955 ; 4.525 ; Rise       ; clk             ;
-; team2_vd_button ; clk        ; 2.082 ; 2.808 ; Rise       ; clk             ;
-; team2_vu_button ; clk        ; 2.239 ; 3.290 ; Rise       ; clk             ;
+; game_on_switch  ; clk        ; 0.210 ; 0.764 ; Rise       ; clk             ;
+; team1_hl_button ; clk        ; 3.857 ; 4.104 ; Rise       ; clk             ;
+; team1_hr_button ; clk        ; 4.088 ; 4.866 ; Rise       ; clk             ;
+; team1_vd_button ; clk        ; 1.848 ; 2.529 ; Rise       ; clk             ;
+; team1_vu_button ; clk        ; 1.811 ; 2.642 ; Rise       ; clk             ;
+; team2_hl_button ; clk        ; 3.320 ; 3.883 ; Rise       ; clk             ;
+; team2_hr_button ; clk        ; 3.933 ; 4.545 ; Rise       ; clk             ;
+; team2_vd_button ; clk        ; 1.233 ; 1.802 ; Rise       ; clk             ;
+; team2_vu_button ; clk        ; 1.321 ; 1.912 ; Rise       ; clk             ;
 +-----------------+------------+-------+-------+------------+-----------------+
 
 
@@ -803,14 +812,15 @@ No synchronizer chains to report.
 +-----------------+------------+--------+--------+------------+-----------------+
 ; Data Port       ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------------+------------+--------+--------+------------+-----------------+
-; team1_hl_button ; clk        ; -0.303 ; -0.855 ; Rise       ; clk             ;
-; team1_hr_button ; clk        ; -0.481 ; -1.212 ; Rise       ; clk             ;
-; team1_vd_button ; clk        ; 0.339  ; -0.356 ; Rise       ; clk             ;
-; team1_vu_button ; clk        ; 0.453  ; -0.180 ; Rise       ; clk             ;
-; team2_hl_button ; clk        ; -0.063 ; -0.518 ; Rise       ; clk             ;
-; team2_hr_button ; clk        ; -0.114 ; -0.537 ; Rise       ; clk             ;
-; team2_vd_button ; clk        ; 0.423  ; -0.073 ; Rise       ; clk             ;
-; team2_vu_button ; clk        ; 0.159  ; -0.577 ; Rise       ; clk             ;
+; game_on_switch  ; clk        ; 0.726  ; 0.428  ; Rise       ; clk             ;
+; team1_hl_button ; clk        ; 0.082  ; -0.222 ; Rise       ; clk             ;
+; team1_hr_button ; clk        ; -0.016 ; -0.489 ; Rise       ; clk             ;
+; team1_vd_button ; clk        ; 0.844  ; 0.400  ; Rise       ; clk             ;
+; team1_vu_button ; clk        ; 0.672  ; -0.047 ; Rise       ; clk             ;
+; team2_hl_button ; clk        ; -0.106 ; -0.561 ; Rise       ; clk             ;
+; team2_hr_button ; clk        ; -0.567 ; -1.260 ; Rise       ; clk             ;
+; team2_vd_button ; clk        ; 0.852  ; 0.459  ; Rise       ; clk             ;
+; team2_vu_button ; clk        ; 1.141  ; 0.688  ; Rise       ; clk             ;
 +-----------------+------------+--------+--------+------------+-----------------+
 
 
@@ -819,36 +829,36 @@ No synchronizer chains to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; blue[*]   ; clk        ; 11.644 ; 13.251 ; Rise       ; clk             ;
-;  blue[0]  ; clk        ; 11.644 ; 13.251 ; Rise       ; clk             ;
-;  blue[1]  ; clk        ; 10.808 ; 11.798 ; Rise       ; clk             ;
-;  blue[2]  ; clk        ; 11.501 ; 12.765 ; Rise       ; clk             ;
-;  blue[3]  ; clk        ; 11.201 ; 12.482 ; Rise       ; clk             ;
-;  blue[4]  ; clk        ; 11.313 ; 12.665 ; Rise       ; clk             ;
-;  blue[5]  ; clk        ; 11.287 ; 12.649 ; Rise       ; clk             ;
-;  blue[6]  ; clk        ; 11.234 ; 12.425 ; Rise       ; clk             ;
-;  blue[7]  ; clk        ; 11.335 ; 12.682 ; Rise       ; clk             ;
-; green[*]  ; clk        ; 11.740 ; 13.253 ; Rise       ; clk             ;
-;  green[0] ; clk        ; 10.406 ; 11.109 ; Rise       ; clk             ;
-;  green[1] ; clk        ; 10.109 ; 10.681 ; Rise       ; clk             ;
-;  green[2] ; clk        ; 11.740 ; 13.253 ; Rise       ; clk             ;
-;  green[3] ; clk        ; 11.655 ; 12.942 ; Rise       ; clk             ;
-;  green[4] ; clk        ; 10.110 ; 10.726 ; Rise       ; clk             ;
-;  green[5] ; clk        ; 11.456 ; 12.504 ; Rise       ; clk             ;
-;  green[6] ; clk        ; 11.237 ; 12.467 ; Rise       ; clk             ;
-;  green[7] ; clk        ; 11.569 ; 12.870 ; Rise       ; clk             ;
-; hor_sync  ; clk        ; 13.515 ; 15.330 ; Rise       ; clk             ;
-; red[*]    ; clk        ; 11.480 ; 12.790 ; Rise       ; clk             ;
-;  red[0]   ; clk        ; 10.912 ; 12.119 ; Rise       ; clk             ;
-;  red[1]   ; clk        ; 10.240 ; 11.262 ; Rise       ; clk             ;
-;  red[2]   ; clk        ; 11.157 ; 12.460 ; Rise       ; clk             ;
-;  red[3]   ; clk        ; 10.659 ; 11.859 ; Rise       ; clk             ;
-;  red[4]   ; clk        ; 10.849 ; 12.125 ; Rise       ; clk             ;
-;  red[5]   ; clk        ; 11.450 ; 12.790 ; Rise       ; clk             ;
-;  red[6]   ; clk        ; 11.480 ; 12.773 ; Rise       ; clk             ;
-;  red[7]   ; clk        ; 10.966 ; 12.193 ; Rise       ; clk             ;
-; ver_sync  ; clk        ; 15.571 ; 17.415 ; Rise       ; clk             ;
-; vga_clk   ; clk        ; 9.932  ; 10.776 ; Rise       ; clk             ;
+; blue[*]   ; clk        ; 12.431 ; 14.250 ; Rise       ; clk             ;
+;  blue[0]  ; clk        ; 12.004 ; 13.511 ; Rise       ; clk             ;
+;  blue[1]  ; clk        ; 11.331 ; 12.633 ; Rise       ; clk             ;
+;  blue[2]  ; clk        ; 12.169 ; 13.702 ; Rise       ; clk             ;
+;  blue[3]  ; clk        ; 11.603 ; 12.989 ; Rise       ; clk             ;
+;  blue[4]  ; clk        ; 12.431 ; 14.250 ; Rise       ; clk             ;
+;  blue[5]  ; clk        ; 11.305 ; 12.714 ; Rise       ; clk             ;
+;  blue[6]  ; clk        ; 12.071 ; 13.826 ; Rise       ; clk             ;
+;  blue[7]  ; clk        ; 11.845 ; 13.429 ; Rise       ; clk             ;
+; green[*]  ; clk        ; 12.679 ; 14.343 ; Rise       ; clk             ;
+;  green[0] ; clk        ; 12.679 ; 14.343 ; Rise       ; clk             ;
+;  green[1] ; clk        ; 12.176 ; 13.441 ; Rise       ; clk             ;
+;  green[2] ; clk        ; 11.743 ; 13.135 ; Rise       ; clk             ;
+;  green[3] ; clk        ; 12.271 ; 13.765 ; Rise       ; clk             ;
+;  green[4] ; clk        ; 12.466 ; 14.008 ; Rise       ; clk             ;
+;  green[5] ; clk        ; 11.815 ; 13.090 ; Rise       ; clk             ;
+;  green[6] ; clk        ; 10.659 ; 11.442 ; Rise       ; clk             ;
+;  green[7] ; clk        ; 12.446 ; 14.027 ; Rise       ; clk             ;
+; hor_sync  ; clk        ; 14.836 ; 17.006 ; Rise       ; clk             ;
+; red[*]    ; clk        ; 11.245 ; 12.526 ; Rise       ; clk             ;
+;  red[0]   ; clk        ; 9.676  ; 10.249 ; Rise       ; clk             ;
+;  red[1]   ; clk        ; 10.759 ; 11.964 ; Rise       ; clk             ;
+;  red[2]   ; clk        ; 9.730  ; 10.158 ; Rise       ; clk             ;
+;  red[3]   ; clk        ; 10.350 ; 11.205 ; Rise       ; clk             ;
+;  red[4]   ; clk        ; 10.578 ; 11.452 ; Rise       ; clk             ;
+;  red[5]   ; clk        ; 11.245 ; 12.526 ; Rise       ; clk             ;
+;  red[6]   ; clk        ; 9.726  ; 10.228 ; Rise       ; clk             ;
+;  red[7]   ; clk        ; 11.237 ; 12.511 ; Rise       ; clk             ;
+; ver_sync  ; clk        ; 17.555 ; 19.252 ; Rise       ; clk             ;
+; vga_clk   ; clk        ; 12.615 ; 14.485 ; Rise       ; clk             ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -857,36 +867,36 @@ No synchronizer chains to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; blue[*]   ; clk        ; 5.954 ; 6.700 ; Rise       ; clk             ;
-;  blue[0]  ; clk        ; 6.620 ; 7.668 ; Rise       ; clk             ;
-;  blue[1]  ; clk        ; 5.954 ; 6.700 ; Rise       ; clk             ;
-;  blue[2]  ; clk        ; 6.441 ; 7.388 ; Rise       ; clk             ;
-;  blue[3]  ; clk        ; 6.315 ; 7.234 ; Rise       ; clk             ;
-;  blue[4]  ; clk        ; 6.375 ; 7.358 ; Rise       ; clk             ;
-;  blue[5]  ; clk        ; 6.364 ; 7.347 ; Rise       ; clk             ;
-;  blue[6]  ; clk        ; 6.193 ; 7.029 ; Rise       ; clk             ;
-;  blue[7]  ; clk        ; 6.361 ; 7.316 ; Rise       ; clk             ;
-; green[*]  ; clk        ; 5.305 ; 5.801 ; Rise       ; clk             ;
-;  green[0] ; clk        ; 5.499 ; 6.059 ; Rise       ; clk             ;
-;  green[1] ; clk        ; 5.305 ; 5.801 ; Rise       ; clk             ;
-;  green[2] ; clk        ; 6.691 ; 7.719 ; Rise       ; clk             ;
-;  green[3] ; clk        ; 6.552 ; 7.532 ; Rise       ; clk             ;
-;  green[4] ; clk        ; 5.363 ; 5.872 ; Rise       ; clk             ;
-;  green[5] ; clk        ; 6.260 ; 7.114 ; Rise       ; clk             ;
-;  green[6] ; clk        ; 6.325 ; 7.240 ; Rise       ; clk             ;
-;  green[7] ; clk        ; 6.502 ; 7.445 ; Rise       ; clk             ;
-; hor_sync  ; clk        ; 6.961 ; 8.009 ; Rise       ; clk             ;
-; red[*]    ; clk        ; 5.797 ; 6.548 ; Rise       ; clk             ;
-;  red[0]   ; clk        ; 6.164 ; 6.996 ; Rise       ; clk             ;
-;  red[1]   ; clk        ; 5.797 ; 6.548 ; Rise       ; clk             ;
-;  red[2]   ; clk        ; 6.279 ; 7.200 ; Rise       ; clk             ;
-;  red[3]   ; clk        ; 6.053 ; 6.890 ; Rise       ; clk             ;
-;  red[4]   ; clk        ; 6.166 ; 7.029 ; Rise       ; clk             ;
-;  red[5]   ; clk        ; 6.469 ; 7.373 ; Rise       ; clk             ;
-;  red[6]   ; clk        ; 6.406 ; 7.362 ; Rise       ; clk             ;
-;  red[7]   ; clk        ; 6.173 ; 7.059 ; Rise       ; clk             ;
-; ver_sync  ; clk        ; 7.665 ; 9.039 ; Rise       ; clk             ;
-; vga_clk   ; clk        ; 5.548 ; 6.141 ; Rise       ; clk             ;
+; blue[*]   ; clk        ; 6.403 ; 7.342 ; Rise       ; clk             ;
+;  blue[0]  ; clk        ; 6.774 ; 7.818 ; Rise       ; clk             ;
+;  blue[1]  ; clk        ; 6.407 ; 7.342 ; Rise       ; clk             ;
+;  blue[2]  ; clk        ; 6.868 ; 7.989 ; Rise       ; clk             ;
+;  blue[3]  ; clk        ; 6.469 ; 7.450 ; Rise       ; clk             ;
+;  blue[4]  ; clk        ; 7.096 ; 8.331 ; Rise       ; clk             ;
+;  blue[5]  ; clk        ; 6.403 ; 7.381 ; Rise       ; clk             ;
+;  blue[6]  ; clk        ; 6.902 ; 8.057 ; Rise       ; clk             ;
+;  blue[7]  ; clk        ; 6.740 ; 7.829 ; Rise       ; clk             ;
+; green[*]  ; clk        ; 5.821 ; 6.409 ; Rise       ; clk             ;
+;  green[0] ; clk        ; 7.196 ; 8.393 ; Rise       ; clk             ;
+;  green[1] ; clk        ; 6.870 ; 7.831 ; Rise       ; clk             ;
+;  green[2] ; clk        ; 6.574 ; 7.579 ; Rise       ; clk             ;
+;  green[3] ; clk        ; 6.844 ; 7.956 ; Rise       ; clk             ;
+;  green[4] ; clk        ; 7.007 ; 8.147 ; Rise       ; clk             ;
+;  green[5] ; clk        ; 6.584 ; 7.587 ; Rise       ; clk             ;
+;  green[6] ; clk        ; 5.821 ; 6.409 ; Rise       ; clk             ;
+;  green[7] ; clk        ; 6.907 ; 8.003 ; Rise       ; clk             ;
+; hor_sync  ; clk        ; 8.038 ; 9.515 ; Rise       ; clk             ;
+; red[*]    ; clk        ; 5.118 ; 5.476 ; Rise       ; clk             ;
+;  red[0]   ; clk        ; 5.134 ; 5.544 ; Rise       ; clk             ;
+;  red[1]   ; clk        ; 6.077 ; 6.920 ; Rise       ; clk             ;
+;  red[2]   ; clk        ; 5.118 ; 5.476 ; Rise       ; clk             ;
+;  red[3]   ; clk        ; 5.653 ; 6.272 ; Rise       ; clk             ;
+;  red[4]   ; clk        ; 5.847 ; 6.498 ; Rise       ; clk             ;
+;  red[5]   ; clk        ; 6.315 ; 7.196 ; Rise       ; clk             ;
+;  red[6]   ; clk        ; 5.139 ; 5.580 ; Rise       ; clk             ;
+;  red[7]   ; clk        ; 6.331 ; 7.237 ; Rise       ; clk             ;
+; ver_sync  ; clk        ; 7.122 ; 8.314 ; Rise       ; clk             ;
+; vga_clk   ; clk        ; 7.225 ; 8.473 ; Rise       ; clk             ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -931,10 +941,11 @@ No synchronizer chains to report.
 ; Pin             ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
 +-----------------+--------------+-----------------+-----------------+
 ; clk             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; team1_hl_button ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; team1_hr_button ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; game_on_switch  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; team1_vu_button ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; team1_vd_button ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; team1_hl_button ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; team1_hr_button ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; team2_hl_button ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; team2_hr_button ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; team2_vu_button ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
@@ -1121,8 +1132,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 8     ; 8    ;
-; Unconstrained Input Port Paths  ; 280   ; 280  ;
+; Unconstrained Input Ports       ; 9     ; 9    ;
+; Unconstrained Input Port Paths  ; 281   ; 281  ;
 ; Unconstrained Output Ports      ; 27    ; 27   ;
 ; Unconstrained Output Port Paths ; 39    ; 39   ;
 +---------------------------------+-------+------+
@@ -1134,7 +1145,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Wed May 29 21:10:50 2019
+    Info: Processing started: Thu May 30 00:01:51 2019
 Info: Command: quartus_sta fakequidditch -c fakequidditch
 Info: qsta_default_script.tcl version: #1
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
@@ -1150,20 +1161,20 @@ Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 85C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
-Info (332146): Worst-case setup slack is -16.199
+Info (332146): Worst-case setup slack is -17.023
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -16.199           -2230.516 clk 
-Info (332146): Worst-case hold slack is 0.376
+    Info (332119):   -17.023           -2931.045 clk 
+Info (332146): Worst-case hold slack is 0.378
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.376               0.000 clk 
+    Info (332119):     0.378               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -2.225
+Info (332146): Worst-case minimum pulse width slack is -0.394
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.225            -322.966 clk 
+    Info (332119):    -0.394            -254.725 clk 
 Info: Analyzing Slow 1100mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Warning (334000): Timing characteristics of device 5CSEMA5F31C6 are preliminary
@@ -1171,20 +1182,20 @@ Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
-Info (332146): Worst-case setup slack is -16.567
+Info (332146): Worst-case setup slack is -17.428
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -16.567           -2232.857 clk 
-Info (332146): Worst-case hold slack is 0.390
+    Info (332119):   -17.428           -2938.445 clk 
+Info (332146): Worst-case hold slack is 0.392
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.390               0.000 clk 
+    Info (332119):     0.392               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -2.225
+Info (332146): Worst-case minimum pulse width slack is -0.394
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.225            -344.497 clk 
+    Info (332119):    -0.394            -278.176 clk 
 Info: Analyzing Fast 1100mV 85C Model
 Info (334003): Started post-fitting delay annotation
 Warning (334000): Timing characteristics of device 5CSEMA5F31C6 are preliminary
@@ -1192,44 +1203,44 @@ Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
-Info (332146): Worst-case setup slack is -9.094
+Info (332146): Worst-case setup slack is -9.580
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -9.094           -1134.255 clk 
-Info (332146): Worst-case hold slack is 0.182
+    Info (332119):    -9.580           -1525.172 clk 
+Info (332146): Worst-case hold slack is 0.183
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.182               0.000 clk 
+    Info (332119):     0.183               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -1.702
+Info (332146): Worst-case minimum pulse width slack is -0.092
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.702            -109.505 clk 
+    Info (332119):    -0.092             -42.235 clk 
 Info: Analyzing Fast 1100mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
-Info (332146): Worst-case setup slack is -8.499
+Info (332146): Worst-case setup slack is -8.919
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -8.499           -1026.124 clk 
-Info (332146): Worst-case hold slack is 0.172
+    Info (332119):    -8.919           -1384.661 clk 
+Info (332146): Worst-case hold slack is 0.173
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.172               0.000 clk 
+    Info (332119):     0.173               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -1.702
+Info (332146): Worst-case minimum pulse width slack is -0.091
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.702            -109.392 clk 
+    Info (332119):    -0.091             -42.318 clk 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 5121 megabytes
-    Info: Processing ended: Wed May 29 21:11:12 2019
-    Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:31
+    Info: Peak virtual memory: 5167 megabytes
+    Info: Processing ended: Thu May 30 00:02:20 2019
+    Info: Elapsed time: 00:00:29
+    Info: Total CPU time (on all processors): 00:00:45
 
 

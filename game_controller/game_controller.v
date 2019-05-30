@@ -8,6 +8,9 @@
 	parameter BALL_MOVEMENT_FREQUENCY
 )
 (	input clk,
+
+	input game_on_switch,
+
 	input team1_vu_button,
 	input team1_vd_button,
 	input team2_vu_button,
@@ -42,23 +45,28 @@
 	wire [9:0] team1_ver_pos;
 	wire [9:0] team2_ver_pos;
 
-	wire game_on;
+	reg game_on;
 	reg game_over;
 
 	wire [9:0] team1_hor_pos;
 	wire [9:0] team2_hor_pos;
 	
 	ver_player_controller #(.PLAYER_RADIUS(PLAYER_RADIUS), .INITIAL_VER_POS(INITIAL_VER_POS), .MOVEMENT_FREQUENCY(PLAYER_MOVEMENT_FREQUENCY))
-				team1_ver_ctrl (clk, team1_vu_button, team1_vd_button, team1_ver_pos);
+		team1_ver_ctrl (clk, team1_vu_button, team1_vd_button, team1_ver_pos);
 	ver_player_controller #(.PLAYER_RADIUS(PLAYER_RADIUS), .INITIAL_VER_POS(INITIAL_VER_POS), .MOVEMENT_FREQUENCY(PLAYER_MOVEMENT_FREQUENCY)) 
-				team2_ver_ctrl (clk, team2_vu_button, team2_vd_button, team2_ver_pos);
-
+		team2_ver_ctrl (clk, team2_vu_button, team2_vd_button, team2_ver_pos);
+/*
 	ball_controller_cansu #(.PLAYER_RADIUS(PLAYER_RADIUS),.BALL_RADIUS(BALL_RADIUS),.GOAL_RADIUS(GOAL_RADIUS),.MOVEMENT_FREQUENCY(BALL_MOVEMENT_FREQUENCY))
-				ball_ctrl (clk, game_over, team1_ver_position, team2_ver_position,team1_vu_button,team1_vd_button,team2_vu_button,team2_vd_button,team1_hl_button,team1_hr_button,team2_hl_button,team2_hr_button,/*score_to_team1,score_to_team2,*/ x_position,y_position, game_on);
+				ball_ctrl (clk, game_over, team1_ver_position, team2_ver_position,team1_vu_button,team1_vd_button,team2_vu_button,team2_vd_button,team1_hl_button,team1_hr_button,team2_hl_button,team2_hr_button,/*score_to_team1,score_to_team2,*//* x_position,y_position, game_on);
+*/	
+	ball_controller #(.PLAYER_RADIUS(PLAYER_RADIUS),.BALL_RADIUS(BALL_RADIUS),.GOAL_RADIUS(GOAL_RADIUS),.MOVEMENT_FREQUENCY(BALL_MOVEMENT_FREQUENCY))
+		ball_ctrl (clk, game_on, game_over, team1_ver_position, team2_ver_position, team1_hor_position, team2_hor_position, x_position,y_position);
+	
+	
 	hor_player_controller #(.PLAYER_RADIUS(PLAYER_RADIUS), .INITIAL_HOR_POS(INITIAL_HOR_POS), .MOVEMENT_FREQUENCY(PLAYER_MOVEMENT_FREQUENCY))
-				team1_hor_ctrl (clk, team1_hl_button, team1_hr_button, team1_hor_pos);
+		team1_hor_ctrl (clk, team1_hl_button, team1_hr_button, team1_hor_pos);
 	hor_player_controller #(.PLAYER_RADIUS(PLAYER_RADIUS), .INITIAL_HOR_POS(INITIAL_HOR_POS), .MOVEMENT_FREQUENCY(PLAYER_MOVEMENT_FREQUENCY)) 
-				team2_hor_ctrl (clk, team2_hl_button, team2_hr_button, team2_hor_pos);
+		team2_hor_ctrl (clk, team2_hl_button, team2_hr_button, team2_hor_pos);
 	
 	integer counter_clk;
 
@@ -66,11 +74,17 @@
 		counter_clk = 0;
 		time_left = 'd180;
 		game_over = 0;
-		
+		game_on   = 0;
 	end
- 
+	
 	always @(posedge clk) begin
-       
+		if (game_on_switch == 1) begin
+			game_on <= 1;
+		end
+	end
+	
+	always @(posedge clk) begin
+       if (game_on == 1) begin
 			if ((counter_clk == 49999999) && time_left != 0) begin
 				counter_clk <= 'd0;
 				time_left <= time_left - 'd1;
@@ -80,6 +94,8 @@
 				counter_clk <= counter_clk + 'd1;
 			end
 		end
+	end
+	
 	always begin
 		//team1_score <= score_to_team1;
 		//team2_score <= score_to_team2;

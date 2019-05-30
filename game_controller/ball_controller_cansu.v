@@ -46,14 +46,10 @@ module ball_controller_cansu #(
 );
 
 	reg[2:0] ball_dir;
-	parameter north ='d0;
-	parameter south  ='d1;
-	parameter east 	='d2;
-	parameter west  ='d3;
-	parameter southwest ='d4;
-	parameter southeast ='d5;
-	parameter northeast ='d6;
-	parameter northwest ='d7;
+	parameter southwest ='d0;
+	parameter southeast ='d1;
+	parameter northeast ='d2;
+	parameter northwest ='d3;
  
 	integer ball_collution;
 	
@@ -65,7 +61,7 @@ module ball_controller_cansu #(
 	
 	parameter beginning   = 'd0;
 	parameter active      = 'd1;
-	parameter boundary_ball ='d2;
+	//parameter boundary_ball ='d2;
 
 	integer counter;
 	
@@ -83,14 +79,13 @@ module ball_controller_cansu #(
 	
 	end
    // counter for the ball position change
-	always @(posedge clk) begin
+	/*always @(posedge clk) begin
 		if (counter < MOVEMENT_FREQUENCY) begin
 			counter <= counter + 'd1;
 		end else begin
 			counter <= 0;
 		end
-	end 
-	
+	end */
 	
 	// states
 	always @(posedge clk) begin
@@ -111,19 +106,19 @@ module ball_controller_cansu #(
 				cansu=1;
 				end
 	//			score_to_team1 <= ((score_to_team1)+1);
-/*		end else if (game_over == 1) begin
-			state = beginning;
-			cansu = 1;
-*/		/*end else if ((y_position < 510 - BALL_RADIUS ) && ((y_position > 36 + BALL_RADIUS)) && ((x_position > 150 + BALL_RADIUS) && (ball_dir==east )) && ((x_position < 661 - BALL_RADIUS)) && (collide=0)) begin
-			state = active;
-			cansu =0;
-			game_on <= 1;
-		end
+	//	end else if (game_over == 1) begin
+		//	state = beginning;
+		//	cansu = 1;
+	//end else if ((y_position < 510 - BALL_RADIUS ) && ((y_position > 36 + BALL_RADIUS)) && ((x_position > 150 + BALL_RADIUS) && (ball_dir==east )) && ((x_position < 661 - BALL_RADIUS)) && (collide=0)) begin
+			//state = active;
+			//cansu =0;
+			//game_on <= 1;
+		/*end
 		else begin
 		state = boundary_ball;
 		collide 
-		end */
-		/*else  if ((y_position < 510 - BALL_RADIUS ) && ((y_position > 36 + BALL_RADIUS)) && ((x_position > 150 + BALL_RADIUS) && (ball_dir==east )) && ((x_position < 661 - BALL_RADIUS)) && (collide=0)) begin
+		end 
+		else  if ((y_position < 510 - BALL_RADIUS ) && ((y_position > 36 + BALL_RADIUS)) && ((x_position > 150 + BALL_RADIUS) && (ball_dir==east )) && ((x_position < 661 - BALL_RADIUS)) && (collide=0)) begin
 			state = active;
 			cansu =0;
 			game_on <= 1;
@@ -133,30 +128,19 @@ module ball_controller_cansu #(
 			cansu =0;
 			game_on <= 1;
 	end 
-		end
-	//cansu 
-	always @(posedge clk) begin
-	case (state)
-	beginning : begin
-		x_position     <=  463;
-		y_position     <=  275;
-		ball_dir       = southwest;
 	end
-	active : begin
-	         //lower boundary
+	//29.05.2019 @21.52 added
+	always @(posedge clk) begin
+	//lower boundary
 				if ((y_position > 510 - BALL_RADIUS ) && (ball_dir== southeast ) ) begin
 					ball_dir <= northeast;
 				end
-				else if ((y_position > 510 - BALL_RADIUS ) && (ball_dir== southwest ) ) begin
+				 if ((y_position > 510 - BALL_RADIUS ) && (ball_dir== southwest ) ) begin
 					ball_dir <= northwest;
 				end
-				else if ((y_position > 510 - BALL_RADIUS ) && (ball_dir== south ) ) begin
-					ball_dir <= north;
-				end
+				
 				//upper boundary
-				else if ((y_position < 36 + BALL_RADIUS) && (ball_dir == north)) begin
-					ball_dir <= south;
-				end 
+					
 				else if ((y_position < 36 + BALL_RADIUS) && (ball_dir == northeast)) begin
 					ball_dir <= southeast;
 				end 
@@ -164,23 +148,19 @@ module ball_controller_cansu #(
 					ball_dir <= southwest;
 				end 
 				// left boundary condition
-				else if((x_position < 150 + BALL_RADIUS) && (ball_dir==east ) ) begin
-					ball_dir <= west;
-				end
-			   else if((x_position < 150 + BALL_RADIUS) && (ball_dir==northeast ) ) begin
+				
+			    if((x_position < 150 + BALL_RADIUS) && (ball_dir==northeast ) ) begin
 					ball_dir <= northwest;
 				end 
-			   else if((x_position < 150 + BALL_RADIUS) && (ball_dir==southeast ) ) begin
+			    if((x_position < 150 + BALL_RADIUS) && (ball_dir==southeast ) ) begin
 					ball_dir <= southwest;
 				end 	
 				// right boundary condition
-				else if((x_position > 661 - BALL_RADIUS) && (ball_dir == west)) begin
-					ball_dir <= east;
-				end
-				else if((x_position > 661 - BALL_RADIUS) && (ball_dir == northwest)) begin
+				
+				 if((x_position > 661 - BALL_RADIUS) && (ball_dir == northwest)) begin
 					ball_dir <= northeast;
 				end
-				else if((x_position > 661 - BALL_RADIUS) && (ball_dir == southwest)) begin
+				 if((x_position > 661 - BALL_RADIUS) && (ball_dir == southwest)) begin
 					ball_dir <= southeast;
 				end
 //ball player interactions
@@ -193,104 +173,89 @@ module ball_controller_cansu #(
 						x_position <= x_position-1;
 						y_position <= y_position -1;
 					end 
-					else if ((240-x_position)<=12 && (ball_dir == southwest)&& (((team1_ver_pos)- y_position))<28) begin
+					 if ((240-x_position)<=12 && (ball_dir == southwest)&& (((team1_ver_pos)- y_position))<28) begin
 						ball_dir <= northwest;
 						x_position <= x_position+1;
 						y_position <= y_position-1;
 					end 
-					else if ((240-x_position)<=12 && (ball_dir == south)&& (((team1_ver_pos)- y_position))<28) begin
-						ball_dir <= north;
-						y_position <= y_position-1;
-					end 
+					
 					// ball collides to player 1 from wall_2
-				   else if (13<(240-x_position)<28 && (ball_dir == northwest)&& (12<((team1_ver_pos)- y_position)) < 28) begin
+				    if (13<(240-x_position)<28 && (ball_dir == northwest)&& (12<((team1_ver_pos)- y_position)) < 28) begin
 						ball_dir <= northeast;
 						x_position <= x_position-3;
 						y_position <= y_position -3;
 					end 
-					else if ((12<(240-x_position)<28) && (ball_dir == southwest) && (12<(team1_ver_pos)-(y_position) < 28)) begin
+					 if ((12<(240-x_position)<28) && (ball_dir == southwest) && (12<(team1_ver_pos)-(y_position) < 28)) begin
 						ball_dir <= southeast;
 						x_position <= x_position -1;
 						y_position <= y_position +1;
 					end 
 					// ball collides to player1 from wall_3
-					else if (((240-x_position)<=12) && (ball_dir == southwest) && ((y_position)-(team1_ver_pos)<28)) begin
+					 if (((240-x_position)<=12) && (ball_dir == southwest) && ((y_position)-(team1_ver_pos)<28)) begin
 						ball_dir <= southeast;
 						x_position <= x_position -1;
 						y_position <= y_position +1;
 					end
-				   else if (((240-x_position)<=12) && (ball_dir == northwest) && ((y_position)-(team1_ver_pos)<28)) begin
+				    if (((240-x_position)<=12) && (ball_dir == northwest) && ((y_position)-(team1_ver_pos)<28)) begin
 						ball_dir <= northeast;
 						x_position <= x_position -1;
 						y_position <= y_position -1;
 					end 	
-					else if (((240-x_position)<=12) && (ball_dir == west) && ((y_position)-(team1_ver_pos)<=28)) begin
-						ball_dir <= east;
-						x_position <= x_position -1;
-						
-					end
+					
 				   // ball collides to player1 from wall_4
-					else if ((12<(240-x_position)<28) && (ball_dir == northwest) && (11<(y_position)-(team1_ver_pos)<28)) begin
+					 if ((12<(240-x_position)<28) && (ball_dir == northwest) && (11<(y_position)-(team1_ver_pos)<28)) begin
 						ball_dir <= southwest;
 						x_position <= x_position +1;
 						y_position <= y_position +1;
 					end
-				   else if ((12<(240-x_position)<28) && (ball_dir == northeast) && (11<(y_position)-(team1_ver_pos)<28)) begin
+				    if ((12<(240-x_position)<28) && (ball_dir == northeast) && (11<(y_position)-(team1_ver_pos)<28)) begin
 						ball_dir <= southeast;
 						x_position <= x_position -1;
 						y_position <= y_position +1;
 					end 	
 			      
 					// ball collides to player1 from wall_5
-					else if (((x_position-240)<=12) && (ball_dir == northwest) && (((y_position)-(team1_ver_pos)<28))) begin
+					 if (((x_position-240)<=12) && (ball_dir == northwest) && (((y_position)-(team1_ver_pos)<28))) begin
 						ball_dir <= southeast;
 						x_position <= x_position-1;
 						y_position <= y_position +1;
 					end
-					else if (((x_position-240)<=12) && (ball_dir == northwest) && (((y_position)-(team1_ver_pos)<28))) begin
+					 if (((x_position-240)<=12) && (ball_dir == northwest) && (((y_position)-(team1_ver_pos)<28))) begin
 						ball_dir <= southwest;
 						x_position <= x_position+1;
 						y_position <= y_position +1;
 					end
-			else if (((x_position-240)<=12) && (ball_dir == north) && (((y_position)-(team1_ver_pos)<28))) begin
-						ball_dir <= south;
-						
-						y_position <= y_position +1;
-					end
+			
 					//ball collides to player1 from wall6
-					else if ((12<(x_position-240)<28) && (ball_dir == southeast) && ((12<((y_position)-(team1_ver_pos)))<28)) begin
+					 if ((12<(x_position-240)<28) && (ball_dir == southeast) && ((12<((y_position)-(team1_ver_pos)))<28)) begin
 						ball_dir <= southwest;
 						x_position <= x_position +1;
 						y_position <= y_position +1;
 					end 
-					else if ((12<((x_position)-240)<28) && (ball_dir == northeast) && (12<((y_position)-(team1_ver_pos)))< 28) begin
+					 if ((12<((x_position)-240)<28) && (ball_dir == northeast) && (12<((y_position)-(team1_ver_pos)))< 28) begin
 						ball_dir <= northwest;
 						x_position <= x_position +1;
 						y_position <= y_position -1;
 					end
 					// ball collides to player1 from wall_7
-					else if (((x_position-240)<= 12) && (ball_dir == northeast) && ((((team1_ver_pos)-(y_position)))< 28)) begin
+					 if (((x_position-240)<= 12) && (ball_dir == northeast) && ((((team1_ver_pos)-(y_position)))< 28)) begin
 						ball_dir <= northwest;
 						x_position <= x_position +1;
 						y_position <= y_position -1;
 					end 
-					else if ((((x_position)-240)<12) && (ball_dir == southeast) && ((((team1_ver_pos)-(y_position)))< 28)) begin
+					 if ((((x_position)-240)<12) && (ball_dir == southeast) && ((((team1_ver_pos)-(y_position)))< 28)) begin
 						ball_dir <= southwest;
 						x_position <= x_position +1;
 						y_position <= y_position +1;
 					end 
-					else if (((x_position-240)<= 12) && (ball_dir == east) && ((((team1_ver_pos)-(y_position)))< 28)) begin
-						ball_dir <= west;
-						x_position <= x_position +1;
 					
-					end 
 			// ball collides to player 1 from wall_8
-		         else if ((12<(x_position-240)<28) && (ball_dir == southeast) && ((12<(team1_ver_pos)-(y_position)))<28) begin
+		          if ((12<(x_position-240)<28) && (ball_dir == southeast) && ((12<(team1_ver_pos)-(y_position)))<28) begin
 						ball_dir <= northeast;
 						x_position <= x_position -1;
 						y_position <= y_position -1;
 					end 
-					else if ((12<((x_position)-240)<28) && (ball_dir == southwest) && ((12<(team1_ver_pos)-(y_position)))<28) begin
+					 if ((12<((x_position)-240)<28) && (ball_dir == southwest) && ((12<(team1_ver_pos)-(y_position)))<28) begin
 						ball_dir <= northwest;
 						x_position <= x_position +1;
 						y_position <= y_position -1;
@@ -306,63 +271,53 @@ module ball_controller_cansu #(
 						x_position <= x_position-1;
 						y_position <= y_position -1;
 					end 
-					else if ((x_position-560)<=12 && (ball_dir == southeast) && (((team2_ver_pos)-y_position))<28) begin
+					 if ((x_position-560)<=12 && (ball_dir == southeast) && (((team2_ver_pos)-y_position))<28) begin
 						ball_dir <= northeast;
 						x_position <= x_position-1;
 						y_position <= y_position -1;
 					end 
-					else if ((560-x_position)<=12 && (ball_dir == southwest)&& (((team2_ver_pos)- y_position))<28) begin
+					 if ((560-x_position)<=12 && (ball_dir == southwest)&& (((team2_ver_pos)- y_position))<28) begin
 						ball_dir <= northwest;
 						x_position <= x_position+1;
 						y_position <= y_position-1;
 					end 
-					else if ((x_position-560)<=12 && (ball_dir == southwest)&& (((team2_ver_pos)- y_position))<28) begin
+					 if ((x_position-560)<=12 && (ball_dir == southwest)&& (((team2_ver_pos)- y_position))<28) begin
 						ball_dir <= northwest;
 						x_position <= x_position+1;
 						y_position <= y_position-1;
 					end 
-					else if ((560-x_position)<=12 && (ball_dir == south)&& (((team2_ver_pos)- y_position))<28) begin
-						ball_dir <= north;
-						y_position <= y_position-1;
-					end 
-					else if ((x_position-560)<=12 && (ball_dir == south)&& (((team2_ver_pos)- y_position))<28) begin
-						ball_dir <= north;
-						y_position <= y_position-1;
-					end 
+					 
+					
 					// ball collides to player 1 from wall_2
-				   else if (12<(560-x_position)<28 && (ball_dir == northwest)&& (12<((team2_ver_pos)- y_position)) < 28) begin
+				    if (12<(560-x_position)<28 && (ball_dir == northwest)&& (12<((team2_ver_pos)- y_position)) < 28) begin
 						ball_dir <= northeast;
 						x_position <= x_position-3;
 						y_position <= y_position -3;
 					end 
-					else if ((11<(560-x_position)<28) && (ball_dir == southwest) && (12<(team2_ver_pos)-(y_position) < 28)) begin
+					 if ((11<(560-x_position)<28) && (ball_dir == southwest) && (12<(team2_ver_pos)-(y_position) < 28)) begin
 						ball_dir <= southeast;
 						x_position <= x_position -1;
 						y_position <= y_position +1;
 					end 
 					// ball collides to player1 from wall_3
-					else if (((560-x_position)<=12) && (ball_dir == southwest) && ((y_position)-(team2_ver_pos)<28)) begin
+					 if (((560-x_position)<=12) && (ball_dir == southwest) && ((y_position)-(team2_ver_pos)<28)) begin
 						ball_dir <= southeast;
 						x_position <= x_position -1;
 						y_position <= y_position +1;
 					end
-				   else if (((560-x_position)<=12) && (ball_dir == northwest) && ((y_position)-(team2_ver_pos)<28)) begin
+				   if (((560-x_position)<=12) && (ball_dir == northwest) && ((y_position)-(team2_ver_pos)<28)) begin
 						ball_dir <= northeast;
 						x_position <= x_position -1;
 						y_position <= y_position -1;
 					end 	
-					else if (((560-x_position)<=12) && (ball_dir == west) && ((y_position)-(team2_ver_pos)<28)) begin
-						ball_dir <= east;
-						x_position <= x_position -1;
-						
-					end
+					
 				   // ball collides to player1 from wall_4
-					else if ((11<(560-x_position)<28) && (ball_dir == northwest) && (12<(y_position)-(team2_ver_pos)<28)) begin
+					 if ((11<(560-x_position)<28) && (ball_dir == northwest) && (12<(y_position)-(team2_ver_pos)<28)) begin
 						ball_dir <= southwest;
 						x_position <= x_position +1;
 						y_position <= y_position +1;
 					end
-				   else if ((12<(560-x_position)<28) && (ball_dir == northeast) && (12<(y_position)-(team2_ver_pos)<28)) begin
+				    if ((12<(560-x_position)<28) && (ball_dir == northeast) && (12<(y_position)-(team2_ver_pos)<28)) begin
 						ball_dir <= southeast;
 						x_position <= x_position -1;
 						y_position <= y_position +1;
@@ -374,18 +329,14 @@ module ball_controller_cansu #(
 						x_position <= x_position-1;
 						y_position <= y_position +1;
 					end
-					else if (((x_position-560)<=12) && (ball_dir == northwest) && (((y_position)-(team2_ver_pos)<28))) begin
+					 if (((x_position-560)<=12) && (ball_dir == northwest) && (((y_position)-(team2_ver_pos)<28))) begin
 						ball_dir <= southwest;
 						x_position <= x_position+1;
 						y_position <= y_position +1;
 					end
-			else if (((x_position-560)<=12) && (ball_dir == north) && (((y_position)-(team2_ver_pos)<28))) begin
-						ball_dir <= south;
-						
-						y_position <= y_position +1;
-					end
+			
 					//ball collides to player1 from wall6
-					else if ((12<=(x_position-560)<28) && (ball_dir == southeast) && ((12<((y_position)-(team2_ver_pos)))<28)) begin
+					 if ((12<=(x_position-560)<28) && (ball_dir == southeast) && ((12<((y_position)-(team2_ver_pos)))<28)) begin
 						ball_dir <= southwest;
 						x_position <= x_position +1;
 						y_position <= y_position +1;
@@ -396,31 +347,28 @@ module ball_controller_cansu #(
 						y_position <= y_position -1;
 					end
 					// ball collides to player1 from wall_7
-					else if (((x_position-560)<= 12) && (ball_dir == northeast) && ((((team2_ver_pos)-(y_position)))< 28)) begin
+					 if (((x_position-560)<= 12) && (ball_dir == northeast) && ((((team2_ver_pos)-(y_position)))< 28)) begin
 						ball_dir <= northwest;
 						x_position <= x_position +1;
 						y_position <= y_position -1;
 					end 
-					else if ((((x_position)-560)<12) && (ball_dir == southeast) && ((((team2_ver_pos)-(y_position)))< 28)) begin
+					 if ((((x_position)-560)<12) && (ball_dir == southeast) && ((((team2_ver_pos)-(y_position)))< 28)) begin
 						ball_dir <= southwest;
 						x_position <= x_position +1;
 						y_position <= y_position +1;
 					end 
-					else if (((x_position-560)< 12) && (ball_dir == east) && ((((team2_ver_pos)-(y_position)))< 28)) begin
-						ball_dir <= west;
-						x_position <= x_position +1;
-						end
+					
 					else if (((x_position-560)< 12) && (ball_dir == southeast) && ((((team2_ver_pos)-(y_position)))< 28)) begin
 						ball_dir <= southwest;
 						x_position <= x_position +1;
 					end 
 			// ball collides to player 1 from wall_8
-		         else if ((12<(x_position-560)<28) && (ball_dir == southeast) && ((12<(team2_ver_pos)-(y_position)))<28) begin
+		          if ((12<(x_position-560)<28) && (ball_dir == southeast) && ((12<(team2_ver_pos)-(y_position)))<28) begin
 						ball_dir <= northeast;
 						x_position <= x_position -1;
 						y_position <= y_position -1;
 					end 
-					else if ((12<((x_position)-560)<28) && (ball_dir == southwest) && ((12<(team2_ver_pos)-(y_position)))<28) begin
+					 if ((12<((x_position)-560)<28) && (ball_dir == southwest) && ((12<(team2_ver_pos)-(y_position)))<28) begin
 						ball_dir <= northwest;
 						x_position <= x_position +1;
 						y_position <= y_position -1;
@@ -436,49 +384,42 @@ module ball_controller_cansu #(
 						x_position <= x_position-1;
 						y_position <= y_position -1;
 					end 
-					else if ((380-y_position)<=12 && (ball_dir == southwest)&& (((team1_hor_pos)- x_position))<28) begin
+					 if ((380-y_position)<=12 && (ball_dir == southwest)&& (((team1_hor_pos)- x_position))<28) begin
 						ball_dir <= northwest;
 						x_position <= x_position+1;
 						y_position <= y_position-1;
 					end 
-					else if ((380-y_position)<=12 && (ball_dir == south)&& (((team1_hor_pos)- x_position))<28) begin
-						ball_dir <= north;
-						y_position <= y_position-1;
-					end 
+					
 					// ball collides to player 1 from wall_2
 				   else if (13<(380-y_position)<28 && (ball_dir == northwest)&& (12<((team1_hor_pos)- x_position)) < 28) begin
 						ball_dir <= northeast;
 						x_position <= x_position-3;
 						y_position <= y_position -3;
 					end 
-					else if ((12<(380-y_position)<28) && (ball_dir == southwest) && (12<(team1_hor_pos)-(x_position) < 28)) begin
+					 if ((12<(380-y_position)<28) && (ball_dir == southwest) && (12<(team1_hor_pos)-(x_position) < 28)) begin
 						ball_dir <= southeast;
 						x_position <= x_position -1;
 						y_position <= y_position +1;
 					end 
 					// ball collides to player1 from wall_3
-					else if (((380-y_position)<=12) && (ball_dir == southwest) && ((x_position)-(team1_hor_pos)<28)) begin
+					 if (((380-y_position)<=12) && (ball_dir == southwest) && ((x_position)-(team1_hor_pos)<28)) begin
 						ball_dir <= southeast;
 						x_position <= x_position -1;
 						y_position <= y_position +1;
 					end
-				   else if (((380-y_position)<=12) && (ball_dir == northwest) && ((x_position)-(team1_hor_pos)<28)) begin
+				    if (((380-y_position)<=12) && (ball_dir == northwest) && ((x_position)-(team1_hor_pos)<28)) begin
 						ball_dir <= northeast;
 						x_position <= x_position -1;
 						y_position <= y_position -1;
 					end 	
-					else if (((380-y_position)<=12) && (ball_dir == west) && ((x_position)-(team1_hor_pos)<=28)) begin
-						ball_dir <= east;
-						x_position <= x_position -1;
-						
-					end
+					
 				   // ball collides to player1 from wall_4
-					else if ((12<(380-y_position)<28) && (ball_dir == northwest) && (11<(x_position)-(team1_hor_pos)<28)) begin
+					 if ((12<(380-y_position)<28) && (ball_dir == northwest) && (11<(x_position)-(team1_hor_pos)<28)) begin
 						ball_dir <= southwest;
 						x_position <= x_position +1;
 						y_position <= y_position +1;
 					end
-				   else if ((12<(380-y_position)<28) && (ball_dir == northeast) && (11<(x_position)-(team1_hor_pos)<28)) begin
+				    if ((12<(380-y_position)<28) && (ball_dir == northeast) && (11<(x_position)-(team1_hor_pos)<28)) begin
 						ball_dir <= southeast;
 						x_position <= x_position -1;
 						y_position <= y_position +1;
@@ -490,50 +431,38 @@ module ball_controller_cansu #(
 						x_position <= x_position-1;
 						y_position <= y_position +1;
 					end
-					else if (((y_position-380)<=12) && (ball_dir == northwest) && (((x_position)-(team1_hor_pos)<28))) begin
+					 if (((y_position-380)<=12) && (ball_dir == northwest) && (((x_position)-(team1_hor_pos)<28))) begin
 						ball_dir <= southwest;
 						x_position <= x_position+1;
 						y_position <= y_position +1;
 					end
-			else if (((y_position-380)<=12) && (ball_dir == north) && (((x_position)-(team1_hor_pos)<28))) begin
-						ball_dir <= south;
-						
-						y_position <= y_position +1;
-					end
+			
 					//ball collides to player1 from wall6
-					else if ((12<(y_position-380)<28) && (ball_dir == southeast) && ((12<((x_position)-(team1_hor_pos)))<28)) begin
+					 if ((12<(y_position-380)<28) && (ball_dir == southeast) && ((12<((x_position)-(team1_hor_pos)))<28)) begin
 						ball_dir <= southwest;
 						x_position <= x_position +1;
 						y_position <= y_position +1;
 					end 
-					else if ((12<((y_position)-380)<28) && (ball_dir == northeast) && (12<((x_position)-(team1_hor_pos)))< 28) begin
+					 if ((12<((y_position)-380)<28) && (ball_dir == northeast) && (12<((x_position)-(team1_hor_pos)))< 28) begin
 						ball_dir <= northwest;
 						x_position <= x_position +1;
 						y_position <= y_position -1;
 					end
 					// ball collides to player1 from wall_7
-					else if (((y_position-380)<= 12) && (ball_dir == northeast) && ((((team1_hor_pos)-(x_position)))< 28)) begin
+					 if (((y_position-380)<= 12) && (ball_dir == northeast) && ((((team1_hor_pos)-(x_position)))< 28)) begin
 						ball_dir <= northwest;
 						x_position <= x_position +1;
 						y_position <= y_position -1;
 					end 
-					else if ((((y_position)-380)<12) && (ball_dir == southeast) && ((((team1_hor_pos)-(x_position)))< 28)) begin
+					 if ((((y_position)-380)<12) && (ball_dir == southeast) && ((((team1_hor_pos)-(x_position)))< 28)) begin
 						ball_dir <= southwest;
 						x_position <= x_position +1;
 						y_position <= y_position +1;
 					end 
-					else if (((y_position-380)<= 12) && (ball_dir == east) && ((((team1_hor_pos)-(x_position)))< 28)) begin
-						ball_dir <= west;
-						x_position <= x_position +1;
 					
-					end 
 			// ball collides to player 1 from wall_8
-		         else if ((12<(y_position-380)<28) && (ball_dir == southeast) && ((12<(team1_hor_pos)-(x_position)))<28) begin
-						ball_dir <= northeast;
-						x_position <= x_position -1;
-						y_position <= y_position -1;
-					end 
-					else if ((12<((y_position)-380)<28) && (ball_dir == southwest) && ((12<(team1_hor_pos)-(x_position)))<28) begin
+		         
+					 if ((12<((y_position)-380)<28) && (ball_dir == southwest) && ((12<(team1_hor_pos)-(x_position)))<28) begin
 						ball_dir <= northwest;
 						x_position <= x_position +1;
 						y_position <= y_position -1;
@@ -640,39 +569,39 @@ module ball_controller_cansu #(
 						y_position <= y_position -1;
 					end 
 					end 
+	end
+	//cansu 
+	always @(posedge clk) begin
+	case (state)
+	beginning : begin
+		x_position     <=  463;
+		y_position     <=  275;
+		ball_dir       = southwest;
+	end
+	active : begin
+	         
 	//ball movement
-					else  begin
+					
 						ball_collution = 0;
-					if ((ball_dir == south)&& (counter == 'd98)) begin
-						y_position <= y_position +1;
-					end
-					else if ( (ball_dir == north) && (counter == 'd98)) begin
-						
-						y_position <= y_position - 1;
-					end else if ((ball_dir == east) && (counter == 'd98)) begin
-						x_position <= x_position - 1;
-						
-					end else if ((ball_dir == west) && (counter == 'd98)) begin 
-						x_position <= x_position + 1;
-						
-					end
-						else if ( (ball_dir == northeast) && (counter == 'd98)) begin
+				 //if (counter =='d98) begin
+					if ( (ball_dir == northeast) ) begin
 						x_position <= x_position -1;
 						y_position <= y_position -1;
-					end else if ((ball_dir == northwest) && (counter == 'd98)) begin
+					end else if ((ball_dir == northwest) ) begin
 						x_position <= x_position + 1;
 						y_position <= y_position - 1;
-					end else if ((ball_dir == southwest) && (counter == 'd98)) begin 
+					end else if ((ball_dir == southwest) ) begin 
 						x_position <= x_position + 1;
 						y_position <= y_position +1;
 					
-					end else if ((ball_dir == southeast) && (counter == 'd98)) begin 
+					end else if ((ball_dir == southeast)) begin 
 						x_position <= x_position - 1;
 						y_position <= y_position +1;
 					end
 				   end 
+					//end
 					
-	end
+	
 	endcase 
 	end 
 	

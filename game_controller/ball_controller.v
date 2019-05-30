@@ -6,69 +6,54 @@ module ball_controller #(
 )
 (
 	input clk,
-//	input [9:0] x_position,
-//	input [9:0] y_position,
+	input game_on,
+	input game_over,
 	input [9:0] team1_ver_pos,
-// team1_ver_player_hor_pos = 240
-
-//	input [9:0] team1_hor_pos,
 	input [9:0] team2_ver_pos,
-// team2_ver_player_hor_pos = 560
-//	input [9:0] team2_hor_pos,
-
-	input team1_vu_button,
-	input team1_vd_button,
-	input team2_vu_button,
-	input team2_vd_button,
+	input [9:0] team1_hor_pos,
+	input [9:0] team2_hor_pos,
 	
-	output reg score_to_team1,
-	output reg score_to_team2,
 	output reg [9:0] x_position,
 	output reg [9:0] y_position
 );
 
-	reg [4:0] ball_dir_x, ball_dir_y;
+	reg signed [4:0] ball_dir_x, ball_dir_y;
 	
 	integer counter;
 	integer inside_goal = (GOAL_RADIUS - BALL_RADIUS) ** 2;
+	parameter max =28;
+	parameter min=12;
 
 	reg [2:0] state;
 	
 	parameter dead       = 'd0;
-	parameter alive      = 'd1;
-	parameter up_right   = 'd2;
-	parameter up_left    = 'd3;
-	parameter down_left  = 'd4;
-	parameter down_right = 'd5;
+	parameter up_right   = 'd1;
+	parameter up_left    = 'd2;
+	parameter down_left  = 'd3;
+	parameter down_right = 'd4;
 	
 	initial begin 
 		state          = dead;
 		counter        =    0;
 		x_position     =  463;
 		y_position     =  275;
-		score_to_team1 =    0;
-		score_to_team2 =    0;
-		ball_dir_x     =    5;
-		ball_dir_y     =    5;
 	end
 	
 	always @(posedge clk) begin
-		if ((team1_vu_button && team1_vd_button && team2_vu_button && team2_vd_button) == 0) begin
+		if (game_on == 1 && state == dead) begin
 			state = down_right;
 		end else if (
 			      (((y_position-450)**2)+((x_position-300)**2) < inside_goal) // BLUE GOAL 1
 				|| (((y_position-450)**2)+((x_position-400)**2) < inside_goal) // BLUE GOAL 2
 				|| (((y_position-450)**2)+((x_position-500)**2) < inside_goal) // BLUE GOAL 3
 		) begin
-			//state = dead;
-			score_to_team2 = 1;
+			state = dead;
 		end else if (
 			      (((y_position-100)**2)+((x_position-300)**2) < inside_goal) // RED  GOAL 1
 				|| (((y_position-100)**2)+((x_position-400)**2) < inside_goal) // RED  GOAL 2
 				|| (((y_position-100)**2)+((x_position-500)**2) < inside_goal) // RED  GOAL 3
 		) begin
-			//state = dead;
-			score_to_team1 = 1;
+			state = dead;
 		end else if (y_position < 36 + BALL_RADIUS) begin
 			if (state == up_left) begin
 				state = down_left;
@@ -87,15 +72,138 @@ module ball_controller #(
 			end else begin
 				state = up_right;
 			end
-		end else if (x_position > 680 - BALL_RADIUS) begin
+		end else if (x_position > 660 - BALL_RADIUS) begin
 			if (state == down_right) begin
 				state = down_left;
 			end else begin
 				state = up_left;
 			end
 		end
+		// interaction with team1 ver & ball
+		else if ((((x_position - team1_ver_pos)**2 + (y_position - 240)**2)<(PLAYER_RADIUS+BALL_RADIUS+1)) || (((x_position - team2_ver_pos)**2 + (y_position - 560)**2)<(PLAYER_RADIUS+BALL_RADIUS+1)) || (((y_position - team1_hor_pos)**2 + (x_position - 380)**2)<(PLAYER_RADIUS+BALL_RADIUS+1)) || (((y_position - team2_hor_pos)**2 + (x_position - 180)**2)<(PLAYER_RADIUS+BALL_RADIUS+1))) begin
+		// for wall 1
+		if(((team1_ver_pos - y_position)> max) || ((team2_ver_pos - y_position)> max) || ((380 - y_position)> max) || ((180 - y_position)> max)) begin
+		   if(state ==down_left) begin
+			state = up_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position-1;
+			end
+			if(state == down_right) begin
+			state = up_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position-1;
+			end
+		end
+		//for wall 2
+		 else if(((min<(240-x_position)<max) && (min<(team1_ver_pos-y_position)<max)) || ((min<(560-x_position)<max) && (min<(team2_ver_pos - y_position)<max)) || ((min<(team1_hor_pos - x_position)<max) && (min<(380-y_position)<max)) || ((min<( team2_hor_pos - x_position)<max) && (min<(180 -y_position)<max)) ) begin
+		   if(state == down_right) begin
+			state =down_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position+1;
+			end
+			if(state==up_right) begin
+			state =up_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position-1;
+			end
+		 end
+		// for wall 3
+		 else if (((240-x_position)>max) || ((560-x_position)> max)|| ((team1_hor_pos - x_position)>max) || ((team2_hor_pos-x_position)>max)) begin
+		   if(state==down_right) begin
+			state= down_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position+1;
+			end
+			if(state==up_right) begin
+			state = up_left;
+			 x_position <= x_position-1;
+			 y_position <= y_position-1;
+			end
+		 end
+		// for wall 4
+		  else if(((min<(240-x_position)<max) && (min<(y_position - team1_ver_pos)<max)) || ((min<(560-x_position)<max) && (min<(y_position - team2_ver_pos)<max)) || ((min<(team1_hor_pos - x_position)<max) && (min<(y_position - 380)<max)) || ((min<( team2_hor_pos - x_position)<max) && (min<(y_position - 180)<max)) )
+		    if(state==down_right) begin
+			 state= down_left;
+			  x_position <= x_position-1;
+			 y_position <= y_position+1;
+			 end
+			 if(state == up_right) begin
+			 state = up_left;
+			  x_position <= x_position-1;
+			 y_position <= y_position-1;
+			 end
+		  end
+		// for wall 5
+		  else if((( y_position -team1_ver_pos )> max) || ((y_position - team2_ver_pos)> max) || ((y_position-380 )> max) || ((y_position-180)> max)) begin
+		    if(state==up_right) begin
+			 state=down_right;
+			  x_position <= x_position+1;
+			 y_position <= y_position+1;
+			 end
+			 if(state==up_left) begin
+			 state=down_left;
+			  x_position <= x_position-1;
+			 y_position <= y_position+1;
+			 end
+		  end
+		 // for wall 6
+		  else if(((min<(x_position-240)<max) && (min<(y_position -team1_ver_pos)<max)) || ((min<(x_position-560)<max) && (min<(y_position - team2_ver_pos)<max)) || ((min<(x_position -team1_hor_pos)<max) && (min<(y_position-380)<max)) || ((min<(  x_position-team2_hor_pos )<max) && (min<(y_position-180)<max)) ) begin
+		    if(state==down_left) begin
+			 state=down_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position+1;
+			 end
+			 if(state==up_left) begin
+			 state=down_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position+1;
+			 end
+		  end
+		// for wall 7
+		else if (((x_position-240)>max) || ((x_position-560)> max)|| ((x_position-team1_hor_pos)>max) || ((x_position-team2_hor_pos)>max)) begin
+		    if(state==down_left) begin
+		    state = down_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position+1;
+			 end
+			 if(state == up_left) begin
+			 state = up_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position-1;
+			 end
+		end
+		// for wall 8
+		else if(((min<(x_position-240)<max) && (min<(team1_ver_pos-y_position)<max)) || ((min<(x_position-560)<max) && (min<(team2_ver_pos - y_position)<max)) || ((min<(x_position -team1_hor_pos)<max) && (min<(380-y_position)<max)) || ((min<(  x_position-team2_hor_pos )<max) && (min<(180 -y_position)<max)) ) begin
+		    if(state==down_left) begin
+			 state=up_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position-1;
+			 end
+			 if(state==up_left) begin
+			 state=up_right;
+			 x_position <= x_position+1;
+			 y_position <= y_position-1;
+			 end
+		  end
+		  else begin
+		  if(state==up_right) begin
+		  x_position <= x_position +1;
+		  y_position <= y_position-1;
+		  end
+		  if (state==up_left) begin
+		  x_position <= x_position -1;
+		  y_position <= y_position-1;
+		  end
+		  if (state==down_left) begin
+		  x_position <= x_position -1;
+		  y_position <= y_position+1;
+		  end
+		  if (state==down_right) begin
+		  x_position <= x_position +1;
+		  y_position <= y_position+1;
+		  end
+		  end
 	end
-
 	always @(posedge clk) begin
 		if (counter < MOVEMENT_FREQUENCY) begin
 			counter <= counter + 'd1;
@@ -104,69 +212,5 @@ module ball_controller #(
 		end
 	end
 	
-	always @(posedge clk) begin
-		case (state)
-			dead: begin
-				x_position <= x_position;
-				y_position <= y_position;
-			end
-			alive: begin
-				if (counter == 'd98) begin
-					x_position <= x_position + ball_dir_x;
-					y_position <= y_position + ball_dir_y;
-				end
-			end
-			up_left: begin
-				if (counter == 'd98) begin
-					x_position <= x_position - ball_dir_x;
-					y_position <= y_position - ball_dir_y;
-				end
-			end
-			up_right: begin
-				if (counter == 'd98) begin
-					x_position <= x_position + ball_dir_x;
-					y_position <= y_position - ball_dir_y;
-				end
-			end
-			down_right: begin
-				if (counter == 'd98) begin
-					x_position <= x_position + ball_dir_x;
-					y_position <= y_position + ball_dir_y;
-				end
-			end
-			down_left: begin
-				if (counter == 'd98) begin
-					x_position <= x_position - ball_dir_x;
-					y_position <= y_position + ball_dir_y;
-				end
-			end
-		endcase
-	end
-	/*
-	always @(posedge clk) begin
-		if (y_position < 88 + BALL_RADIUS) begin
-			ball_dir_y = 5;
-		end else if (y_position > 510 - BALL_RADIUS) begin
-			ball_dir_y = -5;
-		end else if (x_position < 145 + BALL_RADIUS) begin
-			ball_dir_x = 5;
-		end else if (x_position > 780 - BALL_RADIUS) begin
-			ball_dir_x = -5;
-		end
-	end
-	*/
-/*
-	reg [30:0] x_positions;
-	reg [30:0] y_positions;
 	
-	initial begin
-		x_positions = {10'b0 + 'd463, 10'b0 + 'd463, 10'b0 + 463};
-		y_positions = {10'b0 + 'd275, 10'b0 + 'd275, 10'b0 + 275};
-	end
-	always @(posedge clk) begin
-		x_positions <= x_positions << 'd10 + x_position;
-		y_positions <= y_positions << 'd10 + y_position;
-	end
-*/
-
 endmodule
