@@ -9,12 +9,17 @@ module ver_player_controller #(
 )
 (	input clk,
 
+	input bludged,
+
 	input vu_button,
 	input vd_button,
 
 	input [9:0] BLOCKING_BALL_X,
 	
-	output reg [9:0] ver_pos
+	output reg [9:0] ver_pos,
+	
+	output reg clean_bludge,
+	output reg [4:0] bludge_time
 );
 
 	// Vertical player movements
@@ -27,14 +32,36 @@ module ver_player_controller #(
 	reg can_move_up, can_move_down;
 
 	integer up_button_counter, down_button_counter;
+	integer counter_clk;
 	
 	initial begin 
-		ver_state         = float;
+		counter_clk         =   0;
+		ver_state           = float;
 		ver_pos = INITIAL_VER_POS;
 		up_button_counter   =   0;
 		down_button_counter =   0;
 		can_move_up         =   1;
 		can_move_down       =   1;
+		bludge_time         =  10;
+		clean_bludge        =   0;
+	end
+	
+	always @(posedge clk) begin
+		if (bludged == 1) begin
+			if ((counter_clk == 49999999) && bludge_time != 0) begin
+				counter_clk <= 'd0;
+				bludge_time <= bludge_time - 'd1;
+				clean_bludge <= 0;
+			end else if (bludge_time == 0) begin
+				clean_bludge <= 1;
+				counter_clk <= 'd0;
+			end else begin
+				counter_clk <= counter_clk + 'd1;
+			end
+		end else begin
+			bludge_time <= 10;
+			clean_bludge <= 0;
+		end
 	end
 
 	// State transitions
@@ -80,7 +107,10 @@ module ver_player_controller #(
 	end
 	
 	always @(posedge clk) begin
-		if ((ver_pos - BLOCKING_BALL_Y)**2 + (HOR_POS - BLOCKING_BALL_X)**2 < (PLAYER_RADIUS + PLAYER_RADIUS + 2)**2) begin
+		if (bludged == 1) begin
+			can_move_up   <= 0;
+			can_move_down <= 0;
+		end else if ((ver_pos - BLOCKING_BALL_Y)**2 + (HOR_POS - BLOCKING_BALL_X)**2 < (PLAYER_RADIUS + PLAYER_RADIUS + 2)**2) begin
 			if (ver_pos > BLOCKING_BALL_Y) begin
 				can_move_up   <= 0;
 			end else begin

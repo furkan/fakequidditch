@@ -28,7 +28,17 @@ module ball_controller_furkan #(
 	integer inside_goal     = (GOAL_RADIUS - BALL_RADIUS)   ** 2;
 	integer touching_player = (PLAYER_RADIUS + BALL_RADIUS + 2) ** 2;
 	
-	wire inside_blue_goal
+	wire inside_blue_goal, inside_red_goal;
+	
+	assign inside_blue_goal = (
+			      (((y_position-450)**2)+((x_position-300)**2) < inside_goal)
+				|| (((y_position-450)**2)+((x_position-400)**2) < inside_goal)
+				|| (((y_position-450)**2)+((x_position-500)**2) < inside_goal)) ? 1 : 0 ;
+				
+	assign inside_red_goal = (
+			      (((y_position-100)**2)+((x_position-300)**2) < inside_goal)
+				|| (((y_position-100)**2)+((x_position-400)**2) < inside_goal)
+				|| (((y_position-100)**2)+((x_position-500)**2) < inside_goal)) ? 1 : 0 ;
 
 	reg state;
 	
@@ -57,22 +67,14 @@ module ball_controller_furkan #(
 	always @(posedge clk) begin
 		if (game_over == 1) begin
 			state <= dead;
-		end else if (game_initiated == 1) begin
-			state <= alive;
-		end else if (
-			      (((y_position-450)**2)+((x_position-300)**2) < inside_goal) // BLUE GOAL 1
-				|| (((y_position-450)**2)+((x_position-400)**2) < inside_goal) // BLUE GOAL 2
-				|| (((y_position-450)**2)+((x_position-500)**2) < inside_goal) // BLUE GOAL 3
-		) begin
+		end else if (inside_blue_goal) begin
 			state <= dead;
 			red_score_up <= ~red_score_up;
-		end else if (
-			      (((y_position-100)**2)+((x_position-300)**2) < inside_goal) // RED  GOAL 1
-				|| (((y_position-100)**2)+((x_position-400)**2) < inside_goal) // RED  GOAL 2
-				|| (((y_position-100)**2)+((x_position-500)**2) < inside_goal) // RED  GOAL 3
-		) begin
+		end else if (inside_red_goal) begin
 		  state <= dead;
 		  blue_score_up <= ~blue_score_up;
+		end else if (game_initiated == 1) begin
+			state <= alive;
 		end
 	end
 	

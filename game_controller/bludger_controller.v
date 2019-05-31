@@ -1,4 +1,4 @@
-module ball_controller_furkan #(
+module bludger_controller #(
 	parameter PLAYER_RADIUS,
 	parameter BALL_RADIUS,
 	parameter MOVEMENT_FREQUENCY
@@ -7,7 +7,11 @@ module ball_controller_furkan #(
 	input clk,
 	
 	input game_initiated,
-	input game_over,
+	
+	input blue_ver_clean,
+	input blue_hor_clean,
+	input  red_ver_clean,
+	input  red_hor_clean,
 	
 	input [9:0] team1_ver_pos, // 240
 	input [9:0] team2_ver_pos, // 560
@@ -17,15 +21,20 @@ module ball_controller_furkan #(
 	output reg signed [10:0] x_position,
 	output reg signed [10:0] y_position,
 	
-	output reg blue_score_up,
-	output reg red_score_up
+	output reg blue_ver_bludged,
+	output reg blue_hor_bludged,
+	output reg  red_ver_bludged,
+	output reg  red_hor_bludged
 );
 
 	reg signed [4:0] x_dir, y_dir;
 	
 	integer counter;
 	integer touching_player = (PLAYER_RADIUS + BALL_RADIUS + 2) ** 2;
-
+	wire random;
+	
+	assign random = (team1_hor_pos + team2_hor_pos + team1_ver_pos + team2_ver_pos) % 2;
+	
 	reg state;
 	
 	parameter dead  = 'd0;
@@ -34,12 +43,10 @@ module ball_controller_furkan #(
 	initial begin 
 		state      = dead;
 		counter    =    0;
-		x_position =  400;
+		x_position =  450;
 		y_position =  275;
 		x_dir      =    2;
 		y_dir      =    2;
-		blue_score_up = 0;
-		red_score_up  = 0;
 	end
 	
 	always @(posedge clk) begin
@@ -51,17 +58,20 @@ module ball_controller_furkan #(
 	end
 	
 	always @(posedge clk) begin
-		if (game_initiated == 0) begin
-			state <= dead;
-		end else begin
+		if (game_initiated == 1) begin
 			state <= alive;
 		end
 	end
 	
 	always @(posedge clk) begin
+	
+		if (blue_ver_clean == 1) blue_ver_bludged <= 0;
+		if (blue_hor_clean == 1) blue_hor_bludged <= 0;
+		if (red_ver_clean  == 1) red_ver_bludged <= 0;
+		if (red_hor_clean  == 1) red_hor_bludged <= 0;
 		
 		if (state == dead) begin
-			x_position <= 400;
+			x_position <= 450;
 			y_position <= 275;
 		end else if (state == alive && counter == 'd28) begin
 			x_position <= x_position + x_dir;
@@ -72,31 +82,40 @@ module ball_controller_furkan #(
 		if ((y_position) < (36 + BALL_RADIUS)) begin // top wall
 			y_dir <= - y_dir;
 			y_position <= y_position + 5;
+			if (random == 1) x_dir <= -x_dir;
 		end else if ((y_position) > (510 - BALL_RADIUS)) begin // bottom wall
 			y_dir <= - y_dir;
 			y_position <= y_position - 5;
+			if (random == 1) x_dir <= -x_dir;
 		end else if ((x_position) < (150 + BALL_RADIUS)) begin // left wall
 			x_dir <= - x_dir;
 			x_position <= x_position + 5;
+			if (random == 1) y_dir <= -y_dir;
 		end else if (x_position > (660 - BALL_RADIUS)) begin // right wall
 			x_dir <= - x_dir;
 			x_position <= x_position - 5;
+			if (random == 1) y_dir <= -y_dir;
 		end
 		
 		// ball collisions blue vertical
 		if ((((y_position - team1_ver_pos)**2)+((x_position - 240)**2) < touching_player)) begin
+			blue_ver_bludged <= 1;
 			if (x_position > 240 + 28) begin // east side
 				x_dir <= - x_dir;
 				x_position <= x_position + 5;
+				if (random == 1) y_dir <= -y_dir;
 			end else if (x_position < 240 - 28) begin // west side
 				x_dir <= - x_dir;
 				x_position <= x_position - 5;
+				if (random == 1) y_dir <= -y_dir;
 			end else if (y_position > team1_ver_pos + 28) begin // south side
 				y_dir <= - y_dir;
 				y_position <= y_position + 5;
+				if (random == 1) x_dir <= -x_dir;
 			end else if (y_position < team1_ver_pos - 28) begin // north side
 				y_dir <= - y_dir;
 				y_position <= y_position - 5;
+				if (random == 1) x_dir <= -x_dir;
 			end else begin
 				if ((x_position > 240) && (y_position < team1_ver_pos)) begin // northeast side
 					x_dir <= y_dir;
@@ -124,18 +143,23 @@ module ball_controller_furkan #(
 		
 		// ball collisions blue horizontal
 		if ((((y_position - 380)**2)+((x_position - team1_hor_pos)**2) < touching_player)) begin
+			blue_hor_bludged <= 1;
 			if (x_position > team1_hor_pos + 28) begin // east side
 				x_dir <= - x_dir;
 				x_position <= x_position + 5;
+				if (random == 1) y_dir <= -y_dir;
 			end else if (x_position < team1_hor_pos - 28) begin // west side
 				x_dir <= - x_dir;
 				x_position <= x_position - 5;
+				if (random == 1) y_dir <= -y_dir;
 			end else if (y_position > 380 + 28) begin // south side
 				y_dir <= - y_dir;
 				y_position <= y_position + 5;
+				if (random == 1) x_dir <= -x_dir;
 			end else if (y_position < 380 - 28) begin // north side
 				y_dir <= - y_dir;
 				y_position <= y_position - 5;
+				if (random == 1) x_dir <= -x_dir;
 			end else begin
 				if ((x_position > team1_hor_pos) && (y_position < 380)) begin // northeast side
 					x_dir <= y_dir;
@@ -163,18 +187,23 @@ module ball_controller_furkan #(
 		
 		// ball collisions red vertical
 		if ((((y_position - team2_ver_pos)**2)+((x_position - 560)**2) < touching_player)) begin
+			red_ver_bludged <= 1;
 			if (x_position > 560 + 28) begin // east side
 				x_dir <= - x_dir;
 				x_position <= x_position + 5;
+				if (random == 1) y_dir <= -y_dir;
 			end else if (x_position < 560 - 28) begin // west side
 				x_dir <= - x_dir;
 				x_position <= x_position - 5;
+				if (random == 1) y_dir <= -y_dir;
 			end else if (y_position > team2_ver_pos + 28) begin // south side
 				y_dir <= - y_dir;
 				y_position <= y_position + 5;
+				if (random == 1) x_dir <= -x_dir;
 			end else if (y_position < team2_ver_pos - 28) begin // north side
 				y_dir <= - y_dir;
 				y_position <= y_position - 5;
+				if (random == 1) x_dir <= -x_dir;
 			end else begin
 				if ((x_position > 560) && (y_position < team2_ver_pos)) begin // northeast side
 					x_dir <= y_dir;
@@ -202,18 +231,23 @@ module ball_controller_furkan #(
 		
 		// ball collisions red horizontal
 		if ((((y_position - 180)**2)+((x_position - team2_hor_pos)**2) < touching_player)) begin
+			red_hor_bludged <= 1;
 			if (x_position > team2_hor_pos + 28) begin // east side
 				x_dir <= - x_dir;
 				x_position <= x_position + 5;
+				if (random == 1) y_dir <= -y_dir;
 			end else if (x_position < team2_hor_pos - 28) begin // west side
 				x_dir <= - x_dir;
 				x_position <= x_position - 5;
+				if (random == 1) y_dir <= -y_dir;
 			end else if (y_position > 180 + 28) begin // south side
 				y_dir <= - y_dir;
 				y_position <= y_position + 5;
+				if (random == 1) x_dir <= -x_dir;
 			end else if (y_position < 180 - 28) begin // north side
 				y_dir <= - y_dir;
 				y_position <= y_position - 5;
+				if (random == 1) x_dir <= -x_dir;
 			end else begin
 				if ((x_position > team2_hor_pos) && (y_position < 180)) begin // northeast side
 					x_dir <= y_dir;

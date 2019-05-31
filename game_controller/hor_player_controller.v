@@ -7,12 +7,17 @@ module hor_player_controller #(
 )
 (	input clk,
 
+	input bludged,
+
 	input hl_button,
 	input hr_button,
 	
 	input [9:0] BLOCKING_BALL_Y,
 	
-	output reg [9:0] hor_pos
+	output reg [9:0] hor_pos,
+	
+	output reg clean_bludge,
+	output reg [4:0] bludge_time
 );
 
 	// Horizontal player movements
@@ -25,16 +30,38 @@ module hor_player_controller #(
 	reg can_move_left, can_move_right;
 	
 	integer left_button_counter, right_button_counter;
+	integer counter_clk;
 	
 	initial begin 
+		counter_clk         =   0;
 		hor_state         = float;
 		hor_pos = INITIAL_HOR_POS;
 		left_button_counter  =   0;
 		right_button_counter =   0;
 		can_move_left        =   1;
 		can_move_right       =   1;
+		bludge_time          =  10;
+		clean_bludge         =   0;
 	end
 
+	always @(posedge clk) begin
+		if (bludged == 1) begin
+			if ((counter_clk == 49999999) && bludge_time != 0) begin
+				counter_clk <= 'd0;
+				bludge_time <= bludge_time - 'd1;
+				clean_bludge <= 0;
+			end else if (bludge_time == 0) begin
+				clean_bludge <= 1;
+				counter_clk <= 'd0;
+			end else begin
+				counter_clk <= counter_clk + 'd1;
+			end
+		end else begin
+			bludge_time <= 10;
+			clean_bludge <= 0;
+		end
+	end
+	
 	// State transitions
 
 	always @(posedge clk) begin
@@ -76,14 +103,17 @@ module hor_player_controller #(
 	end
 	
 	always @(posedge clk) begin
-		if ((VER_POS - BLOCKING_BALL_Y)**2 + (hor_pos - BLOCKING_BALL_X)**2 < (PLAYER_RADIUS + PLAYER_RADIUS + 2)**2) begin
+		if (bludged == 1) begin
+			can_move_left   <= 0;
+			can_move_right <= 0;
+		end else if ((VER_POS - BLOCKING_BALL_Y)**2 + (hor_pos - BLOCKING_BALL_X)**2 < (PLAYER_RADIUS + PLAYER_RADIUS + 2)**2) begin
 			if (hor_pos > BLOCKING_BALL_X) begin
 				can_move_left  <= 0;
 			end else begin
 				can_move_right <= 0;
 			end			
 		end else begin
-			can_move_left  <= 1;
+			can_move_left   <= 1;
 			can_move_right <= 1;
 		end
 	end
