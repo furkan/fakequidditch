@@ -100,5 +100,6 @@ set_location_assignment PIN_AF19 -to team2_hl_button
 set_global_assignment -name VERILOG_FILE game_controller/ball_controller.v
 set_location_assignment PIN_AE12 -to game_on_switch
 set_global_assignment -name VERILOG_FILE game_controller/ball_controller_furkan.v
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name VERILOG_FILE game_controller/ball_controller_sucuk.v
+set_global_assignment -name VERILOG_FILE game_controller/player_ball_collider.v
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

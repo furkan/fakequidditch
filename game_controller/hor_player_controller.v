@@ -1,11 +1,17 @@
 module hor_player_controller #(
 	parameter PLAYER_RADIUS,		// 25 px works
 	parameter INITIAL_HOR_POS,		// 
-	parameter MOVEMENT_FREQUENCY	// inversely proportinal to speed ('d200000 works)
+	parameter VER_POS,
+	parameter MOVEMENT_FREQUENCY,	// inversely proportinal to speed ('d200000 works)
+	parameter BLOCKING_BALL_X
 )
 (	input clk,
+
 	input hl_button,
 	input hr_button,
+	
+	input [9:0] BLOCKING_BALL_Y,
+	
 	output reg [9:0] hor_pos
 );
 
@@ -15,7 +21,9 @@ module hor_player_controller #(
 	parameter float = 'd0;
 	parameter  left = 'd1;
 	parameter right = 'd2;
-
+	
+	reg can_move_left, can_move_right;
+	
 	integer left_button_counter, right_button_counter;
 	
 	initial begin 
@@ -23,6 +31,8 @@ module hor_player_controller #(
 		hor_pos = INITIAL_HOR_POS;
 		left_button_counter  =   0;
 		right_button_counter =   0;
+		can_move_left        =   1;
+		can_move_right       =   1;
 	end
 
 	// State transitions
@@ -57,12 +67,25 @@ module hor_player_controller #(
 				hor_pos <= hor_pos;
 			end
 			left: begin
-				if (hor_pos > (144 + PLAYER_RADIUS) && left_button_counter == 'd98) hor_pos <= hor_pos - 1;
+				if (hor_pos > (144 + PLAYER_RADIUS) && left_button_counter  == 'd98 && can_move_left  == 1) hor_pos <= hor_pos - 1;
 			end
 			right: begin
-				if (hor_pos < (660 - PLAYER_RADIUS) && right_button_counter == 'd98) hor_pos <= hor_pos + 1;
+				if (hor_pos < (660 - PLAYER_RADIUS) && right_button_counter == 'd98 && can_move_right == 1) hor_pos <= hor_pos + 1;
 			end
 		endcase
+	end
+	
+	always @(posedge clk) begin
+		if ((VER_POS - BLOCKING_BALL_Y)**2 + (hor_pos - BLOCKING_BALL_X)**2 < (PLAYER_RADIUS + PLAYER_RADIUS + 2)**2) begin
+			if (hor_pos > BLOCKING_BALL_X) begin
+				can_move_left  <= 0;
+			end else begin
+				can_move_right <= 0;
+			end			
+		end else begin
+			can_move_left  <= 1;
+			can_move_right <= 1;
+		end
 	end
 
 endmodule

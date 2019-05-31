@@ -1,4 +1,4 @@
 Warning (10268): Verilog HDL information at ball_controller_cansu.v(91): always construct contains both blocking and non-blocking assignments
 Warning (10268): Verilog HDL information at ball_controller_cansu.v(133): always construct contains both blocking and non-blocking assignments
 Warning (10268): Verilog HDL information at ball_controller_cansu.v(574): always construct contains both blocking and non-blocking assignments
-Warning (10268): Verilog HDL information at ball_controller.v(42): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at ball_controller.v(46): always construct contains both blocking and non-blocking assignments

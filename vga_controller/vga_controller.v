@@ -81,10 +81,10 @@ module vga_controller #(
 	assign left_second_tens = (left_seconds % 60) / 10;
 	assign left_second_ones = (left_seconds % 60) % 10;
 	
-	assign blue_score_tens = team1_score / 10;
-	assign blue_score_ones = team1_score % 10;
-	assign red_score_tens  = team2_score / 10;
-	assign red_score_ones  = team2_score % 10;
+	assign blue_score_tens = (team1_score / 2) / 10;
+	assign blue_score_ones = (team1_score / 2) % 10;
+	assign red_score_tens  = (team2_score / 2) / 10;
+	assign red_score_ones  = (team2_score / 2) % 10;
 
 	initial begin
 		x = 0;
@@ -127,7 +127,11 @@ module vga_controller #(
 			if (
 				((y - ball_y)**2) + ((x - ball_x)**2) < BALL_RADIUS ** 2  // BALL
 			) red = 8'b00000000;
-			else if (
+			else if (y == 275) begin // half field line
+				red   = 8'b00000000;
+				green = 8'b00000000;
+				blue  = 8'b00000000;
+			end else if (
 				(((y - team1_ver_pos)**2) + ((x - 240)**2) > PLAYER_RADIUS ** 2)    // BLUE VER PLAYER
 				&& (((y - 380)**2) + ((x - team1_hor_pos)**2) > PLAYER_RADIUS ** 2) // BLUE HOR PLAYER
 

@@ -1,0 +1,17 @@
+module ball_collider (
+	input wire [10:0] ball_x,
+	ball_y,
+	
+
+);
+
+			m = (y_position - team1_ver_pos) / (x_position - 240);
+			b = y_position - m * x_position;
+			x_bef = x_position - x_dir;
+			y_bef = y_position - y_dir;
+			x_aft = (2 * x_bef + (2*m) * (y_bef - b)) / (1 + m ** 2) - x_bef;
+			y_aft = m * (2 * x_bef + (2*m) * (y_bef - b)) / (1 + m ** 2) + 2 * b - x_bef;
+			x_dir = x_aft - x_position;
+			y_dir = y_aft - y_position;
+			x_position = x_aft;
+			y_position = y_aft;

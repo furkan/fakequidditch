@@ -1,11 +1,19 @@
 module ver_player_controller #(
 	parameter PLAYER_RADIUS,		// 25 px works
 	parameter INITIAL_VER_POS,		// 'd200 works
-	parameter MOVEMENT_FREQUENCY	// inversely proportinal to speed ('d200000 works)
+	parameter HOR_POS,
+	parameter MOVEMENT_FREQUENCY,	// inversely proportinal to speed ('d200000 works)
+	parameter TOP_BOUNDARY,
+	parameter BOT_BOUNDARY,
+	parameter BLOCKING_BALL_Y
 )
 (	input clk,
+
 	input vu_button,
 	input vd_button,
+
+	input [9:0] BLOCKING_BALL_X,
+	
 	output reg [9:0] ver_pos
 );
 
@@ -15,6 +23,8 @@ module ver_player_controller #(
 	parameter float = 'd0;
 	parameter    up = 'd1;
 	parameter  down = 'd2;
+	
+	reg can_move_up, can_move_down;
 
 	integer up_button_counter, down_button_counter;
 	
@@ -23,6 +33,8 @@ module ver_player_controller #(
 		ver_pos = INITIAL_VER_POS;
 		up_button_counter   =   0;
 		down_button_counter =   0;
+		can_move_up         =   1;
+		can_move_down       =   1;
 	end
 
 	// State transitions
@@ -59,12 +71,25 @@ module ver_player_controller #(
 				ver_pos <= ver_pos;
 			end
 			up: begin
-				if (ver_pos > ( 36 + PLAYER_RADIUS) && up_button_counter   == 'd98) ver_pos <= ver_pos - 1;
+				if (ver_pos > (TOP_BOUNDARY + PLAYER_RADIUS) && up_button_counter   == 'd98 && can_move_up == 1) ver_pos <= ver_pos - 1;
 			end
 			down: begin
-				if (ver_pos < (510 - PLAYER_RADIUS) && down_button_counter == 'd98) ver_pos <= ver_pos + 1;
+				if (ver_pos < (BOT_BOUNDARY - PLAYER_RADIUS) && down_button_counter == 'd98 && can_move_down == 1) ver_pos <= ver_pos + 1;
 			end
 		endcase
+	end
+	
+	always @(posedge clk) begin
+		if ((ver_pos - BLOCKING_BALL_Y)**2 + (HOR_POS - BLOCKING_BALL_X)**2 < (PLAYER_RADIUS + PLAYER_RADIUS + 2)**2) begin
+			if (ver_pos > BLOCKING_BALL_Y) begin
+				can_move_up   <= 0;
+			end else begin
+				can_move_down <= 0;
+			end			
+		end else begin
+			can_move_up   <= 1;
+			can_move_down <= 1;
+		end
 	end
 
 endmodule

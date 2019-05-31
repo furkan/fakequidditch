@@ -51,26 +51,26 @@
 	wire [9:0] team1_hor_pos;
 	wire [9:0] team2_hor_pos;
 	
-	ver_player_controller #(.PLAYER_RADIUS(PLAYER_RADIUS), .INITIAL_VER_POS(INITIAL_VER_POS), .MOVEMENT_FREQUENCY(PLAYER_MOVEMENT_FREQUENCY))
-		team1_ver_ctrl (clk, team1_vu_button, team1_vd_button, team1_ver_pos);
-	ver_player_controller #(.PLAYER_RADIUS(PLAYER_RADIUS), .INITIAL_VER_POS(INITIAL_VER_POS), .MOVEMENT_FREQUENCY(PLAYER_MOVEMENT_FREQUENCY)) 
-		team2_ver_ctrl (clk, team2_vu_button, team2_vd_button, team2_ver_pos);
+	ver_player_controller #(.PLAYER_RADIUS(PLAYER_RADIUS), .INITIAL_VER_POS(INITIAL_VER_POS), .HOR_POS(240), .MOVEMENT_FREQUENCY(PLAYER_MOVEMENT_FREQUENCY), .TOP_BOUNDARY(276), .BOT_BOUNDARY(510), .BLOCKING_BALL_Y(380))
+		team1_ver_ctrl (clk, team1_vu_button, team1_vd_button, team1_hor_position, team1_ver_pos);
+	ver_player_controller #(.PLAYER_RADIUS(PLAYER_RADIUS), .INITIAL_VER_POS(INITIAL_VER_POS), .HOR_POS(560),.MOVEMENT_FREQUENCY(PLAYER_MOVEMENT_FREQUENCY), .TOP_BOUNDARY(36), .BOT_BOUNDARY(274), .BLOCKING_BALL_Y(180)) 
+		team2_ver_ctrl (clk, team2_vu_button, team2_vd_button, team2_hor_position, team2_ver_pos);
 /*
 	ball_controller_cansu #(.PLAYER_RADIUS(PLAYER_RADIUS),.BALL_RADIUS(BALL_RADIUS),.GOAL_RADIUS(GOAL_RADIUS),.MOVEMENT_FREQUENCY(BALL_MOVEMENT_FREQUENCY))
 				ball_ctrl (clk, game_over, team1_ver_position, team2_ver_position,team1_vu_button,team1_vd_button,team2_vu_button,team2_vd_button,team1_hl_button,team1_hr_button,team2_hl_button,team2_hr_button,/*score_to_team1,score_to_team2,*//* x_position,y_position, game_on);
 */	
-/*
-	ball_controller #(.PLAYER_RADIUS(PLAYER_RADIUS),.BALL_RADIUS(BALL_RADIUS),.GOAL_RADIUS(GOAL_RADIUS),.MOVEMENT_FREQUENCY(BALL_MOVEMENT_FREQUENCY))
-		ball_ctrl (clk, game_on, game_over, team1_ver_position, team2_ver_position, team1_hor_position, team2_hor_position, x_position,y_position);
+
+	/*ball_controller #(.PLAYER_RADIUS(PLAYER_RADIUS),.BALL_RADIUS(BALL_RADIUS),.GOAL_RADIUS(GOAL_RADIUS),.MOVEMENT_FREQUENCY(BALL_MOVEMENT_FREQUENCY))
+		ball_ctrl (clk, game_initiated, game_over, team1_ver_position, team2_ver_position, team1_hor_position, team2_hor_position, x_position,y_position, blue_score_up, red_score_up);
 */
 	
 	ball_controller_furkan #(.PLAYER_RADIUS(PLAYER_RADIUS),.BALL_RADIUS(BALL_RADIUS),.GOAL_RADIUS(GOAL_RADIUS),.MOVEMENT_FREQUENCY(BALL_MOVEMENT_FREQUENCY))
 		ball_ctrl (clk, game_initiated, game_over, team1_ver_position, team2_ver_position, team1_hor_position, team2_hor_position, x_position, y_position, blue_score_up, red_score_up);
 
-	hor_player_controller #(.PLAYER_RADIUS(PLAYER_RADIUS), .INITIAL_HOR_POS(INITIAL_HOR_POS), .MOVEMENT_FREQUENCY(PLAYER_MOVEMENT_FREQUENCY))
-		team1_hor_ctrl (clk, team1_hl_button, team1_hr_button, team1_hor_pos);
-	hor_player_controller #(.PLAYER_RADIUS(PLAYER_RADIUS), .INITIAL_HOR_POS(INITIAL_HOR_POS), .MOVEMENT_FREQUENCY(PLAYER_MOVEMENT_FREQUENCY)) 
-		team2_hor_ctrl (clk, team2_hl_button, team2_hr_button, team2_hor_pos);
+	hor_player_controller #(.PLAYER_RADIUS(PLAYER_RADIUS), .INITIAL_HOR_POS(INITIAL_HOR_POS + 50), .VER_POS(380), .MOVEMENT_FREQUENCY(PLAYER_MOVEMENT_FREQUENCY), .BLOCKING_BALL_X(240))
+		team1_hor_ctrl (clk, team1_hl_button, team1_hr_button, team1_ver_position, team1_hor_pos);
+	hor_player_controller #(.PLAYER_RADIUS(PLAYER_RADIUS), .INITIAL_HOR_POS(INITIAL_HOR_POS - 50), .VER_POS(180), .MOVEMENT_FREQUENCY(PLAYER_MOVEMENT_FREQUENCY), .BLOCKING_BALL_X(560)) 
+		team2_hor_ctrl (clk, team2_hl_button, team2_hr_button, team2_ver_position, team2_hor_pos);
 	
 	integer counter_clk;
 
