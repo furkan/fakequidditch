@@ -10,7 +10,7 @@
 
 * It will be reflected from boundaries, with realistic angles
 
-* When inside a goal, it is a score :D
+* ~~When inside a goal, it is a score :D~~
 
 ## Bludger
 
@@ -18,19 +18,19 @@
 
 * It will be randomly reflected from boundaries
 
-* When it hits a player, that player freezes for 10 seconds
+* ~~When it hits a player, that player freezes for 10 seconds~~
 
 ## Scoreboard
 
-* Scores are displayed
+* ~~Scores are displayed~~
 
 * First to 5 wins Why?
 
 ## Time
 
-* Remaining time (3:00 - x:yz) is displayed
+* ~~Remaining time (3:00 - x:yz) is displayed~~
 
-* Game duration is 3 minutes
+* ~~Game duration is 3 minutes~~
 
 ## Fun Extensions
 

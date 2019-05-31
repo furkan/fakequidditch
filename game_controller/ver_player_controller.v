@@ -19,7 +19,7 @@ module ver_player_controller #(
 	output reg [9:0] ver_pos,
 	
 	output reg clean_bludge,
-	output reg [4:0] bludge_time
+	output reg [3:0] bludge_time
 );
 
 	// Vertical player movements
@@ -89,8 +89,6 @@ module ver_player_controller #(
 			down_button_counter <= 0;
 		end
 	end
-
-	// State machine
 
 	always @(posedge clk) begin
 		case (ver_state)

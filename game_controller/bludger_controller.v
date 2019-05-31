@@ -33,7 +33,7 @@ module bludger_controller #(
 	integer touching_player = (PLAYER_RADIUS + BALL_RADIUS + 2) ** 2;
 	wire random;
 	
-	assign random = (team1_hor_pos + team2_hor_pos + team1_ver_pos + team2_ver_pos) % 2;
+	assign random = (team1_hor_pos + team2_hor_pos + team1_ver_pos + team2_ver_pos + x_position + y_position) % 2;
 	
 	reg state;
 	

@@ -34,6 +34,16 @@ module fakequidditch (clk, team1_vu_button, team1_vd_button, team2_vu_button, te
 	reg  [10:0] bludger_x;
 	reg  [10:0] bludger_y;
 	
+	wire [3:0] blue_ver_bludge_time_wire;
+	wire [3:0]  red_ver_bludge_time_wire;
+	wire [3:0] blue_hor_bludge_time_wire;
+	wire [3:0]  red_hor_bludge_time_wire;
+	
+	reg [3:0] blue_ver_bludge_time;
+	reg [3:0]  red_ver_bludge_time;
+	reg [3:0] blue_hor_bludge_time;
+	reg [3:0]  red_hor_bludge_time;
+	
 	wire [6:0]  blue_score;
 	wire [6:0]   red_score;
 	reg  [6:0] team1_score;
@@ -94,6 +104,11 @@ module fakequidditch (clk, team1_vu_button, team1_vd_button, team2_vu_button, te
 		
 		bludger_x <= bludger_hor_position;
 		bludger_y <= bludger_ver_position;
+		
+		blue_ver_bludge_time <= blue_ver_bludge_time_wire;
+		red_ver_bludge_time  <= red_ver_bludge_time_wire;
+		blue_hor_bludge_time <= blue_hor_bludge_time_wire;
+		red_hor_bludge_time  <= red_hor_bludge_time_wire;
 		
 		team1_ver_pos <= team1_ver_position;
 		team2_ver_pos <= team2_ver_position;

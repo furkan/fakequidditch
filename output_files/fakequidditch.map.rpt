@@ -1,5 +1,5 @@
 Analysis & Synthesis report for fakequidditch
-Fri May 31 20:45:01 2019
+Fri May 31 23:51:16 2019
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -45,14 +45,10 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
  37. Parameter Settings for Inferred Entity Instance: vga_controller:vga_cont|lpm_mult:Mult9_rtl_4
  38. lpm_mult Parameter Settings by Entity Instance
  39. Port Connectivity Checks: "vga_controller:vga_cont"
- 40. Port Connectivity Checks: "game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl"
- 41. Port Connectivity Checks: "game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl"
- 42. Port Connectivity Checks: "game_controller:game_ctrl|ball_controller_furkan:ball_ctrl"
- 43. Port Connectivity Checks: "game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl"
- 44. Port Connectivity Checks: "game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl"
- 45. Port Connectivity Checks: "game_controller:game_ctrl"
- 46. Elapsed Time Per Partition
- 47. Analysis & Synthesis Messages
+ 40. Port Connectivity Checks: "game_controller:game_ctrl|ball_controller_furkan:ball_ctrl"
+ 41. Port Connectivity Checks: "game_controller:game_ctrl"
+ 42. Elapsed Time Per Partition
+ 43. Analysis & Synthesis Messages
 
 
 
@@ -78,13 +74,13 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +---------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri May 31 20:45:01 2019      ;
+; Analysis & Synthesis Status     ; Successful - Fri May 31 23:51:16 2019      ;
 ; Quartus II 64-Bit Version       ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                   ; fakequidditch                              ;
 ; Top-level Entity Name           ; fakequidditch                              ;
 ; Family                          ; Cyclone V                                  ;
 ; Logic utilization (in ALMs)     ; N/A                                        ;
-; Total registers                 ; 705                                        ;
+; Total registers                 ; 701                                        ;
 ; Total pins                      ; 36                                         ;
 ; Total virtual pins              ; 0                                          ;
 ; Total block memory bits         ; 0                                          ;
@@ -241,23 +237,23 @@ applicable agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 3340      ;
+; Estimate of Logic utilization (ALMs needed) ; 3612      ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 6198      ;
-;     -- 7 input functions                    ; 20        ;
-;     -- 6 input functions                    ; 459       ;
-;     -- 5 input functions                    ; 733       ;
-;     -- 4 input functions                    ; 564       ;
-;     -- <=3 input functions                  ; 4422      ;
+; Combinational ALUT usage for logic          ; 6706      ;
+;     -- 7 input functions                    ; 24        ;
+;     -- 6 input functions                    ; 492       ;
+;     -- 5 input functions                    ; 869       ;
+;     -- 4 input functions                    ; 596       ;
+;     -- <=3 input functions                  ; 4725      ;
 ;                                             ;           ;
-; Dedicated logic registers                   ; 705       ;
+; Dedicated logic registers                   ; 701       ;
 ;                                             ;           ;
 ; I/O pins                                    ; 36        ;
 ; Total DSP Blocks                            ; 109       ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 705       ;
-; Total fan-out                               ; 25088     ;
-; Average fan-out                             ; 3.54      ;
+; Maximum fan-out                             ; 701       ;
+; Total fan-out                               ; 26690     ;
+; Average fan-out                             ; 3.52      ;
 +---------------------------------------------+-----------+
 
 
@@ -266,15 +262,15 @@ applicable agreement for further details.
 +----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                    ; Library Name ;
 +----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |fakequidditch                               ; 6198 (40)         ; 705 (33)     ; 0                 ; 109        ; 36   ; 0            ; |fakequidditch                                                                                                                         ; work         ;
-;    |game_controller:game_ctrl|               ; 3314 (72)         ; 627 (55)     ; 0                 ; 58         ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl                                                                                               ; work         ;
-;       |ball_controller_furkan:ball_ctrl|     ; 1079 (1079)       ; 67 (67)      ; 0                 ; 26         ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ball_controller_furkan:ball_ctrl                                                              ; work         ;
-;       |bludger_controller:bludger_ctrl|      ; 1219 (1219)       ; 37 (37)      ; 0                 ; 16         ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|bludger_controller:bludger_ctrl                                                               ; work         ;
-;       |hor_player_controller:team1_hor_ctrl| ; 236 (236)         ; 117 (117)    ; 0                 ; 4          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl                                                          ; work         ;
-;       |hor_player_controller:team2_hor_ctrl| ; 234 (234)         ; 117 (117)    ; 0                 ; 4          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl                                                          ; work         ;
-;       |ver_player_controller:team1_ver_ctrl| ; 237 (237)         ; 117 (117)    ; 0                 ; 4          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl                                                          ; work         ;
-;       |ver_player_controller:team2_ver_ctrl| ; 237 (237)         ; 117 (117)    ; 0                 ; 4          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl                                                          ; work         ;
-;    |vga_controller:vga_cont|                 ; 2844 (1337)       ; 45 (45)      ; 0                 ; 51         ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont                                                                                                 ; work         ;
+; |fakequidditch                               ; 6706 (40)         ; 701 (33)     ; 0                 ; 109        ; 36   ; 0            ; |fakequidditch                                                                                                                         ; work         ;
+;    |game_controller:game_ctrl|               ; 3290 (72)         ; 623 (55)     ; 0                 ; 58         ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl                                                                                               ; work         ;
+;       |ball_controller_furkan:ball_ctrl|     ; 1076 (1076)       ; 67 (67)      ; 0                 ; 26         ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ball_controller_furkan:ball_ctrl                                                              ; work         ;
+;       |bludger_controller:bludger_ctrl|      ; 1214 (1214)       ; 37 (37)      ; 0                 ; 16         ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|bludger_controller:bludger_ctrl                                                               ; work         ;
+;       |hor_player_controller:team1_hor_ctrl| ; 232 (232)         ; 116 (116)    ; 0                 ; 4          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl                                                          ; work         ;
+;       |hor_player_controller:team2_hor_ctrl| ; 230 (230)         ; 116 (116)    ; 0                 ; 4          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl                                                          ; work         ;
+;       |ver_player_controller:team1_ver_ctrl| ; 233 (233)         ; 116 (116)    ; 0                 ; 4          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl                                                          ; work         ;
+;       |ver_player_controller:team2_ver_ctrl| ; 233 (233)         ; 116 (116)    ; 0                 ; 4          ; 0    ; 0            ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl                                                          ; work         ;
+;    |vga_controller:vga_cont|                 ; 3376 (1865)       ; 45 (45)      ; 0                 ; 51         ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont                                                                                                 ; work         ;
 ;       |lpm_divide:Div0|                      ; 38 (0)            ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_divide:Div0                                                                                 ; work         ;
 ;          |lpm_divide_7am:auto_generated|     ; 38 (0)            ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_divide:Div0|lpm_divide_7am:auto_generated                                                   ; work         ;
 ;             |sign_div_unsign_dkh:divider|    ; 38 (0)            ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_divide:Div0|lpm_divide_7am:auto_generated|sign_div_unsign_dkh:divider                       ; work         ;
@@ -295,10 +291,10 @@ applicable agreement for further details.
 ;          |lpm_divide_a2m:auto_generated|     ; 54 (0)            ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_divide:Mod0|lpm_divide_a2m:auto_generated                                                   ; work         ;
 ;             |sign_div_unsign_dkh:divider|    ; 54 (0)            ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_divide:Mod0|lpm_divide_a2m:auto_generated|sign_div_unsign_dkh:divider                       ; work         ;
 ;                |alt_u_div_0te:divider|       ; 54 (54)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_divide:Mod0|lpm_divide_a2m:auto_generated|sign_div_unsign_dkh:divider|alt_u_div_0te:divider ; work         ;
-;       |lpm_divide:Mod1|                      ; 29 (0)            ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_divide:Mod1                                                                                 ; work         ;
-;          |lpm_divide_62m:auto_generated|     ; 29 (0)            ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_divide:Mod1|lpm_divide_62m:auto_generated                                                   ; work         ;
-;             |sign_div_unsign_9kh:divider|    ; 29 (0)            ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_divide:Mod1|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider                       ; work         ;
-;                |alt_u_div_ose:divider|       ; 29 (29)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_divide:Mod1|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider ; work         ;
+;       |lpm_divide:Mod1|                      ; 33 (0)            ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_divide:Mod1                                                                                 ; work         ;
+;          |lpm_divide_62m:auto_generated|     ; 33 (0)            ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_divide:Mod1|lpm_divide_62m:auto_generated                                                   ; work         ;
+;             |sign_div_unsign_9kh:divider|    ; 33 (0)            ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_divide:Mod1|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider                       ; work         ;
+;                |alt_u_div_ose:divider|       ; 33 (33)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_divide:Mod1|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider ; work         ;
 ;       |lpm_divide:Mod2|                      ; 31 (0)            ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_divide:Mod2                                                                                 ; work         ;
 ;          |lpm_divide_62m:auto_generated|     ; 31 (0)            ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_divide:Mod2|lpm_divide_62m:auto_generated                                                   ; work         ;
 ;             |sign_div_unsign_9kh:divider|    ; 31 (0)            ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fakequidditch|vga_controller:vga_cont|lpm_divide:Mod2|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider                       ; work         ;
@@ -430,7 +426,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 705   ;
+; Total registers                              ; 701   ;
 ; Number of registers using Synchronous Clear  ; 510   ;
 ; Number of registers using Synchronous Load   ; 1     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -445,7 +441,39 @@ Encoding Type:  One-Hot
 +-------------------------------------------------------------------------------+---------+
 ; Inverted Register                                                             ; Fan out ;
 +-------------------------------------------------------------------------------+---------+
+; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|bludge_time[3] ; 8       ;
+; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|bludge_time[1] ; 10      ;
+; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|hor_pos[3]     ; 25      ;
+; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|hor_pos[2]     ; 28      ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|bludge_time[3] ; 8       ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|bludge_time[1] ; 10      ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[7]     ; 26      ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[6]     ; 26      ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[3]     ; 25      ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|bludge_time[3] ; 8       ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|bludge_time[1] ; 10      ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[8]     ; 27      ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[5]     ; 28      ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[3]     ; 27      ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[2]     ; 29      ;
+; game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|bludge_time[3] ; 8       ;
+; game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|bludge_time[1] ; 8       ;
+; game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|hor_pos[3]     ; 25      ;
 ; game_controller:game_ctrl|time_left[2]                                        ; 8       ;
+; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|hor_pos[8]     ; 25      ;
+; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|hor_pos[7]     ; 24      ;
+; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|hor_pos[6]     ; 25      ;
+; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|can_move_right ; 2       ;
+; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|can_move_left  ; 2       ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|can_move_down  ; 2       ;
+; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|can_move_up    ; 2       ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|can_move_down  ; 2       ;
+; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|can_move_up    ; 2       ;
+; game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|hor_pos[8]     ; 26      ;
+; game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|hor_pos[6]     ; 25      ;
+; game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|hor_pos[5]     ; 28      ;
+; game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|can_move_right ; 2       ;
+; game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|can_move_left  ; 2       ;
 ; game_controller:game_ctrl|time_left[7]                                        ; 6       ;
 ; game_controller:game_ctrl|time_left[5]                                        ; 6       ;
 ; game_controller:game_ctrl|time_left[4]                                        ; 8       ;
@@ -456,50 +484,18 @@ Encoding Type:  One-Hot
 ; game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|x_position[4]      ; 26      ;
 ; game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|x_position[7]      ; 29      ;
 ; game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|x_position[8]      ; 33      ;
-; game_controller:game_ctrl|bludger_controller:bludger_ctrl|y_position[0]       ; 27      ;
+; game_controller:game_ctrl|bludger_controller:bludger_ctrl|y_position[0]       ; 28      ;
 ; game_controller:game_ctrl|bludger_controller:bludger_ctrl|y_position[1]       ; 28      ;
 ; game_controller:game_ctrl|bludger_controller:bludger_ctrl|y_position[4]       ; 26      ;
 ; game_controller:game_ctrl|bludger_controller:bludger_ctrl|y_position[8]       ; 40      ;
 ; game_controller:game_ctrl|bludger_controller:bludger_ctrl|x_position[1]       ; 25      ;
 ; game_controller:game_ctrl|bludger_controller:bludger_ctrl|x_position[6]       ; 26      ;
 ; game_controller:game_ctrl|bludger_controller:bludger_ctrl|x_position[7]       ; 25      ;
-; game_controller:game_ctrl|bludger_controller:bludger_ctrl|x_position[8]       ; 41      ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[3]     ; 15      ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[6]     ; 15      ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[7]     ; 15      ;
-; game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|hor_pos[3]     ; 18      ;
-; game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|hor_pos[5]     ; 22      ;
-; game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|hor_pos[6]     ; 19      ;
-; game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|hor_pos[8]     ; 20      ;
-; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|hor_pos[2]     ; 22      ;
-; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|hor_pos[3]     ; 18      ;
-; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|hor_pos[6]     ; 19      ;
-; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|hor_pos[7]     ; 18      ;
-; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|hor_pos[8]     ; 19      ;
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[2]     ; 19      ;
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[3]     ; 17      ;
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[5]     ; 16      ;
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[8]     ; 16      ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|can_move_down  ; 2       ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|can_move_up    ; 2       ;
-; game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|can_move_right ; 2       ;
-; game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|can_move_left  ; 2       ;
-; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|can_move_right ; 2       ;
-; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|can_move_left  ; 2       ;
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|can_move_down  ; 2       ;
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|can_move_up    ; 2       ;
+; game_controller:game_ctrl|bludger_controller:bludger_ctrl|x_position[8]       ; 42      ;
 ; game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|y_dir[1]           ; 14      ;
-; game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|x_dir[1]           ; 16      ;
+; game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|x_dir[1]           ; 15      ;
 ; game_controller:game_ctrl|bludger_controller:bludger_ctrl|y_dir[1]            ; 15      ;
-; game_controller:game_ctrl|bludger_controller:bludger_ctrl|x_dir[1]            ; 17      ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|bludge_time[3] ; 2       ;
-; game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|bludge_time[1] ; 4       ;
-; game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|bludge_time[3] ; 2       ;
-; game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|bludge_time[1] ; 4       ;
-; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|bludge_time[3] ; 2       ;
-; game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|bludge_time[1] ; 4       ;
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|bludge_time[3] ; 2       ;
-; game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|bludge_time[1] ; 4       ;
+; game_controller:game_ctrl|bludger_controller:bludger_ctrl|x_dir[1]            ; 19      ;
 ; Total number of inverted registers = 55                                       ;         ;
 +-------------------------------------------------------------------------------+---------+
 
@@ -509,44 +505,44 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|counter_clk[28]                                      ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|counter_clk[14] ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|bludge_time[2]  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|counter_clk[24] ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|bludge_time[0]  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|counter_clk[16] ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|bludge_time[2]  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|counter_clk[26] ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|bludge_time[4]  ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 0 LEs                ; 21 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[4]      ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|hor_pos[1]      ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[9]      ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 0 LEs                ; 15 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|hor_pos[0]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|counter_clk[3]                                       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|counter_clk[25] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|bludge_time[2]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|counter_clk[1]  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|bludge_time[2]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|counter_clk[31] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|bludge_time[0]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|counter_clk[12] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|bludge_time[0]  ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[7]      ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 0 LEs                ; 15 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|hor_pos[9]      ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 0 LEs                ; 21 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[2]      ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|hor_pos[9]      ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |fakequidditch|vga_controller:vga_cont|red[4]                                                 ;
 ; 12:1               ; 3 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |fakequidditch|vga_controller:vga_cont|blue[6]                                                ;
 ; 12:1               ; 3 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |fakequidditch|vga_controller:vga_cont|blue[7]                                                ;
-; 27:1               ; 4 bits    ; 72 LEs        ; 8 LEs                ; 64 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|y_dir[3]            ;
-; 29:1               ; 7 bits    ; 133 LEs       ; 14 LEs               ; 119 LEs                ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|y_position[7]       ;
-; 29:1               ; 7 bits    ; 133 LEs       ; 14 LEs               ; 119 LEs                ; Yes        ; |fakequidditch|game_controller:game_ctrl|bludger_controller:bludger_ctrl|y_position[7]        ;
-; 29:1               ; 4 bits    ; 76 LEs        ; 8 LEs                ; 68 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|x_dir[4]            ;
-; 29:1               ; 8 bits    ; 152 LEs       ; 16 LEs               ; 136 LEs                ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|x_position[6]       ;
+; 27:1               ; 4 bits    ; 72 LEs        ; 8 LEs                ; 64 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|y_dir[4]            ;
+; 29:1               ; 7 bits    ; 133 LEs       ; 14 LEs               ; 119 LEs                ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|y_position[2]       ;
+; 29:1               ; 7 bits    ; 133 LEs       ; 14 LEs               ; 119 LEs                ; Yes        ; |fakequidditch|game_controller:game_ctrl|bludger_controller:bludger_ctrl|y_position[2]        ;
+; 29:1               ; 4 bits    ; 76 LEs        ; 8 LEs                ; 68 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|x_dir[0]            ;
+; 29:1               ; 8 bits    ; 152 LEs       ; 16 LEs               ; 136 LEs                ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|x_position[0]       ;
 ; 29:1               ; 7 bits    ; 133 LEs       ; 14 LEs               ; 119 LEs                ; Yes        ; |fakequidditch|game_controller:game_ctrl|bludger_controller:bludger_ctrl|x_position[5]        ;
 ; 55:1               ; 4 bits    ; 144 LEs       ; 8 LEs                ; 136 LEs                ; Yes        ; |fakequidditch|game_controller:game_ctrl|bludger_controller:bludger_ctrl|x_dir[4]             ;
 ; 46:1               ; 4 bits    ; 120 LEs       ; 8 LEs                ; 112 LEs                ; Yes        ; |fakequidditch|game_controller:game_ctrl|bludger_controller:bludger_ctrl|y_dir[0]             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|bludge_time[1]  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|bludge_time[3]  ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|bludge_time[1]  ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|bludge_time[1]  ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|bludge_time[3]  ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|bludge_time[1]  ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 0 LEs                ; 9 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[7]      ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|bludge_time[3]  ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[2]      ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 0 LEs                ; 15 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|hor_pos[8]      ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 0 LEs                ; 9 LEs                  ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_pos[6]      ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|hor_pos[3]      ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl|ver_pos[8]      ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 0 LEs                ; 15 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|hor_pos[2]      ;
-; 29:1               ; 4 bits    ; 76 LEs        ; 8 LEs                ; 68 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|y_position[1]       ;
-; 29:1               ; 4 bits    ; 76 LEs        ; 8 LEs                ; 68 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|bludger_controller:bludger_ctrl|y_position[4]        ;
-; 29:1               ; 3 bits    ; 57 LEs        ; 6 LEs                ; 51 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|x_position[4]       ;
-; 29:1               ; 4 bits    ; 76 LEs        ; 8 LEs                ; 68 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|bludger_controller:bludger_ctrl|x_position[8]        ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |fakequidditch|vga_controller:vga_cont|red                                                    ;
-; 12:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |fakequidditch|vga_controller:vga_cont|green                                                  ;
+; 29:1               ; 4 bits    ; 76 LEs        ; 8 LEs                ; 68 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|y_position[0]       ;
+; 29:1               ; 4 bits    ; 76 LEs        ; 8 LEs                ; 68 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|bludger_controller:bludger_ctrl|y_position[0]        ;
+; 29:1               ; 3 bits    ; 57 LEs        ; 6 LEs                ; 51 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|ball_controller_furkan:ball_ctrl|x_position[8]       ;
+; 29:1               ; 4 bits    ; 76 LEs        ; 8 LEs                ; 68 LEs                 ; Yes        ; |fakequidditch|game_controller:game_ctrl|bludger_controller:bludger_ctrl|x_position[7]        ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |fakequidditch|vga_controller:vga_cont|red                                                    ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |fakequidditch|vga_controller:vga_cont|blue                                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------+
 
 
@@ -1095,29 +1091,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; ball_x               ; Input ; Warning  ; Input port expression (19 bits) is wider than the input port (11 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
 ; ball_y               ; Input ; Warning  ; Input port expression (19 bits) is wider than the input port (11 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; blue_ver_bludge_time ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "blue_ver_bludge_time[4..1]" will be connected to GND.                       ;
-; blue_hor_bludge_time ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "blue_hor_bludge_time[4..1]" will be connected to GND.                       ;
-; red_ver_bludge_time  ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "red_ver_bludge_time[4..1]" will be connected to GND.                        ;
-; red_hor_bludge_time  ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "red_hor_bludge_time[4..1]" will be connected to GND.                        ;
+; blue_ver_bludge_time ; Input ; Warning  ; Input port expression (4 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "blue_ver_bludge_time[4..4]" will be connected to GND.                       ;
+; blue_hor_bludge_time ; Input ; Warning  ; Input port expression (4 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "blue_hor_bludge_time[4..4]" will be connected to GND.                       ;
+; red_ver_bludge_time  ; Input ; Warning  ; Input port expression (4 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "red_ver_bludge_time[4..4]" will be connected to GND.                        ;
+; red_hor_bludge_time  ; Input ; Warning  ; Input port expression (4 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "red_hor_bludge_time[4..4]" will be connected to GND.                        ;
 +----------------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl"                                                                       ;
-+-------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
-; Port        ; Type   ; Severity ; Details                                                                                                                        ;
-+-------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
-; bludge_time ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (4 bits) it drives; bit(s) "bludge_time[4..4]" have no fanouts ;
-+-------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl"                                                                       ;
-+-------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
-; Port        ; Type   ; Severity ; Details                                                                                                                        ;
-+-------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
-; bludge_time ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (4 bits) it drives; bit(s) "bludge_time[4..4]" have no fanouts ;
-+-------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1130,40 +1108,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl"                                                                       ;
-+-------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
-; Port        ; Type   ; Severity ; Details                                                                                                                        ;
-+-------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
-; bludge_time ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (4 bits) it drives; bit(s) "bludge_time[4..4]" have no fanouts ;
-+-------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl"                                                                       ;
-+-------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
-; Port        ; Type   ; Severity ; Details                                                                                                                        ;
-+-------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
-; bludge_time ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (4 bits) it drives; bit(s) "bludge_time[4..4]" have no fanouts ;
-+-------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "game_controller:game_ctrl"                                                                                                                                   ;
-+---------------------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------+
-; Port                      ; Type   ; Severity ; Details                                                                                                                                 ;
-+---------------------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------+
-; ball_ver_position[18..11] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                     ;
-; ball_hor_position[18..11] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                     ;
-; blue_ver_bludge_time      ; Output ; Warning  ; Output or bidir port (4 bits) is wider than the port expression (1 bits) it drives; bit(s) "blue_ver_bludge_time[3..1]" have no fanouts ;
-; blue_ver_bludge_time      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                     ;
-; blue_hor_bludge_time      ; Output ; Warning  ; Output or bidir port (4 bits) is wider than the port expression (1 bits) it drives; bit(s) "blue_hor_bludge_time[3..1]" have no fanouts ;
-; blue_hor_bludge_time      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                     ;
-; red_ver_bludge_time       ; Output ; Warning  ; Output or bidir port (4 bits) is wider than the port expression (1 bits) it drives; bit(s) "red_ver_bludge_time[3..1]" have no fanouts  ;
-; red_ver_bludge_time       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                     ;
-; red_hor_bludge_time       ; Output ; Warning  ; Output or bidir port (4 bits) is wider than the port expression (1 bits) it drives; bit(s) "red_hor_bludge_time[3..1]" have no fanouts  ;
-; red_hor_bludge_time       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                     ;
-+---------------------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "game_controller:game_ctrl"                                                                               ;
++---------------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                      ; Type   ; Severity ; Details                                                                             ;
++---------------------------+--------+----------+-------------------------------------------------------------------------------------+
+; ball_ver_position[18..11] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ball_hor_position[18..11] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -1171,7 +1123,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:23     ;
+; Top            ; 00:00:24     ;
 +----------------+--------------+
 
 
@@ -1181,14 +1133,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Fri May 31 20:44:34 2019
+    Info: Processing started: Fri May 31 23:50:48 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fakequidditch -c fakequidditch
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file fakequidditch.v
     Info (12023): Found entity 1: fakequidditch
 Info (12021): Found 1 design units, including 1 entities, in source file vga_controller/vga_controller.v
     Info (12023): Found entity 1: vga_controller
-Warning (10090): Verilog HDL syntax warning at game_controller.v(88): extra block comment delimiter characters /* within block comment
+Warning (10090): Verilog HDL syntax warning at game_controller.v(87): extra block comment delimiter characters /* within block comment
 Info (12021): Found 1 design units, including 1 entities, in source file game_controller/game_controller.v
     Info (12023): Found entity 1: game_controller
 Info (12021): Found 1 design units, including 1 entities, in source file game_controller/ver_player_controller.v
@@ -1199,23 +1151,15 @@ Info (12021): Found 1 design units, including 1 entities, in source file game_co
     Info (12023): Found entity 1: bludger_controller
 Info (12021): Found 1 design units, including 1 entities, in source file game_controller/ball_controller_furkan.v
     Info (12023): Found entity 1: ball_controller_furkan
-Warning (10236): Verilog HDL Implicit Net warning at fakequidditch.v(81): created implicit net for "blue_ver_bludge_time_wire"
-Warning (10236): Verilog HDL Implicit Net warning at fakequidditch.v(81): created implicit net for "blue_hor_bludge_time_wire"
-Warning (10236): Verilog HDL Implicit Net warning at fakequidditch.v(82): created implicit net for "red_ver_bludge_time_wire"
-Warning (10236): Verilog HDL Implicit Net warning at fakequidditch.v(82): created implicit net for "red_hor_bludge_time_wire"
-Warning (10236): Verilog HDL Implicit Net warning at fakequidditch.v(88): created implicit net for "blue_ver_bludge_time"
-Warning (10236): Verilog HDL Implicit Net warning at fakequidditch.v(88): created implicit net for "blue_hor_bludge_time"
-Warning (10236): Verilog HDL Implicit Net warning at fakequidditch.v(88): created implicit net for "red_ver_bludge_time"
-Warning (10236): Verilog HDL Implicit Net warning at fakequidditch.v(88): created implicit net for "red_hor_bludge_time"
 Warning (10236): Verilog HDL Implicit Net warning at vga_controller.v(83): created implicit net for "bludger"
-Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(83): created implicit net for "blue_ver_clean_wire"
-Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(85): created implicit net for "red_ver_clean_wire"
-Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(101): created implicit net for "blue_ver_bludged_wire"
-Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(101): created implicit net for "blue_hor_bludged_wire"
-Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(101): created implicit net for "red_ver_bludged_wire"
-Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(101): created implicit net for "red_hor_bludged_wire"
-Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(104): created implicit net for "blue_hor_clean_wire"
-Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(106): created implicit net for "red_hor_clean_wire"
+Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(82): created implicit net for "blue_ver_clean_wire"
+Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(84): created implicit net for "red_ver_clean_wire"
+Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(100): created implicit net for "blue_ver_bludged_wire"
+Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(100): created implicit net for "blue_hor_bludged_wire"
+Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(100): created implicit net for "red_ver_bludged_wire"
+Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(100): created implicit net for "red_hor_bludged_wire"
+Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(103): created implicit net for "blue_hor_clean_wire"
+Warning (10236): Verilog HDL Implicit Net warning at game_controller.v(105): created implicit net for "red_hor_clean_wire"
 Warning (10222): Verilog HDL Parameter Declaration warning at ver_player_controller.v(28): Parameter Declaration in module "ver_player_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at ver_player_controller.v(29): Parameter Declaration in module "ver_player_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at ver_player_controller.v(30): Parameter Declaration in module "ver_player_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
@@ -1238,35 +1182,35 @@ Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(5
 Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(51): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(52): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(53): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(186): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(187): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(189): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(190): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(192): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(193): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(195): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(196): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(198): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(199): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(201): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(202): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(204): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
-Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(205): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(89): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(90): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(92): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(93): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(95): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(96): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(98): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(99): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(101): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(102): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(104): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(105): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(107): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at vga_controller.v(108): Parameter Declaration in module "vga_controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Info (12127): Elaborating entity "fakequidditch" for the top level hierarchy
 Info (12128): Elaborating entity "game_controller" for hierarchy "game_controller:game_ctrl"
-Warning (10230): Verilog HDL assignment warning at game_controller.v(129): truncated value with size 32 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at game_controller.v(141): truncated value with size 32 to match size of target (7)
-Warning (10230): Verilog HDL assignment warning at game_controller.v(144): truncated value with size 32 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at game_controller.v(128): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at game_controller.v(140): truncated value with size 32 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at game_controller.v(143): truncated value with size 32 to match size of target (7)
 Info (12128): Elaborating entity "ver_player_controller" for hierarchy "game_controller:game_ctrl|ver_player_controller:team1_ver_ctrl"
 Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(40): truncated value with size 32 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(53): truncated value with size 32 to match size of target (5)
-Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(101): truncated value with size 32 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(104): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(53): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(99): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(102): truncated value with size 32 to match size of target (10)
 Info (12128): Elaborating entity "ver_player_controller" for hierarchy "game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl"
 Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(40): truncated value with size 32 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(53): truncated value with size 32 to match size of target (5)
-Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(101): truncated value with size 32 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(104): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(53): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(99): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at ver_player_controller.v(102): truncated value with size 32 to match size of target (10)
 Info (12128): Elaborating entity "ball_controller_furkan" for hierarchy "game_controller:game_ctrl|ball_controller_furkan:ball_ctrl"
 Warning (10230): Verilog HDL assignment warning at ball_controller_furkan.v(33): truncated value with size 32 to match size of target (1)
 Warning (10230): Verilog HDL assignment warning at ball_controller_furkan.v(38): truncated value with size 32 to match size of target (1)
@@ -1385,12 +1329,12 @@ Warning (10230): Verilog HDL assignment warning at bludger_controller.v(270): tr
 Warning (10230): Verilog HDL assignment warning at bludger_controller.v(271): truncated value with size 32 to match size of target (11)
 Info (12128): Elaborating entity "hor_player_controller" for hierarchy "game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl"
 Warning (10230): Verilog HDL assignment warning at hor_player_controller.v(38): truncated value with size 32 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at hor_player_controller.v(51): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at hor_player_controller.v(51): truncated value with size 32 to match size of target (4)
 Warning (10230): Verilog HDL assignment warning at hor_player_controller.v(97): truncated value with size 32 to match size of target (10)
 Warning (10230): Verilog HDL assignment warning at hor_player_controller.v(100): truncated value with size 32 to match size of target (10)
 Info (12128): Elaborating entity "hor_player_controller" for hierarchy "game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl"
 Warning (10230): Verilog HDL assignment warning at hor_player_controller.v(38): truncated value with size 32 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at hor_player_controller.v(51): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at hor_player_controller.v(51): truncated value with size 32 to match size of target (4)
 Warning (10230): Verilog HDL assignment warning at hor_player_controller.v(97): truncated value with size 32 to match size of target (10)
 Warning (10230): Verilog HDL assignment warning at hor_player_controller.v(100): truncated value with size 32 to match size of target (10)
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga_cont"
@@ -1402,21 +1346,17 @@ Warning (10230): Verilog HDL assignment warning at vga_controller.v(81): truncat
 Warning (10230): Verilog HDL assignment warning at vga_controller.v(83): truncated value with size 32 to match size of target (1)
 Warning (10230): Verilog HDL assignment warning at vga_controller.v(85): truncated value with size 32 to match size of target (1)
 Warning (10230): Verilog HDL assignment warning at vga_controller.v(87): truncated value with size 32 to match size of target (1)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(89): truncated value with size 32 to match size of target (1)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(113): truncated value with size 32 to match size of target (1)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(137): truncated value with size 32 to match size of target (1)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(161): truncated value with size 32 to match size of target (1)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(220): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(221): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(222): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(224): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(225): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(226): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(227): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(238): truncated value with size 32 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(251): truncated value with size 32 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(289): truncated value with size 32 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at vga_controller.v(290): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(123): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(124): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(125): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(127): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(128): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(129): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(130): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(141): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(154): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(300): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at vga_controller.v(301): truncated value with size 32 to match size of target (8)
 Info (278001): Inferred 13 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "vga_controller:vga_cont|Div3"
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "vga_controller:vga_cont|Mod3"
@@ -1485,21 +1425,21 @@ Info (12133): Instantiated megafunction "vga_controller:vga_cont|lpm_mult:Mult12
     Info (12134): Parameter "DEDICATED_MULTIPLIER_CIRCUITRY" = "NO"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_ol01.v
     Info (12023): Found entity 1: mult_ol01
-Warning (12241): 7 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (13014): Ignored 1570 buffer(s)
     Info (13019): Ignored 1570 SOFT buffer(s)
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 6362 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 6870 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 9 input pins
     Info (21059): Implemented 27 output pins
-    Info (21061): Implemented 6217 logic cells
+    Info (21061): Implemented 6725 logic cells
     Info (21062): Implemented 109 DSP elements
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 211 warnings
-    Info: Peak virtual memory: 4809 megabytes
-    Info: Processing ended: Fri May 31 20:45:01 2019
-    Info: Elapsed time: 00:00:27
-    Info: Total CPU time (on all processors): 00:00:26
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 199 warnings
+    Info: Peak virtual memory: 4818 megabytes
+    Info: Processing ended: Fri May 31 23:51:17 2019
+    Info: Elapsed time: 00:00:29
+    Info: Total CPU time (on all processors): 00:00:28
 
 

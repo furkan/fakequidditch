@@ -52,7 +52,7 @@ module vga_controller #(
 	parameter RED_GOAL3_X  = 500;
 	parameter RED_GOAL3_Y  = 100;
 	
-	wire blue_goals, red_goals, blue_players, red_players, ball, border, half_line, blue_ver_bludger, blue_hor_bludger, red_ver_bludger, red_hor_bludger;
+	wire blue_goals, red_goals, blue_players, red_players, ball, border, half_line;
 	
 	assign blue_goals = (
 		   ((((y-BLUE_GOAL1_Y)**2)+((x-BLUE_GOAL1_X)**2) < (GOAL_RADIUS + 2)**2)
@@ -85,103 +85,6 @@ module vga_controller #(
 	assign border = (x == 144 || x == 659 || y == 35 || y == 513) ? 1 : 0; // rgb
 	
 	assign half_line = (y == 275) ? 1 : 0; // rgb
-	
-	assign blue_ver_bludger = (
-		(blue_ver_bludge_time > 0 && blue_ver_bludge_time < 10) && (
-			((!(blue_ver_bludge_time == 'd1 || blue_ver_bludge_time == 'd4))
-			&& ((y <= team1_ver_pos - 17 && y >= team1_ver_pos - 19) && (x <= 240 + 7 && x >= 240 - 7))) 
-			
-		|| ((!(blue_ver_bludge_time == 'd5 || blue_ver_bludge_time == 'd6))
-			&& ((y <= team1_ver_pos - 2 && y >= team1_ver_pos - 16) && (x <= 240 + 10 && x >= 240 + 8)))
-			
-		|| ((!(blue_ver_bludge_time == 'd2))
-			&& ((y <= team1_ver_pos + 16 && y >= team1_ver_pos + 2) && (x <= 240 + 10 && x >= 240 + 8)))
-			
-		|| ((!(blue_ver_bludge_time == 'd1 || blue_ver_bludge_time == 'd4 || blue_ver_bludge_time == 'd7))
-			&& ((y <= team1_ver_pos + 19 && y >= team1_ver_pos + 17) && (x <= 240 + 7 && x >= 240 - 7)))
-		
-		|| (((blue_ver_bludge_time == 'd0 || blue_ver_bludge_time == 'd2 || blue_ver_bludge_time == 'd6 || blue_ver_bludge_time == 'd8))
-			&& ((y <= team1_ver_pos + 16 && y >= team1_ver_pos + 2) && (x <= 240 - 8 && x >= 240 - 10)))
-		
-		|| ((!(blue_ver_bludge_time == 'd1 || blue_ver_bludge_time == 'd2 || blue_ver_bludge_time == 'd3 || blue_ver_bludge_time == 'd7))
-			&& ((y <= team1_ver_pos - 2 && y >= team1_ver_pos - 16) && (x <= 240 - 8 && x >= 240 - 10)))
-		
-		|| ((!(blue_ver_bludge_time == 'd0 || blue_ver_bludge_time == 'd1 || blue_ver_bludge_time == 'd7))
-			&& ((y <= team1_ver_pos + 1 && y >= team1_ver_pos - 1) && (x <= 240 + 7 && x >= 240 - 7)))
-		)) ? 1 : 0;
-		
-	assign blue_hor_bludger = (
-		(blue_hor_bludge_time > 0 && blue_hor_bludge_time < 10) && (
-			((!(blue_hor_bludge_time == 'd1 || blue_hor_bludge_time == 'd4))
-			&& ((y <= 380 - 17 && y >= 380 - 19) && (x <= team1_hor_pos + 7 && x >= team1_hor_pos - 7))) 
-			
-		|| ((!(blue_hor_bludge_time == 'd5 || blue_hor_bludge_time == 'd6))
-			&& ((y <= 380 - 2 && y >= 380 - 16) && (x <= team1_hor_pos + 10 && x >= team1_hor_pos + 8)))
-			
-		|| ((!(blue_hor_bludge_time == 'd2))
-			&& ((y <= 380 + 16 && y >= 380 + 2) && (x <= team1_hor_pos + 10 && x >= team1_hor_pos + 8)))
-			
-		|| ((!(blue_hor_bludge_time == 'd1 || blue_hor_bludge_time == 'd4 || blue_ver_bludge_time == 'd7))
-			&& ((y <= 380 + 19 && y >= 380 + 17) && (x <= team1_hor_pos + 7 && x >= team1_hor_pos - 7)))
-		
-		|| (((blue_hor_bludge_time == 'd0 || blue_hor_bludge_time == 'd2 || blue_ver_bludge_time == 'd6 || blue_ver_bludge_time == 'd8))
-			&& ((y <= 380 + 16 && y >= 380 + 2) && (x <= team1_hor_pos - 8 && x >= team1_hor_pos - 10)))
-		
-		|| ((!(blue_hor_bludge_time == 'd1 || blue_hor_bludge_time == 'd2 || blue_ver_bludge_time == 'd3 || blue_ver_bludge_time == 'd7))
-			&& ((y <= 380 - 2 && y >= 380 - 16) && (x <= team1_hor_pos - 8 && x >= team1_hor_pos - 10)))
-		
-		|| ((!(blue_hor_bludge_time == 'd0 || blue_hor_bludge_time == 'd1 || blue_ver_bludge_time == 'd7))
-			&& ((y <= 380 + 1 && y >= 380 - 1) && (x <= team1_hor_pos + 7 && x >= team1_hor_pos - 7)))
-		)) ? 1 : 0;
-		
-	assign red_ver_bludger = (
-		(red_ver_bludge_time > 0 && red_ver_bludge_time < 10) && (
-			((!(red_ver_bludge_time == 'd1 || red_ver_bludge_time == 'd4))
-			&& ((y <= team2_ver_pos - 17 && y >= team2_ver_pos - 19) && (x <= 560 + 7 && x >= 560 - 7))) 
-			
-		|| ((!(red_ver_bludge_time == 'd5 || red_ver_bludge_time == 'd6))
-			&& ((y <= team2_ver_pos - 2 && y >= team2_ver_pos - 16) && (x <= 560 + 10 && x >= 560 + 8)))
-			
-		|| ((!(red_ver_bludge_time == 'd2))
-			&& ((y <= team2_ver_pos + 16 && y >= team2_ver_pos + 2) && (x <= 560 + 10 && x >= 560 + 8)))
-			
-		|| ((!(red_ver_bludge_time == 'd1 || red_ver_bludge_time == 'd4 || red_ver_bludge_time == 'd7))
-			&& ((y <= team2_ver_pos + 19 && y >= team2_ver_pos + 17) && (x <= 560 + 7 && x >= 560 - 7)))
-		
-		|| (((red_ver_bludge_time == 'd0 || red_ver_bludge_time == 'd2 || red_ver_bludge_time == 'd6 || red_ver_bludge_time == 'd8))
-			&& ((y <= team2_ver_pos + 16 && y >= team2_ver_pos + 2) && (x <= 560 - 8 && x >= 560 - 10)))
-		
-		|| ((!(red_ver_bludge_time == 'd1 || red_ver_bludge_time == 'd2 || red_ver_bludge_time == 'd3 || red_ver_bludge_time == 'd7))
-			&& ((y <= team2_ver_pos - 2 && y >= team2_ver_pos - 16) && (x <= 560 - 8 && x >= 560 - 10)))
-		
-		|| ((!(red_ver_bludge_time == 'd0 || red_ver_bludge_time == 'd1 || red_ver_bludge_time == 'd7))
-			&& ((y <= team2_ver_pos + 1 && y >= team2_ver_pos - 1) && (x <= 560 + 7 && x >= 560 - 7)))
-		)) ? 1 : 0;
-		
-	assign red_hor_bludger = (
-		(red_hor_bludge_time > 0 && red_hor_bludge_time < 10) && (
-			((!(red_hor_bludge_time == 'd1 || red_hor_bludge_time == 'd4))
-			&& ((y <= 180 - 17 && y >= 180 - 19) && (x <= team2_hor_pos + 7 && x >= team2_hor_pos - 7))) 
-			
-		|| ((!(red_hor_bludge_time == 'd5 || red_hor_bludge_time == 'd6))
-			&& ((y <= 180 - 2 && y >= 180 - 16) && (x <= team2_hor_pos + 10 && x >= team2_hor_pos + 8)))
-			
-		|| ((!(red_hor_bludge_time == 'd2))
-			&& ((y <= 180 + 16 && y >= 180 + 2) && (x <= team2_hor_pos + 10 && x >= team2_hor_pos + 8)))
-			
-		|| ((!(red_hor_bludge_time == 'd1 || red_hor_bludge_time == 'd4 || red_ver_bludge_time == 'd7))
-			&& ((y <= 180 + 19 && y >= 180 + 17) && (x <= team2_hor_pos + 7 && x >= team2_hor_pos - 7)))
-		
-		|| (((red_hor_bludge_time == 'd0 || red_hor_bludge_time == 'd2 || red_ver_bludge_time == 'd6 || red_ver_bludge_time == 'd8))
-			&& ((y <= 180 + 16 && y >= 180 + 2) && (x <= team2_hor_pos - 8 && x >= team2_hor_pos - 10)))
-		
-		|| ((!(red_hor_bludge_time == 'd1 || red_hor_bludge_time == 'd2 || red_ver_bludge_time == 'd3 || red_ver_bludge_time == 'd7))
-			&& ((y <= 180 - 2 && y >= 180 - 16) && (x <= team2_hor_pos - 8 && x >= team2_hor_pos - 10)))
-		
-		|| ((!(red_hor_bludge_time == 'd0 || red_hor_bludge_time == 'd1 || red_ver_bludge_time == 'd7))
-			&& ((y <= 180 + 1 && y >= 180 - 1) && (x <= team2_hor_pos + 7 && x >= team2_hor_pos - 7)))
-		)) ? 1 : 0;
-		
 	
 	parameter MINUTE_POSITION_X = 680;
 	parameter MINUTE_POSITION_Y = 275;
@@ -260,12 +163,120 @@ module vga_controller #(
 		if (x < 784 && x > 143 && y < 515 && y > 34) begin		// the active region
 		
 			if (x < 660) begin		// field
-				if (red_goals || red_players || border || half_line || ball || blue_ver_bludger || blue_hor_bludger || bludger) red = 8'b11111111;
+				if (red_goals || red_players || border || half_line || ball || bludger) red = 8'b11111111;
 				else red = 8'b00000000;
-				if ((blue_goals || blue_players || border || half_line || ball || red_ver_bludger || red_hor_bludger) && !(bludger)) blue = 8'b11111111;
+				if ((blue_goals || blue_players || border || half_line || ball) && !(bludger)) blue = 8'b11111111;
 				else blue = 8'b00000000;
-				if ((border || half_line || blue_ver_bludger || blue_hor_bludger  || red_ver_bludger || red_hor_bludger || bludger) && !(ball)) green = 8'b11111111;
+				if ((border || half_line || bludger) && !(ball)) green = 8'b11111111;
 				else green = 8'b00000000;
+				
+				if ((blue_ver_bludge_time > 0 && blue_ver_bludge_time < 10) && (
+						((!(blue_ver_bludge_time == 'd1 || blue_ver_bludge_time == 'd4))
+						&& ((y <= team1_ver_pos - 17 && y >= team1_ver_pos - 19) && (x <= 240 + 7 && x >= 240 - 7))) 
+						
+					|| ((!(blue_ver_bludge_time == 'd5 || blue_ver_bludge_time == 'd6))
+						&& ((y <= team1_ver_pos - 2 && y >= team1_ver_pos - 16) && (x <= 240 + 10 && x >= 240 + 8)))
+						
+					|| ((!(blue_ver_bludge_time == 'd2))
+						&& ((y <= team1_ver_pos + 16 && y >= team1_ver_pos + 2) && (x <= 240 + 10 && x >= 240 + 8)))
+						
+					|| ((!(blue_ver_bludge_time == 'd1 || blue_ver_bludge_time == 'd4 || blue_ver_bludge_time == 'd7))
+						&& ((y <= team1_ver_pos + 19 && y >= team1_ver_pos + 17) && (x <= 240 + 7 && x >= 240 - 7)))
+					
+					|| (((blue_ver_bludge_time == 'd2 || blue_ver_bludge_time == 'd6 || blue_ver_bludge_time == 'd8))
+						&& ((y <= team1_ver_pos + 16 && y >= team1_ver_pos + 2) && (x <= 240 - 8 && x >= 240 - 10)))
+					
+					|| ((!(blue_ver_bludge_time == 'd1 || blue_ver_bludge_time == 'd2 || blue_ver_bludge_time == 'd3 || blue_ver_bludge_time == 'd7))
+						&& ((y <= team1_ver_pos - 2 && y >= team1_ver_pos - 16) && (x <= 240 - 8 && x >= 240 - 10)))
+					
+					|| ((!(blue_ver_bludge_time == 'd1 || blue_ver_bludge_time == 'd7))
+						&& ((y <= team1_ver_pos + 1 && y >= team1_ver_pos - 1) && (x <= 240 + 7 && x >= 240 - 7)))
+					)) begin
+					red   = 8'b11111111;
+					green = 8'b11111111;
+					blue  = 8'b11111111;
+				end
+				
+				if ((blue_hor_bludge_time > 0 && blue_hor_bludge_time < 10) && (
+						((!(blue_hor_bludge_time == 'd1 || blue_hor_bludge_time == 'd4))
+						&& ((y <= 380 - 17 && y >= 380 - 19) && (x <= team1_hor_pos + 7 && x >= team1_hor_pos - 7))) 
+						
+					|| ((!(blue_hor_bludge_time == 'd5 || blue_hor_bludge_time == 'd6))
+						&& ((y <= 380 - 2 && y >= 380 - 16) && (x <= team1_hor_pos + 10 && x >= team1_hor_pos + 8)))
+						
+					|| ((!(blue_hor_bludge_time == 'd2))
+						&& ((y <= 380 + 16 && y >= 380 + 2) && (x <= team1_hor_pos + 10 && x >= team1_hor_pos + 8)))
+						
+					|| ((!(blue_hor_bludge_time == 'd1 || blue_hor_bludge_time == 'd4 || blue_hor_bludge_time == 'd7))
+						&& ((y <= 380 + 19 && y >= 380 + 17) && (x <= team1_hor_pos + 7 && x >= team1_hor_pos - 7)))
+					
+					|| (((blue_hor_bludge_time == 'd2 || blue_hor_bludge_time == 'd6 || blue_hor_bludge_time == 'd8))
+						&& ((y <= 380 + 16 && y >= 380 + 2) && (x <= team1_hor_pos - 8 && x >= team1_hor_pos - 10)))
+					
+					|| ((!(blue_hor_bludge_time == 'd1 || blue_hor_bludge_time == 'd2 || blue_hor_bludge_time == 'd3 || blue_hor_bludge_time == 'd7))
+						&& ((y <= 380 - 2 && y >= 380 - 16) && (x <= team1_hor_pos - 8 && x >= team1_hor_pos - 10)))
+					
+					|| ((!(blue_hor_bludge_time == 'd1 || blue_hor_bludge_time == 'd7))
+						&& ((y <= 380 + 1 && y >= 380 - 1) && (x <= team1_hor_pos + 7 && x >= team1_hor_pos - 7)))
+					)) begin
+					red   = 8'b11111111;
+					green = 8'b11111111;
+					blue  = 8'b11111111;
+				end
+				
+				if ((red_ver_bludge_time > 0 && red_ver_bludge_time < 10) && (
+						((!(red_ver_bludge_time == 'd1 || red_ver_bludge_time == 'd4))
+						&& ((y <= team2_ver_pos - 17 && y >= team2_ver_pos - 19) && (x <= 560 + 7 && x >= 560 - 7))) 
+						
+					|| ((!(red_ver_bludge_time == 'd5 || red_ver_bludge_time == 'd6))
+						&& ((y <= team2_ver_pos - 2 && y >= team2_ver_pos - 16) && (x <= 560 + 10 && x >= 560 + 8)))
+						
+					|| ((!(red_ver_bludge_time == 'd2))
+						&& ((y <= team2_ver_pos + 16 && y >= team2_ver_pos + 2) && (x <= 560 + 10 && x >= 560 + 8)))
+						
+					|| ((!(red_ver_bludge_time == 'd1 || red_ver_bludge_time == 'd4 || red_ver_bludge_time == 'd7))
+						&& ((y <= team2_ver_pos + 19 && y >= team2_ver_pos + 17) && (x <= 560 + 7 && x >= 560 - 7)))
+					
+					|| (((red_ver_bludge_time == 'd2 || red_ver_bludge_time == 'd6 || red_ver_bludge_time == 'd8))
+						&& ((y <= team2_ver_pos + 16 && y >= team2_ver_pos + 2) && (x <= 560 - 8 && x >= 560 - 10)))
+					
+					|| ((!(red_ver_bludge_time == 'd1 || red_ver_bludge_time == 'd2 || red_ver_bludge_time == 'd3 || red_ver_bludge_time == 'd7))
+						&& ((y <= team2_ver_pos - 2 && y >= team2_ver_pos - 16) && (x <= 560 - 8 && x >= 560 - 10)))
+					
+					|| ((!(red_ver_bludge_time == 'd1 || red_ver_bludge_time == 'd7))
+						&& ((y <= team2_ver_pos + 1 && y >= team2_ver_pos - 1) && (x <= 560 + 7 && x >= 560 - 7)))
+					)) begin
+					red   = 8'b11111111;
+					green = 8'b11111111;
+					blue  = 8'b11111111;
+				end
+				
+				if ((red_hor_bludge_time > 0 && red_hor_bludge_time < 10) && (
+						((!(red_hor_bludge_time == 'd1 || red_hor_bludge_time == 'd4))
+						&& ((y <= 180 - 17 && y >= 180 - 19) && (x <= team2_hor_pos + 7 && x >= team2_hor_pos - 7))) 
+						
+					|| ((!(red_hor_bludge_time == 'd5 || red_hor_bludge_time == 'd6))
+						&& ((y <= 180 - 2 && y >= 180 - 16) && (x <= team2_hor_pos + 10 && x >= team2_hor_pos + 8)))
+						
+					|| ((!(red_hor_bludge_time == 'd2))
+						&& ((y <= 180 + 16 && y >= 180 + 2) && (x <= team2_hor_pos + 10 && x >= team2_hor_pos + 8)))
+						
+					|| ((!(red_hor_bludge_time == 'd1 || red_hor_bludge_time == 'd4 || red_hor_bludge_time == 'd7))
+						&& ((y <= 180 + 19 && y >= 180 + 17) && (x <= team2_hor_pos + 7 && x >= team2_hor_pos - 7)))
+					
+					|| (((red_hor_bludge_time == 'd2 || red_hor_bludge_time == 'd6 || red_hor_bludge_time == 'd8))
+						&& ((y <= 180 + 16 && y >= 180 + 2) && (x <= team2_hor_pos - 8 && x >= team2_hor_pos - 10)))
+					
+					|| ((!(red_hor_bludge_time == 'd1 || red_hor_bludge_time == 'd2 || red_hor_bludge_time == 'd3 || red_hor_bludge_time == 'd7))
+						&& ((y <= 180 - 2 && y >= 180 - 16) && (x <= team2_hor_pos - 8 && x >= team2_hor_pos - 10)))
+					
+					|| ((!(red_hor_bludge_time == 'd1 || red_hor_bludge_time == 'd7))
+						&& ((y <= 180 + 1 && y >= 180 - 1) && (x <= team2_hor_pos + 7 && x >= team2_hor_pos - 7)))
+					)) begin
+					red   = 8'b11111111;
+					green = 8'b11111111;
+					blue  = 8'b11111111;
+				end
 				
 			end else if (x == 660) begin // separator between field and board // unnecessary else block
 				red   = 8'b00000000;

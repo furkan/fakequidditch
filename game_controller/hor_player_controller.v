@@ -17,7 +17,7 @@ module hor_player_controller #(
 	output reg [9:0] hor_pos,
 	
 	output reg clean_bludge,
-	output reg [4:0] bludge_time
+	output reg [3:0] bludge_time
 );
 
 	// Horizontal player movements

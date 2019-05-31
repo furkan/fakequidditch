@@ -41,7 +41,6 @@
 	output reg [3:0] blue_hor_bludge_time,
 	output reg [3:0]  red_ver_bludge_time,
 	output reg [3:0]  red_hor_bludge_time
-	
 );
 
 	wire [18:0] x_position;
