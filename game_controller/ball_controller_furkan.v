@@ -22,14 +22,13 @@ module ball_controller_furkan #(
 	output reg red_score_up
 );
 
-	reg signed [10:0] x_dir, y_dir;
-//	reg signed [18:0] m, b, x_bef, y_bef, x_aft, y_aft;
-//	wire [10:0] new_ball_x, new_ball_y;
-//	wire [10:0] new_ball_dir_x, new_ball_dir_y;
+	reg signed [4:0] x_dir, y_dir;
 	
 	integer counter;
 	integer inside_goal     = (GOAL_RADIUS - BALL_RADIUS)   ** 2;
 	integer touching_player = (PLAYER_RADIUS + BALL_RADIUS + 2) ** 2;
+	
+	wire inside_blue_goal
 
 	reg state;
 	
@@ -46,19 +45,7 @@ module ball_controller_furkan #(
 		blue_score_up = 0;
 		red_score_up  = 0;
 	end
-	/*
-	ball_collider blue_ver_collider (.old_ball_x(x_position), .old_ball_y(y_position), .player_x('d240), .player_y(team1_ver_pos), .old_ball_dir_x(x_dir), .old_ball_dir_y(y_dir),
-		.new_ball_x(new_ball_x), .new_ball_y(new_ball_y), .new_ball_dir_x(new_ball_dir_x), .new_ball_dir_y(new_ball_dir_y) );
-
-	ball_collider blue_ver_collider (.old_ball_x(x_position), .old_ball_y(y_position), .player_x('d560), .player_y(team1_ver_pos), .old_ball_dir_x(x_dir), .old_ball_dir_y(y_dir),
-		.new_ball_x(new_ball_x), .new_ball_y(new_ball_y), .new_ball_dir_x(new_ball_dir_x), .new_ball_dir_y(new_ball_dir_y) );
-
-	ball_collider blue_ver_collider (.old_ball_x(x_position), .old_ball_y(y_position), .player_x(team1_hor_pos), .player_y('d380), .old_ball_dir_x(x_dir), .old_ball_dir_y(y_dir),
-		.new_ball_x(new_ball_x), .new_ball_y(new_ball_y), .new_ball_dir_x(new_ball_dir_x), .new_ball_dir_y(new_ball_dir_y) );
-
-	ball_collider blue_ver_collider (.old_ball_x(x_position), .old_ball_y(y_position), .player_x(team2_hor_pos), .player_y('d180), .old_ball_dir_x(x_dir), .old_ball_dir_y(y_dir),
-		.new_ball_x(new_ball_x), .new_ball_y(new_ball_y), .new_ball_dir_x(new_ball_dir_x), .new_ball_dir_y(new_ball_dir_y) );
-	*/
+	
 	always @(posedge clk) begin
 		if (counter < MOVEMENT_FREQUENCY) begin
 			counter <= counter + 'd1;
@@ -268,59 +255,6 @@ module ball_controller_furkan #(
 					y_position <= y_position - 5;
 				end
 			end
-		end
-		
-		/*if ((((y_position - team1_ver_pos)**2)+((x_position - 240)**2) < touching_player)) begin
-			m = (y_position - team1_ver_pos) / (x_position - 240);
-			b = y_position - m * x_position;
-			x_bef = x_position - x_dir;
-			y_bef = y_position - y_dir;
-			x_aft = (2 * x_bef + (2*m) * (y_bef - b)) / (1 + m ** 2) - x_bef;
-			y_aft = m * (2 * x_bef + (2*m) * (y_bef - b)) / (1 + m ** 2) + 2 * b - x_bef;
-			x_dir = x_aft - x_position;
-			y_dir = y_aft - y_position;
-			x_position = x_aft;
-			y_position = y_aft;
-		end
-		
-		if ((((y_position - team2_ver_pos)**2)+((x_position - 560)**2) < touching_player)) begin
-			m = (y_position - team2_ver_pos) / (x_position - 560);
-			b = y_position - m * x_position;
-			x_bef = x_position - x_dir;
-			y_bef = y_position - y_dir;
-			x_aft = (2 * x_bef + (2*m) * (y_bef - b)) / (1 + m ** 2) - x_bef;
-			y_aft = m * (2 * x_bef + (2*m) * (y_bef - b)) / (1 + m ** 2) + 2 * b - x_bef;
-			x_dir = x_aft - x_position;
-			y_dir = y_aft - y_position;
-			x_position = x_aft;
-			y_position = y_aft;
-		end
-		
-		if ((((y_position - 380)**2)+((x_position - team1_hor_pos)**2) < touching_player)) begin
-			m = (y_position - 380) / (x_position - team1_hor_pos);
-			b = y_position - m * x_position;
-			x_bef = x_position - x_dir;
-			y_bef = y_position - y_dir;
-			x_aft = (2 * x_bef + (2*m) * (y_bef - b)) / (1 + m ** 2) - x_bef;
-			y_aft = m * (2 * x_bef + (2*m) * (y_bef - b)) / (1 + m ** 2) + 2 * b - x_bef;
-			x_dir = x_aft - x_position;
-			y_dir = y_aft - y_position;
-			x_position = x_aft;
-			y_position = y_aft;
-		end
-		
-		if ((((y_position - 180)**2)+((x_position - team2_hor_pos)**2) < touching_player)) begin
-			m = (y_position - 180) / (x_position - team2_hor_pos);
-			b = y_position - m * x_position;
-			x_bef = x_position - x_dir;
-			y_bef = y_position - y_dir;
-			x_aft = (2 * x_bef + (2*m) * (y_bef - b)) / (1 + m ** 2) - x_bef;
-			y_aft = m * (2 * x_bef + (2*m) * (y_bef - b)) / (1 + m ** 2) + 2 * b - x_bef;
-			x_dir = x_aft - x_position;
-			y_dir = y_aft - y_position;
-			x_position = x_aft;
-			y_position = y_aft;
-		end
-		*/
+		end		
 	end
 endmodule

@@ -1,6 +1,0 @@
-module ball_controller (
-	input clk,
-	
-);
-
-endmodule
