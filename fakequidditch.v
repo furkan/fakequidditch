@@ -24,10 +24,10 @@ module fakequidditch (clk, team1_vu_button, team1_vd_button, team2_vu_button, te
 	reg  [9:0] team1_hor_pos;
 	reg  [9:0] team2_hor_pos;
 
-	wire [18:0] ball_hor_position;
-	wire [18:0] ball_ver_position;
-	reg  [18:0] ball_x;
-	reg  [18:0] ball_y;
+	wire [10:0] ball_hor_position;
+	wire [10:0] ball_ver_position;
+	reg  [10:0] ball_x;
+	reg  [10:0] ball_y;
 	
 	wire [10:0] bludger_hor_position;
 	wire [10:0] bludger_ver_position;
@@ -39,10 +39,10 @@ module fakequidditch (clk, team1_vu_button, team1_vd_button, team2_vu_button, te
 	wire [3:0] blue_hor_bludge_time_wire;
 	wire [3:0]  red_hor_bludge_time_wire;
 	
-	reg [3:0] blue_ver_bludge_time;
-	reg [3:0]  red_ver_bludge_time;
-	reg [3:0] blue_hor_bludge_time;
-	reg [3:0]  red_hor_bludge_time;
+	reg  [3:0] blue_ver_bludge_time;
+	reg  [3:0]  red_ver_bludge_time;
+	reg  [3:0] blue_hor_bludge_time;
+	reg  [3:0]  red_hor_bludge_time;
 	
 	wire [6:0]  blue_score;
 	wire [6:0]   red_score;
@@ -79,8 +79,7 @@ module fakequidditch (clk, team1_vu_button, team1_vd_button, team2_vu_button, te
 		end
 	end
 
-
-	game_controller #(.PLAYER_RADIUS(25),.BALL_RADIUS(5),.BLUDGER_RADIUS(5),.GOAL_RADIUS(25),.INITIAL_VER_POS('d250),.INITIAL_HOR_POS('d410),.PLAYER_MOVEMENT_FREQUENCY('d200000), .BALL_MOVEMENT_FREQUENCY('d500000)) 
+	game_controller #(.PLAYER_RADIUS(25),.BALL_RADIUS(5),.BLUDGER_RADIUS(10),.GOAL_RADIUS(25),.INITIAL_VER_POS('d250),.INITIAL_HOR_POS('d410),.PLAYER_MOVEMENT_FREQUENCY('d200000), .BALL_MOVEMENT_FREQUENCY('d500000)) 
 		game_ctrl (clk, team1_vu_button, team1_vd_button, team2_vu_button, team2_vd_button,
 			team1_hl_button, team1_hr_button, team2_hl_button, team2_hr_button,
 				 ball_ver_position, ball_hor_position,
@@ -93,7 +92,7 @@ module fakequidditch (clk, team1_vu_button, team1_vd_button, team2_vu_button, te
 
 
 
-	vga_controller #(.PLAYER_RADIUS(25), .GOAL_RADIUS(25), .BALL_RADIUS(5), .BLUDGER_RADIUS(5))
+	vga_controller #(.PLAYER_RADIUS(25), .GOAL_RADIUS(25), .BALL_RADIUS(5), .BLUDGER_RADIUS(10))
 
 		vga_cont (clk, vga_clk, team1_ver_pos, team2_ver_pos, team1_hor_pos, team2_hor_pos, ball_x, ball_y, bludger_x, bludger_y, left_seconds, blue_ver_bludge_time, blue_hor_bludge_time, red_ver_bludge_time, red_hor_bludge_time, team1_score, team2_score, hor_sync, ver_sync, red, green, blue);
 

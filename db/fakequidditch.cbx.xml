@@ -2,17 +2,12 @@
 <LOG_ROOT>
 	<PROJECT NAME="fakequidditch">
 		<CBX_INST_ENTRY INSTANCE_NAME="|fakequidditch|vga_controller:vga_cont|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_7am.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|fakequidditch|vga_controller:vga_cont|lpm_divide:Mod3" CBX_FILE_NAME="lpm_divide_62m.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|fakequidditch|vga_controller:vga_cont|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_3am.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|fakequidditch|vga_controller:vga_cont|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_a2m.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|fakequidditch|vga_controller:vga_cont|lpm_mult:Mult13_rtl_1" CBX_FILE_NAME="mult_ol01.v"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|fakequidditch|vga_controller:vga_cont|lpm_mult:Mult9_rtl_4" CBX_FILE_NAME="mult_ol01.v"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|fakequidditch|vga_controller:vga_cont|lpm_divide:Div2" CBX_FILE_NAME="lpm_divide_3am.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|fakequidditch|vga_controller:vga_cont|lpm_divide:Mod1" CBX_FILE_NAME="lpm_divide_62m.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|fakequidditch|vga_controller:vga_cont|lpm_mult:Mult17_rtl_2" CBX_FILE_NAME="mult_ol01.v"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fakequidditch|vga_controller:vga_cont|lpm_divide:Mod3" CBX_FILE_NAME="lpm_divide_62m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fakequidditch|vga_controller:vga_cont|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_3am.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|fakequidditch|vga_controller:vga_cont|lpm_divide:Div3" CBX_FILE_NAME="lpm_divide_3am.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fakequidditch|vga_controller:vga_cont|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_a2m.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|fakequidditch|vga_controller:vga_cont|lpm_divide:Mod2" CBX_FILE_NAME="lpm_divide_62m.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|fakequidditch|vga_controller:vga_cont|lpm_mult:Mult0_rtl_3" CBX_FILE_NAME="mult_ol01.v"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|fakequidditch|vga_controller:vga_cont|lpm_mult:Mult12_rtl_0" CBX_FILE_NAME="mult_ol01.v"/>
 	</PROJECT>
 </LOG_ROOT>

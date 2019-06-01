@@ -15,7 +15,7 @@ module bludger_controller #(
 	
 	input [9:0] team1_ver_pos, // 240
 	input [9:0] team2_ver_pos, // 560
-	input [9:0] team1_hor_pos, // 380
+	input [9:0] team1_hor_pos, // 370
 	input [9:0] team2_hor_pos, // 180
 	
 	output reg signed [10:0] x_position,
@@ -37,8 +37,8 @@ module bludger_controller #(
 	
 	reg state;
 	
-	parameter dead  = 'd0;
-	parameter alive = 'd1;
+	parameter dead  = 1'b0;
+	parameter alive = 1'b1;
 	
 	initial begin 
 		state      = dead;
@@ -100,19 +100,19 @@ module bludger_controller #(
 		// ball collisions blue vertical
 		if ((((y_position - team1_ver_pos)**2)+((x_position - 240)**2) < touching_player)) begin
 			blue_ver_bludged <= 1;
-			if (x_position > 240 + 28) begin // east side
+			if (x_position > 240 + 32) begin // east side
 				x_dir <= - x_dir;
 				x_position <= x_position + 5;
 				if (random == 1) y_dir <= -y_dir;
-			end else if (x_position < 240 - 28) begin // west side
+			end else if (x_position < 240 - 32) begin // west side
 				x_dir <= - x_dir;
 				x_position <= x_position - 5;
 				if (random == 1) y_dir <= -y_dir;
-			end else if (y_position > team1_ver_pos + 28) begin // south side
+			end else if (y_position > team1_ver_pos + 32) begin // south side
 				y_dir <= - y_dir;
 				y_position <= y_position + 5;
 				if (random == 1) x_dir <= -x_dir;
-			end else if (y_position < team1_ver_pos - 28) begin // north side
+			end else if (y_position < team1_ver_pos - 32) begin // north side
 				y_dir <= - y_dir;
 				y_position <= y_position - 5;
 				if (random == 1) x_dir <= -x_dir;
@@ -142,41 +142,41 @@ module bludger_controller #(
 		end
 		
 		// ball collisions blue horizontal
-		if ((((y_position - 380)**2)+((x_position - team1_hor_pos)**2) < touching_player)) begin
+		if ((((y_position - 370)**2)+((x_position - team1_hor_pos)**2) < touching_player)) begin
 			blue_hor_bludged <= 1;
-			if (x_position > team1_hor_pos + 28) begin // east side
+			if (x_position > team1_hor_pos + 32) begin // east side
 				x_dir <= - x_dir;
 				x_position <= x_position + 5;
 				if (random == 1) y_dir <= -y_dir;
-			end else if (x_position < team1_hor_pos - 28) begin // west side
+			end else if (x_position < team1_hor_pos - 32) begin // west side
 				x_dir <= - x_dir;
 				x_position <= x_position - 5;
 				if (random == 1) y_dir <= -y_dir;
-			end else if (y_position > 380 + 28) begin // south side
+			end else if (y_position > 370 + 32) begin // south side
 				y_dir <= - y_dir;
 				y_position <= y_position + 5;
 				if (random == 1) x_dir <= -x_dir;
-			end else if (y_position < 380 - 28) begin // north side
+			end else if (y_position < 370 - 32) begin // north side
 				y_dir <= - y_dir;
 				y_position <= y_position - 5;
 				if (random == 1) x_dir <= -x_dir;
 			end else begin
-				if ((x_position > team1_hor_pos) && (y_position < 380)) begin // northeast side
+				if ((x_position > team1_hor_pos) && (y_position < 370)) begin // northeast side
 					x_dir <= y_dir;
 					y_dir <= x_dir;
 					x_position <= x_position + 5;
 					y_position <= y_position - 5;
-				end else if ((x_position > team1_hor_pos) && (y_position > 380)) begin // southeast side
+				end else if ((x_position > team1_hor_pos) && (y_position > 370)) begin // southeast side
 					x_dir <= -y_dir;
 					y_dir <= -x_dir;
 					x_position <= x_position + 5;
 					y_position <= y_position + 5;
-				end else if ((x_position < team1_hor_pos) && (y_position > 380)) begin // southwest side
+				end else if ((x_position < team1_hor_pos) && (y_position > 370)) begin // southwest side
 					x_dir <= y_dir;
 					y_dir <= x_dir;
 					x_position <= x_position - 5;
 					y_position <= y_position + 5;
-				end else if ((x_position < team1_hor_pos) && (y_position < 380)) begin // northwest side
+				end else if ((x_position < team1_hor_pos) && (y_position < 370)) begin // northwest side
 					x_dir <= -y_dir;
 					y_dir <= -x_dir;
 					x_position <= x_position - 5;
@@ -188,19 +188,19 @@ module bludger_controller #(
 		// ball collisions red vertical
 		if ((((y_position - team2_ver_pos)**2)+((x_position - 560)**2) < touching_player)) begin
 			red_ver_bludged <= 1;
-			if (x_position > 560 + 28) begin // east side
+			if (x_position > 560 + 32) begin // east side
 				x_dir <= - x_dir;
 				x_position <= x_position + 5;
 				if (random == 1) y_dir <= -y_dir;
-			end else if (x_position < 560 - 28) begin // west side
+			end else if (x_position < 560 - 32) begin // west side
 				x_dir <= - x_dir;
 				x_position <= x_position - 5;
 				if (random == 1) y_dir <= -y_dir;
-			end else if (y_position > team2_ver_pos + 28) begin // south side
+			end else if (y_position > team2_ver_pos + 32) begin // south side
 				y_dir <= - y_dir;
 				y_position <= y_position + 5;
 				if (random == 1) x_dir <= -x_dir;
-			end else if (y_position < team2_ver_pos - 28) begin // north side
+			end else if (y_position < team2_ver_pos - 32) begin // north side
 				y_dir <= - y_dir;
 				y_position <= y_position - 5;
 				if (random == 1) x_dir <= -x_dir;
@@ -232,19 +232,19 @@ module bludger_controller #(
 		// ball collisions red horizontal
 		if ((((y_position - 180)**2)+((x_position - team2_hor_pos)**2) < touching_player)) begin
 			red_hor_bludged <= 1;
-			if (x_position > team2_hor_pos + 28) begin // east side
+			if (x_position > team2_hor_pos + 32) begin // east side
 				x_dir <= - x_dir;
 				x_position <= x_position + 5;
 				if (random == 1) y_dir <= -y_dir;
-			end else if (x_position < team2_hor_pos - 28) begin // west side
+			end else if (x_position < team2_hor_pos - 32) begin // west side
 				x_dir <= - x_dir;
 				x_position <= x_position - 5;
 				if (random == 1) y_dir <= -y_dir;
-			end else if (y_position > 180 + 28) begin // south side
+			end else if (y_position > 180 + 32) begin // south side
 				y_dir <= - y_dir;
 				y_position <= y_position + 5;
 				if (random == 1) x_dir <= -x_dir;
-			end else if (y_position < 180 - 28) begin // north side
+			end else if (y_position < 180 - 32) begin // north side
 				y_dir <= - y_dir;
 				y_position <= y_position - 5;
 				if (random == 1) x_dir <= -x_dir;
