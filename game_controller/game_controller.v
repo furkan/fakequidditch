@@ -7,10 +7,6 @@
 	parameter INITIAL_HOR_POS,
 	parameter PLAYER_MOVEMENT_FREQUENCY,
 	parameter BALL_MOVEMENT_FREQUENCY
-<<<<<<< HEAD
-
-=======
->>>>>>> cansu
 )
 (	input clk,
 
