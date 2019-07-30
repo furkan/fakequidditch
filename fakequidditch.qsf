@@ -53,8 +53,6 @@ set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_RO
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR "C:/Users/Cansu/Desktop/fakequidditch/simulation/qsim/" -section_id eda_simulation
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST ON -section_id eda_simulation
-set_global_assignment -name VERILOG_FILE fakequidditch.v
-set_global_assignment -name VERILOG_FILE vga_controller/vga_controller.v
 set_location_assignment PIN_B13 -to blue[0]
 set_location_assignment PIN_G13 -to blue[1]
 set_location_assignment PIN_H13 -to blue[2]
@@ -71,8 +69,8 @@ set_location_assignment PIN_E13 -to red[2]
 set_location_assignment PIN_B12 -to red[3]
 set_location_assignment PIN_W15 -to team1_vd_button
 set_location_assignment PIN_Y16 -to team1_vu_button
-set_location_assignment PIN_AA14 -to team2_vd_button
-set_location_assignment PIN_AA15 -to team2_vu_button
+set_location_assignment PIN_AG23 -to team2_vd_button
+set_location_assignment PIN_AH23 -to team2_vu_button
 set_location_assignment PIN_D11 -to ver_sync
 set_location_assignment PIN_F15 -to blue[5]
 set_location_assignment PIN_G15 -to blue[6]
@@ -87,9 +85,16 @@ set_location_assignment PIN_E12 -to red[6]
 set_location_assignment PIN_F13 -to red[7]
 set_location_assignment PIN_H14 -to blue[4]
 set_location_assignment PIN_A11 -to vga_clk
-set_global_assignment -name VERILOG_FILE game_controller/ball_controller.v
+set_global_assignment -name VERILOG_FILE fakequidditch.v
+set_global_assignment -name VERILOG_FILE vga_controller/vga_controller.v
 set_global_assignment -name VERILOG_FILE game_controller/game_controller.v
 set_global_assignment -name VERILOG_FILE game_controller/ver_player_controller.v
-set_global_assignment -name VERILOG_FILE board.v
-set_global_assignment -name VERILOG_FILE game_controller/ball_controller_cansu.v
+set_global_assignment -name VERILOG_FILE game_controller/hor_player_controller.v
+set_global_assignment -name VERILOG_FILE game_controller/bludger_controller.v
+set_location_assignment PIN_AH25 -to team2_hr_button
+set_location_assignment PIN_AA15 -to team1_hl_button
+set_location_assignment PIN_AA14 -to team1_hr_button
+set_location_assignment PIN_AJ24 -to team2_hl_button
+set_location_assignment PIN_AE12 -to game_on_switch
+set_global_assignment -name VERILOG_FILE game_controller/ball_controller.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

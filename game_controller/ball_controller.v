@@ -1,101 +1,61 @@
 module ball_controller #(
-	parameter PLAYER_RADIUS,		// 35 px works
+	parameter PLAYER_RADIUS,
 	parameter BALL_RADIUS,
 	parameter GOAL_RADIUS,
-	parameter MOVEMENT_FREQUENCY	// inversely proportinal to speed ('d200000 works)
+	parameter MOVEMENT_FREQUENCY
 )
 (
 	input clk,
-//	input [9:0] x_position,
-//	input [9:0] y_position,
-	input [9:0] team1_ver_pos,
-// team1_ver_player_hor_pos = 240
-
-//	input [9:0] team1_hor_pos,
-	input [9:0] team2_ver_pos,
-// team2_ver_player_hor_pos = 560
-//	input [9:0] team2_hor_pos,
-
-	input team1_vu_button,
-	input team1_vd_button,
-	input team2_vu_button,
-	input team2_vd_button,
 	
-	output reg score_to_team1,
-	output reg score_to_team2,
-	output reg [9:0] x_position,
-	output reg [9:0] y_position
+	input game_initiated,
+	input game_over,
+	
+	input [9:0] team1_ver_pos, // 240
+	input [9:0] team2_ver_pos, // 560
+	input [9:0] team1_hor_pos, // 370
+	input [9:0] team2_hor_pos, // 180
+	
+	output reg signed [10:0] x_position,
+	output reg signed [10:0] y_position,
+	
+	output reg blue_score_up,
+	output reg red_score_up
 );
 
-	reg [4:0] ball_dir_x, ball_dir_y;
+	reg signed [4:0] x_dir, y_dir;
 	
 	integer counter;
-	integer inside_goal = (GOAL_RADIUS - BALL_RADIUS) ** 2;
-
-	reg [2:0] state;
+	integer inside_goal     = (GOAL_RADIUS - BALL_RADIUS)   ** 2;
+	integer touching_player = (PLAYER_RADIUS + BALL_RADIUS + 2) ** 2;
 	
-	parameter dead       = 'd0;
-	parameter alive      = 'd1;
-	parameter up_right   = 'd2;
-	parameter up_left    = 'd3;
-	parameter down_left  = 'd4;
-	parameter down_right = 'd5;
+	wire inside_blue_goal, inside_red_goal;
+	
+	assign inside_blue_goal = (
+			      (((y_position-470)**2)+((x_position-300)**2) < inside_goal)
+				|| (((y_position-430)**2)+((x_position-400)**2) < inside_goal)
+				|| (((y_position-470)**2)+((x_position-500)**2) < inside_goal)) ? 1 : 0 ;
+				
+	assign inside_red_goal = (
+			      (((y_position-80)**2)+((x_position-300)**2) < inside_goal)
+				|| (((y_position-120)**2)+((x_position-400)**2) < inside_goal)
+				|| (((y_position-80)**2)+((x_position-500)**2) < inside_goal)) ? 1 : 0 ;
+
+	reg state;
+	
+	parameter dead  = 1'b0;
+	parameter alive = 1'b1;
 	
 	initial begin 
-		state          = dead;
-		counter        =    0;
-		x_position     =  463;
-		y_position     =  275;
-		score_to_team1 =    0;
-		score_to_team2 =    0;
-		ball_dir_x     =    5;
-		ball_dir_y     =    5;
+		state      = dead;
+		counter    =    0;
+		x_position =  400;
+		y_position =  275;
+		x_dir      =    2;
+		y_dir      =    2;
+		blue_score_up = 0;
+		red_score_up  = 0;
 	end
 	
-	always @(posedge clk) begin
-		if ((team1_vu_button && team1_vd_button && team2_vu_button && team2_vd_button) == 0) begin
-			state = down_right;
-		end else if (
-			      (((y_position-450)**2)+((x_position-300)**2) < inside_goal) // BLUE GOAL 1
-				|| (((y_position-450)**2)+((x_position-400)**2) < inside_goal) // BLUE GOAL 2
-				|| (((y_position-450)**2)+((x_position-500)**2) < inside_goal) // BLUE GOAL 3
-		) begin
-			//state = dead;
-			score_to_team2 = 1;
-		end else if (
-			      (((y_position-100)**2)+((x_position-300)**2) < inside_goal) // RED  GOAL 1
-				|| (((y_position-100)**2)+((x_position-400)**2) < inside_goal) // RED  GOAL 2
-				|| (((y_position-100)**2)+((x_position-500)**2) < inside_goal) // RED  GOAL 3
-		) begin
-			//state = dead;
-			score_to_team1 = 1;
-		end else if (y_position < 36 + BALL_RADIUS) begin
-			if (state == up_left) begin
-				state = down_left;
-			end else begin
-				state = down_right;
-			end
-		end else if (y_position > 510 - BALL_RADIUS) begin
-			if (state == down_left) begin
-				state = up_left;
-			end else begin
-				state = up_right;
-			end
-		end else if (x_position < 150 + BALL_RADIUS) begin
-			if (state == down_left) begin
-				state = down_right;
-			end else begin
-				state = up_right;
-			end
-		end else if (x_position > 680 - BALL_RADIUS) begin
-			if (state == down_right) begin
-				state = down_left;
-			end else begin
-				state = up_left;
-			end
-		end
-	end
-
 	always @(posedge clk) begin
 		if (counter < MOVEMENT_FREQUENCY) begin
 			counter <= counter + 'd1;
@@ -105,68 +65,198 @@ module ball_controller #(
 	end
 	
 	always @(posedge clk) begin
-		case (state)
-			dead: begin
-				x_position <= x_position;
-				y_position <= y_position;
-			end
-			alive: begin
-				if (counter == 'd98) begin
-					x_position <= x_position + ball_dir_x;
-					y_position <= y_position + ball_dir_y;
-				end
-			end
-			up_left: begin
-				if (counter == 'd98) begin
-					x_position <= x_position - ball_dir_x;
-					y_position <= y_position - ball_dir_y;
-				end
-			end
-			up_right: begin
-				if (counter == 'd98) begin
-					x_position <= x_position + ball_dir_x;
-					y_position <= y_position - ball_dir_y;
-				end
-			end
-			down_right: begin
-				if (counter == 'd98) begin
-					x_position <= x_position + ball_dir_x;
-					y_position <= y_position + ball_dir_y;
-				end
-			end
-			down_left: begin
-				if (counter == 'd98) begin
-					x_position <= x_position - ball_dir_x;
-					y_position <= y_position + ball_dir_y;
-				end
-			end
-		endcase
-	end
-	/*
-	always @(posedge clk) begin
-		if (y_position < 88 + BALL_RADIUS) begin
-			ball_dir_y = 5;
-		end else if (y_position > 510 - BALL_RADIUS) begin
-			ball_dir_y = -5;
-		end else if (x_position < 145 + BALL_RADIUS) begin
-			ball_dir_x = 5;
-		end else if (x_position > 780 - BALL_RADIUS) begin
-			ball_dir_x = -5;
+		if (game_over == 1) begin
+			state <= dead;
+		end else if (inside_blue_goal) begin
+			state <= dead;
+			red_score_up <= ~red_score_up;
+		end else if (inside_red_goal) begin
+		  state <= dead;
+		  blue_score_up <= ~blue_score_up;
+		end else if (game_initiated == 1) begin
+			state <= alive;
 		end
 	end
-	*/
-/*
-	reg [30:0] x_positions;
-	reg [30:0] y_positions;
 	
-	initial begin
-		x_positions = {10'b0 + 'd463, 10'b0 + 'd463, 10'b0 + 463};
-		y_positions = {10'b0 + 'd275, 10'b0 + 'd275, 10'b0 + 275};
-	end
 	always @(posedge clk) begin
-		x_positions <= x_positions << 'd10 + x_position;
-		y_positions <= y_positions << 'd10 + y_position;
+		
+		if (state == dead) begin
+			x_position <= 400;
+			y_position <= 275;
+		end else if (state == alive && counter == 'd28) begin
+			x_position <= x_position + x_dir;
+			y_position <= y_position + y_dir;
+		end
+		
+		// wall collisions
+		if ((y_position) < (36 + BALL_RADIUS)) begin // top wall
+			y_dir <= - y_dir;
+			y_position <= y_position + 5;
+		end else if ((y_position) > (510 - BALL_RADIUS)) begin // bottom wall
+			y_dir <= - y_dir;
+			y_position <= y_position - 5;
+		end else if ((x_position) < (150 + BALL_RADIUS)) begin // left wall
+			x_dir <= - x_dir;
+			x_position <= x_position + 5;
+		end else if (x_position > (660 - BALL_RADIUS)) begin // right wall
+			x_dir <= - x_dir;
+			x_position <= x_position - 5;
+		end
+		
+		// ball collisions blue vertical
+		if ((((y_position - team1_ver_pos)**2)+((x_position - 240)**2) < touching_player)) begin
+			if (x_position > 240 + 28) begin // east side
+				x_dir <= - x_dir;
+				x_position <= x_position + 5;
+			end else if (x_position < 240 - 28) begin // west side
+				x_dir <= - x_dir;
+				x_position <= x_position - 5;
+			end else if (y_position > team1_ver_pos + 28) begin // south side
+				y_dir <= - y_dir;
+				y_position <= y_position + 5;
+			end else if (y_position < team1_ver_pos - 28) begin // north side
+				y_dir <= - y_dir;
+				y_position <= y_position - 5;
+			end else begin
+				if ((x_position > 240) && (y_position < team1_ver_pos)) begin // northeast side
+					x_dir <= y_dir;
+					y_dir <= x_dir;
+					x_position <= x_position + 5;
+					y_position <= y_position - 5;
+				end else if ((x_position > 240) && (y_position > team1_ver_pos)) begin // southeast side
+					x_dir <= -y_dir;
+					y_dir <= -x_dir;
+					x_position <= x_position + 5;
+					y_position <= y_position + 5;
+				end else if ((x_position < 240) && (y_position > team1_ver_pos)) begin // southwest side
+					x_dir <= y_dir;
+					y_dir <= x_dir;
+					x_position <= x_position - 5;
+					y_position <= y_position + 5;
+				end else if ((x_position < 240) && (y_position < team1_ver_pos)) begin // northwest side
+					x_dir <= -y_dir;
+					y_dir <= -x_dir;
+					x_position <= x_position - 5;
+					y_position <= y_position - 5;
+				end
+			end
+		end
+		
+		// ball collisions blue horizontal
+		if ((((y_position - 370)**2)+((x_position - team1_hor_pos)**2) < touching_player)) begin
+			if (x_position > team1_hor_pos + 28) begin // east side
+				x_dir <= - x_dir;
+				x_position <= x_position + 5;
+			end else if (x_position < team1_hor_pos - 28) begin // west side
+				x_dir <= - x_dir;
+				x_position <= x_position - 5;
+			end else if (y_position > 370 + 28) begin // south side
+				y_dir <= - y_dir;
+				y_position <= y_position + 5;
+			end else if (y_position < 370 - 28) begin // north side
+				y_dir <= - y_dir;
+				y_position <= y_position - 5;
+			end else begin
+				if ((x_position > team1_hor_pos) && (y_position < 370)) begin // northeast side
+					x_dir <= y_dir;
+					y_dir <= x_dir;
+					x_position <= x_position + 5;
+					y_position <= y_position - 5;
+				end else if ((x_position > team1_hor_pos) && (y_position > 370)) begin // southeast side
+					x_dir <= -y_dir;
+					y_dir <= -x_dir;
+					x_position <= x_position + 5;
+					y_position <= y_position + 5;
+				end else if ((x_position < team1_hor_pos) && (y_position > 370)) begin // southwest side
+					x_dir <= y_dir;
+					y_dir <= x_dir;
+					x_position <= x_position - 5;
+					y_position <= y_position + 5;
+				end else if ((x_position < team1_hor_pos) && (y_position < 370)) begin // northwest side
+					x_dir <= -y_dir;
+					y_dir <= -x_dir;
+					x_position <= x_position - 5;
+					y_position <= y_position - 5;
+				end
+			end
+		end
+		
+		// ball collisions red vertical
+		if ((((y_position - team2_ver_pos)**2)+((x_position - 560)**2) < touching_player)) begin
+			if (x_position > 560 + 28) begin // east side
+				x_dir <= - x_dir;
+				x_position <= x_position + 5;
+			end else if (x_position < 560 - 28) begin // west side
+				x_dir <= - x_dir;
+				x_position <= x_position - 5;
+			end else if (y_position > team2_ver_pos + 28) begin // south side
+				y_dir <= - y_dir;
+				y_position <= y_position + 5;
+			end else if (y_position < team2_ver_pos - 28) begin // north side
+				y_dir <= - y_dir;
+				y_position <= y_position - 5;
+			end else begin
+				if ((x_position > 560) && (y_position < team2_ver_pos)) begin // northeast side
+					x_dir <= y_dir;
+					y_dir <= x_dir;
+					x_position <= x_position + 5;
+					y_position <= y_position - 5;
+				end else if ((x_position > 560) && (y_position > team2_ver_pos)) begin // southeast side
+					x_dir <= -y_dir;
+					y_dir <= -x_dir;
+					x_position <= x_position + 5;
+					y_position <= y_position + 5;
+				end else if ((x_position < 560) && (y_position > team2_ver_pos)) begin // southwest side
+					x_dir <= y_dir;
+					y_dir <= x_dir;
+					x_position <= x_position - 5;
+					y_position <= y_position + 5;
+				end else if ((x_position < 560) && (y_position < team2_ver_pos)) begin // northwest side
+					x_dir <= -y_dir;
+					y_dir <= -x_dir;
+					x_position <= x_position - 5;
+					y_position <= y_position - 5;
+				end
+			end
+		end
+		
+		// ball collisions red horizontal
+		if ((((y_position - 180)**2)+((x_position - team2_hor_pos)**2) < touching_player)) begin
+			if (x_position > team2_hor_pos + 28) begin // east side
+				x_dir <= - x_dir;
+				x_position <= x_position + 5;
+			end else if (x_position < team2_hor_pos - 28) begin // west side
+				x_dir <= - x_dir;
+				x_position <= x_position - 5;
+			end else if (y_position > 180 + 28) begin // south side
+				y_dir <= - y_dir;
+				y_position <= y_position + 5;
+			end else if (y_position < 180 - 28) begin // north side
+				y_dir <= - y_dir;
+				y_position <= y_position - 5;
+			end else begin
+				if ((x_position > team2_hor_pos) && (y_position < 180)) begin // northeast side
+					x_dir <= y_dir;
+					y_dir <= x_dir;
+					x_position <= x_position + 5;
+					y_position <= y_position - 5;
+				end else if ((x_position > team2_hor_pos) && (y_position > 180)) begin // southeast side
+					x_dir <= -y_dir;
+					y_dir <= -x_dir;
+					x_position <= x_position + 5;
+					y_position <= y_position + 5;
+				end else if ((x_position < team2_hor_pos) && (y_position > 180)) begin // southwest side
+					x_dir <= y_dir;
+					y_dir <= x_dir;
+					x_position <= x_position - 5;
+					y_position <= y_position + 5;
+				end else if ((x_position < team2_hor_pos) && (y_position < 180)) begin // northwest side
+					x_dir <= -y_dir;
+					y_dir <= -x_dir;
+					x_position <= x_position - 5;
+					y_position <= y_position - 5;
+				end
+			end
+		end		
 	end
-*/
-
 endmodule

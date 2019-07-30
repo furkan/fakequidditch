@@ -1,19 +1,15 @@
 
-State Machine - |fakequidditch|game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|ball_dir
-Name ball_dir.northwest ball_dir.northeast ball_dir.southeast ball_dir.north ball_dir.west ball_dir.east ball_dir.south ball_dir.southwest 
-ball_dir.southwest 0 0 0 0 0 0 0 0 
-ball_dir.south 0 0 0 0 0 0 1 1 
-ball_dir.east 0 0 0 0 0 1 0 1 
-ball_dir.west 0 0 0 0 1 0 0 1 
-ball_dir.north 0 0 0 1 0 0 0 1 
-ball_dir.southeast 0 0 1 0 0 0 0 1 
-ball_dir.northeast 0 1 0 0 0 0 0 1 
-ball_dir.northwest 1 0 0 0 0 0 0 1 
+State Machine - |fakequidditch|game_controller:game_ctrl|hor_player_controller:team2_hor_ctrl|hor_state
+Name hor_state.float hor_state.right hor_state.left 
+hor_state.float 0 0 0 
+hor_state.left 1 0 1 
+hor_state.right 1 1 0 
 
-State Machine - |fakequidditch|game_controller:game_ctrl|ball_controller_cansu:ball_ctrl|state
-Name state.active 
-state.beginning 0 
-state.active 1 
+State Machine - |fakequidditch|game_controller:game_ctrl|hor_player_controller:team1_hor_ctrl|hor_state
+Name hor_state.float hor_state.right hor_state.left 
+hor_state.float 0 0 0 
+hor_state.left 1 0 1 
+hor_state.right 1 1 0 
 
 State Machine - |fakequidditch|game_controller:game_ctrl|ver_player_controller:team2_ver_ctrl|ver_state
 Name ver_state.float ver_state.down ver_state.up 
