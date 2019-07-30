@@ -93,7 +93,7 @@ module vga_controller #(
 
 	always @(posedge clk) begin
 //		if (x < 784 && x > 143 && y < 515 && y > 34) begin		// the active region
-		if (x < 684 && x > 143 && y < 515 && y > 34) begin		// field
+		if (x < 660 && x > 143 && y < 515 && y > 34) begin		// field
 			if (
 				((y - ball_y)**2) + ((x - ball_x)**2) < BALL_RADIUS ** 2  // BALL
 			) red = 8'b00000000;
@@ -146,30 +146,30 @@ module vga_controller #(
 				)  blue = 8'b11111111;
 			else blue = 8'b00000000;
 
-		end else if (x < 666 && x > 664 && y < 515 && y > 34) begin // separator between field and board
+		end else if (x < 661 && x > 659 && y < 515 && y > 34) begin // separator between field and board
 			red   = 8'b00000000;
 			green = 8'b00000000;
 			blue  = 8'b00000000;
-		end
-		end else if (x < 784 && x > 665 && y < 515 && y > 34) begin // board
+
+		end else if (x < 784 && x > 660 && y < 515 && y > 34) begin // board
 			red   = 8'b10000000;
 			green = 8'b11111111;
 			blue  = 8'b10101010;
 
 			if (!(left_minute == 'd1 || left_minute == 'd4)) begin
-				if ((y <= MINUTE_POSITION_Y - 28 && y >= MINUTE_POSITION_Y - 32) && (x <= MINUTE_POSITION_X + 12 && x >= MINUTE_POSITION_X - 12)) begin
+				if ((y <= (MINUTE_POSITION_Y - 28) && y >= (MINUTE_POSITION_Y - 32)) && (x <= (MINUTE_POSITION_X + 12) && x >= (MINUTE_POSITION_X - 12))) begin
 					red   = 8'b00000000;
 					green = 8'b00000000;
 					blue  = 8'b00000000;
 				end
-			end if (!(left_minute == 'd5 || left_minute == 'd6')) begin
-				if ((y <= MINUTE_POSITION_Y - 3 && y >= MINUTE_POSITION_Y - 27) && (x <= MINUTE_POSITION_X + 17 && x >= MINUTE_POSITION_X + 13)) begin
+			end if (!(left_minute == 'd5 || left_minute == 'd6)) begin
+				if (((y <= MINUTE_POSITION_Y - 3) && y >= (MINUTE_POSITION_Y - 27)) && ((x <= (MINUTE_POSITION_X + 17)) && x >= (MINUTE_POSITION_X + 13))) begin
 					red   = 8'b00000000;
 					green = 8'b00000000;
 					blue  = 8'b00000000;
 				end
 			end if (!(left_minute == 'd2)) begin
-				if ((y <= MINUTE_POSITION_Y + 27 && y >= MINUTE_POSITION_Y + 3) && (x <= MINUTE_POSITION_X + 17 && x >= MINUTE_POSITION_X + 13)) begin
+				if (((y <= MINUTE_POSITION_Y + 27) && (y >= MINUTE_POSITION_Y + 3)) && (x <= MINUTE_POSITION_X + 17 && x >= MINUTE_POSITION_X + 13)) begin
 					red   = 8'b00000000;
 					green = 8'b00000000;
 					blue  = 8'b00000000;
@@ -181,19 +181,19 @@ module vga_controller #(
 					blue  = 8'b00000000;
 				end
 			end if ((left_minute == 'd0 || left_minute == 'd2 || left_minute == 'd6 || left_minute == 'd8)) begin
-				if ((y <= MINUTE_POSITION_Y + 27 && y >= MINUTE_POSITION_Y + 3) && (x <= MINUTE_POSITION_X - 17 && x >= MINUTE_POSITION_X + 13)) begin
-					red   = 8'b00000000;
-					green = 8'b00000000;
-					blue  = 8'b00000000;
-				end
-			end if (!(left_minute == 'd1 || left_minute == 'd2 || left_minute == 'd3 || left_minute == 'd7)) begin
 				if ((y <= MINUTE_POSITION_Y + 27 && y >= MINUTE_POSITION_Y + 3) && (x <= MINUTE_POSITION_X - 13 && x >= MINUTE_POSITION_X - 17)) begin
 					red   = 8'b00000000;
 					green = 8'b00000000;
 					blue  = 8'b00000000;
 				end
+			end if (!(left_minute == 'd1 || left_minute == 'd2 || left_minute == 'd3 || left_minute == 'd7)) begin
+				if ((y <= (MINUTE_POSITION_Y - 3) && y >= (MINUTE_POSITION_Y - 27)) && (x <= (MINUTE_POSITION_X - 13) && x >= (MINUTE_POSITION_X - 17))) begin
+					red   = 8'b00000000;
+					green = 8'b00000000;
+					blue  = 8'b00000000;
+				end
 			end if (!(left_minute == 'd0 || left_minute == 'd1 || left_minute == 'd7)) begin
-				if ((y <= MINUTE_POSITION_Y + 2 && y >= MINUTE_POSITION_Y - 2) && (x <= MINUTE_POSITION_X + 12 && x >= MINUTE_POSITION_X - 12)) begin
+				if ((y <= (MINUTE_POSITION_Y + 2) && y >= (MINUTE_POSITION_Y - 2)) && (x <= MINUTE_POSITION_X + 12 && x >= MINUTE_POSITION_X - 12)) begin
 					red   = 8'b00000000;
 					green = 8'b00000000;
 					blue  = 8'b00000000;
@@ -206,7 +206,7 @@ module vga_controller #(
 					green = 8'b00000000;
 					blue  = 8'b00000000;
 				end
-			end if (!(left_second_tens == 'd5 || left_second_tens == 'd6')) begin
+			end if (!(left_second_tens == 'd5 || left_second_tens == 'd6)) begin
 				if ((y <= SECOND_TENS_POSITION_Y - 3 && y >= SECOND_TENS_POSITION_Y - 27) && (x <= SECOND_TENS_POSITION_X + 17 && x >= SECOND_TENS_POSITION_X + 13)) begin
 					red   = 8'b00000000;
 					green = 8'b00000000;
@@ -225,13 +225,13 @@ module vga_controller #(
 					blue  = 8'b00000000;
 				end
 			end if ((left_second_tens == 'd0 || left_second_tens == 'd2 || left_second_tens == 'd6 || left_second_tens == 'd8)) begin
-				if ((y <= SECOND_TENS_POSITION_Y + 27 && y >= SECOND_TENS_POSITION_Y + 3) && (x <= SECOND_TENS_POSITION_X - 17 && x >= SECOND_TENS_POSITION_X + 13)) begin
+				if ((y <= SECOND_TENS_POSITION_Y + 27 && y >= SECOND_TENS_POSITION_Y + 3) && (x <= SECOND_TENS_POSITION_X - 13 && x >= SECOND_TENS_POSITION_X - 17)) begin
 					red   = 8'b00000000;
 					green = 8'b00000000;
 					blue  = 8'b00000000;
 				end
 			end if (!(left_second_tens == 'd1 || left_second_tens == 'd2 || left_second_tens == 'd3 || left_second_tens == 'd7)) begin
-				if ((y <= SECOND_TENS_POSITION_Y + 27 && y >= SECOND_TENS_POSITION_Y + 3) && (x <= SECOND_TENS_POSITION_X - 13 && x >= SECOND_TENS_POSITION_X - 17)) begin
+				if ((y <= SECOND_TENS_POSITION_Y - 3 && y >= SECOND_TENS_POSITION_Y - 27) && (x <= SECOND_TENS_POSITION_X - 13 && x >= SECOND_TENS_POSITION_X - 17)) begin
 					red   = 8'b00000000;
 					green = 8'b00000000;
 					blue  = 8'b00000000;
@@ -250,7 +250,7 @@ module vga_controller #(
 					green = 8'b00000000;
 					blue  = 8'b00000000;
 				end
-			end if (!(left_second_ones == 'd5 || left_second_ones == 'd6')) begin
+			end if (!(left_second_ones == 'd5 || left_second_ones == 'd6)) begin
 				if ((y <= SECOND_ONES_POSITION_Y - 3 && y >= SECOND_ONES_POSITION_Y - 27) && (x <= SECOND_ONES_POSITION_X + 17 && x >= SECOND_ONES_POSITION_X + 13)) begin
 					red   = 8'b00000000;
 					green = 8'b00000000;
@@ -269,13 +269,13 @@ module vga_controller #(
 					blue  = 8'b00000000;
 				end
 			end if ((left_second_ones == 'd0 || left_second_ones == 'd2 || left_second_ones == 'd6 || left_second_ones == 'd8)) begin
-				if ((y <= SECOND_ONES_POSITION_Y + 27 && y >= SECOND_ONES_POSITION_Y + 3) && (x <= SECOND_ONES_POSITION_X - 17 && x >= SECOND_ONES_POSITION_X + 13)) begin
+				if ((y <= SECOND_ONES_POSITION_Y + 27 && y >= SECOND_ONES_POSITION_Y + 3) && (x <= SECOND_ONES_POSITION_X - 13 && x >= SECOND_ONES_POSITION_X - 17)) begin
 					red   = 8'b00000000;
 					green = 8'b00000000;
 					blue  = 8'b00000000;
 				end
 			end if (!(left_second_ones == 'd1 || left_second_ones == 'd2 || left_second_ones == 'd3 || left_second_ones == 'd7)) begin
-				if ((y <= SECOND_ONES_POSITION_Y + 27 && y >= SECOND_ONES_POSITION_Y + 3) && (x <= SECOND_ONES_POSITION_X - 13 && x >= SECOND_ONES_POSITION_X - 17)) begin
+				if ((y <= SECOND_ONES_POSITION_Y - 3 && y >= SECOND_ONES_POSITION_Y - 27) && (x <= SECOND_ONES_POSITION_X - 13 && x >= SECOND_ONES_POSITION_X - 17)) begin
 					red   = 8'b00000000;
 					green = 8'b00000000;
 					blue  = 8'b00000000;

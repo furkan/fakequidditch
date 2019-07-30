@@ -91,9 +91,7 @@ module fakequidditch (clk, team1_vu_button, team1_vd_button, team2_vu_button, te
 
 	/*
 		vga_controller #(.PLAYER_RADIUS(25), .GOAL_RADIUS(25), .BALL_RADIUS(5))
-
 		vga_cont (clk, y, x, team1_ver_pos, team2_ver_pos, ball_x, ball_y, hor_sync, ver_sync, red, green, blue);
-
 	*/
 
 

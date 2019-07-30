@@ -49,7 +49,7 @@ module game_controller #(
 	wire [9:0] team2_ver_pos;
 
 	wire game_on;
-	wire game_over;
+	reg game_over;
 
 //	wire [9:0] team1_hor_pos;
 //	wire [9:0] team2_hor_pos;
@@ -92,9 +92,9 @@ module game_controller #(
 
 	always @(posedge clk) begin
 
-		if ((counter_clk == 50000000) - 'd1 && game_on == 1 && time_left != 0) begin
+		if ((counter_clk == 49999999) && game_on == 1 && time_left != 0) begin
 			counter_clk <= 'd0;
-			time_left <= time_left - 1;
+			time_left <= time_left - 'd1;
 		end else if (time_left == 0) begin
 			game_over <= 1;
 		end else begin
