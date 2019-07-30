@@ -1,22 +1,9 @@
-This is an FPGA game for our lab project of this semester. 
+# fakequidditch
 
-Fake Quidditch is an ugly imitation of the actual Quidditch game. 
+An ugly imitation of the actual Quidditch game for our lab project.
 
-The game has: 
-
-1 ball
-
-1 bludger (that freezes the target player)
-
-2 teams
-
-4 players
-
-6 goals
-
-3 minutes
+A short GIF:
+![alt text](https://github.com/furkan/fakequidditch/blob/master/fakequidditch.gif)
 
 
-Please see the [roadmap](ROADMAP.md) of the project.
-
-CA, FA
+[CA](https://github.com/caslanturk), [FA](https://github.com/furkan)
